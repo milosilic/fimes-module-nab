@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+  <bean id="objBaseService" abstract="true" parent="baseService" lazy-init="true">
+    <constructor-arg index="0" ref="objModuleBean" />
+  </bean>
+
+  <bean id="objObjektiIProstorijeServiceApi"
+        class="rs.fimes.service.impl.obj.ObjObjektiIProstorijeServiceImpl"
+        parent="objBaseService" lazy-init="true">
+    <constructor-arg index="1" value="objObjektiIProstorijeServiceApi" type="java.lang.String" />
+    <property name="xobjTipObjektaDAO" ref="xobjTipObjektaDAO" />
+    <property name="xobjTipProstorijeDAO" ref="xobjTipProstorijeDAO" />
+    <property name="objProstorijaDAO" ref="objProstorijaDAO" />
+    <property name="orgFirmaDAO" ref="orgFirmaDAO" />
+    <property name="objObjekatDAO" ref="objObjekatDAO" />
+    <property name="usrKorisnikServiceApi" ref="usrKorisnikServiceApi" />
+  </bean>
+  
+</beans>

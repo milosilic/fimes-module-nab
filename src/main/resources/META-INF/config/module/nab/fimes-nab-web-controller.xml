@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+  <!-- base controller -->
+  <bean id="objBaseController" abstract="true" parent="baseController"
+    scope="session" lazy-init="true">
+    <constructor-arg index="0" ref="objModuleBean" />
+    <property name="modalPanelUtil" ref="modalPanelUtil" />
+  </bean>
+
+  <bean id="objBaseSelectionController"
+    class="rs.etf.rc.common.web.controller.BaseSelectionController"
+    parent="baseSelectionController" abstract="true" scope="session"
+    lazy-init="true">
+    <constructor-arg index="0" ref="objModuleBean" />
+    <property name="modalPanelUtil" ref="modalPanelUtil" />
+  </bean>
+
+  <bean id="objEvidencijaObjekataController"
+    class="rs.fimes.web.controller.obj.ObjEvidencijaObjekataController"
+    parent="objBaseController" scope="session" lazy-init="true">
+    <constructor-arg value="objEvidencijaObjekataController"
+      type="java.lang.String" />
+    <property name="usrKorisnikServiceApi" ref="usrKorisnikServiceApi" />
+    <property name="objObjektiIProstorijeServiceApi" ref="objObjektiIProstorijeServiceApi" />
+    <property name="objObjekatExtendedDataTableModelApi" ref="objObjekatExtendedDataTableModelApi" />
+    <property name="objNoviObjekatController" ref="objNoviObjekatController" />
+  </bean>
+
+  <bean id="objKartonObjektaController" class="rs.fimes.web.controller.obj.ObjKartonObjektaController"
+    parent="objBaseController" scope="session" lazy-init="true">
+    <constructor-arg value="objKartonObjektaController"
+      type="java.lang.String" />
+    <property name="objObjektiIProstorijeServiceApi" ref="objObjektiIProstorijeServiceApi" />
+    <property name="objProstorijaExtendedDataTableModelApi"
+      ref="objProstorijaExtendedDataTableModelApi" />
+    <property name="osbEvidencijaLovController" ref="osbEvidencijaLovController" />
+    <property name="rzsDrzavaSelectionController" ref="rzsDrzavaSelectionController" />
+    <property name="objNoviObjekatController" ref="objNoviObjekatController" />
+  </bean>
+
+  <bean id="objNoviObjekatController" class="rs.fimes.web.controller.obj.ObjNoviObjekatController"
+    parent="objBaseController" scope="session" lazy-init="true">
+    <constructor-arg value="objEvidencijaObjekataController"
+      type="java.lang.String" />
+    <property name="usrKorisnikServiceApi" ref="usrKorisnikServiceApi" />
+    <property name="objObjektiIProstorijeServiceApi" ref="objObjektiIProstorijeServiceApi" />
+    <property name="rzsDrzavaSelectionController" ref="rzsDrzavaSelectionController" />
+  </bean>
+
+  <bean id="objProstorijaLovSelectionController"
+    class="rs.fimes.web.controller.obj.ObjProstorijaLovSelectionController"
+    parent="objBaseSelectionController" scope="session" lazy-init="true">
+    <constructor-arg value="objProstorijaLovSelectionController"
+      type="java.lang.String" />
+    <property name="objProstorijaExtendedDataTableModelApi"
+      ref="objProstorijaExtendedDataTableModelApi"></property>
+  </bean>
+
+
+</beans>

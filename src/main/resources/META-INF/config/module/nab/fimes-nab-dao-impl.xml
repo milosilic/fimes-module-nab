@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+  <bean id="nabBaseDao" abstract="true" parent="baseDao">
+    <constructor-arg index="0" ref="nabModuleBean" />
+  </bean>
+    
+  <bean id="objObjekatDAO" class="rs.fimes.data.dao.impl.hibernate.obj.ObjObjekatDAOImpl" parent="objBaseDao">
+    <constructor-arg index="1" value="objObjekatDAO" type="java.lang.String" />
+  </bean>
+
+  <bean id="objKarakteristikaProstorijeDAO" class="rs.fimes.data.dao.impl.hibernate.obj.ObjKarakteristikaProstorijeDAOImpl" parent="objBaseDao">
+    <constructor-arg index="1" value="objKarakteristikaProstorijeDAO" type="java.lang.String" />
+  </bean>
+
+  <bean id="objNamenaProstorijeDAO" class="rs.fimes.data.dao.impl.hibernate.obj.ObjNamenaProstorijeDAOImpl" parent="objBaseDao">
+    <constructor-arg index="1" value="objNamenaProstorijeDAO" type="java.lang.String" />
+  </bean>
+
+  <bean id="objProstorijaDAO" class="rs.fimes.data.dao.impl.hibernate.obj.ObjProstorijaDAOImpl" parent="objBaseDao">
+    <constructor-arg index="1" value="objProstorijaDAO" type="java.lang.String" />
+  </bean>
+
+  <bean id="xobjNamenaDAO" class="rs.fimes.data.dao.impl.hibernate.obj.XobjNamenaDAOImpl" parent="objBaseDao">
+    <constructor-arg index="1" value="xobjNamenaDAO" type="java.lang.String" />
+  </bean>
+
+  <bean id="xobjTipKarakteristikeDAO" class="rs.fimes.data.dao.impl.hibernate.obj.XobjTipKarakteristikeDAOImpl" parent="objBaseDao">
+    <constructor-arg index="1" value="xobjTipKarakteristikeDAO" type="java.lang.String" />
+  </bean>
+
+  <bean id="xobjTipObjektaDAO" class="rs.fimes.data.dao.impl.hibernate.obj.XobjTipObjektaDAOImpl" parent="objBaseDao">
+    <constructor-arg index="1" value="xobjTipObjektaDAO" type="java.lang.String" />
+  </bean>
+
+  <bean id="xobjTipProstorijeDAO" class="rs.fimes.data.dao.impl.hibernate.obj.XobjTipProstorijeDAOImpl" parent="objBaseDao">
+    <constructor-arg index="1" value="xobjTipProstorijeDAO" type="java.lang.String" />
+  </bean>
+  
+</beans>

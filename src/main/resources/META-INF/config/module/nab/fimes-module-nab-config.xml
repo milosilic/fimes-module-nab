@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+  <!-- Imports the configurations of this module implementations -->
+  <import resource="fimes-nab-messages.xml" />
+  <import resource="fimes-nab-dao-impl.xml" />
+  <import resource="fimes-nab-service-impl.xml" />
+  <import resource="fimes-nab-service-txadvice.xml" />
+  <import resource="fimes-nab-remote.xml" />
+  <import resource="fimes-nab-web-component.xml" />
+  <import resource="fimes-nab-web-datamodel.xml" />
+  <import resource="fimes-nab-web-controller.xml" />
+
+  <bean id="nabModuleBean" class="rs.etf.rc.common.application.Module" parent="baseModuleNoParent" scope="singleton">
+    <constructor-arg index="2" value="nab"/>
+    <constructor-arg index="3" ref="nabMessageSource"/>
+  </bean>
+
+</beans>

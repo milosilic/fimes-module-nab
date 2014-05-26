@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+
+  <bean id="objWebComponent" abstract="true" parent="baseWebComponent">
+    <constructor-arg index="0" ref="objModuleBean" />
+  </bean>
+
+  <bean id="objWebController" class="rs.fimes.web.controller.obj.ObjWebController"
+    parent="baseWebController">
+    <constructor-arg index="0" ref="objModuleBean" />
+    <constructor-arg value="objWebController" type="java.lang.String" />
+    <property name="objNoviObjekatModalPanel" ref="objNoviObjekatModalPanel" />
+    <property name="objProstorijaModalPanel" ref="objProstorijaModalPanel" />
+  </bean>
+
+  <bean id="objNoviObjekatModalPanel" class="rs.etf.rc.common.web.WebComponent"
+    parent="objWebComponent">
+    <constructor-arg value="objNoviObjekatModalPanel"
+      type="java.lang.String" />
+  </bean>
+
+  <bean id="objProstorijaModalPanel" class="rs.etf.rc.common.web.WebComponent"
+    parent="objWebComponent">
+    <constructor-arg value="objProstorijaModalPanel"
+      type="java.lang.String" />
+  </bean>
+
+  <bean id="objProstorijaLovModalPanel" class="rs.etf.rc.common.web.WebComponent"
+    parent="objWebComponent">
+    <constructor-arg value="objProstorijaLovModalPanel"
+      type="java.lang.String" />
+  </bean>
+
+</beans>

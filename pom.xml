@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>rs.fimes</groupId>
+    <artifactId>rs.fimes.fimes-parent</artifactId>
+    <version>0.9-SNAPSHOT</version>
+    <relativePath>../fimes-parent/pom.xml</relativePath>
+  </parent>
+  
+  <!-- nasledjuje groupId i version iz parent poma -->
+  <artifactId>rs.fimes.fimes-module-nab</artifactId>
+  <packaging>jar</packaging>
+  <name>FIMES3 - Application Module 'Organizaciona struktura' (ORG)</name>
+  <description>FIMES3 - Application Module 'Organizaciona struktura' (ORG)</description>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
+  </properties>
+  
+  <url>http://rc.etf.rs/</url>
+  
+  <organization>
+    <name>Racunski centar ETF</name>
+    <url>http://rc.etf.rs/</url>
+  </organization>
+  
+  <scm>
+    <!-- <connection>scm:svn:https://projects.etf.bg.ac.rs/svn/private/fimes/fimes-app/trunk/fimes-module-org/</connection> -->
+    <developerConnection>scm:svn:https://projects.etf.bg.ac.rs/svn/private/fimes/fimes-app/trunk/fimes-module-org/</developerConnection>
+  </scm>
+  
+  <mailingLists>
+    <mailingList>
+      <name>FIMES Developers</name>
+      <post>fimes@etf.rs</post>
+      <subscribe />
+      <unsubscribe />
+    </mailingList>
+    <mailingList>
+      <name>FIMES Error and Warning Notifications</name>
+      <post>iis-log@lists.etf.rs</post>
+      <subscribe />
+      <unsubscribe />
+    </mailingList>
+    <mailingList>
+      <name>FIMES Support and Issue Notifications</name>
+      <post>fimes@etf.rs</post>
+      <subscribe />
+      <unsubscribe />
+    </mailingList>
+  </mailingLists>
+  
+  <dependencies>
+    
+    <!-- Maven Parent projekat definise sve zavisnosti -->
+    
+  </dependencies>
+  
+  <build>
+    <finalName>rs.fimes.fimes-module-nab</finalName>
+    
+    <!-- Maven wagon webdav -->
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-webdav</artifactId>
+        <version>1.0-beta-2</version>
+      </extension>
+    </extensions>
+    
+    <plugins /> <!-- nasledjuje Maven Parent projekat -->
+    
+  </build>
+  
+  <distributionManagement>
+    <site>
+      <id>fimes.website</id>
+      <name>FIMES Documentation Site</name>
+      <url>dav:http://dev.fimes.etf.rs/sites/fimes-${project.version}/rs.fimes.fimes-module-org</url>
+    </site>
+    <repository>
+      <id>rc-artifactory</id>
+      <name>RC Artifactory FIMES</name>
+      <url>dav:http://maven.etf.rs/artifactory/fimes3-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>rc-artifactory</id>
+      <name>RC Artifactory FIMES</name>
+      <url>dav:http://maven.etf.rs/artifactory/fimes3-snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+  
+  <!-- nasledjuje <reporting> iz Maven Parent projekta -->
+  
+  <profiles>
+    <profile>
+      <id>full.deps</id>
+      <dependencies>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>rs.fimes.fimes-junk</artifactId>
+          <version>${project.version}</version>
+        </dependency>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>rs.fimes.fimes-core</artifactId>
+          <version>${project.version}</version>
+        </dependency>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>rs.fimes.fimes-domain</artifactId>
+          <version>${project.version}</version>
+        </dependency>
+      </dependencies>
+    </profile>
+  </profiles>
+
+</project>

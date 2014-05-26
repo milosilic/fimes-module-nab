@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>блабла1111</comment>
+
+<entry key="nabEvidencijaHeader">Евиденција и претрага објеката</entry>
+<entry key="nabEvidencijaTipObjekta">Тип објекта</entry>
+<entry key="nabEvidencijaNazivObjekta">Назив објекта</entry>
+<entry key="nabEvidencijaAdresa">Адреса</entry>
+<entry key="nabEvidencijaPostanskiBroj">Поштански број</entry>
+<entry key="nabEvidencijaKartonObjekta">Картон објекта</entry>
+<entry key="nabEvidencijaPromeniPodatkeDrzavaToolTip">Промени податке о држави</entry>
+<entry key="nabEvidencijaObrisiPodatkeDrzavaToolTip">Обриши податке о држави</entry>
+
+<entry key="nabRzsDrzava">Држава</entry>
+<entry key="nabRzsMesto">Место</entry>
+<entry key="nabRzsOpstina">Општина</entry>
+<entry key="nabRzsMestoStrano">Место (страни назив)</entry>
+
+<entry key="nabKartonOsnovniPodaci">Основни подаци</entry>
+<entry key="nabKartonSediste">Седиште</entry>
+<entry key="nabKartonOpstina">Општина</entry>
+<entry key="nabKartonUlica">Улица</entry>
+<entry key="nabKartonBroj">Број</entry>
+<entry key="nabKartonAdresniKod">Адресни код</entry>
+<entry key="nabKartonProstorije">Просторије</entry>
+<entry key="nabKartonTip">Тип</entry>
+<entry key="nabKartonNaziv">Назив</entry>
+<entry key="nabKartonOsobaKorisnik">Особа корисник</entry>
+<entry key="nabKartonZaduzenZaInventar">Задужен за инвентар</entry>
+<entry key="nabKartonOpis">Опис</entry>
+<entry key="nabKartonPovrsina">Површина</entry>
+<entry key="nabKartonZapremina">Запремина</entry>
+<entry key="nabKartonNovaProstorija">Нова просторија</entry>
+<entry key="nabKartonAzuriranjeProstorije">Ажурирај просторију</entry>
+<entry key="nabKartonBrisanjeProstorije">Обриши просторију</entry>
+<entry key="nabKartonNoviObjekat">Нови објекат</entry>
+<entry key="nabKartonAzuriranjeObjekta">Ажурирај објекат</entry>
+<entry key="nabKartonBrisanjeObjekta">Обриши објекат</entry>
+<entry key="nabKartonKopiranjeObjekta">Копирај објекат</entry>
+
+<entry key="nabKartonNovaProstorijaHeader">Унос нове просторије</entry>
+<entry key="nabKartonAzuriranjeProstorijeHeader">Ажурирање података о просторији</entry>
+<entry key="nabKartonBrisanjeProstorijeHeader">Брисање просторије</entry>
+<entry key="nabKartonBrisanjeProstorijePitanje">Да ли сте сигурни да желите да обришете просторију: {0} ?</entry>
+<entry key="nabKartonNoviObjekatHeader">Унос новог објекта</entry>
+<entry key="nabKartonAzuriranjeObjektaHeader">Ажурирање података о објекту</entry>
+<entry key="nabKartonBrisanjeObjektaHeader">Брисање објекта</entry>
+<entry key="nabKartonBrisanjeObjektaPitanje">Да ли сте сигурни да желите да обришете објекат: {0} ?</entry>
+
+<entry key="nabKartonBrisanjeObjektaImaProstorije">Не можете обрисати објекат који садржи просторије ! &lt;br/> Ако желите да обришете овај објекат, &lt;br/> прво обришите све његове просторије.</entry>
+
+<entry key="nabEvidencijaObjekataValidatorNaziv">Објекат са називом "{0}" већ постоји !</entry>
+<entry key="nabEvidencijaObjekataValidatorRzsDrzava">Нисте правилно попунили податке везане за државу !</entry>
+
+<entry key="nabKartonProstorijaValidatorBroj">Просторија са бројем {0} већ постоји за објекат {1} !</entry>
+<entry key="nabKartonProstorijaValidatorOpis">Просторија са описом {0} већ постоји за објекат {1} !</entry>
+<entry key="nabKartonProstorijaValidatorOsobaInventar">Неопходно је да одаберете особу одговорну за инвентар !</entry>
+
+<!-- objProstorija lov -->
+<entry key="nabProstorijaLovModalPanelHeader">Избор просторије</entry>
+<entry key="nabProstorijaLovModalPanelTipProstorije">Тип просторије</entry>
+<entry key="nabProstorijaLovModalPanelObjekat">Објекат</entry>
+<entry key="nabProstorijaLovModalPanelBroj">Број</entry>
+<entry key="nabProstorijaLovModalPanelPovrsina">Површина</entry>
+<entry key="nabProstorijaLovModalPanelZapremina">Запремина</entry>
+<entry key="nabProstorijaLovModalPanelRukovodilac">Руководилац</entry>
+<entry key="nabProstorijaLovModalPanelOsobaInvertar">Инвертар</entry>
+<entry key="nabProstorijaLovModalPanelOsobaInvertarToolTip">Лице одговорно за инвертар у просторији</entry>
+</properties>
