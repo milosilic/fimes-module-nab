@@ -11,22 +11,50 @@
 <title>Евиденција и претрага објеката</title>
 </head>
 <body>
-<f:view>
-  <ui:composition template="/WEB-INF/layouts/standard.jspx">
-    <ui:define name="content">
-      <rich:panel styleClass="fimesMainForm">
-        <h:form>
-          <h:panelGrid styleClass="fimesFormTitle" width="100%">
-            <h:outputText
-              value="#{nabNaruciociController.module.messageSource.nabNaruciociNaziv}" />
-          </h:panelGrid>
-
-
-        </h:form>
-
-      </rich:panel>
-    </ui:define>
-  </ui:composition>
-</f:view>
+  <f:view>
+    <ui:composition template="/WEB-INF/layouts/standard.jspx">
+      <ui:define name="content">
+        <rich:panel styleClass="fimesMainForm">
+          <h:form>
+            <h:panelGrid styleClass="fimesFormTitle" width="100%">
+              <h:outputText
+                value="#{nabNaruciociController.module.messageSource.nabNaruciociNaziv}" />
+            </h:panelGrid>
+            <a4j:region>
+              <h:panelGroup id="kartonBody" styleClass="fimesZrdBody">
+                <h:outputLabel styleClass="fimesLabelLeft"
+                  value="Naziv naručioca" />
+                <h:panelGroup layout="block" styleClass="maxWidth">
+                  <h:outputLabel styleClass="fimesLabelLeft"
+                    value="#{nabNaruciociController.module.messageSource.nabNaruciociNaziv}" />
+                  <rich:layout>
+                    <rich:layoutPanel position="top">
+                      <h:panelGrid id="tabelaObjObjekat"
+                        styleClass="objKartonTab" columns="2"
+                        width="100%"
+                        columnClasses="fimesTable2ColumnWidthEqual,fimesTable2ColumnWidthEqual"
+                        rowClasses="redPanelGrid">
+                        <h:panelGrid columns="2"
+                          styleClass="fimesInputGroup fimesTableCentered maxWidth"
+                          columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField"
+                          cellspacing="10px">
+                          <h:outputLabel styleClass="fimesLabelLeft"
+                            value="#{nabNaruciociController.module.messageSource.nabNaruciociNaziv}" />
+                          <h:inputText
+                            styleClass="fimesInputText maxWidth"
+                            value="#{nabNaruciociController.orgFirma.naziv}" title="title?"
+                            readonly="true" />
+                        </h:panelGrid>
+                      </h:panelGrid>
+                    </rich:layoutPanel>
+                  </rich:layout>
+                </h:panelGroup>
+              </h:panelGroup>
+            </a4j:region>
+          </h:form>
+        </rich:panel>
+      </ui:define>
+    </ui:composition>
+  </f:view>
 </body>
 </html>

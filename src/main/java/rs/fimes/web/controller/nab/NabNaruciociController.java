@@ -22,8 +22,8 @@ public class NabNaruciociController extends BaseController{
     private static final long serialVersionUID = -813507081136207329L;
     
     public void onStart() {
-System.out.println( "ukenjao sam se od srece");
- orgFirma = (OrgFirma) getUserSessionUtil().getCurrentUserCurrentOrgFirma();
+        System.out.println( ":::Ukenjao sam se od srece " + System.currentTimeMillis()); 
+        orgFirma = (OrgFirma) getUserSessionUtil().getCurrentUserCurrentOrgFirma();
 
     }
 
