@@ -42,8 +42,92 @@
                             value="#{nabNaruciociController.module.messageSource.nabNaruciociNaziv}" />
                           <h:inputText
                             styleClass="fimesInputText maxWidth"
-                            value="#{nabNaruciociController.orgFirma.naziv}" title="title?"
-                            readonly="true" />
+                            value="#{nabNaruciociController.orgFirma.naziv}"
+                            title="title?" readonly="true" />
+                          <h:outputLabel styleClass="fimesLabelLeft"
+                            value="#{nabNaruciociController.module.messageSource.nabNaruciociUlica}" />
+                          <h:inputText
+                            styleClass="fimesInputText maxWidth"
+                            value="#{nabNaruciociController.orgFirma.adresaUlica}"
+                            title="title?" readonly="true" />
+                          <h:outputLabel styleClass="fimesLabelLeft"
+                            value="#{nabNaruciociController.module.messageSource.nabNaruciociBroj}" />
+                          <h:inputText
+                            styleClass="fimesInputText maxWidth"
+                            value="#{nabNaruciociController.orgFirma.adresaBroj}"
+                            title="title?" readonly="true" />
+                          <h:outputLabel styleClass="fimesLabelLeft"
+                            value="#{nabNaruciociController.module.messageSource.nabNaruciociPostanskiBroj}" />
+                          <h:inputText
+                            styleClass="fimesInputText maxWidth"
+                            value="#{nabNaruciociController.orgFirma.adresaPostanskiBroj}"
+                            title="title?" readonly="true" />
+                          <h:outputLabel styleClass="fimesLabelLeft"
+                            value="#{nabNaruciociController.module.messageSource.nabNaruciociMesto}" />
+                          <h:inputText
+                            styleClass="fimesInputText maxWidth"
+                            value="#{nabNaruciociController.orgFirma.mesto}"
+                            title="title?" readonly="true" />
+                          <h:outputLabel styleClass="fimesLabelLeft"
+                            value="#{nabNaruciociController.module.messageSource.nabNaruciociOpstina}" />
+                          <h:inputText
+                            styleClass="fimesInputText maxWidth"
+                            value="#{nabNaruciociController.orgFirma.rzsOpstina.nazivZvanicni}"
+                            title="title?" readonly="true" />
+                          <h:outputLabel styleClass="fimesLabelLeft"
+                            value="#{nabNaruciociController.module.messageSource.nabNaruciociKontaktOsoba}" />
+                          <h:inputText
+                            styleClass="fimesInputText maxWidth"
+                            value="#{nabNaruciociController.orgFirma.naziv}"
+                            title="title?" readonly="true" />
+                          <h:outputLabel styleClass="fimesLabelLeft"
+                            value="#{nabNaruciociController.module.messageSource.nabNaruciociTelefon}" />
+                          <h:inputText
+                            styleClass="fimesInputText maxWidth"
+                            value="#{nabNaruciociController.orgFirma.naziv}"
+                            title="title?" readonly="true" />
+                          <h:outputLabel styleClass="fimesLabelLeft"
+                            value="#{nabNaruciociController.module.messageSource.nabNaruciociOvlascenoLice}" />
+                          <h:inputText
+                            styleClass="fimesInputText maxWidth"
+                            value="#{nabNaruciociController.orgFirma.naziv}"
+                            title="title?" readonly="true" />
+                          <h:outputLabel styleClass="fimesLabelLeft"
+                            value="#{nabNaruciociController.module.messageSource.nabNaruciociSluzbenikZaJavne}" />
+                          <h:inputText
+                            styleClass="fimesInputText maxWidth"
+                            value="#{nabNaruciociController.orgFirma.sifraDelatnosti}"
+                            title="title?" readonly="true" />
+                          <h:outputLabel styleClass="fimesLabelLeft"
+                            value="#{nabNaruciociController.module.messageSource.nabNaruciociSifraDelatnosti}" />
+                          <h:inputText
+                            styleClass="fimesInputText maxWidth"
+                            value="#{nabNaruciociController.orgFirma.sifraDelatnosti}"
+                            title="title?" readonly="true" />
+                          <h:outputLabel styleClass="fimesLabelLeft"
+                            value="#{nabNaruciociController.module.messageSource.nabNaruciociMaticniBroj}" />
+                          <h:inputText
+                            styleClass="fimesInputText maxWidth"
+                            value="#{nabNaruciociController.orgFirma.maticniBroj}"
+                            title="title?" readonly="true" />
+                          <h:outputLabel styleClass="fimesLabelLeft"
+                            value="#{nabNaruciociController.module.messageSource.nabNaruciociPoreskiIdentifikacioniBroj}" />
+                          <h:inputText
+                            styleClass="fimesInputText maxWidth"
+                            value="#{nabNaruciociController.orgFirma.pib}"
+                            title="title?" readonly="true" />
+                          <h:outputLabel styleClass="fimesLabelLeft"
+                            value="#{nabNaruciociController.module.messageSource.nabNaruciociSkracenica}" />
+                          <h:inputText
+                            styleClass="fimesInputText maxWidth"
+                            value="#{nabNaruciociController.orgFirma.naziv}"
+                            title="title?" readonly="true" />
+                          <h:outputLabel styleClass="fimesLabelLeft"
+                            value="#{nabNaruciociController.module.messageSource.nabNaruciociKategorija}" />
+                          <h:inputText
+                            styleClass="fimesInputText maxWidth"
+                            value="#{nabNaruciociController.orgFirma.naziv}"
+                            title="title?" readonly="true" />
                         </h:panelGrid>
                       </h:panelGrid>
                     </rich:layoutPanel>

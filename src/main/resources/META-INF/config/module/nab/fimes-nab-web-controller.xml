@@ -25,7 +25,7 @@
     parent="nabBaseController" scope="session" lazy-init="true">
     <constructor-arg value="nabNaruciociController"
       type="java.lang.String" />
-<!--     <property name="orgFirmaApi" ref="orgFirmaApi" /> -->
+    <property name="nabNaruciociServiceApi" ref="nabNaruciociServiceApi" />
 <!--     <property name="usrKorisnikServiceApi" ref="usrKorisnikServiceApi" /> -->
 <!--     <property name="objObjektiIProstorijeServiceApi" ref="objObjektiIProstorijeServiceApi" /> -->
 <!--     <property name="objObjekatExtendedDataTableModelApi" ref="objObjekatExtendedDataTableModelApi" /> -->

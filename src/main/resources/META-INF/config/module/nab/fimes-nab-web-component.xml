@@ -6,34 +6,14 @@
            http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
 
-  <bean id="objWebComponent" abstract="true" parent="baseWebComponent">
-    <constructor-arg index="0" ref="objModuleBean" />
+  <bean id="nabWebComponent" abstract="true" parent="baseWebComponent">
+    <constructor-arg index="0" ref="nabModuleBean" />
   </bean>
 
-  <bean id="objWebController" class="rs.fimes.web.controller.obj.ObjWebController"
+  <bean id="nabWebController" class="rs.fimes.web.controller.nab.NabWebController"
     parent="baseWebController">
     <constructor-arg index="0" ref="objModuleBean" />
     <constructor-arg value="objWebController" type="java.lang.String" />
-    <property name="objNoviObjekatModalPanel" ref="objNoviObjekatModalPanel" />
-    <property name="objProstorijaModalPanel" ref="objProstorijaModalPanel" />
-  </bean>
-
-  <bean id="objNoviObjekatModalPanel" class="rs.etf.rc.common.web.WebComponent"
-    parent="objWebComponent">
-    <constructor-arg value="objNoviObjekatModalPanel"
-      type="java.lang.String" />
-  </bean>
-
-  <bean id="objProstorijaModalPanel" class="rs.etf.rc.common.web.WebComponent"
-    parent="objWebComponent">
-    <constructor-arg value="objProstorijaModalPanel"
-      type="java.lang.String" />
-  </bean>
-
-  <bean id="objProstorijaLovModalPanel" class="rs.etf.rc.common.web.WebComponent"
-    parent="objWebComponent">
-    <constructor-arg value="objProstorijaLovModalPanel"
-      type="java.lang.String" />
   </bean>
 
 </beans>

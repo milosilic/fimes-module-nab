@@ -5,8 +5,12 @@
            http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
-  <bean id="objBaseService" abstract="true" parent="baseService" lazy-init="true">
-    <constructor-arg index="0" ref="objModuleBean" />
+  <bean id="nabBaseService" abstract="true" parent="baseService" lazy-init="true">
+    <constructor-arg index="0" ref="nabModuleBean" />
+  </bean>
+  <bean id="nabNaruciociServiceApi" class="rs.fimes.service.impl.nab.NabNaruciociServiceImpl" parent="nabBaseService" lazy-init="true">
+    <constructor-arg index="1" value="nabNaruciociServiceApi" type="java.lang.String"/>
+    <property name="orgFirmaDAO" ref="orgFirmaDAO"></property>
   </bean>
 
   <bean id="objObjektiIProstorijeServiceApi"
