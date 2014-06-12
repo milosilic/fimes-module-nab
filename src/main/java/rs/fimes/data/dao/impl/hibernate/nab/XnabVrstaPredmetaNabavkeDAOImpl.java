@@ -1,21 +1,10 @@
 package rs.fimes.data.dao.impl.hibernate.nab;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
-import javax.persistence.EntityManager;
-
-import rs.etf.rc.common.application.Application;
-import rs.etf.rc.common.application.ComponentType;
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
 import rs.fimes.data.dao.api.nab.XnabVrstaPredmetaNabavkeDAO;
 import rs.fimes.data.dao.generic.BaseDaoImplHibernate;
-import rs.fimes.data.dao.generic.ColumnAgregateProperty;
-import rs.fimes.data.dao.generic.OrderBy;
-import rs.fimes.data.dao.generic.QueryJoin;
-import rs.fimes.data.dao.generic.QueryRestriction;
 import rs.fimes.domain.nab.XnabVrstaPredmetaNabavke;
 
 public class XnabVrstaPredmetaNabavkeDAOImpl extends
