@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:sf="http://www.springframework.org/tags/faces"
+  xmlns:a4j="http://richfaces.org/a4j"
+  xmlns:rich="http://richfaces.org/rich">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Евиденција и претрага објеката</title>
+</head>
+<body>
+  <f:view>
+    <ui:composition template="/WEB-INF/layouts/standard.jspx">
+      <ui:define name="content">
+        <rich:panel styleClass="fimesMainForm">
+          <h:form>
+           bla bla
+          </h:form>
+        </rich:panel>
+      </ui:define>
+    </ui:composition>
+  </f:view>
+</body>
+</html>

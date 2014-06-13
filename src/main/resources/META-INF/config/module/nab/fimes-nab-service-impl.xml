@@ -13,6 +13,11 @@
     <property name="orgFirmaDAO" ref="orgFirmaDAO"></property>
   </bean>
 
+  <bean id="nabPlanServiceApi" class="rs.fimes.service.impl.nab.NabPlanServiceImpl" parent="nabBaseService" lazy-init="true">
+    <constructor-arg index="1" value="nabPlanServiceApi" type="java.lang.String"/>
+<!--     <property name="orgFirmaDAO" ref="orgFirmaDAO"></property> -->
+  </bean>
+  
   <bean id="objObjektiIProstorijeServiceApi"
         class="rs.fimes.service.impl.obj.ObjObjektiIProstorijeServiceImpl"
         parent="objBaseService" lazy-init="true">

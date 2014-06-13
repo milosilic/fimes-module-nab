@@ -32,5 +32,12 @@
 <!--     <property name="objNoviObjekatController" ref="objNoviObjekatController" /> -->
   </bean>
 
+  <bean id="nabPlanController"
+    class="rs.fimes.web.controller.nab.NabPlanController"
+    parent="nabBaseController" scope="session" lazy-init="true">
+    <constructor-arg value="nabPlanController"
+      type="java.lang.String" />
+    <property name="nabPlanServiceApi" ref="nabPlanServiceApi" />
+  </bean>
 
 </beans>

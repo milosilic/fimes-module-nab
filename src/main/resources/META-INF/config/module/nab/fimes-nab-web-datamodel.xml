@@ -6,14 +6,4 @@
            http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
 
-  <bean id="objProstorijaExtendedDataTableModelApi" class="rs.fimes.web.datamodel.impl.obj.ObjProstorijaExtendedDataTableModelImpl" scope="session" lazy-init="true">
-    <property name="dao" ref="objProstorijaDAO" />
-  </bean>
-  
-  <bean id="objObjekatExtendedDataTableModelApi" class="rs.fimes.web.datamodel.impl.obj.ObjObjekatExtendedDataTableModelImpl" scope="session" lazy-init="true">
-    <property name="dao" ref="objObjekatDAO" />
-  </bean>
-  
- 
-
 </beans>
