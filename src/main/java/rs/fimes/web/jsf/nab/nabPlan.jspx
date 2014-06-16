@@ -8,7 +8,7 @@
   xmlns:rich="http://richfaces.org/rich">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Евиденција и претрага објеката</title>
+<title>Планови наручиоца</title>
 </head>
 <body>
   <f:view>
@@ -16,7 +16,10 @@
       <ui:define name="content">
         <rich:panel styleClass="fimesMainForm">
           <h:form>
-           bla bla
+          <h:panelGrid styleClass="fimesFormTitle" width="100%">
+            <h:outputText
+              value="#{nabPlanController.module.messageSource.nabPlanoviNaruciocaHeader}" />
+          </h:panelGrid>
           </h:form>
         </rich:panel>
       </ui:define>
