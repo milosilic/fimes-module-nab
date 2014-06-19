@@ -38,6 +38,7 @@
     <constructor-arg value="nabPlanController"
       type="java.lang.String" />
     <property name="nabPlanServiceApi" ref="nabPlanServiceApi" />
+    <property name="nabNaruciociServiceApi" ref="nabNaruciociServiceApi" />
   </bean>
 
 </beans>

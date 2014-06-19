@@ -16,10 +16,68 @@
       <ui:define name="content">
         <rich:panel styleClass="fimesMainForm">
           <h:form>
-          <h:panelGrid styleClass="fimesFormTitle" width="100%">
-            <h:outputText
-              value="#{nabPlanController.module.messageSource.nabPlanoviNaruciocaHeader}" />
-          </h:panelGrid>
+            <h:panelGrid styleClass="fimesFormTitle" width="100%">
+              <h:outputText
+                value="#{nabPlanController.module.messageSource.nabPlanoviNaruciocaHeader}" />
+            </h:panelGrid>
+            <a4j:region>
+              <rich:layout>
+                <rich:layoutPanel position="top">
+                  <h:panelGrid styleClass="fimesInputGroup"
+                    columnClasses="fimesAlignCenter" width="100%">
+                    <h:panelGrid columns="3"
+                      styleClass="fimesTableCentered"
+                      columnClasses="fimesAlignCenter">
+                    </h:panelGrid>
+                  </h:panelGrid>
+                  <h:panelGroup id="p1" layout="block">
+
+                    <rich:spacer height="20px" />
+                    <rich:extendedDataTable height="318px"
+                      rowClasses="redAnimacija" id="tabelaObjObjekat"
+                      enableContextMenu="false"
+                      noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}"
+                      >
+                       <rich:column id="tipObj" width="20%"
+                      styleClass="fimesAlignLeft">
+                      <f:facet name="header">
+                        <h:outputText styleClass="headerText"
+                          value="#{nabPlanController.module.messageSource.nabPlanoviZaGodinu}" />
+                      </f:facet>
+                    </rich:column>
+                       <rich:column id="tipObj" width="20%"
+                      styleClass="fimesAlignLeft">
+                      <f:facet name="header">
+                        <h:outputText styleClass="headerText"
+                          value="#{nabPlanController.module.messageSource.nabPlanoviNazivPlana}" />
+                      </f:facet>
+                    </rich:column>
+                    <rich:column id="tipObj" width="20%"
+                      styleClass="fimesAlignLeft">
+                      <f:facet name="header">
+                        <h:outputText styleClass="headerText"
+                          value="#{nabPlanController.module.messageSource.nabPlanoviDatumIzrade}" />
+                      </f:facet>
+                    </rich:column>                    
+                    <rich:column id="tipObj" width="20%"
+                      styleClass="fimesAlignLeft">
+                      <f:facet name="header">
+                        <h:outputText styleClass="headerText"
+                          value="#{nabPlanController.module.messageSource.nabPlanovicInterniBrojPlana}" />
+                      </f:facet>
+                    </rich:column>
+                    <rich:column id="tipObj" width="20%"
+                      styleClass="fimesAlignLeft">
+                      <f:facet name="header">
+                        <h:outputText styleClass="headerText"
+                          value="#{nabPlanController.module.messageSource.nabPlanoviDatumUsvajanja}" />
+                      </f:facet>
+                    </rich:column>
+                    </rich:extendedDataTable>
+                  </h:panelGroup>
+                </rich:layoutPanel>
+              </rich:layout>
+            </a4j:region>
           </h:form>
         </rich:panel>
       </ui:define>
