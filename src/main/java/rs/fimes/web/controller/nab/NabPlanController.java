@@ -6,12 +6,14 @@ import rs.fimes.domain.core.OrgFirma;
 import rs.fimes.service.api.nab.NabNaruciociServiceApi;
 import rs.fimes.service.api.nab.NabPlanServiceApi;
 import rs.fimes.web.controller.BaseController;
+import rs.fimes.web.datamodel.api.nab.NabPlanExtendedDataTableModelApi;
 
 public class NabPlanController extends BaseController{
 
     private NabPlanServiceApi nabPlanServiceApi;
     private NabNaruciociServiceApi nabNaruciociServiceApi;
     private OrgFirma orgFirma;
+    private NabPlanExtendedDataTableModelApi nabPlanExtendedDataTableModelApi;
 
     private static final long serialVersionUID = -788600541631559492L;
 
@@ -31,7 +33,7 @@ public class NabPlanController extends BaseController{
     }
 
     public void onStart() {
-        
+        nabPlanExtendedDataTableModelApi.helperWalkByRequest();
         System.out.println( ":::Ukenjao sam se od srece NAbPlanController " + System.currentTimeMillis());
         if ( orgFirma == null ) {
             setOrgFirma(nabNaruciociServiceApi.getActiveOrgFirma(getUserSessionUtil().getCurrentUserCurrentOrgFirma().getIdFirma()));
@@ -54,6 +56,17 @@ public class NabPlanController extends BaseController{
     public void setOrgFirma(OrgFirma orgFirma) {
         this.orgFirma = orgFirma;
     }
+
+    public NabPlanExtendedDataTableModelApi getNabPlanExtendedDataTableModelApi() {
+        return nabPlanExtendedDataTableModelApi;
+    }
+
+    public void setNabPlanExtendedDataTableModelApi(
+            NabPlanExtendedDataTableModelApi nabPlanExtendedDataTableModelApi) {
+        this.nabPlanExtendedDataTableModelApi = nabPlanExtendedDataTableModelApi;
+    }
+    
+    
 
 
 }

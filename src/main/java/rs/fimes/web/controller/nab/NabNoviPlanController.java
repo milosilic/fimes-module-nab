@@ -15,6 +15,7 @@ import rs.fimes.service.api.core.UsrKorisnikServiceApi;
 import rs.fimes.service.api.nab.NabNaruciociServiceApi;
 import rs.fimes.service.api.nab.NabPlanServiceApi;
 import rs.fimes.web.controller.BaseController;
+import rs.fimes.web.datamodel.api.nab.NabPlanExtendedDataTableModelApi;
 
 public class NabNoviPlanController extends BaseController{
 

@@ -36,41 +36,48 @@
                     <rich:extendedDataTable height="318px"
                       rowClasses="redAnimacija" id="tabelaNabPlan"
                       enableContextMenu="false"
-                      noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}">
-                      <rich:column id="tipObj" width="20%"
+                      noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}"
+                      value="#{nabPlanController.nabPlanExtendedDataTableModelApi}"
+                      var="plan">
+                      <rich:column id="godinaPlanTab" width="20%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
                           <h:outputText styleClass="headerText"
                             value="#{nabPlanController.module.messageSource.nabPlanoviZaGodinu}" />
                         </f:facet>
+                        <h:outputText value="#{plan.godina}"></h:outputText>
                       </rich:column>
-                      <rich:column id="tipObj" width="20%"
+                      <rich:column id="nazivPlanTab" width="20%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
                           <h:outputText styleClass="headerText"
                             value="#{nabPlanController.module.messageSource.nabPlanoviNazivPlana}" />
                         </f:facet>
+                        <h:outputText value="#{plan.naziv}"></h:outputText>
                       </rich:column>
-                      <rich:column id="tipObj" width="20%"
+                      <rich:column id="datumIzradePlanTab" width="20%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
                           <h:outputText styleClass="headerText"
                             value="#{nabPlanController.module.messageSource.nabPlanoviDatumIzrade}" />
                         </f:facet>
+                        <h:outputText value="#{plan.datumIzrade}"></h:outputText>
                       </rich:column>
-                      <rich:column id="tipObj" width="20%"
+                      <rich:column id="brojPlanaPlanTab" width="20%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
                           <h:outputText styleClass="headerText"
                             value="#{nabPlanController.module.messageSource.nabPlanovicInterniBrojPlana}" />
                         </f:facet>
+                        <h:outputText value="#{plan.brojPlana}"></h:outputText>
                       </rich:column>
-                      <rich:column id="tipObj" width="20%"
+                      <rich:column id="datumUsvajanjaPlanTab" width="20%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
                           <h:outputText styleClass="headerText"
                             value="#{nabPlanController.module.messageSource.nabPlanoviDatumUsvajanja}" />
                         </f:facet>
+                        <h:outputText value="#{plan.datumUsvajanja}"></h:outputText>
                       </rich:column>
                     </rich:extendedDataTable>
                     <h:panelGroup layout="block"

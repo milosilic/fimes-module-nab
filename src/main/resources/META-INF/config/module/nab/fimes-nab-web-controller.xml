@@ -39,6 +39,7 @@
       type="java.lang.String" />
     <property name="nabPlanServiceApi" ref="nabPlanServiceApi" />
     <property name="nabNaruciociServiceApi" ref="nabNaruciociServiceApi" />
+    <property name="nabPlanExtendedDataTableModelApi" ref="nabPlanExtendedDataTableModelApi" />
   </bean>
   
   <bean id="nabNoviPlanController"
