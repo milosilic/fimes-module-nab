@@ -8,5 +8,10 @@
   <bean id="nabBaseDao" abstract="true" parent="baseDao">
     <constructor-arg index="0" ref="nabModuleBean" />
   </bean>
+
+  <bean id="nabPlanDAO" class="rs.fimes.data.dao.impl.hibernate.nab.NabPlanDAOImpl"
+    parent="nabBaseDao">
+    <constructor-arg index="1" value="nabPlanDAO" type="java.lang.String" />
+  </bean>
   
 </beans>

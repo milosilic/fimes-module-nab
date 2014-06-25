@@ -12,8 +12,15 @@
 
   <bean id="nabWebController" class="rs.fimes.web.controller.nab.NabWebController"
     parent="baseWebController">
-    <constructor-arg index="0" ref="objModuleBean" />
-    <constructor-arg value="objWebController" type="java.lang.String" />
+    <constructor-arg index="0" ref="nabModuleBean" />
+    <constructor-arg value="nabWebController" type="java.lang.String" />
+    <property name="nabNoviPlanModalPanel" ref="nabNoviPlanModalPanel" />
   </bean>
 
+  <bean id="nabNoviPlanModalPanel" class="rs.etf.rc.common.web.WebComponent"
+    parent="nabWebComponent">
+    <constructor-arg value="nabNoviPlanModalPanel"
+      type="java.lang.String" />
+  </bean>
+  
 </beans>

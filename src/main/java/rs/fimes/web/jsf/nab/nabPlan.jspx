@@ -34,52 +34,74 @@
 
                     <rich:spacer height="20px" />
                     <rich:extendedDataTable height="318px"
-                      rowClasses="redAnimacija" id="tabelaObjObjekat"
+                      rowClasses="redAnimacija" id="tabelaNabPlan"
                       enableContextMenu="false"
-                      noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}"
-                      >
-                       <rich:column id="tipObj" width="20%"
-                      styleClass="fimesAlignLeft">
-                      <f:facet name="header">
-                        <h:outputText styleClass="headerText"
-                          value="#{nabPlanController.module.messageSource.nabPlanoviZaGodinu}" />
-                      </f:facet>
-                    </rich:column>
-                       <rich:column id="tipObj" width="20%"
-                      styleClass="fimesAlignLeft">
-                      <f:facet name="header">
-                        <h:outputText styleClass="headerText"
-                          value="#{nabPlanController.module.messageSource.nabPlanoviNazivPlana}" />
-                      </f:facet>
-                    </rich:column>
-                    <rich:column id="tipObj" width="20%"
-                      styleClass="fimesAlignLeft">
-                      <f:facet name="header">
-                        <h:outputText styleClass="headerText"
-                          value="#{nabPlanController.module.messageSource.nabPlanoviDatumIzrade}" />
-                      </f:facet>
-                    </rich:column>                    
-                    <rich:column id="tipObj" width="20%"
-                      styleClass="fimesAlignLeft">
-                      <f:facet name="header">
-                        <h:outputText styleClass="headerText"
-                          value="#{nabPlanController.module.messageSource.nabPlanovicInterniBrojPlana}" />
-                      </f:facet>
-                    </rich:column>
-                    <rich:column id="tipObj" width="20%"
-                      styleClass="fimesAlignLeft">
-                      <f:facet name="header">
-                        <h:outputText styleClass="headerText"
-                          value="#{nabPlanController.module.messageSource.nabPlanoviDatumUsvajanja}" />
-                      </f:facet>
-                    </rich:column>
+                      noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}">
+                      <rich:column id="tipObj" width="20%"
+                        styleClass="fimesAlignLeft">
+                        <f:facet name="header">
+                          <h:outputText styleClass="headerText"
+                            value="#{nabPlanController.module.messageSource.nabPlanoviZaGodinu}" />
+                        </f:facet>
+                      </rich:column>
+                      <rich:column id="tipObj" width="20%"
+                        styleClass="fimesAlignLeft">
+                        <f:facet name="header">
+                          <h:outputText styleClass="headerText"
+                            value="#{nabPlanController.module.messageSource.nabPlanoviNazivPlana}" />
+                        </f:facet>
+                      </rich:column>
+                      <rich:column id="tipObj" width="20%"
+                        styleClass="fimesAlignLeft">
+                        <f:facet name="header">
+                          <h:outputText styleClass="headerText"
+                            value="#{nabPlanController.module.messageSource.nabPlanoviDatumIzrade}" />
+                        </f:facet>
+                      </rich:column>
+                      <rich:column id="tipObj" width="20%"
+                        styleClass="fimesAlignLeft">
+                        <f:facet name="header">
+                          <h:outputText styleClass="headerText"
+                            value="#{nabPlanController.module.messageSource.nabPlanovicInterniBrojPlana}" />
+                        </f:facet>
+                      </rich:column>
+                      <rich:column id="tipObj" width="20%"
+                        styleClass="fimesAlignLeft">
+                        <f:facet name="header">
+                          <h:outputText styleClass="headerText"
+                            value="#{nabPlanController.module.messageSource.nabPlanoviDatumUsvajanja}" />
+                        </f:facet>
+                      </rich:column>
                     </rich:extendedDataTable>
+                    <h:panelGroup layout="block"
+                      styleClass="fimesAlignRight">
+                      <a4j:commandButton id="nabPlanoviNoviPlan" ajaxSingle="true" status="waitStatus"
+                        value="#{nabPlanController.module.messageSource.nabPlanoviNoviPlan}"
+                        styleClass="fimesButton"
+                        action="#{nabNoviPlanController.initNoviPlan}"
+                        oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
+                        reRender="nabNoviPlanModalPanel">
+                      </a4j:commandButton>
+                    </h:panelGroup>
+                    <rich:spacer height="50px" />
                   </h:panelGroup>
                 </rich:layoutPanel>
               </rich:layout>
             </a4j:region>
+                        <a4j:include
+              viewId="#{coreWebController.coreModalDaNeDijalogView}" />
+            <a4j:include
+              viewId="#{coreWebController.coreModalOkDijalogView}" />
+            <a4j:include
+              viewId="#{coreWebController.coreModalErrorDijalogView}" />
           </h:form>
         </rich:panel>
+
+        <a4j:include
+          viewId="#{nabWebController.nabNoviPlanModalPanelView}" />
+        <a4j:status id="waitStatus"
+          onstart="#{rich:component('ajaxStatusModalPanel')}.show()"
+          onstop="#{rich:component('ajaxStatusModalPanel')}.hide()" />
       </ui:define>
     </ui:composition>
   </f:view>

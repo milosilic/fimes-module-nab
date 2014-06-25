@@ -1,0 +1,99 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:a4j="http://richfaces.org/a4j"
+  xmlns:rich="http://richfaces.org/rich">
+
+  <rich:modalPanel id="nabNoviPlanModalPanel" minWidth="600"
+    autosized="true" resizeable="false" moveable="true">
+    <f:facet name="header">
+      <h:outputText styleClass="fimesPanelHeader"
+        value="#{nabPlanController.module.messageSource.nabPlanoviNoviPlan}" />
+    </f:facet>
+    <h:form id="formNoviObjekat">
+      <h:panelGrid columns="2" width="380px"
+        id="panelGridNabNoviPlanLevel1"
+        styleClass="fimesTableCentered fimesTableInput"
+        columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField">
+        <h:outputLabel styleClass="fimesLabelLeft"
+          value="#{nabPlanController.module.messageSource.nabPlanoviZaGodinu}" />
+        <h:inputText id="godinaPolje"
+          styleClass="fimesInputText maxWidth"
+          value="#{nabNoviPlanController.noviPlan.godina}"
+          label="#{nabPlanController.module.messageSource.nabPlanoviZaGodinu}"
+          required="true" maxlength="128">
+          <f:converter converterId="fimes.converter.common.intPozitive" />
+        </h:inputText>
+        <h:outputText value=" " />
+        <rich:message for="godinaPolje" styleClass="fimesValidErrMsg" />
+        <h:outputLabel styleClass="fimesLabelLeft"
+          value="#{nabPlanController.module.messageSource.nabPlanoviNazivPlana}" />
+        <h:inputText id="nazivPolje"
+          styleClass="fimesInputText maxWidth"
+          value="#{nabNoviPlanController.noviPlan.naziv}"
+          label="#{nabPlanController.module.messageSource.nabPlanoviNazivPlana}"
+          required="true" maxlength="128">
+          <f:converter
+            converterId="fimes.converter.common.stringRequired" />
+        </h:inputText>
+        <h:outputLabel styleClass="fimesLabelLeft"
+          value="#{nabPlanController.module.messageSource.nabPlanoviDatumIzrade}" />
+        <rich:calendar id="datumIzradePolje"
+          inputClass="fimesInputDate"
+          value="#{nabNoviPlanController.noviPlan.datumIzrade}"
+          datePattern="dd.MM.yyyy." enableManualInput="true"
+          label="#{nabPlanController.module.messageSource.nabPlanoviDatumIzrade}"
+          required="true">
+          <f:convertDateTime
+            locale="#{nabNoviPlanController.module.application.defaultLocale}"
+            pattern="#{nabNoviPlanController.module.application.dateFormatMask}"
+            timeZone="#{nabNoviPlanController.module.application.defaultTimeZone}" />
+        </rich:calendar>
+        <h:outputLabel styleClass="fimesLabelLeft"
+          value="#{nabPlanController.module.messageSource.nabPlanovicInterniBrojPlana}" />
+        <h:inputText id="brojPlanaPolje"
+          styleClass="fimesInputText maxWidth"
+          value="#{nabNoviPlanController.noviPlan.brojPlana}"
+          label="#{nabPlanController.module.messageSource.nabPlanovicInterniBrojPlana}"
+          required="true" maxlength="128">
+          <f:converter
+            converterId="fimes.converter.common.stringRequired" />
+        </h:inputText>
+        <h:outputLabel styleClass="fimesLabelLeft"
+          value="#{nabPlanController.module.messageSource.nabPlanoviDatumUsvajanja}" />
+        <rich:calendar id="datumUsvajanjaPolje"
+          inputClass="fimesInputDate"
+          value="#{nabNoviPlanController.noviPlan.datumUsvajanja}"
+          datePattern="dd.MM.yyyy." enableManualInput="true"
+          label="#{nabPlanController.module.messageSource.nabPlanoviDatumUsvajanja}"
+          required="true">
+          <f:convertDateTime
+            locale="#{nabNoviPlanController.module.application.defaultLocale}"
+            pattern="#{nabNoviPlanController.module.application.dateFormatMask}"
+            timeZone="#{nabNoviPlanController.module.application.defaultTimeZone}" />
+        </rich:calendar>
+        <h:outputText value=" " />
+        <rich:message for="datumUsvajanjaPolje"
+          styleClass="fimesValidErrMsg" />
+      </h:panelGrid>
+      <h:panelGrid columns="1" styleClass="maxWidth">
+        <rich:messages globalOnly="true" warnClass="validationAttention"
+          errorClass="fimesValidErrMsg" />
+      </h:panelGrid>
+      <a4j:commandButton id="nabNoviPlanModalPanelDugmePotvrdi"
+        styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"
+        value="#{nabNoviPlanController.module.messageSource.common_potvrdi}"
+        action="#{nabNoviPlanController.snimiNabPlan}"
+        oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabNoviPlanModalPanel')}.hide();#{rich:component('coreOkModalPanel')}.show();}"
+        reRender="tabelaNabPlan,coreOkModalPanel" />
+      <rich:spacer width="5" />
+      <a4j:commandButton id="nabNoviPlanModalPanelDugmeOdustani"
+        styleClass="fimesButton fimesButtonImageCancel"
+        ajaxSingle="true" action="#{nabNoviPlanController.resetForm}"
+        value="#{nabNoviPlanController.module.messageSource.common_odustani}"
+        immediate="true"
+        onclick="#{rich:component('nabNoviPlanModalPanel')}.hide()" />
+    </h:form>
+  </rich:modalPanel>
+</ui:composition>

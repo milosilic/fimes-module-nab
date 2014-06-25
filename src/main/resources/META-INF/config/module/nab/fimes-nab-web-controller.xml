@@ -40,5 +40,14 @@
     <property name="nabPlanServiceApi" ref="nabPlanServiceApi" />
     <property name="nabNaruciociServiceApi" ref="nabNaruciociServiceApi" />
   </bean>
-
+  
+  <bean id="nabNoviPlanController"
+    class="rs.fimes.web.controller.nab.NabNoviPlanController"
+    parent="nabBaseController" scope="session" lazy-init="true">
+    <constructor-arg value="nabNoviPlanController"
+      type="java.lang.String" />
+    <property name="nabPlanServiceApi" ref="nabPlanServiceApi" />
+    <property name="nabNaruciociServiceApi" ref="nabNaruciociServiceApi" />
+    <property name="usrKorisnikServiceApi" ref="usrKorisnikServiceApi"></property>
+  </bean>
 </beans>

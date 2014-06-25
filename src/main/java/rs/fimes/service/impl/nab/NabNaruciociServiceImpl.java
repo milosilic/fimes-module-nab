@@ -27,7 +27,6 @@ public class NabNaruciociServiceImpl extends BaseServiceImpl  implements NabNaru
     @Override
     public OrgFirma getActiveOrgFirma( int id ) {
         OrgFirma orgFirmica = orgFirmaDAO.findById(id);
-        System.out.println( id + "NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNs");
         System.out.println( orgFirmica);
 
         return orgFirmica;
