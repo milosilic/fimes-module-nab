@@ -63,5 +63,6 @@
 		<property name="xnabVrstaPredmetaNabavkeServiceApi" ref="xnabVrstaPredmetaNabavkeServiceApi" />
 		<property name="xnabVrstaPostupkaServiceApi" ref="xnabVrstaPostupkaServiceApi" />
 		<property name="xnabPredmetNabavkeServiceApi" ref="xnabPredmetNabavkeServiceApi" />
+		<property name="xnabTipNabavkeServiceApi" ref="xnabTipNabavkeServiceApi" />
 	</bean>
 </beans>

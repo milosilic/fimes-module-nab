@@ -29,5 +29,9 @@
   <bean id="xnabPredmetNabavkeServiceApi" class="rs.fimes.service.impl.nab.XnabPredmetNabavkeServiceImpl" parent="nabBaseService" lazy-init="true">
     <constructor-arg index="1" value="xnabPredmetNabavkeServiceApi" type="java.lang.String"/>
     <property name="xnabPredmetNabavkeDAO" ref="xnabPredmetNabavkeDAO"></property>
+  </bean>
+  <bean id="xnabTipNabavkeServiceApi" class="rs.fimes.service.impl.nab.XnabTipNabavkeServiceImpl" parent="nabBaseService" lazy-init="true">
+    <constructor-arg index="1" value="xnabTipNabavkeServiceApi" type="java.lang.String"/>
+    <property name="xnabTipNabavkeDAO" ref="xnabTipNabavkeDAO"></property>
   </bean>  
 </beans>

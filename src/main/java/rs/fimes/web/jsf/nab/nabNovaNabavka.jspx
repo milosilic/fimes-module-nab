@@ -107,7 +107,16 @@
                     <h:inputText styleClass="fimesInputText maxWidth" />
                     <h:outputLabel styleClass="fimesLabelLeft"
                       value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
-                    <h:inputText styleClass="fimesInputText maxWidth" />
+                    <h:panelGrid columns="1" styleClass="alignCenter"
+                      width="100%">
+                      <h:selectOneMenu id="selectOneXnabTipPredmeta"
+                        tabindex="1" style="width: 200px;"
+                        styleClass="fimesInputDropDown"
+                        value="#{nabNovaNabavkaController.novaNabavka.tipNabavke}">
+                        <f:selectItems
+                          value="#{nabNovaNabavkaController.xnabTipNabavkeSelectionItems}" />
+                      </h:selectOneMenu>
+                    </h:panelGrid>
 
                   </h:panelGrid>
                 </h:panelGrid>

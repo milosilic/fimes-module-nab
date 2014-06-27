@@ -25,4 +25,8 @@
 		parent="nabBaseDao">
 		<constructor-arg index="1" value="xnabPredmetNabavkeDAO" type="java.lang.String" />
 	</bean>
+    <bean id="xnabTipNabavkeDAO" class="rs.fimes.data.dao.impl.hibernate.nab.XnabTipNabavkeDAOImpl"
+        parent="nabBaseDao">
+        <constructor-arg index="1" value="xnabTipNabavkeDAO" type="java.lang.String" />
+    </bean>
 </beans>
