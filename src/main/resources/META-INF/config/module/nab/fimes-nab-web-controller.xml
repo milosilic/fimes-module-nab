@@ -66,4 +66,9 @@
 		<property name="xnabTipNabavkeServiceApi" ref="xnabTipNabavkeServiceApi" />
 		<property name="xnabStatusNabavkeServiceApi" ref="xnabStatusNabavkeServiceApi" />
 	</bean>
+    <bean id="nabKontaController" class="rs.fimes.web.controller.nab.NabKontaController"
+        parent="nabBaseController" scope="session" lazy-init="true">
+        <constructor-arg value="nabKontaController"
+            type="java.lang.String" />
+    </bean>
 </beans>
