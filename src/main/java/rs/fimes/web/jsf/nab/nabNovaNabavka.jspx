@@ -95,7 +95,16 @@
                     cellspacing="10px">
                     <h:outputLabel styleClass="fimesLabelLeft"
                       value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaStatusNabavke}" />
-                    <h:inputText styleClass="fimesInputText maxWidth" />
+                    <h:panelGrid columns="1" styleClass="alignCenter"
+                      width="100%">
+                      <h:selectOneMenu id="selectOneXnabStatusPredmeta"
+                        tabindex="1" style="width: 200px;"
+                        styleClass="fimesInputDropDown"
+                        value="#{nabNovaNabavkaController.novaNabavka.statusNabavke}">
+                        <f:selectItems
+                          value="#{nabNovaNabavkaController.xnabStatusNabavkeSelectionItems}" />
+                      </h:selectOneMenu>
+                    </h:panelGrid>
                     <h:outputLabel styleClass="fimesLabelLeft"
                       value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecPokretanja}" />
                     <h:inputText styleClass="fimesInputText maxWidth" />

@@ -15,6 +15,7 @@ import rs.etf.rc.common.application.Module;
 import rs.fimes.domain.core.OrgFirma;
 import rs.fimes.domain.nab.NabJavnaNabavka;
 import rs.fimes.domain.nab.XnabPredmetNabavke;
+import rs.fimes.domain.nab.XnabStatusNabavke;
 import rs.fimes.domain.nab.XnabTipNabavke;
 import rs.fimes.domain.nab.XnabVrstaPostupka;
 import rs.fimes.domain.nab.XnabVrstaPredmetaNabavke;
@@ -22,6 +23,7 @@ import rs.fimes.service.api.core.UsrKorisnikServiceApi;
 import rs.fimes.service.api.nab.NabNaruciociServiceApi;
 import rs.fimes.service.api.nab.NabPlanServiceApi;
 import rs.fimes.service.api.nab.XnabPredmetNabavkeServiceApi;
+import rs.fimes.service.api.nab.XnabStatusNabavkeServiceApi;
 import rs.fimes.service.api.nab.XnabTipNabavkeServiceApi;
 import rs.fimes.service.api.nab.XnabVrstaPostupkaServiceApi;
 import rs.fimes.service.api.nab.XnabVrstaPredmetaNabavkeServiceApi;
@@ -58,9 +60,13 @@ public class NabNovaNabavkaController extends BaseController{
     
     private ArrayList<SelectItem> xnabTipNabavkeSelectionItems;
     private XnabTipNabavkeServiceApi xnabTipNabavkeServiceApi; 
+    
+    private ArrayList<SelectItem> xnabStatusNabavkeSelectionItems;
+    private XnabStatusNabavkeServiceApi xnabStatusNabavkeServiceApi;
 
     //@TODO skloni ove objekte iz kontrolera, kada rešiš gde se pamte (nab_javna_nabavka)
     private XnabTipNabavke tipNabavke;
+    private XnabStatusNabavke statusNabavke;
     
     private static final long serialVersionUID = -788600541631559492L;
 
@@ -115,7 +121,15 @@ public class NabNovaNabavkaController extends BaseController{
             XnabTipNabavke xnabTipNabavke = (XnabTipNabavke) iterXnabTipNabavke.next();
             System.out.println( xnabTipNabavke);
             xnabTipNabavkeSelectionItems.add(new SelectItem( xnabTipNabavke.getPrimaryKey(), String.valueOf( xnabTipNabavke.getNaziv())));
-         }       
+         }
+        xnabStatusNabavkeSelectionItems = new ArrayList<SelectItem>();
+        List<XnabStatusNabavke> xnabStatusNabavkes = xnabStatusNabavkeServiceApi.getAllStatusNabavke();
+        Iterator<XnabStatusNabavke> iterXnabStatusNabavke = xnabStatusNabavkes.iterator();
+        while ( iterXnabStatusNabavke.hasNext()){
+            XnabStatusNabavke xnabStatusNabavke = (XnabStatusNabavke) iterXnabStatusNabavke.next();
+            System.out.println( xnabStatusNabavke);
+            xnabStatusNabavkeSelectionItems.add(new SelectItem( xnabStatusNabavke.getPrimaryKey(), String.valueOf( xnabStatusNabavke.getNaziv())));
+         }   
         if ( orgFirma == null ) {
             setOrgFirma(nabNaruciociServiceApi.getActiveOrgFirma(getUserSessionUtil().getCurrentUserCurrentOrgFirma().getIdFirma()));
           }
@@ -290,6 +304,32 @@ public class NabNovaNabavkaController extends BaseController{
 
     public void setTipNabavke(XnabTipNabavke tipNabavke) {
         this.tipNabavke = tipNabavke;
+    }
+
+    public ArrayList<SelectItem> getXnabStatusNabavkeSelectionItems() {
+        return xnabStatusNabavkeSelectionItems;
+    }
+
+    public void setXnabStatusNabavkeSelectionItems(
+            ArrayList<SelectItem> xnabStatusNabavkeSelectionItems) {
+        this.xnabStatusNabavkeSelectionItems = xnabStatusNabavkeSelectionItems;
+    }
+
+    public XnabStatusNabavkeServiceApi getXnabStatusNabavkeServiceApi() {
+        return xnabStatusNabavkeServiceApi;
+    }
+
+    public void setXnabStatusNabavkeServiceApi(
+            XnabStatusNabavkeServiceApi xnabStatusNabavkeServiceApi) {
+        this.xnabStatusNabavkeServiceApi = xnabStatusNabavkeServiceApi;
+    }
+
+    public XnabStatusNabavke getStatusNabavke() {
+        return statusNabavke;
+    }
+
+    public void setStatusNabavke(XnabStatusNabavke statusNabavke) {
+        this.statusNabavke = statusNabavke;
     }
     
 

@@ -33,5 +33,9 @@
   <bean id="xnabTipNabavkeServiceApi" class="rs.fimes.service.impl.nab.XnabTipNabavkeServiceImpl" parent="nabBaseService" lazy-init="true">
     <constructor-arg index="1" value="xnabTipNabavkeServiceApi" type="java.lang.String"/>
     <property name="xnabTipNabavkeDAO" ref="xnabTipNabavkeDAO"></property>
-  </bean>  
+  </bean>
+  <bean id="xnabStatusNabavkeServiceApi" class="rs.fimes.service.impl.nab.XnabStatusNabavkeServiceImpl" parent="nabBaseService" lazy-init="true">
+    <constructor-arg index="1" value="xnabStatusNabavkeServiceApi" type="java.lang.String"/>
+    <property name="xnabStatusNabavkeDAO" ref="xnabStatusNabavkeDAO"></property>
+  </bean>    
 </beans>
