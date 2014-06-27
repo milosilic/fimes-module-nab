@@ -79,6 +79,16 @@
                         </f:facet>
                         <h:outputText value="#{plan.datumUsvajanja}"></h:outputText>
                       </rich:column>
+                      <rich:column>
+                        <a4j:commandButton id="javneNab" ajaxSingle="true" status="waitStatus"
+                          value="#{nabPlanController.module.messageSource.nabPlanoviNoviPlan}"
+                          styleClass="fimesButtonImageAdd"
+                          action="nabavkeLista">
+                          <f:setPropertyActionListener
+                            target="#{nabPlanController.nabPlanSelected}"
+                            value="#{plan}" /> 
+                        </a4j:commandButton>
+                      </rich:column>
                     </rich:extendedDataTable>
                     <h:panelGroup layout="block"
                       styleClass="fimesAlignRight">

@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
            http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
-  <bean id="nabBaseDao" abstract="true" parent="baseDao">
-    <constructor-arg index="0" ref="nabModuleBean" />
-  </bean>
+	<bean id="nabBaseDao" abstract="true" parent="baseDao">
+		<constructor-arg index="0" ref="nabModuleBean" />
+	</bean>
 
-  <bean id="nabPlanDAO" class="rs.fimes.data.dao.impl.hibernate.nab.NabPlanDAOImpl"
-    parent="nabBaseDao">
-    <constructor-arg index="1" value="nabPlanDAO" type="java.lang.String" />
-  </bean>
-  
+	<bean id="nabPlanDAO" class="rs.fimes.data.dao.impl.hibernate.nab.NabPlanDAOImpl"
+		parent="nabBaseDao">
+		<constructor-arg index="1" value="nabPlanDAO" type="java.lang.String" />
+	</bean>
+	<bean id="xnabVrstaPredmetaNabavkeDAO" class="rs.fimes.data.dao.impl.hibernate.nab.XnabVrstaPredmetaNabavkeDAOImpl"
+		parent="nabBaseDao">
+		<constructor-arg index="1" value="xnabVrstaPredmetaNabavkeDAO" type="java.lang.String" />
+	</bean>
+	<bean id="xnabVrstaPostupkaDAO" class="rs.fimes.data.dao.impl.hibernate.nab.XnabVrstaPostupkaDAOImpl"
+		parent="nabBaseDao">
+		<constructor-arg index="1" value="xnabVrstaPostupkaDAO" type="java.lang.String" />
+	</bean>
+	<bean id="xnabPredmetNabavkeDAO" class="rs.fimes.data.dao.impl.hibernate.nab.XnabPredmetNabavkeDAOImpl"
+		parent="nabBaseDao">
+		<constructor-arg index="1" value="xnabPredmetNabavkeDAO" type="java.lang.String" />
+	</bean>
 </beans>

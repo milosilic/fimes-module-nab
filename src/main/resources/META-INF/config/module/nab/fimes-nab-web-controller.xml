@@ -1,54 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
            http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
-  <!-- base controller -->
-  <bean id="nabBaseController" abstract="true" parent="baseController"
-    scope="session" lazy-init="true">
-    <constructor-arg index="0" ref="nabModuleBean" />
-    <property name="modalPanelUtil" ref="modalPanelUtil" />
-  </bean>
+	<!-- base controller -->
+	<bean id="nabBaseController" abstract="true" parent="baseController"
+		scope="session" lazy-init="true">
+		<constructor-arg index="0" ref="nabModuleBean" />
+		<property name="modalPanelUtil" ref="modalPanelUtil" />
+	</bean>
 
-  <bean id="nabBaseSelectionController"
-    class="rs.etf.rc.common.web.controller.BaseSelectionController"
-    parent="baseSelectionController" abstract="true" scope="session"
-    lazy-init="true">
-    <constructor-arg index="0" ref="nabModuleBean" />
-    <property name="modalPanelUtil" ref="modalPanelUtil" />
-  </bean>
+	<bean id="nabBaseSelectionController" class="rs.etf.rc.common.web.controller.BaseSelectionController"
+		parent="baseSelectionController" abstract="true" scope="session"
+		lazy-init="true">
+		<constructor-arg index="0" ref="nabModuleBean" />
+		<property name="modalPanelUtil" ref="modalPanelUtil" />
+	</bean>
 
-  <bean id="nabNaruciociController"
-    class="rs.fimes.web.controller.nab.NabNaruciociController"
-    parent="nabBaseController" scope="session" lazy-init="true">
-    <constructor-arg value="nabNaruciociController"
-      type="java.lang.String" />
-    <property name="nabNaruciociServiceApi" ref="nabNaruciociServiceApi" />
-<!--     <property name="usrKorisnikServiceApi" ref="usrKorisnikServiceApi" /> -->
-<!--     <property name="objObjektiIProstorijeServiceApi" ref="objObjektiIProstorijeServiceApi" /> -->
-<!--     <property name="objObjekatExtendedDataTableModelApi" ref="objObjekatExtendedDataTableModelApi" /> -->
-<!--     <property name="objNoviObjekatController" ref="objNoviObjekatController" /> -->
-  </bean>
+	<bean id="nabNaruciociController" class="rs.fimes.web.controller.nab.NabNaruciociController"
+		parent="nabBaseController" scope="session" lazy-init="true">
+		<constructor-arg value="nabNaruciociController" type="java.lang.String" />
+		<property name="nabNaruciociServiceApi" ref="nabNaruciociServiceApi" />
+		<!-- <property name="usrKorisnikServiceApi" ref="usrKorisnikServiceApi" 
+			/> -->
+		<!-- <property name="objObjektiIProstorijeServiceApi" ref="objObjektiIProstorijeServiceApi" 
+			/> -->
+		<!-- <property name="objObjekatExtendedDataTableModelApi" ref="objObjekatExtendedDataTableModelApi" 
+			/> -->
+		<!-- <property name="objNoviObjekatController" ref="objNoviObjekatController" 
+			/> -->
+	</bean>
 
-  <bean id="nabPlanController"
-    class="rs.fimes.web.controller.nab.NabPlanController"
-    parent="nabBaseController" scope="session" lazy-init="true">
-    <constructor-arg value="nabPlanController"
-      type="java.lang.String" />
-    <property name="nabPlanServiceApi" ref="nabPlanServiceApi" />
-    <property name="nabNaruciociServiceApi" ref="nabNaruciociServiceApi" />
-    <property name="nabPlanExtendedDataTableModelApi" ref="nabPlanExtendedDataTableModelApi" />
-  </bean>
-  
-  <bean id="nabNoviPlanController"
-    class="rs.fimes.web.controller.nab.NabNoviPlanController"
-    parent="nabBaseController" scope="session" lazy-init="true">
-    <constructor-arg value="nabNoviPlanController"
-      type="java.lang.String" />
-    <property name="nabPlanServiceApi" ref="nabPlanServiceApi" />
-    <property name="nabNaruciociServiceApi" ref="nabNaruciociServiceApi" />
-    <property name="usrKorisnikServiceApi" ref="usrKorisnikServiceApi"></property>
-  </bean>
+	<bean id="nabPlanController" class="rs.fimes.web.controller.nab.NabPlanController"
+		parent="nabBaseController" scope="session" lazy-init="true">
+		<constructor-arg value="nabPlanController" type="java.lang.String" />
+		<property name="nabPlanServiceApi" ref="nabPlanServiceApi" />
+		<property name="nabNaruciociServiceApi" ref="nabNaruciociServiceApi" />
+		<property name="nabPlanExtendedDataTableModelApi" ref="nabPlanExtendedDataTableModelApi" />
+	</bean>
+
+	<bean id="nabNoviPlanController" class="rs.fimes.web.controller.nab.NabNoviPlanController"
+		parent="nabBaseController" scope="session" lazy-init="true">
+		<constructor-arg value="nabNoviPlanController" type="java.lang.String" />
+		<property name="nabPlanServiceApi" ref="nabPlanServiceApi" />
+		<property name="nabNaruciociServiceApi" ref="nabNaruciociServiceApi" />
+		<property name="usrKorisnikServiceApi" ref="usrKorisnikServiceApi"></property>
+	</bean>
+	<bean id="nabNabavkaController" class="rs.fimes.web.controller.nab.NabNabavkaController"
+		parent="nabBaseController" scope="session" lazy-init="true">
+		<constructor-arg value="nabNabavkaController" type="java.lang.String" />
+
+		<property name="nabNaruciociServiceApi" ref="nabNaruciociServiceApi" />
+
+	</bean>
+	<bean id="nabNovaNabavkaController" class="rs.fimes.web.controller.nab.NabNovaNabavkaController"
+		parent="nabBaseController" scope="session" lazy-init="true">
+		<constructor-arg value="nabNovaNabavkaController"
+			type="java.lang.String" />
+		<property name="nabNaruciociServiceApi" ref="nabNaruciociServiceApi" />
+		<property name="xnabVrstaPredmetaNabavkeServiceApi" ref="xnabVrstaPredmetaNabavkeServiceApi" />
+		<property name="xnabVrstaPostupkaServiceApi" ref="xnabVrstaPostupkaServiceApi" />
+		<property name="xnabPredmetNabavkeServiceApi" ref="xnabPredmetNabavkeServiceApi" />
+	</bean>
 </beans>

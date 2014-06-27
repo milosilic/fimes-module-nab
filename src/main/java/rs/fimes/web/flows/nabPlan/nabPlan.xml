@@ -14,5 +14,18 @@
   
   <view-state id="nabPlan" view="/rs/fimes/web/jsf/nab/nabPlan.jspx">
     <transition on="meni" to="nabPlan" />
+    <transition on="nabavkeLista" to="nabavkeLista" />
   </view-state>
+  <view-state id="nabavkeLista" view="/rs/fimes/web/jsf/nab/nabNabavkeLista.jspx">
+    <on-entry>
+      <evaluate expression="nabNabavkaController.onStart()" />
+    </on-entry>
+    <transition on="novaNabavka" to="novaNabavka" />
+  </view-state>
+  <view-state id="novaNabavka" view="/rs/fimes/web/jsf/nab/nabNovaNabavka.jspx">
+    <on-entry>
+      <evaluate expression="nabNovaNabavkaController.onStart()" />
+    </on-entry>
+  </view-state>  
+  
 </flow>

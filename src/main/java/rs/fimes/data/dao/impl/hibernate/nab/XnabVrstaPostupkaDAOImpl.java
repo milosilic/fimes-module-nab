@@ -1,6 +1,9 @@
 package rs.fimes.data.dao.impl.hibernate.nab;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
@@ -17,7 +20,15 @@ public class XnabVrstaPostupkaDAOImpl extends
     public XnabVrstaPostupkaDAOImpl(Module module, String daoId)
             throws ConfigurationException {
         super(module, daoId);
-        // TODO Auto-generated constructor stub
+    }
+
+    @Override
+    public List<XnabVrstaPostupka> getXnabVrstaPostupkaList() {
+        String sqlQuery = "select o from XnabVrstaPostupka o";
+        Map<String, Object> params = new HashMap<String, Object>();
+        List<XnabVrstaPostupka> lista = customSearch(sqlQuery, params);
+        return lista;
+
     }
 
 }

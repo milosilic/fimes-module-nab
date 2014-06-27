@@ -6,22 +6,22 @@ import rs.fimes.domain.core.OrgFirma;
 import rs.fimes.service.api.nab.NabNaruciociServiceApi;
 import rs.fimes.web.controller.BaseController;
 
-public class NabNaruciociController extends BaseController{
-    
-    private static final long serialVersionUID = -1544948417553538276L;
+public class NabNabavkaController extends BaseController{
+ 
+    private static final long serialVersionUID = -3120357755799010622L;
 
     private OrgFirma orgFirma;
     
     private NabNaruciociServiceApi nabNaruciociServiceApi;
     
-    public NabNaruciociController(Module module, String controllerId)
+    public NabNabavkaController(Module module, String controllerId)
             throws ConfigurationException {
         super(module, controllerId);
     }
     
     public void onStart() {
        
-        System.out.println( ":::Ukenjao sam se od srece " + System.currentTimeMillis());
+        System.out.println( ":::Ukenjao sam se od srece " + System.currentTimeMillis()+ " NabNabavkaController");
         if ( orgFirma == null ) {
           setOrgFirma(nabNaruciociServiceApi.getActiveOrgFirma(getUserSessionUtil().getCurrentUserCurrentOrgFirma().getIdFirma()));
         }

@@ -3,6 +3,7 @@ package rs.fimes.web.controller.nab;
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
 import rs.fimes.domain.core.OrgFirma;
+import rs.fimes.domain.nab.NabPlan;
 import rs.fimes.service.api.nab.NabNaruciociServiceApi;
 import rs.fimes.service.api.nab.NabPlanServiceApi;
 import rs.fimes.web.controller.BaseController;
@@ -14,6 +15,7 @@ public class NabPlanController extends BaseController{
     private NabNaruciociServiceApi nabNaruciociServiceApi;
     private OrgFirma orgFirma;
     private NabPlanExtendedDataTableModelApi nabPlanExtendedDataTableModelApi;
+    private NabPlan nabPlanSelected;
 
     private static final long serialVersionUID = -788600541631559492L;
 
@@ -65,8 +67,13 @@ public class NabPlanController extends BaseController{
             NabPlanExtendedDataTableModelApi nabPlanExtendedDataTableModelApi) {
         this.nabPlanExtendedDataTableModelApi = nabPlanExtendedDataTableModelApi;
     }
-    
-    
 
+    public NabPlan getNabPlanSelected() {
+        return nabPlanSelected;
+    }
 
+    public void setNabPlanSelected(NabPlan nabPlanSelected) {
+        System.out.println( nabPlanSelected);
+        this.nabPlanSelected = nabPlanSelected;
+    }
 }

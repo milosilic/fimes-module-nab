@@ -18,5 +18,16 @@
 <!--     <property name="orgFirmaDAO" ref="orgFirmaDAO"></property> -->
     <property name="nabPlanDAO" ref="nabPlanDAO"></property>
   </bean>
-  
+  <bean id="xnabVrstaPredmetaNabavkeServiceApi" class="rs.fimes.service.impl.nab.XnabVrstaPredmetaNabavkeServiceImpl" parent="nabBaseService" lazy-init="true">
+    <constructor-arg index="1" value="xnabVrstaPredmetaNabavkeServiceApi" type="java.lang.String"/>
+    <property name="xnabVrstaPredmetaNabavkeDAO" ref="xnabVrstaPredmetaNabavkeDAO"></property>
+  </bean>
+  <bean id="xnabVrstaPostupkaServiceApi" class="rs.fimes.service.impl.nab.XnabVrstaPostupkaServiceImpl" parent="nabBaseService" lazy-init="true">
+    <constructor-arg index="1" value="xnabVrstaPostupkaServiceApi" type="java.lang.String"/>
+    <property name="xnabVrstaPostupkaDAO" ref="xnabVrstaPostupkaDAO"></property>
+  </bean>
+  <bean id="xnabPredmetNabavkeServiceApi" class="rs.fimes.service.impl.nab.XnabPredmetNabavkeServiceImpl" parent="nabBaseService" lazy-init="true">
+    <constructor-arg index="1" value="xnabPredmetNabavkeServiceApi" type="java.lang.String"/>
+    <property name="xnabPredmetNabavkeDAO" ref="xnabPredmetNabavkeDAO"></property>
+  </bean>  
 </beans>
