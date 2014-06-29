@@ -70,5 +70,6 @@
         parent="nabBaseController" scope="session" lazy-init="true">
         <constructor-arg value="nabKontaController"
             type="java.lang.String" />
+        <property name="xnabKontoServiceApi" ref="xnabKontoServiceApi" />
     </bean>
 </beans>

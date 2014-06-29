@@ -33,4 +33,8 @@
         parent="nabBaseDao">
         <constructor-arg index="1" value="xnabStatusNabavkeDAO" type="java.lang.String" />
     </bean>
+    <bean id="xnabKontoDAO" class="rs.fimes.data.dao.impl.hibernate.nab.XnabKontoDAOImpl"
+        parent="nabBaseDao">
+        <constructor-arg index="1" value="xnabKontoDAO" type="java.lang.String" />
+    </bean>
 </beans>

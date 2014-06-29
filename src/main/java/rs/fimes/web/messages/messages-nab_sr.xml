@@ -60,6 +60,12 @@
 <entry key="nabNabavkaNovaNabavkaMesecZakljucenja">Месец закључења уговора</entry>
 <entry key="nabNabavkaNovaNabavkaMesecIzvrsenja">Месец извршења уговора</entry>
 <entry key="nabNabavkaNovaNabavkaTipNabavke">Тип набавке</entry>
+<entry key="nabNabavkaProcenjenaVrednost">Процењена вредност по годинама</entry>
+<entry key="nabNabavkaPartije">Партије</entry>
+<entry key="nabNabavkaPlaniranaVrednostPoKontima">Планирана вредност по контима/позицијама у фин.плану</entry>
+<entry key="nabNabavkaIzmeneNabavke">Измене набавке</entry>
+<entry key="nabKontoPozicija">Конто/позиција</entry>
+<entry key="nabKontoNaziv">Назив конта/позиције у финансијском плану</entry>
 <!-- <entry key="nabNabavkaNovaNabavkaInterniBroj">Врста поступка</entry> -->
 <!-- <entry key="nabNabavkaNovaNabavkaInterniBroj">Врста поступка</entry> -->
 <!-- <entry key="nabNabavkaNovaNabavkaInterniBroj">Врста поступка</entry> -->

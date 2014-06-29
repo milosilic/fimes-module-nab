@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:sf="http://www.springframework.org/tags/faces"
+  xmlns:a4j="http://richfaces.org/a4j"
+  xmlns:rich="http://richfaces.org/rich">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Планови наручиоца</title>
+</head>
+<body>
+  <f:view>
+    <ui:composition template="/WEB-INF/layouts/standard.jspx">
+      <ui:define name="content">
+        <rich:panel styleClass="fimesMainForm">
+          <h:form>
+            <a4j:region>
+              <rich:layout>
+                <rich:layoutPanel position="top">
+                  <h:panelGrid styleClass="fimesInputGroup"
+                    columnClasses="fimesAlignCenter" width="100%">
+                    <h:panelGrid columns="3"
+                      styleClass="fimesTableCentered"
+                      columnClasses="fimesAlignCenter">
+                    </h:panelGrid>
+                  </h:panelGrid>
+                  <h:panelGroup id="p1" layout="block">
+
+                    <rich:spacer height="20px" />
+                    <rich:extendedDataTable height="318px"
+                      rowClasses="redAnimacija" id="tabelaNabPlan"
+                      enableContextMenu="false"
+                      noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}"
+                      value="#{nabKontaController.listaKonta}"
+                      var="konto">
+                      <rich:column id="idKontoTab" width="50%"
+                        styleClass="fimesAlignLeft">
+                        <f:facet name="header">
+                          <h:outputText styleClass="headerText"
+                            value="#{nabKontaController.module.messageSource.nabKontoPozicija}" />
+                        </f:facet>
+                        <h:outputText value="#{konto.idKonto}"></h:outputText>
+                      </rich:column>
+                      <rich:column id="nazivKontoTab" width="50%"
+                        styleClass="fimesAlignLeft">
+                        <f:facet name="header">
+                          <h:outputText styleClass="headerText"
+                            value="#{nabKontaController.module.messageSource.nabKontoNaziv}" />
+                        </f:facet>
+                        <h:outputText value="#{konto.naziv}"></h:outputText>
+                      </rich:column>
+                    </rich:extendedDataTable>
+                  </h:panelGroup>
+                </rich:layoutPanel>
+              </rich:layout>
+            </a4j:region>
+          </h:form>
+        </rich:panel>
+      </ui:define>
+    </ui:composition>
+  </f:view>
+</body>
+</html>

@@ -46,8 +46,9 @@
                       value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaVrstaPredmeta}" />
                     <h:panelGrid columns="1" styleClass="alignCenter"
                       width="100%">
-                      <h:selectOneMenu id="selectOneXnabVrstaPredmetaNabavke"
-                        tabindex="1"  style="width: 200px;"
+                      <h:selectOneMenu
+                        id="selectOneXnabVrstaPredmetaNabavke"
+                        tabindex="1" style="width: 200px;"
                         styleClass="fimesInputDropDown"
                         value="#{nabNovaNabavkaController.vrstaPredmetaNabavke}">
                         <f:selectItems
@@ -131,6 +132,22 @@
                 </h:panelGrid>
               </h:panelGroup>
             </a4j:region>
+            <rich:spacer height="10" />
+            <rich:tabPanel switchType="ajax" id="tabPanel">
+
+              <rich:tab id="tab1VrednostPoGodinama" name="tab1VrednostPoGodinama"
+                ajaxSingle="true" label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaProcenjenaVrednost}" height="220px">
+              </rich:tab>
+              <rich:tab id="tab2Partije" name="tab2Partije"
+                ajaxSingle="true" label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaPartije}" height="220px">
+              </rich:tab>
+              <rich:tab id="tab3VrednostPoKontima" name="tab3VrednostPoKontima"
+                ajaxSingle="true" label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaPlaniranaVrednostPoKontima}" height="220px">
+              </rich:tab>
+              <rich:tab id="tab4Izmene" name="tab4Izmene"
+                ajaxSingle="true" label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaIzmeneNabavke}" height="220px">
+              </rich:tab>
+            </rich:tabPanel>
           </h:form>
         </rich:panel>
       </ui:define>
