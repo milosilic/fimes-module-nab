@@ -27,19 +27,29 @@
                     </h:panelGrid>
                   </h:panelGrid>
                   <h:panelGroup id="p1" layout="block">
-
+                    <a4j:jsFunction name="jsPretraga"
+                      action="#{nabKontoSelectionController.pretraga}"
+                      reRender="tabelaNabKonto" />
                     <rich:spacer height="20px" />
-                    <rich:extendedDataTable height="318px"
-                      rowClasses="redAnimacija" id="tabelaNabPlan"
+                    <rich:extendedDataTable height="427px" rows="15"
+                      rowClasses="redAnimacija" id="tabelaNabKonto"
                       enableContextMenu="false"
                       noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}"
-                      value="#{nabKontaController.listaKonta}"
+                      value="#{nabKontoSelectionController.xnabKontoExtendedDataTableModelApi}"
                       var="konto">
                       <rich:column id="idKontoTab" width="50%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
-                          <h:outputText styleClass="headerText"
-                            value="#{nabKontaController.module.messageSource.nabKontoPozicija}" />
+                          <h:panelGrid columns="1"
+                            styleClass="maxWidth fimesTableCentered fimesTableInput">
+                            <h:outputText styleClass="headerText"
+                              value="#{nabKontoSelectionController.module.messageSource.nabKontoPozicija}" />
+                            <h:inputText 
+                              id="pretragaKonto"  
+                              styleClass="fimesInputText" 
+                              onkeypress="if (event.keyCode == 13) {jsPretraga(); return false;}"
+                              value="#{nabKontoSelectionController.pretragaNaziv}"/>
+                          </h:panelGrid>
                         </f:facet>
                         <h:outputText value="#{konto.idKonto}"></h:outputText>
                       </rich:column>
@@ -47,10 +57,41 @@
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
                           <h:outputText styleClass="headerText"
-                            value="#{nabKontaController.module.messageSource.nabKontoNaziv}" />
+                            value="#{nabKontoSelectionController.module.messageSource.nabKontoNaziv}" />
                         </f:facet>
                         <h:outputText value="#{konto.naziv}"></h:outputText>
                       </rich:column>
+                  <f:facet name="footer">
+                    <h:panelGrid width="100%" columns="3"
+                      columnClasses="fimesDataTableFooterColumnLeft,fimesDataTableFooterColumnCenter,fimesDataTableFooterColumnRight">
+                      <h:panelGroup>
+                        <h:outputText
+                          value="#{nabKontoSelectionController.module.messageSource.commonUkupno}" />
+                        <h:outputText
+                          value="#{nabKontoSelectionController.xnabKontoExtendedDataTableModelApi.ukupnoRedova}">
+                          <f:convertNumber
+                            pattern="#{nabKontoSelectionController.module.application.numberFormatMask}"
+                            locale="#{nabKontoSelectionController.module.application.numberLocale}" />
+                        </h:outputText>
+                      </h:panelGroup>
+                      <h:panelGroup>
+                        <rich:datascroller for="tabelaNabKonto"
+                          ajaxSingle="true"
+                          action="#{nabKontoSelectionController.resetSelection}"
+                          renderIfSinglePage="false" fastStep="10">
+                          <f:facet name="next">
+                            <h:outputText value="&gt;" />
+                          </f:facet>
+                          <f:facet name="previous">
+                            <h:outputText value="&lt;" />
+                          </f:facet>
+                        </rich:datascroller>
+                      </h:panelGroup>
+                      <h:panelGroup>
+                      </h:panelGroup>
+                    </h:panelGrid>
+
+                  </f:facet>
                     </rich:extendedDataTable>
                   </h:panelGroup>
                 </rich:layoutPanel>

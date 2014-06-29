@@ -66,10 +66,11 @@
 		<property name="xnabTipNabavkeServiceApi" ref="xnabTipNabavkeServiceApi" />
 		<property name="xnabStatusNabavkeServiceApi" ref="xnabStatusNabavkeServiceApi" />
 	</bean>
-    <bean id="nabKontaController" class="rs.fimes.web.controller.nab.NabKontaController"
+    <bean id="nabKontoSelectionController" class="rs.fimes.web.controller.nab.NabKontoSelectionController"
         parent="nabBaseController" scope="session" lazy-init="true">
-        <constructor-arg value="nabKontaController"
+        <constructor-arg value="nabKontoSelectionController"
             type="java.lang.String" />
-        <property name="xnabKontoServiceApi" ref="xnabKontoServiceApi" />
+        <property name="xnabKontoExtendedDataTableModelApi" ref="xnabKontoExtendedDataTableModelApi" />
+        
     </bean>
 </beans>

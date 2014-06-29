@@ -9,7 +9,7 @@
   <persistence-context />
 
   <on-start>
-    <evaluate expression="nabKontaController.onStart()" />
+    <evaluate expression="nabKontoSelectionController.onStart()" />
   </on-start>
   
   <view-state id="nabKonta"

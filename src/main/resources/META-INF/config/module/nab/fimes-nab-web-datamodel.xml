@@ -8,4 +8,7 @@
   <bean id="nabPlanExtendedDataTableModelApi" class="rs.fimes.web.datamodel.impl.nab.NabPlanExtendedDataTableModelImpl" scope="session" lazy-init="true">
     <property name="dao" ref="nabPlanDAO" />
   </bean>
+  <bean id="xnabKontoExtendedDataTableModelApi" class="rs.fimes.web.datamodel.impl.nab.XnabKontoExtendedDataTableModelImpl" scope="session" lazy-init="true">
+    <property name="dao" ref="xnabKontoDAO" />
+  </bean>
 </beans>
