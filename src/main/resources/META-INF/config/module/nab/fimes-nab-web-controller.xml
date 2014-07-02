@@ -65,6 +65,7 @@
 		<property name="xnabPredmetNabavkeServiceApi" ref="xnabPredmetNabavkeServiceApi" />
 		<property name="xnabTipNabavkeServiceApi" ref="xnabTipNabavkeServiceApi" />
 		<property name="xnabStatusNabavkeServiceApi" ref="xnabStatusNabavkeServiceApi" />
+		<property name="nabJavnaNabavkaServiceApi" ref="nabJavnaNabavkaServiceApi" />
 	</bean>
     <bean id="nabKontoSelectionController" class="rs.fimes.web.controller.nab.NabKontoSelectionController"
         parent="nabBaseController" scope="session" lazy-init="true">

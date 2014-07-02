@@ -26,6 +26,7 @@
     <on-entry>
       <evaluate expression="nabNovaNabavkaController.onStart()" />
     </on-entry>
+    <transition on="nazad" to="nabavkeLista" />
   </view-state>  
   
 </flow>

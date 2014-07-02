@@ -1,0 +1,32 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:a4j="http://richfaces.org/a4j"
+  xmlns:rich="http://richfaces.org/rich">
+
+  <rich:modalPanel id="nabProcenjenaVrednostUnosModalPanel" minWidth="600"
+    autosized="true" resizeable="false" moveable="true">
+    <f:facet name="header">
+      <h:outputText styleClass="fimesPanelHeader"
+        value="#{nabPlanController.module.messageSource.nabPlanoviNoviPlan}" />
+    </f:facet>
+    <h:form id="formNoviObjekat">
+
+
+      <a4j:commandButton id="nabProcenjenaVrednostModalPanelDugmePotvrdi"
+        styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"
+        value="#{nabNoviPlanController.module.messageSource.common_potvrdi}"
+        action="#{nabNoviPlanController.snimiNabPlan}"
+        oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabProcenjenaVrednostUnosModalPanel')}.hide();#{rich:component('coreOkModalPanel')}.show();}"
+        reRender="tabelaNabPlan,coreOkModalPanel" />
+      <rich:spacer width="5" />
+      <a4j:commandButton id="nabProcenjenaVrednostModalPanelDugmeOdustani"
+        styleClass="fimesButton fimesButtonImageCancel"
+        ajaxSingle="true" action="#{nabNoviPlanController.resetForm}"
+        value="#{nabNoviPlanController.module.messageSource.common_odustani}"
+        immediate="true"
+        onclick="#{rich:component('nabProcenjenaVrednostUnosModalPanel')}.hide()" />
+    </h:form>
+  </rich:modalPanel>
+</ui:composition>

@@ -28,15 +28,35 @@ public class NabWebController extends BaseWebController {
     private static final long serialVersionUID = -4708362441986936471L;
     
     private WebComponent nabNoviPlanModalPanel;
+    private WebComponent nabProcenjenaVrednostUnosModalPanel;
     
     public String getNabNoviPlanModalPanelView(){
         try {
             return getNavigationUtil().getView("nabNoviPlanModalPanel");
         } catch (CommonWebException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
             return "null";
         }
+    }
+    
+    public String getNabProcenjenaVrednostUnosModalPanelView(){
+        try {
+            return getNavigationUtil().getView("nabProcenjenaVrednostUnosModalPanel");
+        } catch (CommonWebException e) {
+          
+            e.printStackTrace();
+            return "null";
+        }
+    }
+
+    public WebComponent getNabProcenjenaVrednostUnosModalPanel() {
+        return nabProcenjenaVrednostUnosModalPanel;
+    }
+
+    public void setNabProcenjenaVrednostUnosModalPanel(
+            WebComponent nabProcenjenaVrednostUnosModalPanel) {
+        this.nabProcenjenaVrednostUnosModalPanel = nabProcenjenaVrednostUnosModalPanel;
     }
     
     

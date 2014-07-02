@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.faces.component.UIComponent;
+import javax.faces.component.UIInput;
 import javax.faces.component.html.HtmlForm;
 import javax.faces.model.SelectItem;
 
@@ -20,6 +21,7 @@ import rs.fimes.domain.nab.XnabTipNabavke;
 import rs.fimes.domain.nab.XnabVrstaPostupka;
 import rs.fimes.domain.nab.XnabVrstaPredmetaNabavke;
 import rs.fimes.service.api.core.UsrKorisnikServiceApi;
+import rs.fimes.service.api.nab.NabJavnaNabavkaServiceApi;
 import rs.fimes.service.api.nab.NabNaruciociServiceApi;
 import rs.fimes.service.api.nab.NabPlanServiceApi;
 import rs.fimes.service.api.nab.XnabPredmetNabavkeServiceApi;
@@ -47,7 +49,7 @@ public class NabNovaNabavkaController extends BaseController{
     private XnabVrstaPostupkaServiceApi xnabVrstaPostupkaServiceApi;
     private Integer idVrstaPostupka;
     
-    private ArrayList<SelectItem> xnabPredmetNabavkeSelectionItems;
+    private List<SelectItem> xnabPredmetNabavkeSelectionItems;
     private XnabPredmetNabavkeServiceApi xnabPredmetNabavkeServiceApi;
     private Integer idPredmetNabavke;
     private NabJavnaNabavka novaNabavka;
@@ -63,7 +65,17 @@ public class NabNovaNabavkaController extends BaseController{
     
     private ArrayList<SelectItem> xnabStatusNabavkeSelectionItems;
     private XnabStatusNabavkeServiceApi xnabStatusNabavkeServiceApi;
+    
+    //29.06.2014
+    //dodata funkcija initNovaProcenjenaVrednost, vidi da li da je premestiš u neki sub kontroler
 
+    //30.06.2014
+    //dodat property nabJavnaNabavkaServiceApi, da bih mogao da sačuvam nabavku
+    private NabJavnaNabavkaServiceApi nabJavnaNabavkaServiceApi;
+    
+    //01.07.2014.
+    private UIInput inputPredmetNabavke;
+    
     //@TODO skloni ove objekte iz kontrolera, kada rešiš gde se pamte (nab_javna_nabavka)
     private XnabTipNabavke tipNabavke;
     private XnabStatusNabavke statusNabavke;
@@ -102,8 +114,8 @@ public class NabNovaNabavkaController extends BaseController{
         Iterator<XnabVrstaPostupka> iterXnabVrstaPostupka = xnabVrstaPostupkas.iterator();
         while ( iterXnabVrstaPostupka.hasNext()){
             XnabVrstaPostupka xnabVrstaPostupka = (XnabVrstaPostupka) iterXnabVrstaPostupka.next();
-            System.out.println( xnabVrstaPostupka.getNaziv());
-            System.out.println( xnabVrstaPostupka.getPrimaryKey());
+//            System.out.println( xnabVrstaPostupka.getNaziv());
+//            System.out.println( xnabVrstaPostupka.getPrimaryKey());
             xnabVrstaPostupkaSelectionItems.add(new SelectItem( xnabVrstaPostupka.getPrimaryKey(), String.valueOf( xnabVrstaPostupka.getNaziv())));
          }
         xnabPredmetNabavkeSelectionItems = new ArrayList<SelectItem>();
@@ -111,15 +123,16 @@ public class NabNovaNabavkaController extends BaseController{
         Iterator<XnabPredmetNabavke> iterXnabPredmetNabavke = xnabPredmetNabavkes.iterator();
         while ( iterXnabPredmetNabavke.hasNext()){
             XnabPredmetNabavke xnabPredmetNabavke = (XnabPredmetNabavke) iterXnabPredmetNabavke.next();
-            System.out.println( xnabPredmetNabavke);
-            xnabPredmetNabavkeSelectionItems.add(new SelectItem( xnabPredmetNabavke.getPrimaryKey(), String.valueOf( xnabPredmetNabavke.getNaziv())));
+           
+            xnabPredmetNabavkeSelectionItems.add(new SelectItem( xnabPredmetNabavke.getIdPredmetNabavke(),  xnabPredmetNabavke.getNaziv()));
          }
+//        System.out.println( xnabPredmetNabavkeSelectionItems);
         xnabTipNabavkeSelectionItems = new ArrayList<SelectItem>();
         List<XnabTipNabavke> xnabTipNabavkes = xnabTipNabavkeServiceApi.getAllTipNabavke();
         Iterator<XnabTipNabavke> iterXnabTipNabavke = xnabTipNabavkes.iterator();
         while ( iterXnabTipNabavke.hasNext()){
             XnabTipNabavke xnabTipNabavke = (XnabTipNabavke) iterXnabTipNabavke.next();
-            System.out.println( xnabTipNabavke);
+//            System.out.println( xnabTipNabavke);
             xnabTipNabavkeSelectionItems.add(new SelectItem( xnabTipNabavke.getPrimaryKey(), String.valueOf( xnabTipNabavke.getNaziv())));
          }
         xnabStatusNabavkeSelectionItems = new ArrayList<SelectItem>();
@@ -127,14 +140,24 @@ public class NabNovaNabavkaController extends BaseController{
         Iterator<XnabStatusNabavke> iterXnabStatusNabavke = xnabStatusNabavkes.iterator();
         while ( iterXnabStatusNabavke.hasNext()){
             XnabStatusNabavke xnabStatusNabavke = (XnabStatusNabavke) iterXnabStatusNabavke.next();
-            System.out.println( xnabStatusNabavke);
+//            System.out.println( xnabStatusNabavke);
             xnabStatusNabavkeSelectionItems.add(new SelectItem( xnabStatusNabavke.getPrimaryKey(), String.valueOf( xnabStatusNabavke.getNaziv())));
          }   
         if ( orgFirma == null ) {
             setOrgFirma(nabNaruciociServiceApi.getActiveOrgFirma(getUserSessionUtil().getCurrentUserCurrentOrgFirma().getIdFirma()));
           }
              
-    }    
+    }   
+    
+    public void initNovaProcenjenaVrednost(){
+        System.out.println("initNovaProcenjenaVrednost");
+    }
+    
+    public void snimiNabavku(){
+        System.out.println("Ovde ide kood za snimanje nabavke i sve propratno sa tim: " + predmetNabavke.getIdPredmetNabavke());
+        
+        nabJavnaNabavkaServiceApi.createNabJavnaNabavka( novaNabavka);
+    }
    
 
     public NabPlanServiceApi getNabPlanServiceApi() {
@@ -228,12 +251,12 @@ public class NabNovaNabavkaController extends BaseController{
         this.idVrstaPostupka = idVrstaPostupka;
     }
 
-    public ArrayList<SelectItem> getXnabPredmetNabavkeSelectionItems() {
+    public List<SelectItem> getXnabPredmetNabavkeSelectionItems() {
         return xnabPredmetNabavkeSelectionItems;
     }
 
     public void setXnabPredmetNabavkeSelectionItems(
-            ArrayList<SelectItem> xnabPredmetNabavkeSelectionItems) {
+            List<SelectItem> xnabPredmetNabavkeSelectionItems) {
         this.xnabPredmetNabavkeSelectionItems = xnabPredmetNabavkeSelectionItems;
     }
 
@@ -251,6 +274,7 @@ public class NabNovaNabavkaController extends BaseController{
     }
 
     public void setIdPredmetNabavke(Integer idPredmetNabavke) {
+        System.out.println( "**************************  : aaaaaaaaaaaa"  + idPredmetNabavke );
         this.idPredmetNabavke = idPredmetNabavke;
     }
 
@@ -276,6 +300,14 @@ public class NabNovaNabavkaController extends BaseController{
 
     public void setPredmetNabavke(XnabPredmetNabavke predmetNabavke) {
         this.predmetNabavke = predmetNabavke;
+    }
+
+    public UIInput getInputPredmetNabavke() {
+        return inputPredmetNabavke;
+    }
+
+    public void setInputPredmetNabavke(UIInput inputPredmetNabavke) {
+        this.inputPredmetNabavke = inputPredmetNabavke;
     }
 
     public ArrayList<SelectItem> getXnabTipNabavkeSelectionItems() {
@@ -330,6 +362,15 @@ public class NabNovaNabavkaController extends BaseController{
 
     public void setStatusNabavke(XnabStatusNabavke statusNabavke) {
         this.statusNabavke = statusNabavke;
+    }
+
+    public NabJavnaNabavkaServiceApi getNabJavnaNabavkaServiceApi() {
+        return nabJavnaNabavkaServiceApi;
+    }
+
+    public void setNabJavnaNabavkaServiceApi(
+            NabJavnaNabavkaServiceApi nabJavnaNabavkaServiceApi) {
+        this.nabJavnaNabavkaServiceApi = nabJavnaNabavkaServiceApi;
     }
     
 

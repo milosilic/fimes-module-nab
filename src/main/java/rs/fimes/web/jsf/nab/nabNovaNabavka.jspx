@@ -20,136 +20,405 @@
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaHeader}" />
           </h:panelGrid>
           <h:form>
-            <a4j:region>
-              <h:panelGroup id="kartonBody" styleClass="fimesZrdBody">
-                <h:panelGrid id="tabelaObjObjekat"
-                  styleClass="objKartonTab" columns="2" width="100%"
-                  columnClasses="fimesTable2ColumnWidthEqual,fimesTable2ColumnWidthEqual"
-                  rowClasses="redPanelGrid">
-                  <h:panelGrid columns="2"
-                    styleClass="fimesInputGroup fimesTableCentered maxWidth"
-                    columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField"
-                    cellspacing="10px">
-                    <h:outputLabel styleClass="fimesLabelLeft"
-                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaOpisPredmetaNabavke}" />
-                    <h:inputText styleClass="fimesInputText maxWidth" />
-                    <h:outputLabel styleClass="fimesLabelLeft"
-                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaInterniBroj}" />
-                    <h:inputText styleClass="fimesInputText maxWidth" />
-                    <h:outputLabel styleClass="fimesLabelLeft"
-                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaUkupnaBezPdv}" />
-                    <h:inputText styleClass="fimesInputText maxWidth" />
-                    <h:outputLabel styleClass="fimesLabelLeft"
-                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaUkupnaSaPdv}" />
-                    <h:inputText styleClass="fimesInputText maxWidth" />
-                    <h:outputLabel styleClass="fimesLabelLeft"
-                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaVrstaPredmeta}" />
-                    <h:panelGrid columns="1" styleClass="alignCenter"
-                      width="100%">
-                      <h:selectOneMenu
-                        id="selectOneXnabVrstaPredmetaNabavke"
-                        tabindex="1" style="width: 200px;"
-                        styleClass="fimesInputDropDown"
-                        value="#{nabNovaNabavkaController.vrstaPredmetaNabavke}">
-                        <f:selectItems
-                          value="#{nabNovaNabavkaController.xnabVrstaPredmetaNabavkeSelectionItems}" />
-                      </h:selectOneMenu>
-                    </h:panelGrid>
-                    <h:outputLabel styleClass="fimesLabelLeft"
-                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaPredmetNabavke}" />
-                    <h:panelGrid columns="1" styleClass="alignCenter"
-                      width="100%">
-                      <h:selectOneMenu id="selectOneXnabPredmetNabavke"
-                        tabindex="1" style="width: 200px;"
-                        styleClass="fimesInputDropDown"
-                        value="#{nabNovaNabavkaController.predmetNabavke}">
-                        <f:selectItems
-                          value="#{nabNovaNabavkaController.xnabPredmetNabavkeSelectionItems}" />
-                      </h:selectOneMenu>
-                    </h:panelGrid>
 
-                    <h:outputLabel styleClass="fimesLabelLeft"
-                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaVrstaPostupka}" />
-                    <h:panelGrid columns="1" styleClass="alignCenter"
-                      width="100%">
-                      <h:selectOneMenu id="selectOneXnabVrstaPostupka"
-                        tabindex="1" style="width: 200px;"
-                        styleClass="fimesInputDropDown"
-                        value="#{nabNovaNabavkaController.novaNabavka.vrstaPostupka}">
-                        <f:selectItems
-                          value="#{nabNovaNabavkaController.xnabVrstaPostupkaSelectionItems}" />
-                      </h:selectOneMenu>
-                    </h:panelGrid>
-                    <h:outputLabel styleClass="fimesLabelLeft"
-                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaOpravdanostNabavke}" />
-                    <h:inputText styleClass="fimesInputText maxWidth" />
-                    <h:outputLabel styleClass="fimesLabelLeft"
-                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNacinProceneVrednosti}" />
-                    <h:inputText styleClass="fimesInputText maxWidth" />
-                    <h:outputLabel styleClass="fimesLabelLeft"
-                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNapomenaZaPostupak}" />
-                    <h:inputText styleClass="fimesInputText maxWidth" />
-                  </h:panelGrid>
-                  <h:panelGrid columns="2"
-                    styleClass="fimesInputGroup fimesTableCentered maxWidth"
-                    columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField"
-                    cellspacing="10px">
-                    <h:outputLabel styleClass="fimesLabelLeft"
-                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaStatusNabavke}" />
-                    <h:panelGrid columns="1" styleClass="alignCenter"
-                      width="100%">
-                      <h:selectOneMenu id="selectOneXnabStatusPredmeta"
-                        tabindex="1" style="width: 200px;"
-                        styleClass="fimesInputDropDown"
-                        value="#{nabNovaNabavkaController.novaNabavka.statusNabavke}">
-                        <f:selectItems
-                          value="#{nabNovaNabavkaController.xnabStatusNabavkeSelectionItems}" />
-                      </h:selectOneMenu>
-                    </h:panelGrid>
-                    <h:outputLabel styleClass="fimesLabelLeft"
-                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecPokretanja}" />
-                    <h:inputText styleClass="fimesInputText maxWidth" />
-                    <h:outputLabel styleClass="fimesLabelLeft"
-                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecZakljucenja}" />
-                    <h:inputText styleClass="fimesInputText maxWidth" />
-                    <h:outputLabel styleClass="fimesLabelLeft"
-                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecIzvrsenja}" />
-                    <h:inputText styleClass="fimesInputText maxWidth" />
-                    <h:outputLabel styleClass="fimesLabelLeft"
-                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
-                    <h:panelGrid columns="1" styleClass="alignCenter"
-                      width="100%">
-                      <h:selectOneMenu id="selectOneXnabTipPredmeta"
-                        tabindex="1" style="width: 200px;"
-                        styleClass="fimesInputDropDown"
-                        value="#{nabNovaNabavkaController.novaNabavka.tipNabavke}">
-                        <f:selectItems
-                          value="#{nabNovaNabavkaController.xnabTipNabavkeSelectionItems}" />
-                      </h:selectOneMenu>
-                    </h:panelGrid>
-
-                  </h:panelGrid>
-                </h:panelGrid>
-              </h:panelGroup>
-            </a4j:region>
             <rich:spacer height="10" />
             <rich:tabPanel switchType="ajax" id="tabPanel">
+              <rich:tab id="tab1OsnovniPodaci" name="tab1Osnovni podaci"
+                ajaxSingle="true"
+                label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaOsnovniPodaci}"
+                height="220px">
+                <a4j:region>
+                  <h:panelGroup id="kartonBody"
+                    styleClass="fimesZrdBody">
+                    <h:panelGrid id="tabelaObjObjekat"
+                      styleClass="objKartonTab" columns="2" width="100%"
+                      columnClasses="fimesTable2ColumnWidthEqual,fimesTable2ColumnWidthEqual"
+                      rowClasses="redPanelGrid">
+                      <h:panelGrid columns="2"
+                        styleClass="fimesInputGroup fimesTableCentered maxWidth"
+                        columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField"
+                        cellspacing="10px">
+                        <h:outputLabel styleClass="fimesLabelLeft"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaOpisPredmetaNabavke}" />
+                        <h:inputText
+                          styleClass="fimesInputText maxWidth" />
+                        <h:outputLabel styleClass="fimesLabelLeft"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaInterniBroj}" />
+                        <h:inputText
+                          styleClass="fimesInputText maxWidth" />
+                        <h:outputLabel styleClass="fimesLabelLeft"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaUkupnaBezPdv}" />
+                        <h:inputText
+                          styleClass="fimesInputText maxWidth" />
+                        <h:outputLabel styleClass="fimesLabelLeft"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaUkupnaSaPdv}" />
+                        <h:inputText
+                          styleClass="fimesInputText maxWidth" />
+                        <h:outputLabel styleClass="fimesLabelLeft"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaVrstaPredmeta}" />
+                        <h:panelGrid columns="1"
+                          styleClass="alignCenter" width="100%">
+                          <h:selectOneMenu
+                            id="selectOneXnabVrstaPredmetaNabavke"
+                            tabindex="1" style="width: 200px;"
+                            styleClass="fimesInputDropDown"
+                            value="#{nabNovaNabavkaController.vrstaPredmetaNabavke}">
+                            <f:selectItems value="#{nabNovaNabavkaController.xnabVrstaPredmetaNabavkeSelectionItems}" />
+                          </h:selectOneMenu>
+                        </h:panelGrid>
+                        <h:outputLabel styleClass="fimesLabelLeft"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaPredmetNabavke}" />
+                        <h:panelGrid columns="1"
+                          styleClass="alignCenter" width="100%">
+                          <h:selectOneMenu
+                            id="selectOneXnabPredmetNabavke"
+                            tabindex="1" style="width: 200px;"
+                            styleClass="fimesInputDropDown"
+                            value="#{nabNovaNabavkaController.predmetNabavke.idPredmetNabavke}">
+                            <f:selectItems value="#{nabNovaNabavkaController.xnabPredmetNabavkeSelectionItems}" />
+                          </h:selectOneMenu>
+                        </h:panelGrid>
 
-              <rich:tab id="tab1VrednostPoGodinama" name="tab1VrednostPoGodinama"
-                ajaxSingle="true" label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaProcenjenaVrednost}" height="220px">
+                        <h:outputLabel styleClass="fimesLabelLeft"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaVrstaPostupka}" />
+                        <h:panelGrid columns="1"
+                          styleClass="alignCenter" width="100%">
+                          <h:selectOneMenu
+                            id="selectOneXnabVrstaPostupka" tabindex="1"
+                            style="width: 200px;"
+                            styleClass="fimesInputDropDown"
+                            value="#{nabNovaNabavkaController.novaNabavka.vrstaPostupka}">
+                            <f:selectItems
+                              value="#{nabNovaNabavkaController.xnabVrstaPostupkaSelectionItems}" />
+                          </h:selectOneMenu>
+                        </h:panelGrid>
+                        <h:outputLabel styleClass="fimesLabelLeft"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaOpravdanostNabavke}" />
+                        <h:inputText
+                          styleClass="fimesInputText maxWidth" />
+                        <h:outputLabel styleClass="fimesLabelLeft"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNacinProceneVrednosti}" />
+                        <h:inputText
+                          styleClass="fimesInputText maxWidth" />
+                        <h:outputLabel styleClass="fimesLabelLeft"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNapomenaZaPostupak}" />
+                        <h:inputText
+                          styleClass="fimesInputText maxWidth" />
+                      </h:panelGrid>
+                      <h:panelGrid columns="2"
+                        styleClass="fimesInputGroup fimesTableCentered maxWidth"
+                        columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField"
+                        cellspacing="10px">
+                        <h:outputLabel styleClass="fimesLabelLeft"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaStatusNabavke}" />
+                        <h:panelGrid columns="1"
+                          styleClass="alignCenter" width="100%">
+                          <h:selectOneMenu
+                            id="selectOneXnabStatusPredmeta"
+                            tabindex="1" style="width: 200px;"
+                            styleClass="fimesInputDropDown"
+                            value="#{nabNovaNabavkaController.novaNabavka.statusNabavke}">
+                            <f:selectItems
+                              value="#{nabNovaNabavkaController.xnabStatusNabavkeSelectionItems}" />
+                          </h:selectOneMenu>
+                        </h:panelGrid>
+                        <h:outputLabel styleClass="fimesLabelLeft"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecPokretanja}" />
+                        <h:inputText
+                          styleClass="fimesInputText maxWidth" />
+                        <h:outputLabel styleClass="fimesLabelLeft"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecZakljucenja}" />
+                        <h:inputText
+                          styleClass="fimesInputText maxWidth" />
+                        <h:outputLabel styleClass="fimesLabelLeft"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecIzvrsenja}" />
+                        <h:inputText
+                          styleClass="fimesInputText maxWidth" />
+                        <h:outputLabel styleClass="fimesLabelLeft"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
+                        <h:panelGrid columns="1"
+                          styleClass="alignCenter" width="100%">
+                          <h:selectOneMenu id="selectOneXnabTipPredmeta"
+                            tabindex="1" style="width: 200px;"
+                            styleClass="fimesInputDropDown"
+                            value="#{nabNovaNabavkaController.novaNabavka.tipNabavke}">
+                            <f:selectItems
+                              value="#{nabNovaNabavkaController.xnabTipNabavkeSelectionItems}" />
+                          </h:selectOneMenu>
+                        </h:panelGrid>
+
+                      </h:panelGrid>
+<!--                       OVO OVDE PREKONTROLISATI DO KRAJA FACET-a -->
+                      <f:facet name="footer">
+                        <h:panelGroup layout="block"
+                          styleClass="fimesAlignCenter">
+<!--                           po uzoru na acZvanjeUnosModalPanel.jspx -->
+                          <a4j:commandButton ajaxSingle="true"
+                            id="nabNabavkaSaveButton"
+                            action="#{nabNovaNabavkaController.snimiNabavku}"
+                         
+                            styleClass="fimesButton  fimesButtonSubmit fimesButtonImageOk"
+                            value="#{objKartonObjektaController.module.messageSource.common_potvrdi}" />
+                          <rich:spacer width="5px" />
+                          <a4j:commandButton ajaxSingle="true"
+                            id="tabelaObjObjekatBrisanje"
+                            action="#{objKartonObjektaController.initModalDialogBrisanje}"
+                            oncomplete="#{rich:component('coreModalDaNeDijalog')}.show()"
+                            reRender="coreModalDaNeDijalog"
+                            styleClass="fimesButton"
+                            value="#{objKartonObjektaController.module.messageSource.objKartonBrisanjeObjekta}" />
+                          <rich:spacer width="5px" />
+                          <a4j:commandButton styleClass="fimesButton"
+                            action="#{objKartonObjektaController.azurirajObjekat}"
+                            oncomplete="#{rich:component('objNoviObjekatModalPanel')}.show()"
+                            reRender="objNoviObjekatModalPanel"
+                            value="#{objKartonObjektaController.module.messageSource.objKartonAzuriranjeObjekta}" />
+                          <rich:spacer width="5px" />
+                          <a4j:commandButton id="objNoviObjekat"
+                            value="#{objKartonObjektaController.module.messageSource.objKartonNoviObjekat}"
+                            ajaxSingle="true" styleClass="fimesButton"
+                            action="#{objKartonObjektaController.noviObjekat}"
+                            oncomplete="#{rich:component('objNoviObjekatModalPanel')}.show()"
+                            reRender="objNoviObjekatModalPanel">
+                            <f:setPropertyActionListener
+                              value="#{false}"
+                              target="#{objKartonObjektaController.kopirajPodatke}" />
+                          </a4j:commandButton>
+                          <rich:spacer width="5px" />
+                          <a4j:commandButton ajaxSingle="true"
+                            id="tabelaObjEvidencijaKopiranje"
+                            value="#{objKartonObjektaController.module.messageSource.objKartonKopiranjeObjekta}"
+                            action="#{objKartonObjektaController.noviObjekat}"
+                            oncomplete="#{rich:component('objNoviObjekatModalPanel')}.show()"
+                            reRender="objNoviObjekatModalPanel"
+                            styleClass="fimesButton">
+                            <f:setPropertyActionListener value="#{true}"
+                              target="#{objKartonObjektaController.kopirajPodatke}" />
+                          </a4j:commandButton>
+                        </h:panelGroup>
+                      </f:facet>
+                    </h:panelGrid>
+                  </h:panelGroup>
+                </a4j:region>
               </rich:tab>
-              <rich:tab id="tab2Partije" name="tab2Partije"
-                ajaxSingle="true" label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaPartije}" height="220px">
+              <rich:tab id="tab2VrednostPoGodinama"
+                name="tab2VrednostPoGodinama" ajaxSingle="true"
+                label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaProcenjenaVrednost}">
+                <rich:extendedDataTable height="427px" rows="15"
+                  rowClasses="redAnimacija"
+                  id="tabelaVrednostPoGodinama"
+                  enableContextMenu="false"
+                  noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}"
+                  var="konto">
+                  <rich:column width="6%"
+                    styleClass="fimesAlignCenter noPadding">
+
+                    <a4j:commandButton ajaxSingle="true"
+                      status="waitStatus" id="tabelaAcZvanjeBrisanje"
+                      action="nazad" styleClass="fimesButtonImageCross"
+                      reRender="coreModalDaNeDijalog,coreErrorModalPanel">
+                      <!--                         <f:setPropertyActionListener
+                          value="#{_acZvanje}" 
+                           target="#{acEvidencijaZvanjaSelectionController.acZvanje}" />  -->
+                    </a4j:commandButton>
+
+                    <rich:toolTip for="tabelaAcZvanjeBrisanje"
+                      value="#{acEvidencijaZvanjaSelectionController.module.messageSource.acEvidencijaZvanjaSelectionControllerBrisanjeToolTip}"
+                      direction="top-right" showDelay="500" />
+                  </rich:column>
+                  <rich:column id="idVrednostPoGodinamaGodinaTab"
+                    width="8%" styleClass="fimesAlignLeft">
+                    <f:facet name="header">
+                      <h:panelGrid columns="1"
+                        styleClass="maxWidth fimesTableCentered fimesTableInput">
+                        <h:outputText styleClass="headerText"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaGodina}" />
+                      </h:panelGrid>
+                    </f:facet>
+                    <h:outputText value="stavi nešto"></h:outputText>
+                  </rich:column>
+                  <rich:column id="idVrednostPoGodinamaProcenaBezPdvTab"
+                    width="20%" styleClass="fimesAlignLeft">
+                    <f:facet name="header">
+                      <h:panelGrid columns="1"
+                        styleClass="maxWidth fimesTableCentered fimesTableInput">
+                        <h:outputText styleClass="headerText"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaBezPdv}" />
+                      </h:panelGrid>
+                    </f:facet>
+                    <h:outputText value="stavi nešto"></h:outputText>
+                  </rich:column>
+                  <rich:column id="idVrednostPoGodinamaProcenaSaPdvTab"
+                    width="20%" styleClass="fimesAlignLeft">
+                    <f:facet name="header">
+                      <h:panelGrid columns="1"
+                        styleClass="maxWidth fimesTableCentered fimesTableInput">
+                        <h:outputText styleClass="headerText"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaSaPdv}" />
+                      </h:panelGrid>
+                    </f:facet>
+                    <h:outputText value="stavi nešto"></h:outputText>
+                  </rich:column>
+                  <rich:column id="idVrednostPoGodinamaVezaSaPlanomTab"
+                    width="20%" styleClass="fimesAlignLeft">
+                    <f:facet name="header">
+                      <h:panelGrid columns="1"
+                        styleClass="maxWidth fimesTableCentered fimesTableInput">
+                        <h:outputText styleClass="headerText"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaVezaSaPlanom}" />
+                      </h:panelGrid>
+                    </f:facet>
+                    <h:outputText value="stavi nešto"></h:outputText>
+                  </rich:column>
+                  <rich:column id="idVrednostPoGodinamaNapomenaTab"
+                    width="20%" styleClass="fimesAlignLeft">
+                    <f:facet name="header">
+                      <h:panelGrid columns="1"
+                        styleClass="maxWidth fimesTableCentered fimesTableInput">
+                        <h:outputText styleClass="headerText"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNapomena}" />
+                      </h:panelGrid>
+                    </f:facet>
+                    <h:outputText value="stavi nešto"></h:outputText>
+                  </rich:column>
+                  <rich:column width="6%"
+                    styleClass="fimesAlignCenter noPadding">
+                    <f:facet name="header">
+
+                      <h:panelGroup>
+                        <a4j:commandButton ajaxSingle="true"
+                          id="dugmeNovaNabProcenjenaVrednost"
+                          status="waitStatus"
+                          action="#{nabNovaNabavkaController.initNovaProcenjenaVrednost}"
+                          oncomplete="#{rich:component('nabProcenjenaVrednostUnosModalPanel')}.show();"
+                          styleClass="fimesButtonImageAdd"
+                          reRender="nabProcenjenaVrednostUnosModalPanel" />
+                      </h:panelGroup>
+                    </f:facet>
+
+                  </rich:column>
+                  <f:facet name="footer">
+                    <h:panelGrid width="100%" columns="3"
+                      columnClasses="fimesDataTableFooterColumnLeft,fimesDataTableFooterColumnCenter,fimesDataTableFooterColumnRight">
+                      <h:panelGroup>
+                        <h:outputText
+                          value="#{acEvidencijaZvanjaSelectionController.module.messageSource.commonUkupno}" />
+                      </h:panelGroup>
+                      <h:panelGroup>
+
+                      </h:panelGroup>
+                      <h:panelGroup>
+                      </h:panelGroup>
+                    </h:panelGrid>
+
+                  </f:facet>
+                </rich:extendedDataTable>
               </rich:tab>
-              <rich:tab id="tab3VrednostPoKontima" name="tab3VrednostPoKontima"
-                ajaxSingle="true" label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaPlaniranaVrednostPoKontima}" height="220px">
+              <rich:tab id="tab3Partije" name="tab3Partije"
+                ajaxSingle="true"
+                label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaPartije}"
+                height="220px">
+                <rich:extendedDataTable height="427px" rows="15"
+                  rowClasses="redAnimacija"
+                  id="tabelaVrednostPoGodinama"
+                  enableContextMenu="false"
+                  noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}"
+                  var="konto">
+                  <rich:column id="idPartijeRbTab" width="20%"
+                    styleClass="fimesAlignLeft">
+                    <f:facet name="header">
+                      <h:panelGrid columns="1"
+                        styleClass="maxWidth fimesTableCentered fimesTableInput">
+                        <h:outputText styleClass="headerText"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaListaRb}" />
+                      </h:panelGrid>
+                    </f:facet>
+                    <h:outputText value="stavi nešto"></h:outputText>
+                  </rich:column>
+                  <rich:column id="idVrednostPoGodinamaProcenaBezPdvTab"
+                    width="20%" styleClass="fimesAlignLeft">
+                    <f:facet name="header">
+                      <h:panelGrid columns="1"
+                        styleClass="maxWidth fimesTableCentered fimesTableInput">
+                        <h:outputText styleClass="headerText"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaNazivPartije}" />
+                      </h:panelGrid>
+                    </f:facet>
+                    <h:outputText value="stavi nešto"></h:outputText>
+                  </rich:column>
+                  <rich:column id="idVrednostPoGodinamaProcenaSaPdvTab"
+                    width="20%" styleClass="fimesAlignLeft">
+                    <f:facet name="header">
+                      <h:panelGrid columns="1"
+                        styleClass="maxWidth fimesTableCentered fimesTableInput">
+                        <h:outputText styleClass="headerText"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaBezPdv}" />
+                      </h:panelGrid>
+                    </f:facet>
+                    <h:outputText value="stavi nešto"></h:outputText>
+                  </rich:column>
+                  <rich:column id="idVrednostPoGodinamaVezaSaPlanomTab"
+                    width="20%" styleClass="fimesAlignLeft">
+                    <f:facet name="header">
+                      <h:panelGrid columns="1"
+                        styleClass="maxWidth fimesTableCentered fimesTableInput">
+                        <h:outputText styleClass="headerText"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaSaPdv}" />
+                      </h:panelGrid>
+                    </f:facet>
+                    <h:outputText value="stavi nešto"></h:outputText>
+                  </rich:column>
+                  <rich:column id="idVrednostPoGodinamaNapomenaTab"
+                    width="20%" styleClass="fimesAlignLeft">
+                    <f:facet name="header">
+                      <h:panelGrid columns="1"
+                        styleClass="maxWidth fimesTableCentered fimesTableInput">
+                        <h:outputText styleClass="headerText"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNapomena}" />
+                      </h:panelGrid>
+                    </f:facet>
+                    <h:outputText value="stavi nešto"></h:outputText>
+                  </rich:column>
+                </rich:extendedDataTable>
               </rich:tab>
-              <rich:tab id="tab4Izmene" name="tab4Izmene"
-                ajaxSingle="true" label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaIzmeneNabavke}" height="220px">
+              <rich:tab id="tab4VrednostPoKontima"
+                name="tab5VrednostPoKontima" ajaxSingle="true"
+                label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaPlaniranaVrednostPoKontima}"
+                height="220px">
+              </rich:tab>
+              <rich:tab id="tab5Izmene" name="tab5Izmene"
+                ajaxSingle="true"
+                label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaIzmeneNabavke}"
+                height="220px">
               </rich:tab>
             </rich:tabPanel>
+            <rich:layout>
+              <rich:layoutPanel position="bottom">
+                <rich:layoutPanel position="right">
+                  <h:commandButton styleClass="fimesButton"
+                    immediate="true"
+                    value="#{nabNovaNabavkaController.module.messageSource.common_nazad}"
+                    action="nazad" />
+                  <h:commandButton styleClass="fimesButton"
+                    immediate="true"
+                    value="#{nabNovaNabavkaController.module.messageSource.common_izlaz}"
+                    action="meni" />
+                </rich:layoutPanel>
+              </rich:layoutPanel>
+            </rich:layout>
+            <a4j:include
+              viewId="#{coreWebController.coreModalOkDijalogView}" />
+            <a4j:include
+              viewId="#{coreWebController.coreModalErrorDijalogView}" />
           </h:form>
         </rich:panel>
+        <a4j:include
+          viewId="#{nabWebController.nabProcenjenaVrednostUnosModalPanelView}" />
+        <a4j:include
+          viewId="#{coreWebController.ajaxStatusModalPanelView}" />
+        <a4j:status id="waitStatus"
+          onstart="#{rich:component('ajaxStatusModalPanel')}.show()"
+          onstop="#{rich:component('ajaxStatusModalPanel')}.hide()" />
       </ui:define>
     </ui:composition>
   </f:view>
