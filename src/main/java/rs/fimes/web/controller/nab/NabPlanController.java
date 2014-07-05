@@ -16,6 +16,7 @@ public class NabPlanController extends BaseController{
     private OrgFirma orgFirma;
     private NabPlanExtendedDataTableModelApi nabPlanExtendedDataTableModelApi;
     private NabPlan nabPlanSelected;
+    
 
     private static final long serialVersionUID = -788600541631559492L;
 
@@ -69,6 +70,7 @@ public class NabPlanController extends BaseController{
     }
 
     public NabPlan getNabPlanSelected() {
+        System.out.println( "selektovao si plan : " + nabPlanSelected);
         return nabPlanSelected;
     }
 

@@ -85,6 +85,11 @@ public class NabNovaNabavkaController extends BaseController{
     //03.07.2014.
     private XnabVrstaPostupka vrstaPostupka;
     
+    //05.07.2014.
+    //ovde se smešta iz nabPlan kontrolera plan za koje se odnose ove nabavke
+    //ako ne treba ukloni
+    private NabPlan nabPlan;
+    
     private static final long serialVersionUID = -788600541631559492L;
 
     public NabNovaNabavkaController(Module module, String controllerId)
@@ -169,8 +174,7 @@ public class NabNovaNabavkaController extends BaseController{
         novaNabavka.setVrstaPostupka(vrstaPostupka);
         novaNabavka.setStatusNabavke(statusNabavke);
         novaNabavka.setTipNabavke(tipNabavke);
-        NabPlan nabPlan = new NabPlan();
-        nabPlan.setIdPlan(idPlan);
+
         novaNabavka.setNabPlan(nabPlan);
         nabJavnaNabavkaServiceApi.createNabJavnaNabavka( novaNabavka);
     }
@@ -395,6 +399,14 @@ public class NabNovaNabavkaController extends BaseController{
     public void setNabJavnaNabavkaServiceApi(
             NabJavnaNabavkaServiceApi nabJavnaNabavkaServiceApi) {
         this.nabJavnaNabavkaServiceApi = nabJavnaNabavkaServiceApi;
+    }
+
+    public NabPlan getNabPlan() {
+        return nabPlan;
+    }
+
+    public void setNabPlan(NabPlan nabPlan) {
+        this.nabPlan = nabPlan;
     }
     
 

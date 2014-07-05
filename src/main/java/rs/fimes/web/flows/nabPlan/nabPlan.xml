@@ -24,6 +24,9 @@
   </view-state>
   <view-state id="novaNabavka" view="/rs/fimes/web/jsf/nab/nabNovaNabavka.jspx">
     <on-entry>
+            <evaluate
+        expression="nabPlanController.getNabPlanSelected()"
+        result="nabNovaNabavkaController.nabPlan" />
       <evaluate expression="nabNovaNabavkaController.onStart()" />
     </on-entry>
     <transition on="nazad" to="nabavkeLista" />
