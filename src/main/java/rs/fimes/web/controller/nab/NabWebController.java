@@ -7,7 +7,16 @@ import rs.etf.rc.common.web.exception.CommonWebException;
 import rs.fimes.web.controller.BaseWebController;
 
 public class NabWebController extends BaseWebController {
-
+    
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -4708362441986936471L;
+    
+    private WebComponent nabNoviPlanModalPanel;
+    private WebComponent nabProcenjenaVrednostUnosModalPanel;
+    private WebComponent nabNovaNabavkaModalPanel;
+    
     public NabWebController(Module module, String shortId)
             throws ConfigurationException {
         super(module, shortId);
@@ -21,14 +30,6 @@ public class NabWebController extends BaseWebController {
     public void setNabNoviPlanModalPanel(WebComponent nabNoviPlanModalPanel) {
         this.nabNoviPlanModalPanel = nabNoviPlanModalPanel;
     }
-
-    /**
-     * 
-     */
-    private static final long serialVersionUID = -4708362441986936471L;
-    
-    private WebComponent nabNoviPlanModalPanel;
-    private WebComponent nabProcenjenaVrednostUnosModalPanel;
     
     public String getNabNoviPlanModalPanelView(){
         try {
@@ -49,6 +50,17 @@ public class NabWebController extends BaseWebController {
             return "null";
         }
     }
+    
+    public String getNabNovaNabavkaModalPanelView(){
+        try {
+            return getNavigationUtil().getView("nabNovaNabavkaModalPanel");
+        } catch (CommonWebException e) {
+          
+            e.printStackTrace();
+            return "null";
+        }
+        
+    }
 
     public WebComponent getNabProcenjenaVrednostUnosModalPanel() {
         return nabProcenjenaVrednostUnosModalPanel;
@@ -57,6 +69,14 @@ public class NabWebController extends BaseWebController {
     public void setNabProcenjenaVrednostUnosModalPanel(
             WebComponent nabProcenjenaVrednostUnosModalPanel) {
         this.nabProcenjenaVrednostUnosModalPanel = nabProcenjenaVrednostUnosModalPanel;
+    }
+
+    public WebComponent getNabNovaNabavkaModalPanel() {
+        return nabNovaNabavkaModalPanel;
+    }
+
+    public void setNabNovaNabavkaModalPanel(WebComponent nabNovaNabavkaModalPanel) {
+        this.nabNovaNabavkaModalPanel = nabNovaNabavkaModalPanel;
     }
     
     

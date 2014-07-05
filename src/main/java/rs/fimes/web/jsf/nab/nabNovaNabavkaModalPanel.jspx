@@ -1,0 +1,142 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:a4j="http://richfaces.org/a4j"
+  xmlns:rich="http://richfaces.org/rich">
+
+  <rich:modalPanel id="nabNovaNabavkaModalPanel" minWidth="600"
+    autosized="true" resizeable="false" moveable="true">
+    <f:facet name="header">
+      <h:outputText styleClass="fimesPanelHeader"
+        value="#{nabPlanController.module.messageSource.nabPlanoviNoviPlan}" />
+    </f:facet>
+    <h:form id="formNovaNabavka">
+      <h:panelGroup id="kartonBody" styleClass="fimesZrdBody">
+        <h:panelGrid id="tabelaObjObjekat" styleClass="objKartonTab"
+          columns="2" width="100%"
+          columnClasses="fimesTable2ColumnWidthEqual,fimesTable2ColumnWidthEqual"
+          rowClasses="redPanelGrid">
+          <h:panelGrid columns="2"
+            styleClass="fimesInputGroup fimesTableCentered maxWidth"
+            columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField"
+            cellspacing="10px">
+            <h:outputLabel styleClass="fimesLabelLeft"
+              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaOpisPredmetaNabavke}" />
+            <h:inputText styleClass="fimesInputText maxWidth" value="#{nabNovaNabavkaController.novaNabavka.opis}" />
+            <h:outputLabel styleClass="fimesLabelLeft"            
+              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaInterniBroj}" />
+            <h:inputText styleClass="fimesInputText maxWidth" value="#{nabNovaNabavkaController.novaNabavka.interniBroj}"/>
+            <h:outputLabel styleClass="fimesLabelLeft"
+              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaUkupnaBezPdv}" />
+            <h:inputText styleClass="fimesInputText maxWidth" value="#{nabNovaNabavkaController.novaNabavka.procenaBezPdv}"/>
+            <h:outputLabel styleClass="fimesLabelLeft"
+              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaUkupnaSaPdv}" />
+            <h:inputText styleClass="fimesInputText maxWidth" value="#{nabNovaNabavkaController.novaNabavka.procenaSaPdv}"/>
+            <h:outputLabel styleClass="fimesLabelLeft"
+              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaVrstaPredmeta}" />
+            <h:panelGrid columns="1" styleClass="alignCenter"
+              width="100%">
+              <h:selectOneMenu id="selectOneXnabVrstaPredmetaNabavke"
+                tabindex="1" style="width: 200px;"
+                styleClass="fimesInputDropDown"
+                value="#{nabNovaNabavkaController.vrstaPredmetaNabavke.idVrstaPredmetaNabavke}">
+                <f:selectItems
+                  value="#{nabNovaNabavkaController.xnabVrstaPredmetaNabavkeSelectionItems}" />
+              </h:selectOneMenu>
+            </h:panelGrid>
+            <h:outputLabel styleClass="fimesLabelLeft"
+              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaPredmetNabavke}" />
+            <h:panelGrid columns="1" styleClass="alignCenter"
+              width="100%">
+              <h:selectOneMenu id="selectOneXnabPredmetNabavke"
+                tabindex="1" style="width: 200px;"
+                styleClass="fimesInputDropDown"
+                value="#{nabNovaNabavkaController.predmetNabavke.idPredmetNabavke}">
+                <f:selectItems
+                  value="#{nabNovaNabavkaController.xnabPredmetNabavkeSelectionItems}" />
+              </h:selectOneMenu>
+            </h:panelGrid>
+
+            <h:outputLabel styleClass="fimesLabelLeft"
+              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaVrstaPostupka}" />
+            <h:panelGrid columns="1" styleClass="alignCenter"
+              width="100%">
+              <h:selectOneMenu id="selectOneXnabVrstaPostupka"
+                tabindex="1" style="width: 200px;"
+                styleClass="fimesInputDropDown"
+                value="#{nabNovaNabavkaController.vrstaPostupka.idVrstaPostupka}">
+                <f:selectItems
+                  value="#{nabNovaNabavkaController.xnabVrstaPostupkaSelectionItems}" />
+              </h:selectOneMenu>
+            </h:panelGrid>
+            <h:outputLabel styleClass="fimesLabelLeft"
+              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaOpravdanostNabavke}" />
+            <h:inputText styleClass="fimesInputText maxWidth"  value="#{nabNovaNabavkaController.novaNabavka.opravdanost}"/>
+            <h:outputLabel styleClass="fimesLabelLeft"
+              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNacinProceneVrednosti}" />
+            <h:inputText styleClass="fimesInputText maxWidth"  value="#{nabNovaNabavkaController.novaNabavka.opisProcena}"/>
+            <h:outputLabel styleClass="fimesLabelLeft"
+              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNapomenaZaPostupak}" />
+            <h:inputText styleClass="fimesInputText maxWidth" value="#{nabNovaNabavkaController.novaNabavka.napomena}" />
+          </h:panelGrid>
+          <h:panelGrid columns="2"
+            styleClass="fimesInputGroup fimesTableCentered maxWidth"
+            columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField"
+            cellspacing="10px">
+            <h:outputLabel styleClass="fimesLabelLeft"
+              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaStatusNabavke}" />
+            <h:panelGrid columns="1" styleClass="alignCenter"
+              width="100%">
+              <h:selectOneMenu id="selectOneXnabStatusNabavke"
+                tabindex="1" style="width: 200px;"
+                styleClass="fimesInputDropDown"
+                value="#{nabNovaNabavkaController.statusNabavke.idStatusNabavke}">
+                <f:selectItems
+                  value="#{nabNovaNabavkaController.xnabStatusNabavkeSelectionItems}" />
+              </h:selectOneMenu>
+            </h:panelGrid>
+            <h:outputLabel styleClass="fimesLabelLeft"
+              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecPokretanja}" />
+            <h:inputText styleClass="fimesInputText maxWidth" />
+            <h:outputLabel styleClass="fimesLabelLeft"
+              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecZakljucenja}" />
+            <h:inputText styleClass="fimesInputText maxWidth" />
+            <h:outputLabel styleClass="fimesLabelLeft"
+              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecIzvrsenja}" />
+            <h:inputText styleClass="fimesInputText maxWidth" />
+            <h:outputLabel styleClass="fimesLabelLeft"
+              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
+            <h:panelGrid columns="1" styleClass="alignCenter"
+              width="100%">
+              <h:selectOneMenu id="selectOneXnabTipPredmeta"
+                tabindex="1" style="width: 200px;"
+                styleClass="fimesInputDropDown"
+                value="#{nabNovaNabavkaController.tipNabavke.idTipNabavke}">
+                <f:selectItems
+                  value="#{nabNovaNabavkaController.xnabTipNabavkeSelectionItems}" />
+              </h:selectOneMenu>
+            </h:panelGrid>
+          </h:panelGrid>
+        </h:panelGrid>
+      </h:panelGroup>
+      <h:panelGrid columns="1" styleClass="maxWidth">
+        <rich:messages globalOnly="true" warnClass="validationAttention"
+          errorClass="fimesValidErrMsg" />
+      </h:panelGrid>
+      <a4j:commandButton id="nabNovaNabavkaModalPanelDugmePotvrdi"
+        styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"
+        value="#{nabNovaNabavkaController.module.messageSource.common_potvrdi}"
+        action="#{nabNovaNabavkaController.snimiNabavku}"
+        oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabNovaNabavkaModalPanel')}.hide();#{rich:component('coreOkModalPanel')}.show();}"
+        reRender="tabelaNabPlan,coreOkModalPanel" />
+      <rich:spacer width="5" />
+      <a4j:commandButton id="nabNovaNabavkaModalPanelDugmeOdustani"
+        styleClass="fimesButton fimesButtonImageCancel"
+        ajaxSingle="true" action="#{nabNovaNabavkaController.resetForm}"
+        value="#{nabNovaNabavkaController.module.messageSource.common_odustani}"
+        immediate="true"
+        onclick="#{rich:component('nabNovaNabavkaModalPanel')}.hide()" />
+    </h:form>
+  </rich:modalPanel>
+</ui:composition>

@@ -15,6 +15,7 @@ import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
 import rs.fimes.domain.core.OrgFirma;
 import rs.fimes.domain.nab.NabJavnaNabavka;
+import rs.fimes.domain.nab.NabPlan;
 import rs.fimes.domain.nab.XnabPredmetNabavke;
 import rs.fimes.domain.nab.XnabStatusNabavke;
 import rs.fimes.domain.nab.XnabTipNabavke;
@@ -76,9 +77,13 @@ public class NabNovaNabavkaController extends BaseController{
     //01.07.2014.
     private UIInput inputPredmetNabavke;
     
+
+    
     //@TODO skloni ove objekte iz kontrolera, kada rešiš gde se pamte (nab_javna_nabavka)
     private XnabTipNabavke tipNabavke;
     private XnabStatusNabavke statusNabavke;
+    //03.07.2014.
+    private XnabVrstaPostupka vrstaPostupka;
     
     private static final long serialVersionUID = -788600541631559492L;
 
@@ -100,6 +105,9 @@ public class NabNovaNabavkaController extends BaseController{
         novaNabavka = new NabJavnaNabavka();
         vrstaPredmetaNabavke = new XnabVrstaPredmetaNabavke();
         predmetNabavke = new XnabPredmetNabavke();
+        tipNabavke = new XnabTipNabavke();
+        statusNabavke = new XnabStatusNabavke();
+        setVrstaPostupka(new XnabVrstaPostupka());
         //inicijalizacija padajućih menija šifarnika
         xnabVrstaPredmetaNabavkeSelectionItems = new ArrayList<SelectItem>();
 //        padajući meniji , inicijalizacija
@@ -155,7 +163,15 @@ public class NabNovaNabavkaController extends BaseController{
     
     public void snimiNabavku(){
         System.out.println("Ovde ide kood za snimanje nabavke i sve propratno sa tim: " + predmetNabavke.getIdPredmetNabavke());
-        
+        novaNabavka.setKorisnikAzurirao(getUserSessionUtil().getCurrentUsrKorisnik());
+        novaNabavka.setKorisnikKreirao(getUserSessionUtil().getCurrentUsrKorisnik());
+        novaNabavka.setOrgFirma(orgFirma);
+        novaNabavka.setVrstaPostupka(vrstaPostupka);
+        novaNabavka.setStatusNabavke(statusNabavke);
+        novaNabavka.setTipNabavke(tipNabavke);
+        NabPlan nabPlan = new NabPlan();
+        nabPlan.setIdPlan(idPlan);
+        novaNabavka.setNabPlan(nabPlan);
         nabJavnaNabavkaServiceApi.createNabJavnaNabavka( novaNabavka);
     }
    
@@ -362,6 +378,14 @@ public class NabNovaNabavkaController extends BaseController{
 
     public void setStatusNabavke(XnabStatusNabavke statusNabavke) {
         this.statusNabavke = statusNabavke;
+    }
+
+    public XnabVrstaPostupka getVrstaPostupka() {
+        return vrstaPostupka;
+    }
+
+    public void setVrstaPostupka(XnabVrstaPostupka vrstaPostupka) {
+        this.vrstaPostupka = vrstaPostupka;
     }
 
     public NabJavnaNabavkaServiceApi getNabJavnaNabavkaServiceApi() {

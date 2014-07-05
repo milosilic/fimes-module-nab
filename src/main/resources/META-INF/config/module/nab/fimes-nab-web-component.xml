@@ -16,6 +16,7 @@
     <constructor-arg value="nabWebController" type="java.lang.String" />
     <property name="nabNoviPlanModalPanel" ref="nabNoviPlanModalPanel" />
     <property name="nabProcenjenaVrednostUnosModalPanel" ref="nabProcenjenaVrednostUnosModalPanel" />
+    <property name="nabNovaNabavkaModalPanel" ref="nabNovaNabavkaModalPanel" />
   </bean>
 
   <bean id="nabNoviPlanModalPanel" class="rs.etf.rc.common.web.WebComponent"
@@ -28,4 +29,9 @@
     <constructor-arg value="nabProcenjenaVrednostUnosModalPanel"
       type="java.lang.String" />
   </bean> 
+  <bean id="nabNovaNabavkaModalPanel" class="rs.etf.rc.common.web.WebComponent"
+    parent="nabWebComponent">
+    <constructor-arg value="nabNovaNabavkaModalPanel"
+      type="java.lang.String" />
+  </bean>
 </beans>
