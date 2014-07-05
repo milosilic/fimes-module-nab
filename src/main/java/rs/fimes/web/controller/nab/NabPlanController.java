@@ -7,6 +7,7 @@ import rs.fimes.domain.nab.NabPlan;
 import rs.fimes.service.api.nab.NabNaruciociServiceApi;
 import rs.fimes.service.api.nab.NabPlanServiceApi;
 import rs.fimes.web.controller.BaseController;
+import rs.fimes.web.datamodel.api.nab.NabJavnaNabavkaExtendedDataTableModelApi;
 import rs.fimes.web.datamodel.api.nab.NabPlanExtendedDataTableModelApi;
 
 public class NabPlanController extends BaseController{
@@ -16,6 +17,8 @@ public class NabPlanController extends BaseController{
     private OrgFirma orgFirma;
     private NabPlanExtendedDataTableModelApi nabPlanExtendedDataTableModelApi;
     private NabPlan nabPlanSelected;
+    //05.07.2014.
+    private NabJavnaNabavkaExtendedDataTableModelApi nabJavnaNabavkaExtendedDataTableModelApi;
     
 
     private static final long serialVersionUID = -788600541631559492L;
@@ -70,7 +73,6 @@ public class NabPlanController extends BaseController{
     }
 
     public NabPlan getNabPlanSelected() {
-        System.out.println( "selektovao si plan : " + nabPlanSelected);
         return nabPlanSelected;
     }
 
@@ -78,4 +80,15 @@ public class NabPlanController extends BaseController{
         System.out.println( nabPlanSelected);
         this.nabPlanSelected = nabPlanSelected;
     }
+
+    public NabJavnaNabavkaExtendedDataTableModelApi getNabJavnaNabavkaExtendedDataTableModelApi() {
+        return nabJavnaNabavkaExtendedDataTableModelApi;
+    }
+
+    public void setNabJavnaNabavkaExtendedDataTableModelApi(
+            NabJavnaNabavkaExtendedDataTableModelApi nabJavnaNabavkaExtendedDataTableModelApi) {
+        this.nabJavnaNabavkaExtendedDataTableModelApi = nabJavnaNabavkaExtendedDataTableModelApi;
+    }
+
+    
 }

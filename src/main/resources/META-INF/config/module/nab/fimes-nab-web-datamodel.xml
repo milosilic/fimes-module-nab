@@ -11,4 +11,7 @@
   <bean id="xnabKontoExtendedDataTableModelApi" class="rs.fimes.web.datamodel.impl.nab.XnabKontoExtendedDataTableModelImpl" scope="session" lazy-init="true">
     <property name="dao" ref="xnabKontoDAO" />
   </bean>
+  <bean id="nabJavnaNabavkaExtendedDataTableModelApi" class="rs.fimes.web.datamodel.impl.nab.NabJavnaNabavkaExtendedDataTableModelImpl" scope="session" lazy-init="true">
+    <property name="dao" ref="nabJavnaNabavkaDAO" />
+  </bean>
 </beans>
