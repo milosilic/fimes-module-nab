@@ -37,7 +37,7 @@
                     noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}"
                     value="#{nabPlanController.nabJavnaNabavkaExtendedDataTableModelApi}"
                     var="nabavka">
-                    <rich:column id="kolona3" width="10%"
+                    <rich:column id="kolona1" width="10%"
                       styleClass="fimesAlignLeft">
                       <f:facet name="header">
                         <h:outputText styleClass="headerText"
@@ -46,14 +46,14 @@
                       <h:outputText
                         value="#{nabavka.idJavnaNabavka}" />
                     </rich:column>
-                    <rich:column id="kolona3" width="15%"
+                    <rich:column id="kolona2" width="15%"
                       styleClass="fimesAlignLeft">
                       <f:facet name="header">
                         <h:outputText styleClass="headerText"
                           value="#{nabNabavkaController.module.messageSource.nabNabavkaListaPredmet}" />
                       </f:facet>
                       <h:outputText
-                        value="#{nabavka.idJavnaNabavka}" />
+                        value="#{nabavka.opis}" />
                     </rich:column>
                     <rich:column id="kolona3" width="15%"
                       styleClass="fimesAlignLeft">
@@ -62,9 +62,9 @@
                           value="#{nabNabavkaController.module.messageSource.nabNabavkaListaVrstaPredmeta}" />
                       </f:facet>
                       <h:outputText
-                        value="#{objekat.adresaUlica} #{objekat.adresaBroj}" />
+                        value="#{nabavka.vrstaPredmetaNabavke.naziv}" />
                     </rich:column>
-                    <rich:column id="kolona3" width="15%"
+                    <rich:column id="kolona4" width="15%"
                       styleClass="fimesAlignLeft">
                       <f:facet name="header">
                         <h:outputText styleClass="headerText"
@@ -73,23 +73,23 @@
                       <h:outputText
                         value="#{nabavka.vrstaPostupka.naziv}" />
                     </rich:column>
-                    <rich:column id="kolona3" width="15%"
+                    <rich:column id="kolona5" width="15%"
                       styleClass="fimesAlignLeft">
                       <f:facet name="header">
                         <h:outputText styleClass="headerText"
                           value="#{nabNabavkaController.module.messageSource.nabNabavkaListaMesec}" />
                       </f:facet>
                       <h:outputText
-                        value="#{nabavka.interniBroj}" />
+                        value="#{nabavka.mesecPokretanja}" />
                     </rich:column>
-                    <rich:column id="kolona3" width="10%"
+                    <rich:column id="kolona6" width="10%"
                       styleClass="fimesAlignLeft">
                       <f:facet name="header">
                         <h:outputText styleClass="headerText"
                           value="#{nabNabavkaController.module.messageSource.nabNabavkaListaGodina}" />
                       </f:facet>
                       <h:outputText
-                        value="#{objekat.adresaUlica} #{objekat.adresaBroj}" />
+                        value="#{nabavka.godinaPokretanja}" />
                     </rich:column>
                     <rich:column id="kolona3" width="10%"
                       styleClass="fimesAlignLeft">
@@ -98,7 +98,7 @@
                           value="#{nabNabavkaController.module.messageSource.nabNabavkaListaInterniBrojPostupka}" />
                       </f:facet>
                       <h:outputText
-                        value="#{objekat.adresaUlica} #{objekat.adresaBroj}" />
+                        value="#{nabavka.interniBroj}" />
                     </rich:column>
                     <rich:column id="kolona32" width="15%"
                       styleClass="fimesAlignLeft">
