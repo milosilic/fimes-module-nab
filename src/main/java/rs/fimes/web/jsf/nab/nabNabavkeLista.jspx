@@ -125,12 +125,33 @@
                       styleClass="fimesButton"
                       action="novaNabavka">
                     </a4j:commandButton>
+                    <rich:spacer width="5px" />
+                    <a4j:commandButton styleClass="fimesButton"
+                      
+                      oncomplete="#{rich:component('nabNovaNabavkaModalPanel')}.show()"
+                      reRender="nabNovaNabavkaModalPanel"
+                      value="#{nabNabavkaController.module.messageSource.nabNabavkaNovaNabavka}"
+                      
+                      value="#{objKartonObjektaController.module.messageSource.objKartonAzuriranjeObjekta}" />
                   </h:panelGroup>
                 </h:panelGroup>
               </rich:layoutPanel>
             </rich:layout>
           </h:form>
+          <a4j:include
+            viewId="#{coreWebController.coreModalOkDijalogView}" />
+          <a4j:include
+            viewId="#{coreWebController.coreModalErrorDijalogView}" />
         </rich:panel>
+        <a4j:include
+          viewId="#{nabWebController.nabProcenjenaVrednostUnosModalPanelView}" />
+        <a4j:include
+          viewId="#{nabWebController.nabNovaNabavkaModalPanelView}" />
+        <a4j:include
+          viewId="#{coreWebController.ajaxStatusModalPanelView}" />
+        <a4j:status id="waitStatus"
+          onstart="#{rich:component('ajaxStatusModalPanel')}.show()"
+          onstop="#{rich:component('ajaxStatusModalPanel')}.hide()" />
       </ui:define>
     </ui:composition>
   </f:view>

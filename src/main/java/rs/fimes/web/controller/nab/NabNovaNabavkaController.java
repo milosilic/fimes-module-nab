@@ -174,7 +174,7 @@ public class NabNovaNabavkaController extends BaseController{
         novaNabavka.setVrstaPostupka(vrstaPostupka);
         novaNabavka.setStatusNabavke(statusNabavke);
         novaNabavka.setTipNabavke(tipNabavke);
-
+        novaNabavka.setVrstaPredmetaNabavke(vrstaPredmetaNabavke);
         novaNabavka.setNabPlan(nabPlan);
         nabJavnaNabavkaServiceApi.createNabJavnaNabavka( novaNabavka);
     }
