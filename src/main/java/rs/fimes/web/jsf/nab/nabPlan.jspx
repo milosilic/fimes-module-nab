@@ -39,6 +39,13 @@
                       noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}"
                       value="#{nabPlanController.nabPlanExtendedDataTableModelApi}"
                       var="plan">
+                      
+                    <!-- selekcija  iz objEvidencija objekata.jspx-->
+                    <a4j:support event="onRowClick" action="nabavkeLista"
+                      immediate="true" status="waitStatus">
+                      <f:setPropertyActionListener value="#{plan}"
+                        target="#{nabPlanController.nabPlanSelected}" />
+                    </a4j:support>
                       <rich:column id="godinaPlanTab" width="20%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
