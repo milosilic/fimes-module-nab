@@ -131,8 +131,7 @@
                       oncomplete="#{rich:component('nabNovaNabavkaModalPanel')}.show()"
                       reRender="nabNovaNabavkaModalPanel"
                       value="#{nabNabavkaController.module.messageSource.nabNabavkaNovaNabavka}"
-                      
-                      value="#{objKartonObjektaController.module.messageSource.objKartonAzuriranjeObjekta}" />
+                      />
                   </h:panelGroup>
                 </h:panelGroup>
               </rich:layoutPanel>
