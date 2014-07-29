@@ -1,10 +1,14 @@
 package rs.fimes.web.controller.nab;
 
+import java.util.Iterator;
+
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
 import rs.fimes.domain.core.OrgFirma;
+import rs.fimes.domain.nab.NabJavnaNabavka;
 import rs.fimes.service.api.nab.NabNaruciociServiceApi;
 import rs.fimes.web.controller.BaseController;
+import rs.fimes.web.datamodel.api.nab.NabJavnaNabavkaExtendedDataTableModelApi;
 
 public class NabNabavkaController extends BaseController{
  
@@ -13,6 +17,9 @@ public class NabNabavkaController extends BaseController{
     private OrgFirma orgFirma;
     
     private NabNaruciociServiceApi nabNaruciociServiceApi;
+    //28.07.2014.
+    private NabJavnaNabavka izabranaNabavka;
+    private NabJavnaNabavkaExtendedDataTableModelApi nabJavnaNabavkaExtendedDataTableModelApi;
     
     public NabNabavkaController(Module module, String controllerId)
             throws ConfigurationException {
@@ -26,8 +33,19 @@ public class NabNabavkaController extends BaseController{
           setOrgFirma(nabNaruciociServiceApi.getActiveOrgFirma(getUserSessionUtil().getCurrentUserCurrentOrgFirma().getIdFirma()));
         }
         
+        nabJavnaNabavkaExtendedDataTableModelApi.helperWalkByRequest();
 //        orgFirma = (OrgFirma) getUserSessionUtil().getCurrentUserCurrentOrgFirma();
      
+    }
+    
+    public void handleSelection(){
+        izabranaNabavka = nabJavnaNabavkaExtendedDataTableModelApi.getDomainObject();
+        System.out.println( izabranaNabavka);
+    }
+    
+    public void resetSelection(){
+        izabranaNabavka=null;
+        nabJavnaNabavkaExtendedDataTableModelApi.clearSelection();
     }
 
     public OrgFirma getOrgFirma() {
@@ -45,6 +63,23 @@ public class NabNabavkaController extends BaseController{
     
     public NabNaruciociServiceApi getNabNaruciociServiceApi(){
         return nabNaruciociServiceApi;
+    }
+
+    public NabJavnaNabavka getIzabranaNabavka() {
+        return izabranaNabavka;
+    }
+
+    public void setIzabranaNabavka(NabJavnaNabavka izabranaNabavka) {
+        this.izabranaNabavka = izabranaNabavka;
+    }
+
+    public NabJavnaNabavkaExtendedDataTableModelApi getNabJavnaNabavkaExtendedDataTableModelApi() {
+        return nabJavnaNabavkaExtendedDataTableModelApi;
+    }
+
+    public void setNabJavnaNabavkaExtendedDataTableModelApi(
+            NabJavnaNabavkaExtendedDataTableModelApi nabJavnaNabavkaExtendedDataTableModelApi) {
+        this.nabJavnaNabavkaExtendedDataTableModelApi = nabJavnaNabavkaExtendedDataTableModelApi;
     }
 
 

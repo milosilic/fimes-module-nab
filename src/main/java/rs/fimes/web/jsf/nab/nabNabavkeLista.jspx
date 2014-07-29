@@ -37,6 +37,11 @@
                     noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}"
                     value="#{nabPlanController.nabJavnaNabavkaExtendedDataTableModelApi}"
                     var="nabavka">
+<!--                     selekcija -->
+                    <a4j:support event="onselectionchange" 
+                      action="#{nabNabavkaController.handleSelection}" 
+                       reRender="t1" /> 
+
                     <rich:column id="kolona1" width="10%"
                       styleClass="fimesAlignLeft">
                       <f:facet name="header">
@@ -118,13 +123,16 @@
                     </f:facet>
                   </rich:extendedDataTable>
                   <rich:spacer height="50px" />
-                  <h:panelGroup layout="block"
+                  <h:panelGroup id="t1" layout="block"
                     styleClass="fimesAlignRight">
-                    <a4j:commandButton id="nabPlanoviNoviPlan" ajaxSingle="true" status="waitStatus"
-                      value="#{nabNabavkaController.module.messageSource.nabNabavkaNovaNabavka}"
-                      styleClass="fimesButton"
-                      action="novaNabavka">
-                    </a4j:commandButton>
+                    <a4j:commandButton
+                      styleClass="fimesButton objDugmeUFuteruTabele"
+                      status="statusWait"
+                      value="#{nabNabavkaController.module.messageSource.nabNabavkaAzuriranjeNabavke}"
+                      action="#{nabNabavkaController.azurirajNabavku}"
+                      oncomplete="#{rich:component('nabNovaNabavkaModalPanel')}.show()"
+                      reRender="nabNovaNabavkaModalPanel"
+                      disabled="#{empty nabNabavkaController.izabranaNabavka}" />
                     <rich:spacer width="5px" />
                     <a4j:commandButton styleClass="fimesButton"
                       

@@ -41,6 +41,7 @@
 <entry key="nabNabavkaListaInterniBrojPostupka">Интерни број поступка</entry>
 <entry key="nabNabavkaListaStatusPostupakaUPlanu">Стаус поступка у плану</entry>
 <entry key="nabNabavkaNovaNabavka">Нова набавка</entry>
+<entry key="nabNabavkaAzuriranjeNabavke">Ажурирање набавке</entry>
 
 <!--Nabavka -->
 <entry key="nabNabavkaNovaNabavkaHeader">Нова набавка</entry>
