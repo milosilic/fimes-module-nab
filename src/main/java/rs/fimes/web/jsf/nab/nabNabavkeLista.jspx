@@ -36,6 +36,7 @@
                     enableContextMenu="false"
                     noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}"
                     value="#{nabPlanController.nabJavnaNabavkaExtendedDataTableModelApi}"
+                     selection="#{nabNabavkaController.nabJavnaNabavkaExtendedDataTableModelApi.selection}"
                     var="nabavka">
 <!--                     selekcija -->
                     <a4j:support event="onselectionchange" 

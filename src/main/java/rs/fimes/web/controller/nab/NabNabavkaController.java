@@ -39,8 +39,9 @@ public class NabNabavkaController extends BaseController{
     }
     
     public void handleSelection(){
+        System.out.println( nabJavnaNabavkaExtendedDataTableModelApi.getSelection());
         izabranaNabavka = nabJavnaNabavkaExtendedDataTableModelApi.getDomainObject();
-        System.out.println( izabranaNabavka);
+        System.out.println( nabJavnaNabavkaExtendedDataTableModelApi);
     }
     
     public void resetSelection(){
