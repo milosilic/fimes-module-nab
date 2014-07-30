@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.faces.component.UIComponent;
 import javax.faces.component.UIInput;
 import javax.faces.component.html.HtmlForm;
 import javax.faces.model.SelectItem;
@@ -107,7 +106,10 @@ public class NabNovaNabavkaController extends BaseController{
     }
 
     public void onStart() {
-        novaNabavka = new NabJavnaNabavka();
+        if( null == novaNabavka ) {
+            novaNabavka = new NabJavnaNabavka();
+        }
+        
         vrstaPredmetaNabavke = new XnabVrstaPredmetaNabavke();
         predmetNabavke = new XnabPredmetNabavke();
         tipNabavke = new XnabTipNabavke();

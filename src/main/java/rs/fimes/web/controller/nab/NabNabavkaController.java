@@ -1,7 +1,5 @@
 package rs.fimes.web.controller.nab;
 
-import java.util.Iterator;
-
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
 import rs.fimes.domain.core.OrgFirma;
@@ -21,6 +19,11 @@ public class NabNabavkaController extends BaseController{
     private NabJavnaNabavka izabranaNabavka;
     private NabJavnaNabavkaExtendedDataTableModelApi nabJavnaNabavkaExtendedDataTableModelApi;
     
+    //29.07.2014.
+    private NabJavnaNabavka novaNabavka;
+
+    private NabNovaNabavkaController nabNovaNabavkaController;
+
     public NabNabavkaController(Module module, String controllerId)
             throws ConfigurationException {
         super(module, controllerId);
@@ -34,6 +37,7 @@ public class NabNabavkaController extends BaseController{
         }
         
         nabJavnaNabavkaExtendedDataTableModelApi.helperWalkByRequest();
+        nabNovaNabavkaController.onStart();
 //        orgFirma = (OrgFirma) getUserSessionUtil().getCurrentUserCurrentOrgFirma();
      
     }
@@ -44,10 +48,15 @@ public class NabNabavkaController extends BaseController{
         System.out.println( nabJavnaNabavkaExtendedDataTableModelApi);
     }
     
+    public void azurirajNabavku(){
+        nabNovaNabavkaController.setNovaNabavka(izabranaNabavka);
+    }
+    
     public void resetSelection(){
         izabranaNabavka=null;
         nabJavnaNabavkaExtendedDataTableModelApi.clearSelection();
     }
+    
 
     public OrgFirma getOrgFirma() {
         return orgFirma;
@@ -83,5 +92,23 @@ public class NabNabavkaController extends BaseController{
         this.nabJavnaNabavkaExtendedDataTableModelApi = nabJavnaNabavkaExtendedDataTableModelApi;
     }
 
+    public NabJavnaNabavka getNovaNabavka() {
+        return novaNabavka;
+    }
+
+    public void setNovaNabavka(NabJavnaNabavka novaNabavka) {
+        this.novaNabavka = novaNabavka;
+    }
+
+    public NabNovaNabavkaController getNabNovaNabavkaController() {
+        return nabNovaNabavkaController;
+    }
+
+    public void setNabNovaNabavkaController(
+            NabNovaNabavkaController nabNovaNabavkaController) {
+        this.nabNovaNabavkaController = nabNovaNabavkaController;
+    }
+
+    
 
 }

@@ -55,7 +55,7 @@
 
 		<property name="nabNaruciociServiceApi" ref="nabNaruciociServiceApi" />
 	    <property name="nabJavnaNabavkaExtendedDataTableModelApi" ref="nabJavnaNabavkaExtendedDataTableModelApi" />
-
+        <property name="nabNovaNabavkaController" ref="nabNovaNabavkaController" />
 	</bean>
 	<bean id="nabNovaNabavkaController" class="rs.fimes.web.controller.nab.NabNovaNabavkaController"
 		parent="nabBaseController" scope="session" lazy-init="true">
