@@ -1,7 +1,12 @@
 package rs.fimes.web.controller.nab;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
+import rs.fimes.data.dao.generic.QueryRestriction;
+import rs.fimes.data.dao.generic.QueryRestrictionComparison1;
 import rs.fimes.domain.core.OrgFirma;
 import rs.fimes.domain.nab.NabPlan;
 import rs.fimes.service.api.nab.NabNaruciociServiceApi;
@@ -82,6 +87,9 @@ public class NabPlanController extends BaseController{
     }
 
     public NabJavnaNabavkaExtendedDataTableModelApi getNabJavnaNabavkaExtendedDataTableModelApi() {
+        List<QueryRestriction> parametri = new ArrayList<QueryRestriction>();
+        parametri.add(QueryRestrictionComparison1.addIsEqual("nabPlan", nabPlanSelected));
+        nabJavnaNabavkaExtendedDataTableModelApi.setParametri(parametri);
         return nabJavnaNabavkaExtendedDataTableModelApi;
     }
 

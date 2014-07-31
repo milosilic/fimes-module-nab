@@ -20,6 +20,9 @@
     <on-entry>
       <evaluate
         expression="nabPlanController.getNabPlanSelected()"
+        result="nabNabavkaController.nabPlan" />
+            <evaluate
+        expression="nabPlanController.getNabPlanSelected()"
         result="nabNovaNabavkaController.nabPlan" />
         <evaluate expression="nabNovaNabavkaController.onStart()" />
       <evaluate expression="nabNabavkaController.onStart()" />

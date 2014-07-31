@@ -120,6 +120,11 @@
                         styleClass="fimesAlignLeft">
                         <h:outputText
                           value="#{objEvidencijaObjekataController.module.messageSource.commonUkupno}" />
+                        <h:outputText
+                          value="#{nabPlanController.nabJavnaNabavkaExtendedDataTableModelApi.ukupnoRedova}">
+                          <f:convertNumber pattern="#,###"
+                            locale="#{applicationBean.numberLocale}" />
+                        </h:outputText>
                       </h:panelGroup>
                     </f:facet>
                   </rich:extendedDataTable>

@@ -4,6 +4,7 @@ import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
 import rs.fimes.domain.core.OrgFirma;
 import rs.fimes.domain.nab.NabJavnaNabavka;
+import rs.fimes.domain.nab.NabPlan;
 import rs.fimes.service.api.nab.NabNaruciociServiceApi;
 import rs.fimes.web.controller.BaseController;
 import rs.fimes.web.datamodel.api.nab.NabJavnaNabavkaExtendedDataTableModelApi;
@@ -23,6 +24,9 @@ public class NabNabavkaController extends BaseController{
     private NabJavnaNabavka novaNabavka;
 
     private NabNovaNabavkaController nabNovaNabavkaController;
+    
+    //31.07.2014.
+    private NabPlan nabPlan;
 
     public NabNabavkaController(Module module, String controllerId)
             throws ConfigurationException {
@@ -43,10 +47,8 @@ public class NabNabavkaController extends BaseController{
     }
     
     public void handleSelection(){
-        System.out.println( nabJavnaNabavkaExtendedDataTableModelApi.getSelection());
         izabranaNabavka = nabJavnaNabavkaExtendedDataTableModelApi.getDomainObject();
-        System.out.println( nabJavnaNabavkaExtendedDataTableModelApi);
-    }
+     }
     
     public void azurirajNabavku(){
         nabNovaNabavkaController.setNovaNabavka(izabranaNabavka);
@@ -63,7 +65,6 @@ public class NabNabavkaController extends BaseController{
     }
 
     public void setOrgFirma(OrgFirma orgFirma) {
-        System.out.println( orgFirma);
         this.orgFirma = orgFirma;
     }
     
@@ -107,6 +108,14 @@ public class NabNabavkaController extends BaseController{
     public void setNabNovaNabavkaController(
             NabNovaNabavkaController nabNovaNabavkaController) {
         this.nabNovaNabavkaController = nabNovaNabavkaController;
+    }
+
+    public NabPlan getNabPlan() {
+        return nabPlan;
+    }
+
+    public void setNabPlan(NabPlan nabPlan) {
+        this.nabPlan = nabPlan;
     }
 
     
