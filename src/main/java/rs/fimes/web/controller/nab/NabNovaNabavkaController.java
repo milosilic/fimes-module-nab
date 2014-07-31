@@ -199,9 +199,11 @@ public class NabNovaNabavkaController extends BaseController{
             //novaNabavka.setStatusNabavke(statusNabavke);
             //novaNabavka.setTipNabavke(tipNabavke);
             //novaNabavka.setVrstaPredmetaNabavke(vrstaPredmetaNabavke);
-            //novaNabavka.setNabPlan(nabPlan);
+            novaNabavka.setNabPlan(nabPlan);
             //novaNabavka.setPredmetNabavke(predmetNabavke);
             nabJavnaNabavkaServiceApi.createNabJavnaNabavka( novaNabavka);
+            populateModalOkPanelSnimanjeDefaultMessagesWithHeaderMessage(true,
+                    getMessage("nabNabavkaAzuriranjeNabavkeHeader"));
         } catch (Exception e) {
             
             e.printStackTrace();
