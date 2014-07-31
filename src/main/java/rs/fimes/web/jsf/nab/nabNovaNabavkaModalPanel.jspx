@@ -40,7 +40,7 @@
               <h:selectOneMenu id="selectOneXnabVrstaPredmetaNabavke"
                 tabindex="1" style="width: 200px;"
                 styleClass="fimesInputDropDown"
-                value="#{nabNovaNabavkaController.vrstaPredmetaNabavke.idVrstaPredmetaNabavke}">
+                value="#{nabNovaNabavkaController.novaNabavka.vrstaPredmetaNabavke.idVrstaPredmetaNabavke}">
                 <f:selectItems
                   value="#{nabNovaNabavkaController.xnabVrstaPredmetaNabavkeSelectionItems}" />
               </h:selectOneMenu>
@@ -52,7 +52,7 @@
               <h:selectOneMenu id="selectOneXnabPredmetNabavke"
                 tabindex="1" style="width: 200px;"
                 styleClass="fimesInputDropDown"
-                value="#{nabNovaNabavkaController.predmetNabavke.idPredmetNabavke}">
+                value="#{nabNovaNabavkaController.novaNabavka.predmetNabavke.idPredmetNabavke}">
                 <f:selectItems
                   value="#{nabNovaNabavkaController.xnabPredmetNabavkeSelectionItems}" />
               </h:selectOneMenu>
@@ -65,7 +65,7 @@
               <h:selectOneMenu id="selectOneXnabVrstaPostupka"
                 tabindex="1" style="width: 200px;"
                 styleClass="fimesInputDropDown"
-                value="#{nabNovaNabavkaController.vrstaPostupka.idVrstaPostupka}">
+                value="#{nabNovaNabavkaController.novaNabavka.vrstaPostupka.idVrstaPostupka}">
                 <f:selectItems
                   value="#{nabNovaNabavkaController.xnabVrstaPostupkaSelectionItems}" />
               </h:selectOneMenu>
@@ -91,20 +91,20 @@
               <h:selectOneMenu id="selectOneXnabStatusNabavke"
                 tabindex="1" style="width: 200px;"
                 styleClass="fimesInputDropDown"
-                value="#{nabNovaNabavkaController.statusNabavke.idStatusNabavke}">
+                value="#{nabNovaNabavkaController.novaNabavka.statusNabavke.idStatusNabavke}">
                 <f:selectItems
                   value="#{nabNovaNabavkaController.xnabStatusNabavkeSelectionItems}" />
               </h:selectOneMenu>
             </h:panelGrid>
             <h:outputLabel styleClass="fimesLabelLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecPokretanja}" />
-            <h:inputText styleClass="fimesInputText maxWidth" />
+            <h:inputText styleClass="fimesInputText maxWidth" value="#{nabNovaNabavkaController.novaNabavka.mesecPokretanja}" />
             <h:outputLabel styleClass="fimesLabelLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecZakljucenja}" />
-            <h:inputText styleClass="fimesInputText maxWidth" />
+            <h:inputText styleClass="fimesInputText maxWidth" value="#{nabNovaNabavkaController.novaNabavka.mesecZakljucenja}"/>
             <h:outputLabel styleClass="fimesLabelLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecIzvrsenja}" />
-            <h:inputText styleClass="fimesInputText maxWidth" />
+            <h:inputText styleClass="fimesInputText maxWidth" value="#{nabNovaNabavkaController.novaNabavka.mesecIzvrsenja}" />
             <h:outputLabel styleClass="fimesLabelLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
             <h:panelGrid columns="1" styleClass="alignCenter"
@@ -112,7 +112,7 @@
               <h:selectOneMenu id="selectOneXnabTipPredmeta"
                 tabindex="1" style="width: 200px;"
                 styleClass="fimesInputDropDown"
-                value="#{nabNovaNabavkaController.tipNabavke.idTipNabavke}">
+                value="#{nabNovaNabavkaController.novaNabavka.tipNabavke.idTipNabavke}">
                 <f:selectItems
                   value="#{nabNovaNabavkaController.xnabTipNabavkeSelectionItems}" />
               </h:selectOneMenu>

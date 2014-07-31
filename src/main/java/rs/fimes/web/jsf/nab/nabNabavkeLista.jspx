@@ -136,7 +136,7 @@
                       disabled="#{empty nabNabavkaController.izabranaNabavka}" />
                     <rich:spacer width="5px" />
                     <a4j:commandButton styleClass="fimesButton"
-                      
+                      action="#{nabNovaNabavkaController.resetSelection}"
                       oncomplete="#{rich:component('nabNovaNabavkaModalPanel')}.show()"
                       reRender="nabNovaNabavkaModalPanel"
                       value="#{nabNabavkaController.module.messageSource.nabNabavkaNovaNabavka}"

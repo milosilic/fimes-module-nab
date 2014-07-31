@@ -108,13 +108,19 @@ public class NabNovaNabavkaController extends BaseController{
     public void onStart() {
         if( null == novaNabavka ) {
             novaNabavka = new NabJavnaNabavka();
+            vrstaPredmetaNabavke = new XnabVrstaPredmetaNabavke();
+            predmetNabavke = new XnabPredmetNabavke();
+            tipNabavke = new XnabTipNabavke();
+            statusNabavke = new XnabStatusNabavke();
+            vrstaPostupka = new XnabVrstaPostupka();
+            novaNabavka.setVrstaPredmetaNabavke(vrstaPredmetaNabavke);
+            novaNabavka.setPredmetNabavke(predmetNabavke);
+            novaNabavka.setTipNabavke(tipNabavke);
+            novaNabavka.setStatusNabavke(statusNabavke);
+            novaNabavka.setVrstaPostupka(vrstaPostupka);
         }
         
-        vrstaPredmetaNabavke = new XnabVrstaPredmetaNabavke();
-        predmetNabavke = new XnabPredmetNabavke();
-        tipNabavke = new XnabTipNabavke();
-        statusNabavke = new XnabStatusNabavke();
-        setVrstaPostupka(new XnabVrstaPostupka());
+       
         //inicijalizacija padajućih menija šifarnika
         xnabVrstaPredmetaNabavkeSelectionItems = new ArrayList<SelectItem>();
 //        padajući meniji , inicijalizacija
@@ -168,17 +174,42 @@ public class NabNovaNabavkaController extends BaseController{
         System.out.println("initNovaProcenjenaVrednost");
     }
     
-    public void snimiNabavku(){
-        System.out.println("Ovde ide kood za snimanje nabavke i sve propratno sa tim: " + predmetNabavke.getIdPredmetNabavke());
-        novaNabavka.setKorisnikAzurirao(getUserSessionUtil().getCurrentUsrKorisnik());
-        novaNabavka.setKorisnikKreirao(getUserSessionUtil().getCurrentUsrKorisnik());
-        novaNabavka.setOrgFirma(orgFirma);
-        novaNabavka.setVrstaPostupka(vrstaPostupka);
-        novaNabavka.setStatusNabavke(statusNabavke);
-        novaNabavka.setTipNabavke(tipNabavke);
+    public void resetSelection(){
+        novaNabavka = new NabJavnaNabavka();
+        vrstaPredmetaNabavke = new XnabVrstaPredmetaNabavke();
+        predmetNabavke = new XnabPredmetNabavke();
+        tipNabavke = new XnabTipNabavke();
+        statusNabavke = new XnabStatusNabavke();
+        vrstaPostupka = new XnabVrstaPostupka();
         novaNabavka.setVrstaPredmetaNabavke(vrstaPredmetaNabavke);
-        novaNabavka.setNabPlan(nabPlan);
-        nabJavnaNabavkaServiceApi.createNabJavnaNabavka( novaNabavka);
+        novaNabavka.setPredmetNabavke(predmetNabavke);
+        novaNabavka.setTipNabavke(tipNabavke);
+        novaNabavka.setStatusNabavke(statusNabavke);
+        novaNabavka.setVrstaPostupka(vrstaPostupka);
+    }
+    
+    public void snimiNabavku(){
+        try {
+            System.out.println("Ovde ide kood za snimanje nabavke i sve propratno sa tim: " + predmetNabavke.getIdPredmetNabavke());
+            novaNabavka.setKorisnikAzurirao(getUserSessionUtil().getCurrentUsrKorisnik());
+            novaNabavka.setKorisnikKreirao(getUserSessionUtil().getCurrentUsrKorisnik());
+            novaNabavka.setOrgFirma(orgFirma);
+            //31.07.2014. ovo je sada nepotrebno, jer smo uveli da direktno iz forme ide u novuNabavku
+            //novaNabavka.setVrstaPostupka(vrstaPostupka);
+            //novaNabavka.setStatusNabavke(statusNabavke);
+            //novaNabavka.setTipNabavke(tipNabavke);
+            //novaNabavka.setVrstaPredmetaNabavke(vrstaPredmetaNabavke);
+            //novaNabavka.setNabPlan(nabPlan);
+            //novaNabavka.setPredmetNabavke(predmetNabavke);
+            nabJavnaNabavkaServiceApi.createNabJavnaNabavka( novaNabavka);
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            populateModalOkPanelSnimanjeDefaultMessagesWithHeaderMessage(false,
+                    getMessage("nabNabavkaAzuriranjeNabavkeHeader"));
+        }finally{
+            resetSelection();
+        }
     }
    
 

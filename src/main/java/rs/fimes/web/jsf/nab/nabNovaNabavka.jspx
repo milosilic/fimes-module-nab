@@ -11,6 +11,7 @@
 <title>Планови наручиоца</title>
 </head>
 <body>
+<!-- OVO SE VIŠE NE KORISTI, JER SE KORISITI MODALNI PROZOR? PROVERITI U FLOWS/NABPLAN.XML I OBRISATI -->
   <f:view>
     <ui:composition template="/WEB-INF/layouts/standard.jspx">
       <ui:define name="content">
