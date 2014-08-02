@@ -9,7 +9,7 @@
     autosized="true" resizeable="false" moveable="true">
     <f:facet name="header">
       <h:outputText styleClass="fimesPanelHeader"
-        value="#{nabPlanController.module.messageSource.nabPlanoviNoviPlan}" />
+        value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavka}" />
     </f:facet>
     <h:form id="formNovaNabavka">
       <h:panelGroup id="kartonBody" styleClass="fimesZrdBody">
@@ -96,19 +96,43 @@
                   value="#{nabNovaNabavkaController.xnabStatusNabavkeSelectionItems}" />
               </h:selectOneMenu>
             </h:panelGrid>
-            <h:outputLabel styleClass="fimesLabelLeft"
-              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecPokretanja}" />
-            <h:inputText styleClass="fimesInputText maxWidth" value="#{nabNovaNabavkaController.novaNabavka.mesecPokretanja}" />
-            <h:outputLabel styleClass="fimesLabelLeft"
-              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecZakljucenja}" />
-            <h:inputText styleClass="fimesInputText maxWidth" value="#{nabNovaNabavkaController.novaNabavka.mesecZakljucenja}"/>
-            <h:outputLabel styleClass="fimesLabelLeft"
-              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecIzvrsenja}" />
-            <h:inputText styleClass="fimesInputText maxWidth" value="#{nabNovaNabavkaController.novaNabavka.mesecIzvrsenja}" />
+            <h:panelGrid columns="2" styleClass="alignCenter"
+              width="100%">
+              <h:outputLabel styleClass="fimesLabelLeft"
+                value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecPokretanja}" />
+              <h:inputText styleClass="fimesInputText maxWidth"
+                value="#{nabNovaNabavkaController.novaNabavka.mesecPokretanja}" />
+              <h:outputLabel styleClass="fimesLabelLeft"
+                value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaGodinaPokretanja}" />
+              <h:inputText styleClass="fimesInputText maxWidth"
+                value="#{nabNovaNabavkaController.novaNabavka.godinaPokretanja}" />
+              <h:outputLabel styleClass="fimesLabelLeft"
+                value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecZakljucenja}" />
+              <h:inputText styleClass="fimesInputText maxWidth"
+                value="#{nabNovaNabavkaController.novaNabavka.mesecZakljucenja}" />
+              <h:outputLabel styleClass="fimesLabelLeft"
+                value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaGodinaZakljucenja}" />
+              <h:inputText styleClass="fimesInputText maxWidth"
+                value="#{nabNovaNabavkaController.novaNabavka.godinaZakljucenja}" />
+              <h:outputLabel styleClass="fimesLabelLeft"
+                value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecIzvrsenja}" />
+              <h:inputText styleClass="fimesInputText maxWidth"
+                value="#{nabNovaNabavkaController.novaNabavka.mesecIzvrsenja}" />
+              <h:outputLabel styleClass="fimesLabelLeft"
+                value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaGodinaIzvrsenja}" />
+              <h:inputText styleClass="fimesInputText maxWidth"
+                value="#{nabNovaNabavkaController.novaNabavka.godinaIzvrsenja}" />
+            </h:panelGrid>
+            <h:panelGrid columns="2">
+              <h:outputLabel styleClass="fimesLabelLeft"
+                value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaOrn}" />
+              <h:inputText styleClass="fimesInputText maxWidth"
+                 />
+            </h:panelGrid>
+            <h:panelGrid columns="2" styleClass="alignCenter"
+              width="100%">
             <h:outputLabel styleClass="fimesLabelLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
-            <h:panelGrid columns="1" styleClass="alignCenter"
-              width="100%">
               <h:selectOneMenu id="selectOneXnabTipPredmeta"
                 tabindex="1" style="width: 200px;"
                 styleClass="fimesInputDropDown"

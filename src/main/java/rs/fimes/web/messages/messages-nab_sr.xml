@@ -61,6 +61,9 @@
 <entry key="nabNabavkaNovaNabavkaMesecPokretanja">Месец покретања поступка</entry>
 <entry key="nabNabavkaNovaNabavkaMesecZakljucenja">Месец закључења уговора</entry>
 <entry key="nabNabavkaNovaNabavkaMesecIzvrsenja">Месец извршења уговора</entry>
+<entry key="nabNabavkaNovaNabavkaGodinaPokretanja">Година покретања поступка</entry>
+<entry key="nabNabavkaNovaNabavkaGodinaZakljucenja">Година закључења уговора</entry>
+<entry key="nabNabavkaNovaNabavkaGodinaIzvrsenja">Година извршења уговора</entry>
 <entry key="nabNabavkaNovaNabavkaTipNabavke">Тип набавке</entry>
 <entry key="nabNabavkaNovaNabavkaGodina">Година</entry>
 <entry key="nabNabavkaNovaNabavkaProcenjenaBezPdv">Процењена вредност без ПДВ-а</entry>
@@ -68,6 +71,7 @@
 <entry key="nabNabavkaNovaNabavkaVezaSaPlanom">Веза са финансијским планом</entry>
 <entry key="nabNabavkaNovaNabavkaNapomena">Напомена</entry>
 <entry key="nabNabavkaNovaNabаvkaNazivPartije">Назив партије</entry>
+<entry key="nabNabavkaNovaNabаvkaOrn">ОРН</entry>
 
 <entry key="nabNabavkaOsnovniPodaci">Основни подаци</entry>
 <entry key="nabNabavkaProcenjenaVrednost">Процењена вредност по годинама</entry>
