@@ -10,3 +10,16 @@ WITH (
 )
 ;
 ALTER TABLE xnab_osnov_izuzeca OWNER TO "fimes-demo";
+
+CREATE TABLE xnab_izvor_finansiranja
+(
+   id_izvor_finansiranja integer NOT NULL, 
+   naziv character varying(256) NOT NULL, 
+   f_arhivirano boolean NOT NULL DEFAULT false, 
+    PRIMARY KEY (id_izvor_finansiranja)
+) 
+WITH (
+  OIDS = FALSE
+)
+;
+ALTER TABLE xnab_izvor_finansiranja OWNER TO "fimes-demo";
