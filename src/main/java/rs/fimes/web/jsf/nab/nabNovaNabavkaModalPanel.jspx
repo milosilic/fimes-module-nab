@@ -5,7 +5,7 @@
   xmlns:a4j="http://richfaces.org/a4j"
   xmlns:rich="http://richfaces.org/rich">
 
-  <rich:modalPanel id="nabNovaNabavkaModalPanel" minWidth="768"
+  <rich:modalPanel id="nabNovaNabavkaModalPanel" minWidth="1366" minHeight="768"
     autosized="true" resizeable="false" moveable="true">
     <f:facet name="header">
       <h:outputText styleClass="fimesPanelHeader"
@@ -96,7 +96,7 @@
                   value="#{nabNovaNabavkaController.xnabStatusNabavkeSelectionItems}" />
               </h:selectOneMenu>
             </h:panelGrid>
-            <h:panelGrid columns="2" styleClass="alignCenter"
+            <h:panelGrid columns="4" styleClass="alignCenter"
               width="100%">
               <h:outputLabel styleClass="fimesLabelLeft"
                 value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecPokretanja}" />
@@ -145,22 +145,50 @@
         </h:panelGrid>
       </h:panelGroup>
       <h:panelGrid columns="1" styleClass="maxWidth">
+        <h:panelGrid>
+          <rich:spacer height="10" />
+          <rich:tabPanel switchType="ajax" id="tabPanel" styleClass="maxWidth">
+            <rich:tab id="tab1VrednostPoGodinama"
+              name="tab1VrednostPoGodinama" ajaxSingle="true"
+              label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaProcenjenaVrednost}"
+              height="220px">
+            </rich:tab>
+            <rich:tab id="tab2Partije" name="tab2Partije"
+              ajaxSingle="true"
+              label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaPartije}"
+              height="220px">
+            </rich:tab>
+            <rich:tab id="tab3VrednostPoKontima"
+              name="tab3VrednostPoKontima" ajaxSingle="true"
+              label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaPlaniranaVrednostPoKontima}"
+              height="220px">
+            </rich:tab>
+            <rich:tab id="tab4Izmene" name="tab4Izmene"
+              ajaxSingle="true"
+              label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaIzmeneNabavke}"
+              height="220px">
+            </rich:tab>
+          </rich:tabPanel>
+        </h:panelGrid>
         <rich:messages globalOnly="true" warnClass="validationAttention"
           errorClass="fimesValidErrMsg" />
       </h:panelGrid>
-      <a4j:commandButton id="nabNovaNabavkaModalPanelDugmePotvrdi"
-        styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"
-        value="#{nabNovaNabavkaController.module.messageSource.common_potvrdi}"
-        action="#{nabNovaNabavkaController.snimiNabavku}"
-        oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabNovaNabavkaModalPanel')}.hide();#{rich:component('coreOkModalPanel')}.show();}"
-        reRender="tabelaNabPlan,coreOkModalPanel" />
-      <rich:spacer width="5" />
-      <a4j:commandButton id="nabNovaNabavkaModalPanelDugmeOdustani"
-        styleClass="fimesButton fimesButtonImageCancel"
-        ajaxSingle="true" action="#{nabNovaNabavkaController.resetForm}"
-        value="#{nabNovaNabavkaController.module.messageSource.common_odustani}"
-        immediate="true"
-        onclick="#{rich:component('nabNovaNabavkaModalPanel')}.hide()" />
+      <h:panelGrid columns="2">
+        <a4j:commandButton id="nabNovaNabavkaModalPanelDugmePotvrdi"
+          styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"
+          value="#{nabNovaNabavkaController.module.messageSource.common_potvrdi}"
+          action="#{nabNovaNabavkaController.snimiNabavku}"
+          oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabNovaNabavkaModalPanel')}.hide();#{rich:component('coreOkModalPanel')}.show();}"
+          reRender="tabelaNabPlan,coreOkModalPanel" />
+        <rich:spacer width="5" />
+        <a4j:commandButton id="nabNovaNabavkaModalPanelDugmeOdustani"
+          styleClass="fimesButton fimesButtonImageCancel"
+          ajaxSingle="true"
+          action="#{nabNovaNabavkaController.resetForm}"
+          value="#{nabNovaNabavkaController.module.messageSource.common_odustani}"
+          immediate="true"
+          onclick="#{rich:component('nabNovaNabavkaModalPanel')}.hide()" />
+      </h:panelGrid>
     </h:form>
   </rich:modalPanel>
 </ui:composition>
