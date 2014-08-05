@@ -444,5 +444,9 @@ public class NabNovaNabavkaController extends BaseController{
         this.nabPlan = nabPlan;
     }
     
+    public void actionInitSffPoslovniZiroRacunLov(){
+        
+    }
+    
 
 }

@@ -152,6 +152,14 @@
               name="tab1VrednostPoGodinama" ajaxSingle="true"
               label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaProcenjenaVrednost}"
               height="220px">
+           <a4j:commandButton id="sffIzvorFinansiranjaBankaDugmeLov"
+            ajaxSingle="true" tabindex="3"
+            action="#{nabNovaNabavkaController.actionInitSffPoslovniZiroRacunLov}"
+            oncomplete="#{rich:component('nabProcenjenaVrednostUnosModalPanel')}.show()"
+            reRender="nabProcenjenaVrednostUnosModalPanel"
+            styleClass="fimesButtonImageLov"
+            title="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
+            
             </rich:tab>
             <rich:tab id="tab2Partije" name="tab2Partije"
               ajaxSingle="true"
