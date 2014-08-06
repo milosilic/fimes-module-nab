@@ -14,4 +14,7 @@
   <bean id="nabJavnaNabavkaExtendedDataTableModelApi" class="rs.fimes.web.datamodel.impl.nab.NabJavnaNabavkaExtendedDataTableModelImpl" scope="session" lazy-init="true">
     <property name="dao" ref="nabJavnaNabavkaDAO" />
   </bean>
+  <bean id="nabProcenaPoGodiniExtendedDataTableModelApi" class="rs.fimes.web.datamodel.impl.nab.NabProcenaPoGodiniExtendedDataTableModelImpl" scope="session" lazy-init="true">
+    <property name="dao" ref="nabProcenaPoGodiniDAO" />
+  </bean>
 </beans>

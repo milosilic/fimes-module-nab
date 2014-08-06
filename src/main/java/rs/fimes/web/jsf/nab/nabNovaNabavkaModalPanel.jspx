@@ -152,14 +152,77 @@
               name="tab1VrednostPoGodinama" ajaxSingle="true"
               label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaProcenjenaVrednost}"
               height="220px">
-           <a4j:commandButton id="sffIzvorFinansiranjaBankaDugmeLov"
-            ajaxSingle="true" tabindex="3"
-            action="#{nabNovaNabavkaController.actionInitSffPoslovniZiroRacunLov}"
-            oncomplete="#{rich:component('nabProcenjenaVrednostUnosModalPanel')}.show()"
-            reRender="nabProcenjenaVrednostUnosModalPanel"
-            styleClass="fimesButtonImageLov"
-            title="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
-            
+              <rich:extendedDataTable height="200px"
+                rowClasses="redAnimacija" id="tabelaNabPlan"
+                enableContextMenu="false"
+                noDataLabel="#{nabNovaNabavkaController.module.messageSource.commonNoDataLabel}"
+                value="#{nabNovaNabavkaController.nabProcenaPoGodiniExtendedDataTableModelApi}"
+                selection="#{nabNovaNabavkaController.nabProcenaPoGodiniExtendedDataTableModelApi.selection}"
+                var="procena">
+                <rich:column id="kolona1" width="10%"
+                  styleClass="fimesAlignLeft">
+                  <f:facet name="header">
+                    <h:outputText styleClass="headerText"
+                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaListaGodina}" />
+                  </f:facet>
+                  <h:outputText value="#{procena.idProcenaPoGodini}" />
+                </rich:column>
+
+                <rich:column id="kolona1" width="20%"
+                  styleClass="fimesAlignLeft">
+                  <f:facet name="header">
+                    <h:outputText styleClass="headerText"
+                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaBezPdv}" />
+                  </f:facet>
+                  <h:outputText value="#{procena.procenaBezPdv}" />
+                </rich:column>
+
+                <rich:column id="kolona1" width="20%"
+                  styleClass="fimesAlignLeft">
+                  <f:facet name="header">
+                    <h:outputText styleClass="headerText"
+                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaSaPdv}" />
+                  </f:facet>
+                  <h:outputText value="#{procena.procenaSaPdv}" />
+                </rich:column>
+                <rich:column id="kolona1" width="30%"
+                  styleClass="fimesAlignLeft">
+                  <f:facet name="header">
+                    <h:outputText styleClass="headerText"
+                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaVezaSaPlanom}" />
+                  </f:facet>
+                  <h:outputText value="#{procena.vezaSaFinPlanom}" />
+                </rich:column>
+                <rich:column id="kolona1" width="20%"
+                  styleClass="fimesAlignLeft">
+                  <f:facet name="header">
+                    <h:outputText styleClass="headerText"
+                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNapomena}" />
+                  </f:facet>
+                  <h:outputText value="#{procena.napomena}" />
+                </rich:column>
+                    <f:facet name="footer">
+                      <h:panelGroup layout="block"
+                        styleClass="fimesAlignLeft">
+                        <h:outputText
+                          value="#{nabNovaNabavkaController.module.messageSource.commonUkupno}" />
+                        <h:outputText
+                          value="#{nabNovaNabavkaController.nabJavnaNabavkaExtendedDataTableModelApi.ukupnoRedova}">
+                          <f:convertNumber pattern="#,###"
+                            locale="#{applicationBean.numberLocale}" />
+                        </h:outputText>
+                      </h:panelGroup>
+                    </f:facet>
+
+              </rich:extendedDataTable>
+              <a4j:commandButton id="sffIzvorFinansiranjaBankaDugmeLov"
+                ajaxSingle="true" tabindex="3"
+                action="#{nabNovaNabavkaController.actionInitSffPoslovniZiroRacunLov}"
+                oncomplete="#{rich:component('nabProcenjenaVrednostUnosModalPanel')}.show()"
+                reRender="nabProcenjenaVrednostUnosModalPanel"
+                styleClass="fimesButtonImageLov"
+                title="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
+
             </rich:tab>
             <rich:tab id="tab2Partije" name="tab2Partije"
               ajaxSingle="true"

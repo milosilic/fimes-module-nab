@@ -23,3 +23,9 @@ WITH (
 )
 ;
 ALTER TABLE xnab_izvor_finansiranja OWNER TO "fimes-demo";
+
+CREATE SEQUENCE seq_nab_procena_po_godini
+   INCREMENT 1
+   START 1
+   MINVALUE 1;
+ALTER TABLE seq_nab_procena_po_godini OWNER TO "fimes-demo";

@@ -30,6 +30,7 @@ import rs.fimes.service.api.nab.XnabTipNabavkeServiceApi;
 import rs.fimes.service.api.nab.XnabVrstaPostupkaServiceApi;
 import rs.fimes.service.api.nab.XnabVrstaPredmetaNabavkeServiceApi;
 import rs.fimes.web.controller.BaseController;
+import rs.fimes.web.datamodel.api.nab.NabProcenaPoGodiniExtendedDataTableModelApi;
 
 public class NabNovaNabavkaController extends BaseController{
 
@@ -76,6 +77,7 @@ public class NabNovaNabavkaController extends BaseController{
     //01.07.2014.
     private UIInput inputPredmetNabavke;
     
+    private NabProcenaPoGodiniExtendedDataTableModelApi nabProcenaPoGodiniExtendedDataTableModelApi;
 
     
     //@TODO skloni ove objekte iz kontrolera, kada rešiš gde se pamte (nab_javna_nabavka)
@@ -444,6 +446,15 @@ public class NabNovaNabavkaController extends BaseController{
         this.nabPlan = nabPlan;
     }
     
+    public NabProcenaPoGodiniExtendedDataTableModelApi getNabProcenaPoGodiniExtendedDataTableModelApi() {
+        return nabProcenaPoGodiniExtendedDataTableModelApi;
+    }
+
+    public void setNabProcenaPoGodiniExtendedDataTableModelApi(
+            NabProcenaPoGodiniExtendedDataTableModelApi nabProcenaPoGodiniExtendedDataTableModelApi) {
+        this.nabProcenaPoGodiniExtendedDataTableModelApi = nabProcenaPoGodiniExtendedDataTableModelApi;
+    }
+
     public void actionInitSffPoslovniZiroRacunLov(){
         
     }
