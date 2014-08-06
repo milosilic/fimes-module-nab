@@ -207,7 +207,7 @@
                         <h:outputText
                           value="#{nabNovaNabavkaController.module.messageSource.commonUkupno}" />
                         <h:outputText
-                          value="#{nabNovaNabavkaController.nabJavnaNabavkaExtendedDataTableModelApi.ukupnoRedova}">
+                          value="#{nabNovaNabavkaController.nabProcenaPoGodiniExtendedDataTableModelApi.ukupnoRedova}">
                           <f:convertNumber pattern="#,###"
                             locale="#{applicationBean.numberLocale}" />
                         </h:outputText>
