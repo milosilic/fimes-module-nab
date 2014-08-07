@@ -7,17 +7,38 @@
 
   <rich:modalPanel id="nabProcenjenaVrednostUnosModalPanel" minWidth="600"
     autosized="true" resizeable="false" moveable="true">
+    <f:facet name="controls">
+      <h:graphicImage value="#{coreWebController.iconClose16Path}"
+        styleClass="fimesImageClose"
+        onclick="#{rich:element('nabProcenjenaVrednostModalPanelDugmeOdustani')}.click()" />
+    </f:facet>
     <f:facet name="header">
       <h:outputText styleClass="fimesPanelHeader"
-        value="#{nabPlanController.module.messageSource.nabPlanoviNoviPlan}" />
+        value="#{nabNovaNabavkaController.module.messageSource.nabPlanoviNoviPlan}" />
     </f:facet>
-    <h:form id="formNoviObjekat">
+    <h:form id="formNovaProcenjaVrednost">
 
-
+      <h:panelGrid columns="2">
+        <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaListaGodina}" />
+        <h:inputText styleClass="fimesInputText maxWidth"
+                value="#{nabNovaNabavkaController.novaProcenjenaVrednost.godina}" /> 
+        <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaBezPdv}"/>
+        <h:inputText styleClass="fimesInputText maxWidth"
+                value="#{nabNovaNabavkaController.novaProcenjenaVrednost.procenaBezPdv}" />
+        <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaSaPdv}"/>
+        <h:inputText styleClass="fimesInputText maxWidth"
+                value="#{nabNovaNabavkaController.novaProcenjenaVrednost.procenaSaPdv}" />
+        <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaVezaSaPlanom}"/>
+        <h:inputText styleClass="fimesInputText maxWidth"
+                value="#{nabNovaNabavkaController.novaProcenjenaVrednost.vezaSaFinPlanom}" />
+        <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNapomena}"/>
+        <h:inputText styleClass="fimesInputText maxWidth"
+                value="#{nabNovaNabavkaController.novaProcenjenaVrednost.napomena}" />
+      </h:panelGrid>
       <a4j:commandButton id="nabProcenjenaVrednostModalPanelDugmePotvrdi"
         styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"
-        value="#{nabNoviPlanController.module.messageSource.common_potvrdi}"
-        action="#{nabNoviPlanController.snimiNabPlan}"
+        value="#{nabNovaNabavkaController.module.messageSource.common_potvrdi}"
+        action="#{nabNovaNabavkaController.dodajProcenu}"
         oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabProcenjenaVrednostUnosModalPanel')}.hide();#{rich:component('coreOkModalPanel')}.show();}"
         reRender="tabelaNabPlan,coreOkModalPanel" />
       <rich:spacer width="5" />

@@ -15,6 +15,7 @@ import rs.etf.rc.common.application.Module;
 import rs.fimes.domain.core.OrgFirma;
 import rs.fimes.domain.nab.NabJavnaNabavka;
 import rs.fimes.domain.nab.NabPlan;
+import rs.fimes.domain.nab.NabProcenaPoGodini;
 import rs.fimes.domain.nab.XnabPredmetNabavke;
 import rs.fimes.domain.nab.XnabStatusNabavke;
 import rs.fimes.domain.nab.XnabTipNabavke;
@@ -91,6 +92,9 @@ public class NabNovaNabavkaController extends BaseController{
     //ako ne treba ukloni
     private NabPlan nabPlan;
     
+    //07.08.2014.
+    private NabProcenaPoGodini novaProcenjenaVrednost;
+    
     private static final long serialVersionUID = -788600541631559492L;
 
     public NabNovaNabavkaController(Module module, String controllerId)
@@ -120,6 +124,7 @@ public class NabNovaNabavkaController extends BaseController{
             novaNabavka.setTipNabavke(tipNabavke);
             novaNabavka.setStatusNabavke(statusNabavke);
             novaNabavka.setVrstaPostupka(vrstaPostupka);
+            novaProcenjenaVrednost= new NabProcenaPoGodini();
         }
         
        
@@ -188,6 +193,10 @@ public class NabNovaNabavkaController extends BaseController{
         novaNabavka.setTipNabavke(tipNabavke);
         novaNabavka.setStatusNabavke(statusNabavke);
         novaNabavka.setVrstaPostupka(vrstaPostupka);
+    }
+    
+    public void resetNabNovuProcenjenuVrednost(){
+        novaProcenjenaVrednost = new NabProcenaPoGodini();
     }
     
     public void snimiNabavku(){
@@ -455,8 +464,34 @@ public class NabNovaNabavkaController extends BaseController{
         this.nabProcenaPoGodiniExtendedDataTableModelApi = nabProcenaPoGodiniExtendedDataTableModelApi;
     }
 
+    public NabProcenaPoGodini getNovaProcenjenaVrednost() {
+        return novaProcenjenaVrednost;
+    }
+
+    public void setNovaProcenjenaVrednost(NabProcenaPoGodini novaProcenjenaVrednost) {
+        this.novaProcenjenaVrednost = novaProcenjenaVrednost;
+    }
+
     public void actionInitSffPoslovniZiroRacunLov(){
         
+    }
+    
+    public void dodajProcenu(){
+        
+        try {
+            if ( null == novaNabavka || null == novaNabavka.getIdJavnaNabavka()) throw new Exception( "Nije Setovana nabavka za koju se radi procena");
+            novaProcenjenaVrednost.setNabJavnaNabavka(novaNabavka);
+            System.out.println( novaProcenjenaVrednost );
+            populateModalOkPanelSnimanjeDefaultMessagesWithHeaderMessage(true,
+                    getMessage("nabNabavkaAzuriranjeNabavkeHeader"));
+        } catch (Exception e) {
+            populateModalOkPanelSnimanjeDefaultMessagesWithHeaderMessage(false,
+                    getMessage("nabNabavkaAzuriranjeNabavkeHeader"));
+
+            e.printStackTrace();
+        }finally{
+            resetNabNovuProcenjenuVrednost();
+        }
     }
     
 
