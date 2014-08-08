@@ -69,6 +69,7 @@
 		<property name="xnabStatusNabavkeServiceApi" ref="xnabStatusNabavkeServiceApi" />
 		<property name="nabJavnaNabavkaServiceApi" ref="nabJavnaNabavkaServiceApi" />
         <property name="nabProcenaPoGodiniExtendedDataTableModelApi" ref="nabProcenaPoGodiniExtendedDataTableModelApi" />
+        <property name="nabProcenaPoGodiniServiceApi" ref="nabProcenaPoGodiniServiceApi" />
 	</bean>
     <bean id="nabKontoSelectionController" class="rs.fimes.web.controller.nab.NabKontoSelectionController"
         parent="nabBaseController" scope="session" lazy-init="true">

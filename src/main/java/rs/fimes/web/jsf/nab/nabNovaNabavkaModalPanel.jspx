@@ -147,7 +147,7 @@
       <h:panelGrid columns="1" styleClass="maxWidth">
         <h:panelGrid>
           <rich:spacer height="10" />
-          <rich:tabPanel switchType="ajax" id="tabPanel" styleClass="maxWidth">
+          <rich:tabPanel switchType="ajax" id="tabPanel" styleClass="maxWidth" rendered="#{not empty nabNovaNabavkaController.novaNabavka.idJavnaNabavka}">
             <rich:tab id="tab1VrednostPoGodinama"
               name="tab1VrednostPoGodinama" ajaxSingle="true"
               label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaProcenjenaVrednost}"
@@ -165,7 +165,7 @@
                     <h:outputText styleClass="headerText"
                       value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaListaGodina}" />
                   </f:facet>
-                  <h:outputText value="#{procena.idProcenaPoGodini}" />
+                  <h:outputText value="#{procena.godina}" />
                 </rich:column>
 
                 <rich:column id="kolona1" width="20%"
@@ -261,5 +261,6 @@
           onclick="#{rich:component('nabNovaNabavkaModalPanel')}.hide()" />
       </h:panelGrid>
     </h:form>
+    
   </rich:modalPanel>
 </ui:composition>

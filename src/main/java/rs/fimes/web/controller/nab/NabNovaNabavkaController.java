@@ -12,6 +12,8 @@ import org.ajax4jsf.component.html.HtmlAjaxCommandButton;
 
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
+import rs.fimes.data.dao.generic.QueryRestriction;
+import rs.fimes.data.dao.generic.QueryRestrictionComparison1;
 import rs.fimes.domain.core.OrgFirma;
 import rs.fimes.domain.nab.NabJavnaNabavka;
 import rs.fimes.domain.nab.NabPlan;
@@ -25,6 +27,7 @@ import rs.fimes.service.api.core.UsrKorisnikServiceApi;
 import rs.fimes.service.api.nab.NabJavnaNabavkaServiceApi;
 import rs.fimes.service.api.nab.NabNaruciociServiceApi;
 import rs.fimes.service.api.nab.NabPlanServiceApi;
+import rs.fimes.service.api.nab.NabProcenaPoGodiniServiceApi;
 import rs.fimes.service.api.nab.XnabPredmetNabavkeServiceApi;
 import rs.fimes.service.api.nab.XnabStatusNabavkeServiceApi;
 import rs.fimes.service.api.nab.XnabTipNabavkeServiceApi;
@@ -94,6 +97,7 @@ public class NabNovaNabavkaController extends BaseController{
     
     //07.08.2014.
     private NabProcenaPoGodini novaProcenjenaVrednost;
+    private NabProcenaPoGodiniServiceApi nabProcenaPoGodiniServiceApi;
     
     private static final long serialVersionUID = -788600541631559492L;
 
@@ -456,6 +460,11 @@ public class NabNovaNabavkaController extends BaseController{
     }
     
     public NabProcenaPoGodiniExtendedDataTableModelApi getNabProcenaPoGodiniExtendedDataTableModelApi() {
+        if ( null != novaNabavka.getIdJavnaNabavka()){
+            List<QueryRestriction> parametri = new ArrayList<QueryRestriction>();
+            parametri.add(QueryRestrictionComparison1.addIsEqual("nabJavnaNabavka", novaNabavka));
+            nabProcenaPoGodiniExtendedDataTableModelApi.setParametri(parametri);
+        }
         return nabProcenaPoGodiniExtendedDataTableModelApi;
     }
 
@@ -472,6 +481,15 @@ public class NabNovaNabavkaController extends BaseController{
         this.novaProcenjenaVrednost = novaProcenjenaVrednost;
     }
 
+    public NabProcenaPoGodiniServiceApi getNabProcenaPoGodiniServiceApi() {
+        return nabProcenaPoGodiniServiceApi;
+    }
+
+    public void setNabProcenaPoGodiniServiceApi(
+            NabProcenaPoGodiniServiceApi nabProcenaPoGodiniServiceApi) {
+        this.nabProcenaPoGodiniServiceApi = nabProcenaPoGodiniServiceApi;
+    }
+
     public void actionInitSffPoslovniZiroRacunLov(){
         
     }
@@ -482,6 +500,7 @@ public class NabNovaNabavkaController extends BaseController{
             if ( null == novaNabavka || null == novaNabavka.getIdJavnaNabavka()) throw new Exception( "Nije Setovana nabavka za koju se radi procena");
             novaProcenjenaVrednost.setNabJavnaNabavka(novaNabavka);
             System.out.println( novaProcenjenaVrednost );
+            nabProcenaPoGodiniServiceApi.createNabProcenaPoGodini(novaProcenjenaVrednost);
             populateModalOkPanelSnimanjeDefaultMessagesWithHeaderMessage(true,
                     getMessage("nabNabavkaAzuriranjeNabavkeHeader"));
         } catch (Exception e) {
