@@ -54,4 +54,8 @@
     <constructor-arg index="1" value="nabProcenaPoGodiniServiceApi" type="java.lang.String"/>
     <property name="nabProcenaPoGodiniDAO" ref="nabProcenaPoGodiniDAO"></property>
   </bean>
+  <bean id="xnabJrnServiceApi" class="rs.fimes.service.impl.nab.XnabJrnServiceImpl" parent="nabBaseService" lazy-init="true">
+    <constructor-arg index="1" value="xnabJrnServiceApi" type="java.lang.String"/>
+    <property name="xnabJrnDAO" ref="xnabJrnDAO"></property>
+  </bean>
 </beans>

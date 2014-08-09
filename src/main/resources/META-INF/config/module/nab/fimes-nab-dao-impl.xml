@@ -45,4 +45,8 @@
         parent="nabBaseDao">
         <constructor-arg index="1" value="xnabIzvorFinansiranjaDAO" type="java.lang.String" />
     </bean>
+    <bean id="xnabJrnDAO" class="rs.fimes.data.dao.impl.hibernate.nab.XnabJrnDAOImpl"
+        parent="nabBaseDao">
+        <constructor-arg index="1" value="xnabJrnDAO" type="java.lang.String" />
+    </bean>
 </beans>
