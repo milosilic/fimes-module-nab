@@ -235,11 +235,11 @@
               ajaxSingle="true"
               label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaPartije}"
               height="220px">
-              <a4j:commandButton id="nabPlaniranaVrednostPoKontimaDugmeLov"
+              <a4j:commandButton id="nabPartijaDugmeLov"
                 ajaxSingle="true" tabindex="3"
                 action="#{nabNovaNabavkaController.actionInitSffPoslovniZiroRacunLov}"
-                oncomplete="#{rich:component('nabNovaPlaniranaVrednostPoKontimaModalPanel')}.show()"
-                reRender="nabNovaPlaniranaVrednostPoKontimaModalPanel"
+                oncomplete="#{rich:component('nabNovaPartijaModalPanel')}.show()"
+                reRender="nabNovaPartijaModalPanel"
                 styleClass="fimesButtonImageLov"
                 title="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
               
@@ -248,6 +248,13 @@
               name="tab3VrednostPoKontima" ajaxSingle="true"
               label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaPlaniranaVrednostPoKontima}"
               height="220px">
+              <a4j:commandButton id="nabPlaniranaVrednostPoKontimaDugmeLov"
+                ajaxSingle="true" tabindex="3"
+                action="#{nabNovaNabavkaController.actionInitSffPoslovniZiroRacunLov}"
+                oncomplete="#{rich:component('nabNovaPlaniranaVrednostPoKontimaModalPanel')}.show()"
+                reRender="nabNovaPlaniranaVrednostPoKontimaModalPanel"
+                styleClass="fimesButtonImageLov"
+                title="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
             </rich:tab>
             <rich:tab id="tab4Izmene" name="tab4Izmene"
               ajaxSingle="true"
