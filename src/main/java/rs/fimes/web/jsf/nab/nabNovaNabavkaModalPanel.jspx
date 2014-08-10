@@ -126,8 +126,15 @@
             <h:panelGrid columns="2">
               <h:outputLabel styleClass="fimesLabelLeft"
                 value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaOrn}" />
-              <h:inputText styleClass="fimesInputText maxWidth"
-                 />
+              <h:inputText styleClass="fimesInputText maxWidth" />
+              <a4j:commandButton id="nabNovaNabavkaOrnDugmeLov"
+                ajaxSingle="true" tabindex="3"
+                action="#{nabNovaNabavkaController.actionInitSffPoslovniZiroRacunLov}"
+                oncomplete="#{rich:component('nabNoviJrnModalPanel')}.show()"
+                reRender="nabNoviJrnModalPanel"
+                styleClass="fimesButtonImageLov"
+                title="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
+
             </h:panelGrid>
             <h:panelGrid columns="2" styleClass="alignCenter"
               width="100%">
@@ -153,7 +160,7 @@
               label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaProcenjenaVrednost}"
               height="220px">
               <rich:extendedDataTable height="200px"
-                rowClasses="redAnimacija" id="tabelaNabPlan"
+                rowClasses="redAnimacija" id="tabelaProcenaPoGodinama"
                 enableContextMenu="false"
                 noDataLabel="#{nabNovaNabavkaController.module.messageSource.commonNoDataLabel}"
                 value="#{nabNovaNabavkaController.nabProcenaPoGodiniExtendedDataTableModelApi}"
@@ -215,7 +222,7 @@
                     </f:facet>
 
               </rich:extendedDataTable>
-              <a4j:commandButton id="sffIzvorFinansiranjaBankaDugmeLov"
+              <a4j:commandButton id="nabProcenaPoGodiniDugmeLov"
                 ajaxSingle="true" tabindex="3"
                 action="#{nabNovaNabavkaController.actionInitSffPoslovniZiroRacunLov}"
                 oncomplete="#{rich:component('nabProcenjenaVrednostUnosModalPanel')}.show()"
@@ -250,7 +257,7 @@
           value="#{nabNovaNabavkaController.module.messageSource.common_potvrdi}"
           action="#{nabNovaNabavkaController.snimiNabavku}"
           oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabNovaNabavkaModalPanel')}.hide();#{rich:component('coreOkModalPanel')}.show();}"
-          reRender="tabelaNabPlan,coreOkModalPanel" />
+          reRender="tabelaNabavkeLista,coreOkModalPanel" />
         <rich:spacer width="5" />
         <a4j:commandButton id="nabNovaNabavkaModalPanelDugmeOdustani"
           styleClass="fimesButton fimesButtonImageCancel"

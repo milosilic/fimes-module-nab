@@ -17,4 +17,7 @@
   <bean id="nabProcenaPoGodiniExtendedDataTableModelApi" class="rs.fimes.web.datamodel.impl.nab.NabProcenaPoGodiniExtendedDataTableModelImpl" scope="session" lazy-init="true">
     <property name="dao" ref="nabProcenaPoGodiniDAO" />
   </bean>
+  <bean id="xnabJrnExtendedDataTableModelApi" class="rs.fimes.web.datamodel.impl.nab.XnabJrnExtendedDataTableModelImpl" scope="session" lazy-init="true">
+    <property name="dao" ref="xnabJrnDAO" />
+  </bean>
 </beans>

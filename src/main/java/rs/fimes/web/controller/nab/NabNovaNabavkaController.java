@@ -35,6 +35,7 @@ import rs.fimes.service.api.nab.XnabVrstaPostupkaServiceApi;
 import rs.fimes.service.api.nab.XnabVrstaPredmetaNabavkeServiceApi;
 import rs.fimes.web.controller.BaseController;
 import rs.fimes.web.datamodel.api.nab.NabProcenaPoGodiniExtendedDataTableModelApi;
+import rs.fimes.web.datamodel.api.nab.XnabJrnExtendedDataTableModelApi;
 
 public class NabNovaNabavkaController extends BaseController{
 
@@ -99,6 +100,9 @@ public class NabNovaNabavkaController extends BaseController{
     private NabProcenaPoGodini novaProcenjenaVrednost;
     private NabProcenaPoGodiniServiceApi nabProcenaPoGodiniServiceApi;
     
+    
+    //09.08.2014.
+    private XnabJrnExtendedDataTableModelApi xnabJrnExtendedDataTableModelApi; 
     private static final long serialVersionUID = -788600541631559492L;
 
     public NabNovaNabavkaController(Module module, String controllerId)
@@ -490,8 +494,18 @@ public class NabNovaNabavkaController extends BaseController{
         this.nabProcenaPoGodiniServiceApi = nabProcenaPoGodiniServiceApi;
     }
 
+    public XnabJrnExtendedDataTableModelApi getXnabJrnExtendedDataTableModelApi() {
+        return xnabJrnExtendedDataTableModelApi;
+    }
+
+    public void setXnabJrnExtendedDataTableModelApi(
+            XnabJrnExtendedDataTableModelApi xnabJrnExtendedDataTableModelApi) {
+        this.xnabJrnExtendedDataTableModelApi = xnabJrnExtendedDataTableModelApi;
+    }
+
+    //ovo treba ukloniti
     public void actionInitSffPoslovniZiroRacunLov(){
-        
+        System.out.println( "ovde se okica akcija actionInitSffPoslovniZiroRacunLov");
     }
     
     public void dodajProcenu(){

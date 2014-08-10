@@ -32,7 +32,7 @@
                 <rich:spacer height="20px" />
                 <h:panelGroup id="p1" layout="block">
                   <rich:extendedDataTable height="318px"
-                    rowClasses="redAnimacija" id="tabelaNabPlan"
+                    rowClasses="redAnimacija" id="tabelaNabavkeLista"
                     enableContextMenu="false"
                     noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}"
                     value="#{nabPlanController.nabJavnaNabavkaExtendedDataTableModelApi}"
@@ -158,6 +158,9 @@
         </rich:panel>
         <a4j:include
           viewId="#{nabWebController.nabProcenjenaVrednostUnosModalPanelView}" />
+        <a4j:include
+          viewId="#{nabWebController.nabNoviJrnModalPanelView}" />
+
         <a4j:include
           viewId="#{nabWebController.nabNovaNabavkaModalPanelView}" />
         <a4j:include

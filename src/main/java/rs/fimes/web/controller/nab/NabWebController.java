@@ -16,6 +16,7 @@ public class NabWebController extends BaseWebController {
     private WebComponent nabNoviPlanModalPanel;
     private WebComponent nabProcenjenaVrednostUnosModalPanel;
     private WebComponent nabNovaNabavkaModalPanel;
+    private WebComponent nabNoviJrnModalPanel;
     
     public NabWebController(Module module, String shortId)
             throws ConfigurationException {
@@ -61,6 +62,18 @@ public class NabWebController extends BaseWebController {
         }
         
     }
+    
+    public String getNabNoviJrnModalPanelView(){
+        try {
+            System.out.println("ČČČČČČČČČČČČČČČČČČČČČČČČČČČČČČ");
+            return getNavigationUtil().getView("nabNoviJrnModalPanel");
+        } catch (CommonWebException e) {
+          
+            e.printStackTrace();
+            return "null";
+        }
+        
+    }
 
     public WebComponent getNabProcenjenaVrednostUnosModalPanel() {
         return nabProcenjenaVrednostUnosModalPanel;
@@ -77,6 +90,14 @@ public class NabWebController extends BaseWebController {
 
     public void setNabNovaNabavkaModalPanel(WebComponent nabNovaNabavkaModalPanel) {
         this.nabNovaNabavkaModalPanel = nabNovaNabavkaModalPanel;
+    }
+
+    public WebComponent getNabNoviJrnModalPanel() {
+        return nabNoviJrnModalPanel;
+    }
+
+    public void setNabNoviJrnModalPanel(WebComponent nabNoviJrnModalPanel) {
+        this.nabNoviJrnModalPanel = nabNoviJrnModalPanel;
     }
     
     

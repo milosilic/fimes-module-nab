@@ -40,7 +40,7 @@
         value="#{nabNovaNabavkaController.module.messageSource.common_potvrdi}"
         action="#{nabNovaNabavkaController.dodajProcenu}"
         oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabProcenjenaVrednostUnosModalPanel')}.hide();#{rich:component('coreOkModalPanel')}.show();}"
-        reRender="tabelaNabPlan,coreOkModalPanel" />
+        reRender="nabNovaNabavkaModalPanel,coreOkModalPanel" />
       <rich:spacer width="5" />
       <a4j:commandButton id="nabProcenjenaVrednostModalPanelDugmeOdustani"
         styleClass="fimesButton fimesButtonImageCancel"
