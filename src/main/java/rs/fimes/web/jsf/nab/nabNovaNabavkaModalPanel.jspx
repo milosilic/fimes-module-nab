@@ -235,6 +235,14 @@
               ajaxSingle="true"
               label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaPartije}"
               height="220px">
+              <a4j:commandButton id="nabPartijaDugmeLov"
+                ajaxSingle="true" tabindex="3"
+                action="#{nabNovaNabavkaController.actionInitSffPoslovniZiroRacunLov}"
+                oncomplete="#{rich:component('nabNovaPartijaModalPanel')}.show()"
+                reRender="nabNovaPartijaModalPanel"
+                styleClass="fimesButtonImageLov"
+                title="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
+              
             </rich:tab>
             <rich:tab id="tab3VrednostPoKontima"
               name="tab3VrednostPoKontima" ajaxSingle="true"

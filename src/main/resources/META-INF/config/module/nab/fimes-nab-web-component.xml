@@ -39,4 +39,9 @@
     <constructor-arg value="nabNoviJrnModalPanel"
       type="java.lang.String" />
   </bean>
+  <bean id="nabNovaPartijaModalPanel" class="rs.etf.rc.common.web.WebComponent"
+    parent="nabWebComponent">
+    <constructor-arg value="nabNovaPartijaModalPanel"
+      type="java.lang.String" />
+  </bean>
 </beans>

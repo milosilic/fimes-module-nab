@@ -160,6 +160,8 @@
           viewId="#{nabWebController.nabProcenjenaVrednostUnosModalPanelView}" />
         <a4j:include
           viewId="#{nabWebController.nabNoviJrnModalPanelView}" />
+        <a4j:include
+          viewId="#{nabWebController.nabNovaPartijaModalPanelView}" />
 
         <a4j:include
           viewId="#{nabWebController.nabNovaNabavkaModalPanelView}" />
