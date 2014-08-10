@@ -19,6 +19,8 @@ public class NabWebController extends BaseWebController {
     private WebComponent nabNoviJrnModalPanel;
     //10.08.2014.
     private WebComponent nabNovaPartijaModalPanel;
+    private WebComponent nabNovaPlaniranaVrednostPoKontimaModalPanel;
+
     public NabWebController(Module module, String shortId)
             throws ConfigurationException {
         super(module, shortId);
@@ -87,6 +89,17 @@ public class NabWebController extends BaseWebController {
         
     }
 
+    public String getNabNovaPlaniranaVrednostPoKontimaModalPanelView(){
+        try {
+            return getNavigationUtil().getView("nabNovaPlaniranaVrednostPoKontimaModalPanel");
+        } catch (CommonWebException e) {
+          
+            e.printStackTrace();
+            return "null";
+        }
+        
+    }
+
     public WebComponent getNabProcenjenaVrednostUnosModalPanel() {
         return nabProcenjenaVrednostUnosModalPanel;
     }
@@ -118,6 +131,15 @@ public class NabWebController extends BaseWebController {
 
     public void setNabNovaPartijaModalPanel(WebComponent nabNovaPartijaModalPanel) {
         this.nabNovaPartijaModalPanel = nabNovaPartijaModalPanel;
+    }
+
+    public WebComponent getNabNovaPlaniranaVrednostPoKontimaModalPanel() {
+        return nabNovaPlaniranaVrednostPoKontimaModalPanel;
+    }
+
+    public void setNabNovaPlaniranaVrednostPoKontimaModalPanel(
+            WebComponent nabNovaPlaniranaVrednostPoKontimaModalPanel) {
+        this.nabNovaPlaniranaVrednostPoKontimaModalPanel = nabNovaPlaniranaVrednostPoKontimaModalPanel;
     }
     
     

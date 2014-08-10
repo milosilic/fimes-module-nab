@@ -235,11 +235,11 @@
               ajaxSingle="true"
               label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaPartije}"
               height="220px">
-              <a4j:commandButton id="nabPartijaDugmeLov"
+              <a4j:commandButton id="nabPlaniranaVrednostPoKontimaDugmeLov"
                 ajaxSingle="true" tabindex="3"
                 action="#{nabNovaNabavkaController.actionInitSffPoslovniZiroRacunLov}"
-                oncomplete="#{rich:component('nabNovaPartijaModalPanel')}.show()"
-                reRender="nabNovaPartijaModalPanel"
+                oncomplete="#{rich:component('nabNovaPlaniranaVrednostPoKontimaModalPanel')}.show()"
+                reRender="nabNovaPlaniranaVrednostPoKontimaModalPanel"
                 styleClass="fimesButtonImageLov"
                 title="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
               

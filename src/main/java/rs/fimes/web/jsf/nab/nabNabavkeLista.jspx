@@ -162,6 +162,8 @@
           viewId="#{nabWebController.nabNoviJrnModalPanelView}" />
         <a4j:include
           viewId="#{nabWebController.nabNovaPartijaModalPanelView}" />
+        <a4j:include
+          viewId="#{nabWebController.nabNovaPlaniranaVrednostPoKontimaModalPanelView}" />
 
         <a4j:include
           viewId="#{nabWebController.nabNovaNabavkaModalPanelView}" />
