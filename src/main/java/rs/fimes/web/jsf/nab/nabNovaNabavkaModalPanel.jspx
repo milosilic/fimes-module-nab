@@ -235,6 +235,67 @@
               ajaxSingle="true"
               label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaPartije}"
               height="220px">
+              <rich:extendedDataTable height="200px"
+                rowClasses="redAnimacija" id="tabelaProcenaPoGodinama"
+                enableContextMenu="false"
+                noDataLabel="#{nabNovaNabavkaController.module.messageSource.commonNoDataLabel}"
+                value="#{nabNovaNabavkaController.nabPartijaNabavkeExtendedDataTableModelApi}"
+                selection="#{nabNovaNabavkaController.nabPartijaNabavkeExtendedDataTableModelApi.selection}"
+                var="partija">
+                <rich:column id="kolona1" width="10%"
+                  styleClass="fimesAlignLeft">
+                  <f:facet name="header">
+                    <h:outputText styleClass="headerText"
+                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaListaGodina}" />
+                  </f:facet>
+                  <h:outputText value="#{partija.idPartijaNabavke}" />
+                </rich:column>
+                <rich:column id="kolona2" width="30%"
+                  styleClass="fimesAlignLeft">
+                  <f:facet name="header">
+                    <h:outputText styleClass="headerText"
+                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaNazivPartije}" />
+                  </f:facet>
+                  <h:outputText value="#{partija.opisPredmetaNabavke}" />
+                </rich:column>
+                <rich:column id="kolona3" width="15%"
+                  styleClass="fimesAlignLeft">
+                  <f:facet name="header">
+                    <h:outputText styleClass="headerText"
+                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaBezPdv}" />
+                  </f:facet>
+                  <h:outputText value="#{partija.procenjenaVrednostBezPdv}" />
+                </rich:column>
+                <rich:column id="kolona4" width="15%"
+                  styleClass="fimesAlignLeft">
+                  <f:facet name="header">
+                    <h:outputText styleClass="headerText"
+                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaSaPdv}" />
+                  </f:facet>
+                  <h:outputText value="#{partija.procenjenaVrednostSaPdv}" />
+                </rich:column>
+                <rich:column id="kolona5" width="30%"
+                  styleClass="fimesAlignLeft">
+                  <f:facet name="header">
+                    <h:outputText styleClass="headerText"
+                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNapomena}" />
+                  </f:facet>
+                  <h:outputText value="#{partija.napomena}" />
+                </rich:column>
+                <f:facet name="footer">
+                  <h:panelGroup layout="block"
+                    styleClass="fimesAlignLeft">
+                    <h:outputText
+                      value="#{nabNovaNabavkaController.module.messageSource.commonUkupno}" />
+                    <h:outputText
+                      value="#{nabNovaNabavkaController.nabPartijaNabavkeExtendedDataTableModelApi.ukupnoRedova}">
+                      <f:convertNumber pattern="#,###"
+                        locale="#{applicationBean.numberLocale}" />
+                    </h:outputText>
+                  </h:panelGroup>
+                </f:facet>
+
+              </rich:extendedDataTable>
               <a4j:commandButton id="nabPartijaDugmeLov"
                 ajaxSingle="true" tabindex="3"
                 action="#{nabNovaNabavkaController.actionInitSffPoslovniZiroRacunLov}"

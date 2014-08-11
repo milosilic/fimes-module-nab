@@ -34,6 +34,7 @@ import rs.fimes.service.api.nab.XnabTipNabavkeServiceApi;
 import rs.fimes.service.api.nab.XnabVrstaPostupkaServiceApi;
 import rs.fimes.service.api.nab.XnabVrstaPredmetaNabavkeServiceApi;
 import rs.fimes.web.controller.BaseController;
+import rs.fimes.web.datamodel.api.nab.NabPartijaNabavkeExtendedDataTableModelApi;
 import rs.fimes.web.datamodel.api.nab.NabProcenaPoGodiniExtendedDataTableModelApi;
 import rs.fimes.web.datamodel.api.nab.XnabJrnExtendedDataTableModelApi;
 
@@ -103,6 +104,9 @@ public class NabNovaNabavkaController extends BaseController{
     
     //09.08.2014.
     private XnabJrnExtendedDataTableModelApi xnabJrnExtendedDataTableModelApi; 
+    
+    //12.08.2014.
+    private NabPartijaNabavkeExtendedDataTableModelApi nabPartijaNabavkeExtendedDataTableModelApi;
     private static final long serialVersionUID = -788600541631559492L;
 
     public NabNovaNabavkaController(Module module, String controllerId)
@@ -501,6 +505,15 @@ public class NabNovaNabavkaController extends BaseController{
     public void setXnabJrnExtendedDataTableModelApi(
             XnabJrnExtendedDataTableModelApi xnabJrnExtendedDataTableModelApi) {
         this.xnabJrnExtendedDataTableModelApi = xnabJrnExtendedDataTableModelApi;
+    }
+
+    public NabPartijaNabavkeExtendedDataTableModelApi getNabPartijaNabavkeExtendedDataTableModelApi() {
+        return nabPartijaNabavkeExtendedDataTableModelApi;
+    }
+
+    public void setNabPartijaNabavkeExtendedDataTableModelApi(
+            NabPartijaNabavkeExtendedDataTableModelApi nabPartijaNabavkeExtendedDataTableModelApi) {
+        this.nabPartijaNabavkeExtendedDataTableModelApi = nabPartijaNabavkeExtendedDataTableModelApi;
     }
 
     //ovo treba ukloniti
