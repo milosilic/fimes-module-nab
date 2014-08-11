@@ -20,4 +20,7 @@
   <bean id="xnabJrnExtendedDataTableModelApi" class="rs.fimes.web.datamodel.impl.nab.XnabJrnExtendedDataTableModelImpl" scope="session" lazy-init="true">
     <property name="dao" ref="xnabJrnDAO" />
   </bean>
+  <bean id="nabPartijaNabavkeExtendedDataTableModelApi" class="rs.fimes.web.datamodel.impl.nab.NabPartijaNabavkeExtendedDataTableModelImpl" scope="session" lazy-init="true">
+    <property name="dao" ref="nabPartijaNabavkeDAO" />
+  </bean>
 </beans>

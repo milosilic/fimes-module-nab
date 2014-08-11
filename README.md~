@@ -106,7 +106,7 @@ COPY xnab_jrn (id_jrn, id_jrn_nadredjena, opis, kod, f_dopunski_recnik, f_dozvol
 -- PostgreSQL database dump complete
 --
 
-ALTER TABLE nab_partija_nabavke ADD COLUMN procenjena_vrednost_bez_pdv numeric(15,2) NOT NULL;
+ALTER TABLE nab_partija_nabavke ADD COLUMN procenjena_vrednost_sa_pdv numeric(15,2) NOT NULL;
 ALTER TABLE nab_partija_nabavke ADD COLUMN procenjena_vrednost_sa_pdv numeric(15,2) NOT NULL;
 ALTER TABLE nab_partija_nabavke ADD COLUMN napomena character varying(1024);
 

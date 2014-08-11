@@ -58,4 +58,8 @@
     <constructor-arg index="1" value="xnabJrnServiceApi" type="java.lang.String"/>
     <property name="xnabJrnDAO" ref="xnabJrnDAO"></property>
   </bean>
+  <bean id="nabPartijaNabavkeServiceApi" class="rs.fimes.service.impl.nab.NabPartijaNabavkeServiceImpl" parent="nabBaseService" lazy-init="true">
+    <constructor-arg index="1" value="nabPartijaNabavkeServiceApi" type="java.lang.String"/>
+    <property name="nabPartijaNabavkeDAO" ref="nabPartijaNabavkeDAO"></property>
+  </bean>
 </beans>
