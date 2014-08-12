@@ -14,51 +14,26 @@
     </f:facet>
     <f:facet name="header">
       <h:outputText styleClass="fimesPanelHeader"
-        value="#{nabNovaNabavkaController.module.messageSource.nabPlanoviNoviPlan}" />
+        value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaNovaPartije}" />
     </f:facet>
-    <h:form id="formNoviJrn">
-      <rich:extendedDataTable height="200px" rowClasses="redAnimacija"
-        id="tabelaProcenaPoGodinama" enableContextMenu="false"
-        noDataLabel="#{nabNovaNabavkaController.module.messageSource.commonNoDataLabel}"
-        value="#{nabNovaNabavkaController.xnabJrnExtendedDataTableModelApi}"
-        selection="#{nabNovaNabavkaController.xnabJrnExtendedDataTableModelApi.selection}"
-        var="jrn">
-        <rich:column id="kolona1" width="50%"
-          styleClass="fimesAlignLeft">
-          <f:facet name="header">
-            <h:outputText styleClass="headerText"
-              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaOrn}" />
-          </f:facet>
-          <h:outputText value="#{jrn.kod}" />
-        </rich:column>
-        <rich:column id="kolona2" width="50%"
-          styleClass="fimesAlignLeft">
-          <f:facet name="header">
-            <h:outputText styleClass="headerText"
-              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaOrnDopunski}" />
-          </f:facet>
-          <h:outputText value="#{jrn.opis}" />
-        </rich:column>
-      </rich:extendedDataTable>
-      <h:panelGrid columns="2">
-        <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaOrn}" />
-        <h:inputText styleClass="fimesInputText maxWidth"
-                value="#{nabNovaNabavkaController.novaProcenjenaVrednost.godina}" /> 
-        <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaOrnDopunski}"/>
-      </h:panelGrid>
-      <a4j:commandButton id="nabJrnModalPanelDugmePotvrdi"
-        styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"
-        value="#{nabNovaNabavkaController.module.messageSource.common_potvrdi}"
-        action="#{nabNovaNabavkaController.dodajProcenu}"
-        oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabNovaPartijaModalPanel')}.hide();#{rich:component('coreOkModalPanel')}.show();}"
-        reRender="nabNovaNabavkaModalPanel,coreOkModalPanel" />
-      <rich:spacer width="5" />
-      <a4j:commandButton id="nabPartijaModalPanelDugmeOdustani"
-        styleClass="fimesButton fimesButtonImageCancel"
-        ajaxSingle="true" action="#{nabNoviPlanController.resetForm}"
-        value="#{nabNoviPlanController.module.messageSource.common_odustani}"
-        immediate="true"
-        onclick="#{rich:component('nabNovaPartijaModalPanel')}.hide()" />
-    </h:form>
+    <h:panelGrid columns="2">
+      <h:outputText
+        value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaNazivPartije}" />
+      <h:inputText styleClass="fimesInputText maxWidth"
+        value="#{nabNovaNabavkaController.novaPartija.opisPredmetaNabavke}" />
+      <h:outputText
+        value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaBezPdv}" />
+      <h:inputText styleClass="fimesInputText maxWidth"
+        value="#{nabNovaNabavkaController.novaPartija.procenjenaVrednostBezPdv}" />
+      <h:outputText
+        value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaSaPdv}" />
+      <h:inputText styleClass="fimesInputText maxWidth"
+        value="#{nabNovaNabavkaController.novaPartija.procenjenaVrednostSaPdv}" />
+      <h:outputText
+        value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaVezaSaPlanom}" />
+      <h:inputText styleClass="fimesInputText maxWidth"
+        value="#{nabNovaNabavkaController.novaPartija.napomena}" />
+    </h:panelGrid>
+
   </rich:modalPanel>
 </ui:composition>

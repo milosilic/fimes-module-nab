@@ -16,6 +16,7 @@ import rs.fimes.data.dao.generic.QueryRestriction;
 import rs.fimes.data.dao.generic.QueryRestrictionComparison1;
 import rs.fimes.domain.core.OrgFirma;
 import rs.fimes.domain.nab.NabJavnaNabavka;
+import rs.fimes.domain.nab.NabPartijaNabavke;
 import rs.fimes.domain.nab.NabPlan;
 import rs.fimes.domain.nab.NabProcenaPoGodini;
 import rs.fimes.domain.nab.XnabPredmetNabavke;
@@ -107,6 +108,8 @@ public class NabNovaNabavkaController extends BaseController{
     
     //12.08.2014.
     private NabPartijaNabavkeExtendedDataTableModelApi nabPartijaNabavkeExtendedDataTableModelApi;
+    private NabPartijaNabavke novaPartija;
+    
     private static final long serialVersionUID = -788600541631559492L;
 
     public NabNovaNabavkaController(Module module, String controllerId)
@@ -514,6 +517,14 @@ public class NabNovaNabavkaController extends BaseController{
     public void setNabPartijaNabavkeExtendedDataTableModelApi(
             NabPartijaNabavkeExtendedDataTableModelApi nabPartijaNabavkeExtendedDataTableModelApi) {
         this.nabPartijaNabavkeExtendedDataTableModelApi = nabPartijaNabavkeExtendedDataTableModelApi;
+    }
+
+    public NabPartijaNabavke getNovaPartija() {
+        return novaPartija;
+    }
+
+    public void setNovaPartija(NabPartijaNabavke novaPartija) {
+        this.novaPartija = novaPartija;
     }
 
     //ovo treba ukloniti
