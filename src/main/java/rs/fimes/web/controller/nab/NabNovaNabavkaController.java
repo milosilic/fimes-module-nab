@@ -27,6 +27,7 @@ import rs.fimes.domain.nab.XnabVrstaPredmetaNabavke;
 import rs.fimes.service.api.core.UsrKorisnikServiceApi;
 import rs.fimes.service.api.nab.NabJavnaNabavkaServiceApi;
 import rs.fimes.service.api.nab.NabNaruciociServiceApi;
+import rs.fimes.service.api.nab.NabPartijaNabavkeServiceApi;
 import rs.fimes.service.api.nab.NabPlanServiceApi;
 import rs.fimes.service.api.nab.NabProcenaPoGodiniServiceApi;
 import rs.fimes.service.api.nab.XnabPredmetNabavkeServiceApi;
@@ -109,7 +110,8 @@ public class NabNovaNabavkaController extends BaseController{
     //12.08.2014.
     private NabPartijaNabavkeExtendedDataTableModelApi nabPartijaNabavkeExtendedDataTableModelApi;
     private NabPartijaNabavke novaPartija;
-    
+    //13.08.2014
+    private NabPartijaNabavkeServiceApi nabPartijaNabavkeServiceApi;
     private static final long serialVersionUID = -788600541631559492L;
 
     public NabNovaNabavkaController(Module module, String controllerId)
@@ -526,6 +528,23 @@ public class NabNovaNabavkaController extends BaseController{
     public void setNovaPartija(NabPartijaNabavke novaPartija) {
         this.novaPartija = novaPartija;
     }
+    
+    public void clearPartijaSelection(){
+        novaPartija = new NabPartijaNabavke();
+    }
+    
+    public void dodajPartiju(){
+        try {
+            if (null == novaNabavka || null == novaNabavka.getIdJavnaNabavka()) {
+                throw new Exception(
+                        "Nije Setovana nabavka za koju se pravi partija");
+            }
+            novaPartija.setNabJavnaNabavka(novaNabavka);
+            nabPartijaNabavkeServiceApi.createNabPartijaNabavke(novaPartija);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     //ovo treba ukloniti
     public void actionInitSffPoslovniZiroRacunLov(){
@@ -535,7 +554,9 @@ public class NabNovaNabavkaController extends BaseController{
     public void dodajProcenu(){
         
         try {
-            if ( null == novaNabavka || null == novaNabavka.getIdJavnaNabavka()) throw new Exception( "Nije Setovana nabavka za koju se radi procena");
+            if ( null == novaNabavka || null == novaNabavka.getIdJavnaNabavka()) {
+                throw new Exception( "Nije Setovana nabavka za koju se radi procena");
+            }
             novaProcenjenaVrednost.setNabJavnaNabavka(novaNabavka);
             System.out.println( novaProcenjenaVrednost );
             nabProcenaPoGodiniServiceApi.createNabProcenaPoGodini(novaProcenjenaVrednost);

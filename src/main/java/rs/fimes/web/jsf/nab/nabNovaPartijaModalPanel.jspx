@@ -16,24 +16,40 @@
       <h:outputText styleClass="fimesPanelHeader"
         value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaNovaPartije}" />
     </f:facet>
-    <h:panelGrid columns="2">
-      <h:outputText
-        value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaNazivPartije}" />
-      <h:inputText styleClass="fimesInputText maxWidth"
-        value="#{nabNovaNabavkaController.novaPartija.opisPredmetaNabavke}" />
-      <h:outputText
-        value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaBezPdv}" />
-      <h:inputText styleClass="fimesInputText maxWidth"
-        value="#{nabNovaNabavkaController.novaPartija.procenjenaVrednostBezPdv}" />
-      <h:outputText
-        value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaSaPdv}" />
-      <h:inputText styleClass="fimesInputText maxWidth"
-        value="#{nabNovaNabavkaController.novaPartija.procenjenaVrednostSaPdv}" />
-      <h:outputText
-        value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaVezaSaPlanom}" />
-      <h:inputText styleClass="fimesInputText maxWidth"
-        value="#{nabNovaNabavkaController.novaPartija.napomena}" />
-    </h:panelGrid>
-
+    <h:form id="formNovaPartija">
+      <h:panelGrid columns="2">
+        <h:outputText
+          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaNazivPartije}" />
+        <h:inputText styleClass="fimesInputText maxWidth"
+          value="#{nabNovaNabavkaController.novaPartija.opisPredmetaNabavke}" />
+        <h:outputText
+          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaBezPdv}" />
+        <h:inputText styleClass="fimesInputText maxWidth"
+          value="#{nabNovaNabavkaController.novaPartija.procenjenaVrednostBezPdv}" />
+        <h:outputText
+          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaSaPdv}" />
+        <h:inputText styleClass="fimesInputText maxWidth"
+          value="#{nabNovaNabavkaController.novaPartija.procenjenaVrednostSaPdv}" />
+        <h:outputText
+          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaVezaSaPlanom}" />
+        <h:inputText styleClass="fimesInputText maxWidth"
+          value="#{nabNovaNabavkaController.novaPartija.napomena}" />
+      </h:panelGrid>
+      <a4j:commandButton
+        id="nabProcenjenaVrednostModalPanelDugmePotvrdi"
+        styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"
+        value="#{nabNovaNabavkaController.module.messageSource.common_potvrdi}"
+        action="#{nabNovaNabavkaController.dodajPartiju}"
+        oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabNovaPartijaModalPanel')}.hide();#{rich:component('coreOkModalPanel')}.show();}"
+        reRender="nabNovaNabavkaModalPanel,coreOkModalPanel" />
+      <rich:spacer width="5" />
+      <a4j:commandButton
+        id="nabProcenjenaVrednostModalPanelDugmeOdustani"
+        styleClass="fimesButton fimesButtonImageCancel"
+        ajaxSingle="true" action="#{nabNoviPlanController.resetForm}"
+        value="#{nabNoviPlanController.module.messageSource.common_odustani}"
+        immediate="true"
+        onclick="#{rich:component('nabNovaPartijaModalPanel')}.hide()" />
+    </h:form>
   </rich:modalPanel>
 </ui:composition>

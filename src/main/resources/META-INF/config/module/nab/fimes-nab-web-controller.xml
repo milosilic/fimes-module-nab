@@ -72,6 +72,7 @@
         <property name="nabProcenaPoGodiniServiceApi" ref="nabProcenaPoGodiniServiceApi" />
         <property name="xnabJrnExtendedDataTableModelApi" ref="xnabJrnExtendedDataTableModelApi" />
         <property name="nabPartijaNabavkeExtendedDataTableModelApi" ref="nabPartijaNabavkeExtendedDataTableModelApi" />
+        <property name="nabPartijaNabavkeServiceApi" ref="nabPartijaNabavkeServiceApi" />
         
 	</bean>
     <bean id="nabKontoSelectionController" class="rs.fimes.web.controller.nab.NabKontoSelectionController"
