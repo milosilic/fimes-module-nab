@@ -529,6 +529,15 @@ public class NabNovaNabavkaController extends BaseController{
         this.novaPartija = novaPartija;
     }
     
+    public NabPartijaNabavkeServiceApi getNabPartijaNabavkeServiceApi() {
+        return nabPartijaNabavkeServiceApi;
+    }
+
+    public void setNabPartijaNabavkeServiceApi(
+            NabPartijaNabavkeServiceApi nabPartijaNabavkeServiceApi) {
+        this.nabPartijaNabavkeServiceApi = nabPartijaNabavkeServiceApi;
+    }
+
     public void clearPartijaSelection(){
         novaPartija = new NabPartijaNabavke();
     }
