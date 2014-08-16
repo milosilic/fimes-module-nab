@@ -12,6 +12,10 @@
         value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavka}" />
     </f:facet>
     <h:form id="formNovaNabavka">
+      <a4j:jsFunction name="nabProcenaBrisanje"
+        action="#{nabNovaNabavkaController.obrisiProcenu}"
+        oncomplete="#{rich:component('coreModalDaNeDijalog')}.hide();#{rich:component('coreOkModalPanel')}.show();"
+        reRender="coreOkModalPanel,tabelaProcenaPoGodinama" />
       <h:panelGroup id="kartonBody" styleClass="fimesZrdBody">
         <h:panelGrid id="tabelaObjObjekat" styleClass="objKartonTab"
           columns="2" width="100%"
@@ -23,16 +27,20 @@
             cellspacing="10px">
             <h:outputLabel styleClass="fimesLabelLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaOpisPredmetaNabavke}" />
-            <h:inputText styleClass="fimesInputText maxWidth" value="#{nabNovaNabavkaController.novaNabavka.opis}" />
-            <h:outputLabel styleClass="fimesLabelLeft"            
+            <h:inputText styleClass="fimesInputText maxWidth"
+              value="#{nabNovaNabavkaController.novaNabavka.opis}" />
+            <h:outputLabel styleClass="fimesLabelLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaInterniBroj}" />
-            <h:inputText styleClass="fimesInputText maxWidth" value="#{nabNovaNabavkaController.novaNabavka.interniBroj}"/>
+            <h:inputText styleClass="fimesInputText maxWidth"
+              value="#{nabNovaNabavkaController.novaNabavka.interniBroj}" />
             <h:outputLabel styleClass="fimesLabelLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaUkupnaBezPdv}" />
-            <h:inputText styleClass="fimesInputText maxWidth" value="#{nabNovaNabavkaController.novaNabavka.procenaBezPdv}"/>
+            <h:inputText styleClass="fimesInputText maxWidth"
+              value="#{nabNovaNabavkaController.novaNabavka.procenaBezPdv}" />
             <h:outputLabel styleClass="fimesLabelLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaUkupnaSaPdv}" />
-            <h:inputText styleClass="fimesInputText maxWidth" value="#{nabNovaNabavkaController.novaNabavka.procenaSaPdv}"/>
+            <h:inputText styleClass="fimesInputText maxWidth"
+              value="#{nabNovaNabavkaController.novaNabavka.procenaSaPdv}" />
             <h:outputLabel styleClass="fimesLabelLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaVrstaPredmeta}" />
             <h:panelGrid columns="1" styleClass="alignCenter"
@@ -72,13 +80,16 @@
             </h:panelGrid>
             <h:outputLabel styleClass="fimesLabelLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaOpravdanostNabavke}" />
-            <h:inputText styleClass="fimesInputText maxWidth"  value="#{nabNovaNabavkaController.novaNabavka.opravdanost}"/>
+            <h:inputText styleClass="fimesInputText maxWidth"
+              value="#{nabNovaNabavkaController.novaNabavka.opravdanost}" />
             <h:outputLabel styleClass="fimesLabelLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNacinProceneVrednosti}" />
-            <h:inputText styleClass="fimesInputText maxWidth"  value="#{nabNovaNabavkaController.novaNabavka.opisProcena}"/>
+            <h:inputText styleClass="fimesInputText maxWidth"
+              value="#{nabNovaNabavkaController.novaNabavka.opisProcena}" />
             <h:outputLabel styleClass="fimesLabelLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNapomenaZaPostupak}" />
-            <h:inputText styleClass="fimesInputText maxWidth" value="#{nabNovaNabavkaController.novaNabavka.napomena}" />
+            <h:inputText styleClass="fimesInputText maxWidth"
+              value="#{nabNovaNabavkaController.novaNabavka.napomena}" />
           </h:panelGrid>
           <h:panelGrid columns="2"
             styleClass="fimesInputGroup fimesTableCentered maxWidth"
@@ -138,8 +149,8 @@
             </h:panelGrid>
             <h:panelGrid columns="2" styleClass="alignCenter"
               width="100%">
-            <h:outputLabel styleClass="fimesLabelLeft"
-              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
+              <h:outputLabel styleClass="fimesLabelLeft"
+                value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
               <h:selectOneMenu id="selectOneXnabTipPredmeta"
                 tabindex="1" style="width: 200px;"
                 styleClass="fimesInputDropDown"
@@ -154,7 +165,12 @@
       <h:panelGrid columns="1" styleClass="maxWidth">
         <h:panelGrid>
           <rich:spacer height="10" />
-          <rich:tabPanel switchType="ajax" id="tabPanel" styleClass="maxWidth" rendered="#{not empty nabNovaNabavkaController.novaNabavka.idJavnaNabavka}">
+
+          <!--           ODAVDE KREĆE TAB -->
+
+          <rich:tabPanel switchType="ajax" id="tabPanel"
+            styleClass="maxWidth"
+            rendered="#{not empty nabNovaNabavkaController.novaNabavka.idJavnaNabavka}">
             <rich:tab id="tab1VrednostPoGodinama"
               name="tab1VrednostPoGodinama" ajaxSingle="true"
               label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaProcenjenaVrednost}"
@@ -166,6 +182,20 @@
                 value="#{nabNovaNabavkaController.nabProcenaPoGodiniExtendedDataTableModelApi}"
                 selection="#{nabNovaNabavkaController.nabProcenaPoGodiniExtendedDataTableModelApi.selection}"
                 var="procena">
+                <rich:column width="10%"
+                  styleClass="fimesAlignCenter noPadding">
+
+                  <a4j:commandButton ajaxSingle="true"
+                    status="waitStatus"
+                    id="tabelaNabProcenaPoGodiniBrisanje"
+                    action="#{nabNovaNabavkaController.initModalDialogBrisanje}"
+                    oncomplete="if(#{empty facesContext.maximumSeverity}){ #{rich:component('coreModalDaNeDijalog')}.show();}
+                                    else #{rich:component('coreErrorModalPanel')}.show();"
+                    styleClass="fimesButtonImageCross">
+
+                  </a4j:commandButton>
+
+                </rich:column>
                 <rich:column id="kolona1" width="10%"
                   styleClass="fimesAlignLeft">
                   <f:facet name="header">
@@ -175,7 +205,7 @@
                   <h:outputText value="#{procena.godina}" />
                 </rich:column>
 
-                <rich:column id="kolona2" width="20%"
+                <rich:column id="kolona2" width="10%"
                   styleClass="fimesAlignLeft">
                   <f:facet name="header">
                     <h:outputText styleClass="headerText"
@@ -208,18 +238,18 @@
                   </f:facet>
                   <h:outputText value="#{procena.napomena}" />
                 </rich:column>
-                    <f:facet name="footer">
-                      <h:panelGroup layout="block"
-                        styleClass="fimesAlignLeft">
-                        <h:outputText
-                          value="#{nabNovaNabavkaController.module.messageSource.commonUkupno}" />
-                        <h:outputText
-                          value="#{nabNovaNabavkaController.nabProcenaPoGodiniExtendedDataTableModelApi.ukupnoRedova}">
-                          <f:convertNumber pattern="#,###"
-                            locale="#{applicationBean.numberLocale}" />
-                        </h:outputText>
-                      </h:panelGroup>
-                    </f:facet>
+                <f:facet name="footer">
+                  <h:panelGroup layout="block"
+                    styleClass="fimesAlignLeft">
+                    <h:outputText
+                      value="#{nabNovaNabavkaController.module.messageSource.commonUkupno}" />
+                    <h:outputText
+                      value="#{nabNovaNabavkaController.nabProcenaPoGodiniExtendedDataTableModelApi.ukupnoRedova}">
+                      <f:convertNumber pattern="#,###"
+                        locale="#{applicationBean.numberLocale}" />
+                    </h:outputText>
+                  </h:panelGroup>
+                </f:facet>
 
               </rich:extendedDataTable>
               <a4j:commandButton id="nabProcenaPoGodiniDugmeLov"
@@ -264,7 +294,8 @@
                     <h:outputText styleClass="headerText"
                       value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaBezPdv}" />
                   </f:facet>
-                  <h:outputText value="#{partija.procenjenaVrednostBezPdv}" />
+                  <h:outputText
+                    value="#{partija.procenjenaVrednostBezPdv}" />
                 </rich:column>
                 <rich:column id="kolona4" width="15%"
                   styleClass="fimesAlignLeft">
@@ -272,7 +303,8 @@
                     <h:outputText styleClass="headerText"
                       value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaSaPdv}" />
                   </f:facet>
-                  <h:outputText value="#{partija.procenjenaVrednostSaPdv}" />
+                  <h:outputText
+                    value="#{partija.procenjenaVrednostSaPdv}" />
                 </rich:column>
                 <rich:column id="kolona5" width="30%"
                   styleClass="fimesAlignLeft">
@@ -303,13 +335,14 @@
                 reRender="nabNovaPartijaModalPanel"
                 styleClass="fimesButtonImageLov"
                 title="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
-              
+
             </rich:tab>
             <rich:tab id="tab3VrednostPoKontima"
               name="tab3VrednostPoKontima" ajaxSingle="true"
               label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaPlaniranaVrednostPoKontima}"
               height="220px">
-              <a4j:commandButton id="nabPlaniranaVrednostPoKontimaDugmeLov"
+              <a4j:commandButton
+                id="nabPlaniranaVrednostPoKontimaDugmeLov"
                 ajaxSingle="true" tabindex="3"
                 action="#{nabNovaNabavkaController.actionInitSffPoslovniZiroRacunLov}"
                 oncomplete="#{rich:component('nabNovaPlaniranaVrednostPoKontimaModalPanel')}.show()"
@@ -343,7 +376,16 @@
           immediate="true"
           onclick="#{rich:component('nabNovaNabavkaModalPanel')}.hide()" />
       </h:panelGrid>
+      <a4j:include
+        viewId="#{coreWebController.coreModalDaNeDijalogView}" />
+      <a4j:include viewId="#{coreWebController.coreModalOkDijalogView}" />
+      <a4j:include
+        viewId="#{coreWebController.coreModalErrorDijalogView}" />
     </h:form>
-    
+    <a4j:include viewId="#{coreWebController.ajaxStatusModalPanelView}" />
+    <a4j:status id="waitStatus"
+      onstart="#{rich:component('ajaxStatusModalPanel')}.show()"
+      onstop="#{rich:component('ajaxStatusModalPanel')}.hide()" />
+
   </rich:modalPanel>
 </ui:composition>

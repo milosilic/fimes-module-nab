@@ -12,6 +12,7 @@ import org.ajax4jsf.component.html.HtmlAjaxCommandButton;
 
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
+import rs.etf.rc.common.utils.MessageBundleProperty;
 import rs.fimes.data.dao.generic.QueryRestriction;
 import rs.fimes.data.dao.generic.QueryRestrictionComparison1;
 import rs.fimes.domain.core.OrgFirma;
@@ -112,6 +113,8 @@ public class NabNovaNabavkaController extends BaseController{
     private NabPartijaNabavke novaPartija;
     //13.08.2014
     private NabPartijaNabavkeServiceApi nabPartijaNabavkeServiceApi;
+    //14.08.2014.
+    private NabProcenaPoGodini nabProcenaPoGodini;
     private static final long serialVersionUID = -788600541631559492L;
 
     public NabNovaNabavkaController(Module module, String controllerId)
@@ -538,6 +541,15 @@ public class NabNovaNabavkaController extends BaseController{
         this.nabPartijaNabavkeServiceApi = nabPartijaNabavkeServiceApi;
     }
 
+    public NabProcenaPoGodini getNabProcenaPoGodini() {
+        return nabProcenaPoGodini;
+    }
+
+    public void setNabProcenaPoGodini(NabProcenaPoGodini nabProcenaPoGodini) {
+        System.out.println( "===================================");
+        this.nabProcenaPoGodini = nabProcenaPoGodini;
+    }
+
     public void clearPartijaSelection(){
         novaPartija = new NabPartijaNabavke();
     }
@@ -578,6 +590,29 @@ public class NabNovaNabavkaController extends BaseController{
             e.printStackTrace();
         }finally{
             resetNabNovuProcenjenuVrednost();
+        }
+    }
+    
+    // 14.08.2014
+    // TODO treba preimenovati, previše je opšte
+    public void initModalDialogBrisanje() {
+        System.out.println( getModalPanelUtil().getFullId());
+//        System.out.println( getModalPanelUtil().initModalDialogBrisanje("nabNabavkaProcenaPoGodiniHeader", message, dugmeDaOncomplete, dugmeDaForProcess));
+        initModalDialogBrisanje(
+                "nabNabavkaProcenaPoGodiniHeader",
+                new MessageBundleProperty(
+                        "nabNabavkaProcenaBrisanjePitanje"),
+                "nabProcenaBrisanje()");
+        
+        System.out.println( "Ovde se izvršio iniModalDialogBrisanje");
+    }
+    
+    public void obrisiProcenu(){
+       
+        if ( null != nabProcenaPoGodini){
+            
+        }else {
+            System.out.println( "Ne postoji nabProcenaPoGodini");
         }
     }
     

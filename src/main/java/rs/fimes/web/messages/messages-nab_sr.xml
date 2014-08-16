@@ -77,11 +77,15 @@
 
 <entry key="nabNabavkaOsnovniPodaci">Основни подаци</entry>
 <entry key="nabNabavkaProcenjenaVrednost">Процењена вредност по годинама</entry>
+<entry key="nabNovaNabavkaProcenaBrisanjeToolTip">Обришите процену</entry>
 <entry key="nabNabavkaPartije">Партије</entry>
 <entry key="nabNabavkaPlaniranaVrednostPoKontima">Планирана вредност по контима/позицијама у фин.плану</entry>
 <entry key="nabNabavkaIzmeneNabavke">Измене набавке</entry>
 <entry key="nabKontoPozicija">Конто/позиција</entry>
 <entry key="nabKontoNaziv">Назив конта/позиције у финансијском плану</entry>
+
+<entry key="nabNabavkaProcenaPoGodiniHeader">Процена набавке по години</entry>
+<entry key="nabNabavkaProcenaBrisanjePitanje">Да ли сигурно желите да обришете набавку?</entry>
 <!-- <entry key="nabNabavkaNovaNabavkaInterniBroj">Врста поступка</entry> -->
 <!-- <entry key="nabNabavkaNovaNabavkaInterniBroj">Врста поступка</entry> -->
 <!-- <entry key="nabNabavkaNovaNabavkaInterniBroj">Врста поступка</entry> -->
