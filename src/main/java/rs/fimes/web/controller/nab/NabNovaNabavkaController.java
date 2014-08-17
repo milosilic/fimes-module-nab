@@ -625,5 +625,30 @@ public class NabNovaNabavkaController extends BaseController{
         }
     }
     
+    public void initModalDialogBrisanjePartija(){
+
+        initModalDialogBrisanje(
+                "nabNabavkaPartijaiHeader",
+                new MessageBundleProperty(
+                        "nabNabavkaPartijaBrisanjePitanje"),
+                "nabPartijaBrisanje()");
+
+    }
+    
+    public void obrisiPartiju(){
+        if ( null != novaPartija ){
+            try {
+                nabPartijaNabavkeServiceApi.deletePartija( novaPartija );
+                populateModalOkPanelSnimanjeDefaultMessagesCommonHeader(true);
+            } catch (Exception e) {
+                populateModalOkPanelSnimanjeDefaultMessagesCommonHeader(false);
+                e.printStackTrace();
+            }
+            novaPartija = null;
+        }else {
+            populateModalOkPanelSnimanjeDefaultMessagesCommonHeader(true);
+        }
+    }
+    
 
 }

@@ -33,4 +33,10 @@ implements NabPartijaNabavkeServiceApi{
         this.nabPartijaNabavkeDAO = nabPartijaNabavkeDAO;
     }
 
+    @Override
+    public void deletePartija(NabPartijaNabavke novaPartija) {
+        NabPartijaNabavke partijaNabavke = nabPartijaNabavkeDAO.findById(novaPartija.getIdPartijaNabavke(), true);
+        nabPartijaNabavkeDAO.delete(partijaNabavke);
+    }
+
 }

@@ -7,4 +7,6 @@ public interface NabPartijaNabavkeServiceApi extends BaseServiceApi{
 
     void createNabPartijaNabavke(NabPartijaNabavke novaNabavka);
 
+    void deletePartija(NabPartijaNabavke novaPartija);
+
 }
