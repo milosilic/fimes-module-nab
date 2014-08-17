@@ -33,4 +33,11 @@ implements NabProcenaPoGodiniServiceApi{
         this.nabProcenaPoGodiniDAO = nabProcenaPoGodiniDAO;
     }
 
+    @Override
+    public void deleteProcenaPoGodini(NabProcenaPoGodini nabProcenaPoGodini) {
+        NabProcenaPoGodini procena = nabProcenaPoGodiniDAO.findById(nabProcenaPoGodini.getIdProcenaPoGodini(), false);
+        nabProcenaPoGodiniDAO.delete(procena);
+        
+    }
+
 }

@@ -7,4 +7,6 @@ public interface NabProcenaPoGodiniServiceApi extends BaseServiceApi{
 
     void createNabProcenaPoGodini(NabProcenaPoGodini novaNabavka);
 
+    void deleteProcenaPoGodini(NabProcenaPoGodini nabProcenaPoGodini);
+
 }

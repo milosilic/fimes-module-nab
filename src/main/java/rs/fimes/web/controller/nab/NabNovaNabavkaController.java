@@ -610,9 +610,18 @@ public class NabNovaNabavkaController extends BaseController{
     public void obrisiProcenu(){
        
         if ( null != nabProcenaPoGodini){
+            try {
+                nabProcenaPoGodiniServiceApi.deleteProcenaPoGodini( nabProcenaPoGodini);
+                populateModalOkPanelSnimanjeDefaultMessages(true,"nabNabavkaProcenaPoGodiniBrisanjeHeader" );
+                nabProcenaPoGodini = null;
+            } catch (Exception e) {
+               
+                populateModalOkPanelSnimanjeDefaultMessages(false,"nabNabavkaProcenaPoGodiniBrisanjeHeader" );                e.printStackTrace();
+            }
             
         }else {
             System.out.println( "Ne postoji nabProcenaPoGodini");
+            populateModalOkPanelSnimanjeDefaultMessages(false,"nabNabavkaProcenaPoGodiniBrisanjeHeader" );
         }
     }
     

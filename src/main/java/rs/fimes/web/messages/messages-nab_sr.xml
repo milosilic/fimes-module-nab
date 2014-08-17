@@ -85,7 +85,8 @@
 <entry key="nabKontoNaziv">Назив конта/позиције у финансијском плану</entry>
 
 <entry key="nabNabavkaProcenaPoGodiniHeader">Процена набавке по години</entry>
-<entry key="nabNabavkaProcenaBrisanjePitanje">Да ли сигурно желите да обришете набавку?</entry>
+<entry key="nabNabavkaProcenaBrisanjePitanje">Да ли сигурно желите да обришете процену по години?</entry>
+<entry key="nabNabavkaProcenaPoGodiniBrisanjeHeader">Брисање процене по години</entry>
 <!-- <entry key="nabNabavkaNovaNabavkaInterniBroj">Врста поступка</entry> -->
 <!-- <entry key="nabNabavkaNovaNabavkaInterniBroj">Врста поступка</entry> -->
 <!-- <entry key="nabNabavkaNovaNabavkaInterniBroj">Врста поступка</entry> -->

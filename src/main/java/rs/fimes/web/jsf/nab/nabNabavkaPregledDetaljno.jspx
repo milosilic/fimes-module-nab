@@ -204,7 +204,8 @@
                           action="#{nabNovaNabavkaController.initModalDialogBrisanje}"
                           oncomplete="if(#{empty facesContext.maximumSeverity}){ #{rich:component('coreModalDaNeDijalog')}.show();}
                                     else #{rich:component('coreErrorModalPanel')}.show();"
-                          styleClass="fimesButtonImageCross">
+                          styleClass="fimesButtonImageCross"
+                          reRender="coreModalDaNeDijalog,coreErrorModalPanel">
                       <f:setPropertyActionListener value="#{procena}"
                         target="#{nabNovaNabavkaController.nabProcenaPoGodini}" />
 
@@ -395,7 +396,6 @@
                 action="#{nabNovaNabavkaController.snimiNabavku}"
                 oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabNovaNabavkaModalPanel')}.hide();#{rich:component('coreOkModalPanel')}.show();}"
                 reRender="tabelaNabavkeLista,coreOkModalPanel" />
-              <rich:spacer width="5" />
               <a4j:commandButton
                 id="nabNovaNabavkaModalPanelDugmeOdustani"
                 styleClass="fimesButton fimesButtonImageCancel"
