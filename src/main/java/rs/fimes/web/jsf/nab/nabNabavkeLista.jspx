@@ -38,10 +38,15 @@
                     value="#{nabPlanController.nabJavnaNabavkaExtendedDataTableModelApi}"
                      selection="#{nabNabavkaController.nabJavnaNabavkaExtendedDataTableModelApi.selection}"
                     var="nabavka">
-<!--                     selekcija -->
-                    <a4j:support event="onselectionchange" 
-                      action="#{nabNabavkaController.handleSelection}" 
-                       reRender="t1" /> 
+
+                    <!-- selekcija  iz objEvidencija objekata.jspx-->
+                    <a4j:support event="onRowClick" 
+                      immediate="true" status="waitStatus">
+                      <f:setPropertyActionListener value="#{nabavka}"
+                        target="#{nabNovaNabavkaController.novaNabavka}" />
+                      <f:setPropertyActionListener value="#{nabavka}"
+                        target="#{nabNabavkaController.izabranaNabavka}" />
+                    </a4j:support>
 
                     <rich:column id="kolona1" width="10%"
                       styleClass="fimesAlignLeft">
@@ -146,6 +151,12 @@
                       reRender="nabNovaNabavkaModalPanel"
                       value="#{nabNabavkaController.module.messageSource.nabNabavkaNovaNabavka}"
                       />
+                    <rich:spacer width="5px" />
+                    <a4j:commandButton styleClass="fimesButton"
+                      action="nabavkaDetaljno"
+                      value="Детаљно"
+                      />
+                      
                   </h:panelGroup>
                 </h:panelGroup>
               </rich:layoutPanel>

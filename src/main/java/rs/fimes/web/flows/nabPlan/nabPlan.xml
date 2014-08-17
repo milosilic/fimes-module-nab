@@ -28,8 +28,18 @@
       <evaluate expression="nabNabavkaController.onStart()" />
     </on-entry>
     <transition on="novaNabavka" to="novaNabavka" />
+    <transition on="nabavkaDetaljno" to="nabavkaDetaljno" />
   </view-state>
-  <view-state id="novaNabavka" view="/rs/fimes/web/jsf/nab/nabNovaNabavka.jspx">
+  <view-state id="novaNabavka" view="/rs/fimes/web/jsf/nab/nabNabavka.jspx">
+    <on-entry>
+            <evaluate
+        expression="nabPlanController.getNabPlanSelected()"
+        result="nabNovaNabavkaController.nabPlan" />
+      <evaluate expression="nabNovaNabavkaController.onStart()" />
+    </on-entry>
+    <transition on="nazad" to="nabavkeLista" />
+  </view-state>  
+  <view-state id="nabavkaDetaljno" view="/rs/fimes/web/jsf/nab/nabNabavkaPregledDetaljno.jspx">
     <on-entry>
             <evaluate
         expression="nabPlanController.getNabPlanSelected()"
