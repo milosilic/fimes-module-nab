@@ -110,4 +110,28 @@ ALTER TABLE nab_partija_nabavke ADD COLUMN procenjena_vrednost_bez_pdv numeric(1
 ALTER TABLE nab_partija_nabavke ADD COLUMN procenjena_vrednost_sa_pdv numeric(15,2) NOT NULL;
 ALTER TABLE nab_partija_nabavke ADD COLUMN napomena character varying(1024);
 
+CREATE TABLE nab_nabavka_konto_partija
+(
+   id_nabavka_konto_partija integer, 
+   id_nabavka integer, 
+   id_konto integer, 
+   id_partija_nabavke integer, 
+   id_izvor_finansiranja integer, 
+   vrednost_bez_ppdv numeric(15,2), 
+   vrednost_sa_pdv numeric(15,2), 
+   napomena character varying(1024), 
+    PRIMARY KEY (id_nabavka_konto_partija), 
+    FOREIGN KEY (id_nabavka) REFERENCES nab_javna_nabavka (id_javna_nabavka) ON UPDATE NO ACTION ON DELETE NO ACTION, 
+    FOREIGN KEY (id_konto) REFERENCES xnab_konto (id_konto) ON UPDATE NO ACTION ON DELETE NO ACTION, 
+    FOREIGN KEY (id_partija_nabavke) REFERENCES nab_partija_nabavke (id_partija_nabavke) ON UPDATE NO ACTION ON DELETE NO ACTION, 
+    FOREIGN KEY (id_izvor_finansiranja) REFERENCES xnab_izvor_finansiranja (id_izvor_finansiranja) ON UPDATE NO ACTION ON DELETE NO ACTION
+) 
+WITH (
+  OIDS = FALSE
+)
+;
+ALTER TABLE nab_nabavka_konto_partija OWNER TO "fimes-demo";
+COMMENT ON TABLE nab_nabavka_konto_partija
+  IS 'planirana vrednost po kontima u finansijskom planu';
+
 
