@@ -3,11 +3,6 @@
 <properties>
 <comment>блабла1111</comment>
 
-<!-- <entry key="nabEvidencijaHeader">Евиденција и претрага објеката</entry> -->
-<!-- <entry key="nabEvidencijaTipObjekta">Тип објекта</entry> -->
-<!-- <entry key="nabEvidencijaNazivObjekta">Назив објекта</entry> -->
-<!-- <entry key="nabEvidencijaAdresa">Адреса</entry> -->
-<!-- <entry key="nabEvidencijaPostanskiBroj">Поштански број</entry> -->
 <entry key="nabNaruciociNaziv">Назив наручиоца</entry>
 <entry key="nabNaruciociUlica">Улица</entry>
 <entry key="nabNaruciociBroj">Број</entry>
@@ -46,6 +41,7 @@
 
 <!--Nabavka -->
 <entry key="nabNabavkaNovaNabavkaHeader">Нова набавка</entry>
+<entry key="nabNabavkaObrisiNabavku">Обриши набавку</entry>
 <entry key="nabNabavkaNovaNabavkaPlanZaGodinu">План за годину</entry>
 <entry key="nabNabavkaNovaNabavkaOpisPredmetaNabavke">Опис предмета набавке</entry>
 <entry key="nabNabavkaNovaNabavkaInterniBroj">Интерни број</entry>
@@ -89,53 +85,5 @@
 <entry key="nabNabavkaPartijaBrisanjePitanje">Да ли сигурно желите да обришете ову партију</entry>
 <entry key="nabNabavkaProcenaBrisanjePitanje">Да ли сигурно желите да обришете процену по години?</entry>
 <entry key="nabNabavkaProcenaPoGodiniBrisanjeHeader">Брисање процене по години</entry>
-<!-- <entry key="nabNabavkaNovaNabavkaInterniBroj">Врста поступка</entry> -->
-<!-- <entry key="nabNabavkaNovaNabavkaInterniBroj">Врста поступка</entry> -->
-<!-- <entry key="nabNabavkaNovaNabavkaInterniBroj">Врста поступка</entry> -->
 
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNabavkaNovaNabavka"></entry> -->
-<!-- <entry key="nabNarucioci"></entry> -->
-<!-- <entry key="nabNarucioci"></entry> -->
-<!-- <entry key="nabNarucioci"></entry> -->
-<!-- <entry key="nabNarucioci"></entry> -->
-<!-- <entry key="nabNarucioci"></entry> -->
-<!-- <entry key="nabNarucioci"></entry> -->
-<!-- <entry key="nabNarucioci"></entry> -->
-<!-- <entry key="nabNarucioci"></entry> -->
-<!-- <entry key="nabNarucioci"></entry> -->
-<!-- <entry key="nabNarucioci"></entry> -->
-<!-- <entry key="nabNarucioci"></entry> -->
-<!-- <entry key="nabNarucioci"></entry> -->
-<!-- <entry key="nabNarucioci"></entry> -->
-<!-- <entry key="nabNarucioci"></entry> -->
-<!-- <entry key="nabNarucioci"></entry> -->
 </properties>
