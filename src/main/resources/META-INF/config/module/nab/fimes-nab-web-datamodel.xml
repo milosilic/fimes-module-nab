@@ -23,4 +23,7 @@
   <bean id="nabPartijaNabavkeExtendedDataTableModelApi" class="rs.fimes.web.datamodel.impl.nab.NabPartijaNabavkeExtendedDataTableModelImpl" scope="session" lazy-init="true">
     <property name="dao" ref="nabPartijaNabavkeDAO" />
   </bean>
+  <bean id="nabNabavkaKontoPartijaExtendedDataTableModelApi" class="rs.fimes.web.datamodel.impl.nab.NabNabavkaKontoPartijaExtendedDataTableModelImpl" scope="session" lazy-init="true">
+    <property name="dao" ref="nabNabavkaKontoPartijaDAO" />
+  </bean>
 </beans>

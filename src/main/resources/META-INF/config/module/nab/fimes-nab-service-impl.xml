@@ -62,4 +62,8 @@
     <constructor-arg index="1" value="nabPartijaNabavkeServiceApi" type="java.lang.String"/>
     <property name="nabPartijaNabavkeDAO" ref="nabPartijaNabavkeDAO"></property>
   </bean>
+  <bean id="nabNabavkaKontoPartijaServiceApi" class="rs.fimes.service.impl.nab.NabNabavkaKontoPartijaServiceImpl" parent="nabBaseService" lazy-init="true">
+    <constructor-arg index="1" value="nabNabavkaKontoPartijaServiceApi" type="java.lang.String"/>
+    <property name="nabNabavkaKontoPartijaDAO" ref="nabNabavkaKontoPartijaDAO"></property>
+  </bean>
 </beans>

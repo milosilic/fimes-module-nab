@@ -134,4 +134,18 @@ ALTER TABLE nab_nabavka_konto_partija OWNER TO "fimes-demo";
 COMMENT ON TABLE nab_nabavka_konto_partija
   IS 'planirana vrednost po kontima u finansijskom planu';
 
+ALTER TABLE nab_nabavka_konto_partija RENAME id_nabavka  TO id_javna_nabavka;
+
+ALTER TABLE nab_nabavka_konto_partija RENAME vrednost_bez_ppdv  TO vrednost_bez_pdv;
+
+CREATE SEQUENCE seq_nab_nabavka_konto_partija
+  INCREMENT 1
+  MINVALUE 1
+  MAXVALUE 9223372036854775807
+  START 1
+  CACHE 1;
+ALTER TABLE seq_nab_nabavka_konto_partija
+  OWNER TO "fimes-demo";
+
+
 
