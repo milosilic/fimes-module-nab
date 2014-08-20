@@ -728,5 +728,13 @@ public class NabNovaNabavkaController extends BaseController{
         
     }
     
+    public void actionInitNabKontoLovAction(){
+        
+    }
+    
+    public void resetNabKonto(){
+        
+    }
+    
 
 }

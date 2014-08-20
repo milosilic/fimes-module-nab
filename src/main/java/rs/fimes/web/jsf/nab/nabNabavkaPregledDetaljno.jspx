@@ -529,6 +529,8 @@
         <a4j:include
           viewId="#{nabWebController.nabNovaPlaniranaVrednostPoKontimaModalPanelView}" />
         <a4j:include
+          viewId="#{nabWebController.nabNovaPlaniranaVrednostPoKontimaLovModalPanelView}" />
+        <a4j:include
           viewId="#{coreWebController.ajaxStatusModalPanelView}" />
         <a4j:status id="waitStatus"
           onstart="#{rich:component('ajaxStatusModalPanel')}.show()"

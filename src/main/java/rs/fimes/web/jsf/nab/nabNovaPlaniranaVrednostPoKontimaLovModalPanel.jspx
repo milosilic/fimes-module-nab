@@ -5,14 +5,12 @@
   xmlns:a4j="http://richfaces.org/a4j"
   xmlns:rich="http://richfaces.org/rich">
 
-  <rich:modalPanel id="nabNovaPlaniranaVrednostPoKontimaModalPanel" minWidth="600"
-    autosized="true" resizeable="false" moveable="true"
-    onbeforeshow="pushButtonIdStack('#{rich:clientId('nabPlaniranaVrednostPoKontimaModalPanelDugmeOdustani')}');"
-    onhide="popButtonIdStack();">
+  <rich:modalPanel id="nabNovaPlaniranaVrednostPoKontimaLovModalPanel" minWidth="600"
+    autosized="true" resizeable="false" moveable="true">
     <f:facet name="controls">
       <h:graphicImage value="#{coreWebController.iconClose16Path}"
         styleClass="fimesImageClose"
-        onclick="#{rich:element('nabPlaniranaVrednostPoKontimaModalPanelDugmeOdustani')}.click()" />
+        onclick="#{rich:element('nabNovaPlaniranaVrednostPoKontimaLovModalPanelDugmeOdustani')}.click()" />
     </f:facet>
     <f:facet name="header">
       <h:outputText styleClass="fimesPanelHeader"
@@ -21,25 +19,12 @@
     <h:form id="formNabNovaPlaniranaVrednostPoKontima">
       <h:panelGrid columns="2">
         <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabKontoPozicija}" />
-        <a4j:outputPanel id="panelKonto">
-            <h:inputText styleClass="fimesInputText" id="inputNabKonto"
-                    value="#{nabNovaNabavkaController.novaProcenjenaVrednost.godina}" readonly="true" />
-            <a4j:commandButton ajaxSingle="true" status="waitStatus"
-              tabindex="5"
-              action="#{nabNovaNabavkaController.actionInitNabKontoLovAction}"
-              oncomplete="#{rich:component('nabNovaPlaniranaVrednostPoKontimaLovModalPanel')}.show()"
-              reRender="nabNovaPlaniranaVrednostPoKontimaLovModalPanel"
-              styleClass="fimesButtonImageLov"
-              title="#{nabNovaNabavkaController.module.messageSource.coreLabelaOrgOrganizacionaJedinicaLovModalPanelIkonicaIzaberi}" />
-            <a4j:commandButton status="waitStatus" tabindex="6"
-              disabled="#{empty orgOrganizacionaJedinicaUnosController.orgOrganizacionaJedinica.orgOrganizacionaJedinica}"
-              action="#{nabNovaNabavkaController.resetNabKonto}"
-              immediate="true" ajaxSingle="true"
-              reRender="panelKonto,selectTipOrganizacioneJediniceUnos"
-              styleClass="fimesButtonImageCross" />
-            <h:inputHidden value="nesto" id="inputHiddenOrgParent"
-              validator="#{orgOrganizacionaJedinicaUnosController.validateOrgJedinicaNadredjena}" />
-        </a4j:outputPanel>
+        <a4j:region>
+          <h:panelGroup>
+            <h:inputText styleClass="fimesInputText" id="inoutNabKonto"
+                    value="#{nabNovaNabavkaController.novaProcenjenaVrednost.godina}" readonly="true" />         
+          </h:panelGroup>
+        </a4j:region>
         <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaNazivPartije}"/>
         <h:inputText styleClass="fimesInputText maxWidth"
                 value="#{nabNovaNabavkaController.novaProcenjenaVrednost.procenaBezPdv}" />
@@ -69,7 +54,7 @@
         oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabProcenjenaVrednostUnosModalPanel')}.hide();#{rich:component('coreOkModalPanel')}.show();}"
         reRender="nabNovaNabavkaModalPanel,coreOkModalPanel" />
       <rich:spacer width="5" />
-      <a4j:commandButton id="nabPlaniranaVrednostPoKontimaModalPanelDugmeOdustani"
+      <a4j:commandButton id="nabNovaPlaniranaVrednostPoKontimaLovModalPanelDugmeOdustani"
         styleClass="fimesButton fimesButtonImageCancel"
         ajaxSingle="true" action="#{nabNoviPlanController.resetForm}"
         value="#{nabNoviPlanController.module.messageSource.common_odustani}"
