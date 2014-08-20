@@ -148,4 +148,7 @@ ALTER TABLE seq_nab_nabavka_konto_partija
   OWNER TO "fimes-demo";
 
 
-
+ALTER TABLE nab_nabavka_konto_partija
+   ALTER COLUMN vrednost_bez_pdv SET NOT NULL;
+ALTER TABLE nab_nabavka_konto_partija
+   ALTER COLUMN vrednost_sa_pdv SET NOT NULL;

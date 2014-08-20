@@ -73,6 +73,9 @@
         <property name="xnabJrnExtendedDataTableModelApi" ref="xnabJrnExtendedDataTableModelApi" />
         <property name="nabPartijaNabavkeExtendedDataTableModelApi" ref="nabPartijaNabavkeExtendedDataTableModelApi" />
         <property name="nabPartijaNabavkeServiceApi" ref="nabPartijaNabavkeServiceApi" />
+        <property name="nabNabavkaKontoPartijaServiceApi" ref="nabNabavkaKontoPartijaServiceApi" />
+        <property name="nabNabavkaKontoPartijaExtendedDataTableModelApi" ref="nabNabavkaKontoPartijaExtendedDataTableModelApi" />
+        <property name="xnabIzvorFinansiranjaServiceApi" ref="xnabIzvorFinansiranjaServiceApi" />
         
 	</bean>
     <bean id="nabKontoSelectionController" class="rs.fimes.web.controller.nab.NabKontoSelectionController"

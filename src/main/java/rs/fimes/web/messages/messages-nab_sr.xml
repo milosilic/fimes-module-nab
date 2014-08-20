@@ -76,6 +76,10 @@
 <entry key="nabNovaNabavkaProcenaBrisanjeToolTip">Обришите процену</entry>
 <entry key="nabNabavkaPartije">Партије</entry>
 <entry key="nabNabavkaPlaniranaVrednostPoKontima">Планирана вредност по контима/позицијама у фин.плану</entry>
+<entry key="nabNabavkaPlaniranaVrednostPoKontimaHeader">Нова планирана вредност по контима/позицијама у фин.плану</entry>
+<entry key="nabNabavkaPlaniranaVrednostPoKontimaIzvorFinansiranja">Извор финансирања</entry>
+<entry key="nabNabavkaNovaNabavkaPlaniranaBezPdv">Планирана вредност без ПДВ-а</entry>
+<entry key="nabNabavkaNovaNabavkaPlaniranaSaPdv">Планирана вредност са ПДВ-ом</entry>
 <entry key="nabNabavkaIzmeneNabavke">Измене набавке</entry>
 <entry key="nabKontoPozicija">Конто/позиција</entry>
 <entry key="nabKontoNaziv">Назив конта/позиције у финансијском плану</entry>

@@ -17,9 +17,11 @@ import rs.fimes.data.dao.generic.QueryRestriction;
 import rs.fimes.data.dao.generic.QueryRestrictionComparison1;
 import rs.fimes.domain.core.OrgFirma;
 import rs.fimes.domain.nab.NabJavnaNabavka;
+import rs.fimes.domain.nab.NabNabavkaKontoPartija;
 import rs.fimes.domain.nab.NabPartijaNabavke;
 import rs.fimes.domain.nab.NabPlan;
 import rs.fimes.domain.nab.NabProcenaPoGodini;
+import rs.fimes.domain.nab.XnabIzvorFinansiranja;
 import rs.fimes.domain.nab.XnabPredmetNabavke;
 import rs.fimes.domain.nab.XnabStatusNabavke;
 import rs.fimes.domain.nab.XnabTipNabavke;
@@ -27,16 +29,19 @@ import rs.fimes.domain.nab.XnabVrstaPostupka;
 import rs.fimes.domain.nab.XnabVrstaPredmetaNabavke;
 import rs.fimes.service.api.core.UsrKorisnikServiceApi;
 import rs.fimes.service.api.nab.NabJavnaNabavkaServiceApi;
+import rs.fimes.service.api.nab.NabNabavkaKontoPartijaServiceApi;
 import rs.fimes.service.api.nab.NabNaruciociServiceApi;
 import rs.fimes.service.api.nab.NabPartijaNabavkeServiceApi;
 import rs.fimes.service.api.nab.NabPlanServiceApi;
 import rs.fimes.service.api.nab.NabProcenaPoGodiniServiceApi;
+import rs.fimes.service.api.nab.XnabIzvorFinansiranjaServiceApi;
 import rs.fimes.service.api.nab.XnabPredmetNabavkeServiceApi;
 import rs.fimes.service.api.nab.XnabStatusNabavkeServiceApi;
 import rs.fimes.service.api.nab.XnabTipNabavkeServiceApi;
 import rs.fimes.service.api.nab.XnabVrstaPostupkaServiceApi;
 import rs.fimes.service.api.nab.XnabVrstaPredmetaNabavkeServiceApi;
 import rs.fimes.web.controller.BaseController;
+import rs.fimes.web.datamodel.api.nab.NabNabavkaKontoPartijaExtendedDataTableModelApi;
 import rs.fimes.web.datamodel.api.nab.NabPartijaNabavkeExtendedDataTableModelApi;
 import rs.fimes.web.datamodel.api.nab.NabProcenaPoGodiniExtendedDataTableModelApi;
 import rs.fimes.web.datamodel.api.nab.XnabJrnExtendedDataTableModelApi;
@@ -115,6 +120,14 @@ public class NabNovaNabavkaController extends BaseController{
     private NabPartijaNabavkeServiceApi nabPartijaNabavkeServiceApi;
     //14.08.2014.
     private NabProcenaPoGodini nabProcenaPoGodini;
+    
+    //19.08.2014.
+    private NabNabavkaKontoPartijaExtendedDataTableModelApi nabNabavkaKontoPartijaExtendedDataTableModelApi;
+    private NabNabavkaKontoPartija novaNabNabavkaKontoPartija;
+    private NabNabavkaKontoPartijaServiceApi nabNabavkaKontoPartijaServiceApi;
+    private XnabIzvorFinansiranjaServiceApi xnabIzvorFinansiranjaServiceApi;
+    private ArrayList<SelectItem> xnabIzvorFinansiranjaSelectionItems;
+    
     private static final long serialVersionUID = -788600541631559492L;
 
     public NabNovaNabavkaController(Module module, String controllerId)
@@ -190,10 +203,21 @@ public class NabNovaNabavkaController extends BaseController{
             XnabStatusNabavke xnabStatusNabavke = (XnabStatusNabavke) iterXnabStatusNabavke.next();
 //            System.out.println( xnabStatusNabavke);
             xnabStatusNabavkeSelectionItems.add(new SelectItem( xnabStatusNabavke.getPrimaryKey(), String.valueOf( xnabStatusNabavke.getNaziv())));
-         }   
+         }
+        xnabIzvorFinansiranjaSelectionItems = new ArrayList<SelectItem>();
+        List<XnabIzvorFinansiranja> xnabIzvorFinansiranjas = xnabIzvorFinansiranjaServiceApi.getAllIzvorFinansiranja();
+        Iterator<XnabIzvorFinansiranja> iterXnabIzvorFinansiranja = xnabIzvorFinansiranjas.iterator();
+        while ( iterXnabIzvorFinansiranja.hasNext()){
+            XnabIzvorFinansiranja xnabIzvorFinansiranja = (XnabIzvorFinansiranja) iterXnabIzvorFinansiranja.next();
+           
+            xnabIzvorFinansiranjaSelectionItems.add(new SelectItem( xnabIzvorFinansiranja.getIdIzvorFinansiranja(),  xnabIzvorFinansiranja.getNaziv()));
+         }
+
         if ( orgFirma == null ) {
             setOrgFirma(nabNaruciociServiceApi.getActiveOrgFirma(getUserSessionUtil().getCurrentUserCurrentOrgFirma().getIdFirma()));
           }
+        
+        
              
     }   
     
@@ -550,6 +574,51 @@ public class NabNovaNabavkaController extends BaseController{
         this.nabProcenaPoGodini = nabProcenaPoGodini;
     }
 
+    public NabNabavkaKontoPartijaExtendedDataTableModelApi getNabNabavkaKontoPartijaExtendedDataTableModelApi() {
+        return nabNabavkaKontoPartijaExtendedDataTableModelApi;
+    }
+
+    public void setNabNabavkaKontoPartijaExtendedDataTableModelApi(
+            NabNabavkaKontoPartijaExtendedDataTableModelApi nabNabavkaKontoPartijaExtendedDataTableModelApi) {
+        this.nabNabavkaKontoPartijaExtendedDataTableModelApi = nabNabavkaKontoPartijaExtendedDataTableModelApi;
+    }
+
+    public NabNabavkaKontoPartija getNovaNabNabavkaKontoPartija() {
+        return novaNabNabavkaKontoPartija;
+    }
+
+    public void setNovaNabNabavkaKontoPartija(
+            NabNabavkaKontoPartija novaNabNabavkaKontoPartija) {
+        this.novaNabNabavkaKontoPartija = novaNabNabavkaKontoPartija;
+    }
+
+    public NabNabavkaKontoPartijaServiceApi getNabNabavkaKontoPartijaServiceApi() {
+        return nabNabavkaKontoPartijaServiceApi;
+    }
+
+    public void setNabNabavkaKontoPartijaServiceApi(
+            NabNabavkaKontoPartijaServiceApi nabNabavkaKontoPartijaServiceApi) {
+        this.nabNabavkaKontoPartijaServiceApi = nabNabavkaKontoPartijaServiceApi;
+    }
+
+    public XnabIzvorFinansiranjaServiceApi getXnabIzvorFinansiranjaServiceApi() {
+        return xnabIzvorFinansiranjaServiceApi;
+    }
+
+    public void setXnabIzvorFinansiranjaServiceApi(
+            XnabIzvorFinansiranjaServiceApi xnabIzvorFinansiranjaServiceApi) {
+        this.xnabIzvorFinansiranjaServiceApi = xnabIzvorFinansiranjaServiceApi;
+    }
+
+    public ArrayList<SelectItem> getXnabIzvorFinansiranjaSelectionItems() {
+        return xnabIzvorFinansiranjaSelectionItems;
+    }
+
+    public void setXnabIzvorFinansiranjaSelectionItems(
+            ArrayList<SelectItem> xnabIzvorFinansiranjaSelectionItems) {
+        this.xnabIzvorFinansiranjaSelectionItems = xnabIzvorFinansiranjaSelectionItems;
+    }
+
     public void clearPartijaSelection(){
         novaPartija = new NabPartijaNabavke();
     }
@@ -646,8 +715,17 @@ public class NabNovaNabavkaController extends BaseController{
             }
             novaPartija = null;
         }else {
-            populateModalOkPanelSnimanjeDefaultMessagesCommonHeader(true);
+            populateModalOkPanelSnimanjeDefaultMessagesCommonHeader(false);
         }
+    }
+    
+    public void dodajPlaniranuVrednostPoKontima(){
+        if ( null != novaNabNabavkaKontoPartija ) {
+            populateModalOkPanelSnimanjeDefaultMessagesCommonHeader(true);
+        }else{
+            populateModalOkPanelSnimanjeDefaultMessagesCommonHeader(false); 
+        }
+        
     }
     
 
