@@ -128,6 +128,8 @@ public class NabNovaNabavkaController extends BaseController{
     private XnabIzvorFinansiranjaServiceApi xnabIzvorFinansiranjaServiceApi;
     private ArrayList<SelectItem> xnabIzvorFinansiranjaSelectionItems;
     
+    //21.08.2014.
+    private NabKontoLovSelectionController nabKontoLovSelectionController;
     private static final long serialVersionUID = -788600541631559492L;
 
     public NabNovaNabavkaController(Module module, String controllerId)
@@ -619,6 +621,15 @@ public class NabNovaNabavkaController extends BaseController{
         this.xnabIzvorFinansiranjaSelectionItems = xnabIzvorFinansiranjaSelectionItems;
     }
 
+    public NabKontoLovSelectionController getNabKontoLovSelectionController() {
+        return nabKontoLovSelectionController;
+    }
+
+    public void setNabKontoLovSelectionController(
+            NabKontoLovSelectionController nabKontoLovSelectionController) {
+        this.nabKontoLovSelectionController = nabKontoLovSelectionController;
+    }
+
     public void clearPartijaSelection(){
         novaPartija = new NabPartijaNabavke();
     }
@@ -730,6 +741,16 @@ public class NabNovaNabavkaController extends BaseController{
     
     public void actionInitNabKontoLovAction(){
         
+        nabKontoLovSelectionController.onEntry();
+        nabKontoLovSelectionController.setDugmeAction("nabNovaNabavkaController.actionTransferKonto");
+        nabKontoLovSelectionController.setDugmeReRender("panelKonto"); 
+        nabKontoLovSelectionController.setFocusIdCancel("inputNabKonto");
+        nabKontoLovSelectionController.setFocusIdOK("inputNazivPartije");
+        
+    }
+    
+    public void actionTransferKonto(){
+        System.out.println( "11111111111111111111111111111111111111111111111");
     }
     
     public void resetNabKonto(){

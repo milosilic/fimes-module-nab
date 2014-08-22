@@ -37,11 +37,12 @@
               immediate="true" ajaxSingle="true"
               reRender="panelKonto,selectTipOrganizacioneJediniceUnos"
               styleClass="fimesButtonImageCross" />
+            <rich:message for="inputNabKonto" styleClass="errorMsgBlock" />
             <h:inputHidden value="nesto" id="inputHiddenOrgParent"
               validator="#{orgOrganizacionaJedinicaUnosController.validateOrgJedinicaNadredjena}" />
         </a4j:outputPanel>
         <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaNazivPartije}"/>
-        <h:inputText styleClass="fimesInputText maxWidth"
+        <h:inputText styleClass="fimesInputText maxWidth" id="inputNazivPartije"
                 value="#{nabNovaNabavkaController.novaProcenjenaVrednost.procenaBezPdv}" />
         <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaPlaniranaBezPdv}"/>
         <h:inputText styleClass="fimesInputText maxWidth"

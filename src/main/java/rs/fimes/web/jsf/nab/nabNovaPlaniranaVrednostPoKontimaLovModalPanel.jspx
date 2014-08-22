@@ -17,41 +17,73 @@
         value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaPlaniranaVrednostPoKontimaHeader}" />
     </f:facet>
     <h:form id="formNabNovaPlaniranaVrednostPoKontima">
-      <h:panelGrid columns="2">
-        <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabKontoPozicija}" />
-        <a4j:region>
-          <h:panelGroup>
-            <h:inputText styleClass="fimesInputText" id="inoutNabKonto"
-                    value="#{nabNovaNabavkaController.novaProcenjenaVrednost.godina}" readonly="true" />         
-          </h:panelGroup>
-        </a4j:region>
-        <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaNazivPartije}"/>
-        <h:inputText styleClass="fimesInputText maxWidth"
-                value="#{nabNovaNabavkaController.novaProcenjenaVrednost.procenaBezPdv}" />
-        <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaPlaniranaBezPdv}"/>
-        <h:inputText styleClass="fimesInputText maxWidth"
-                value="#{nabNovaNabavkaController.novaProcenjenaVrednost.vezaSaFinPlanom}" />
-        <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaPlaniranaSaPdv}"/>
-        <h:inputText styleClass="fimesInputText maxWidth"
-                value="#{nabNovaNabavkaController.novaProcenjenaVrednost.vezaSaFinPlanom}" />
-        <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaPlaniranaVrednostPoKontimaIzvorFinansiranja}"/>
-          <h:selectOneMenu id="selectOneXnabVrstaPredmetaNabavke"
-            tabindex="1" 
-            styleClass="fimesInputDropDown"
-            value="#{nabNovaNabavkaController.novaNabavka.vrstaPredmetaNabavke.idVrstaPredmetaNabavke}">
-            <f:selectItems
-              value="#{nabNovaNabavkaController.xnabIzvorFinansiranjaSelectionItems}" />
-          </h:selectOneMenu>
+                    <rich:extendedDataTable height="427px" rows="15"
+                      rowClasses="redAnimacija" id="tabelaNabKonto"
+                      enableContextMenu="false"
+                      noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}"
+                      value="#{nabKontoSelectionController.xnabKontoExtendedDataTableModelApi}"
+                      var="konto">
+                      <rich:column id="idKontoTab" width="50%"
+                        styleClass="fimesAlignLeft">
+                        <f:facet name="header">
+                          <h:panelGrid columns="1"
+                            styleClass="maxWidth fimesTableCentered fimesTableInput">
+                            <h:outputText styleClass="headerText"
+                              value="#{nabKontoSelectionController.module.messageSource.nabKontoPozicija}" />
+                            <h:inputText 
+                              id="pretragaKonto"  
+                              styleClass="fimesInputText" 
+                              onkeypress="if (event.keyCode == 13) {jsPretraga(); return false;}"
+                              value="#{nabKontoSelectionController.pretragaNaziv}"/>
+                          </h:panelGrid>
+                        </f:facet>
+                        <h:outputText value="#{konto.idKonto}"></h:outputText>
+                      </rich:column>
+                      <rich:column id="nazivKontoTab" width="50%"
+                        styleClass="fimesAlignLeft">
+                        <f:facet name="header">
+                          <h:outputText styleClass="headerText"
+                            value="#{nabKontoSelectionController.module.messageSource.nabKontoNaziv}" />
+                        </f:facet>
+                        <h:outputText value="#{konto.naziv}"></h:outputText>
+                      </rich:column>
+                  <f:facet name="footer">
+                    <h:panelGrid width="100%" columns="3"
+                      columnClasses="fimesDataTableFooterColumnLeft,fimesDataTableFooterColumnCenter,fimesDataTableFooterColumnRight">
+                      <h:panelGroup>
+                        <h:outputText
+                          value="#{nabKontoSelectionController.module.messageSource.commonUkupno}" />
+                        <h:outputText
+                          value="#{nabKontoSelectionController.xnabKontoExtendedDataTableModelApi.ukupnoRedova}">
+                          <f:convertNumber
+                            pattern="#{nabKontoSelectionController.module.application.numberFormatMask}"
+                            locale="#{nabKontoSelectionController.module.application.numberLocale}" />
+                        </h:outputText>
+                      </h:panelGroup>
+                      <h:panelGroup>
+                        <rich:datascroller for="tabelaNabKonto"
+                          ajaxSingle="true"
+                          action="#{nabKontoSelectionController.resetSelection}"
+                          renderIfSinglePage="false" fastStep="10">
+                          <f:facet name="next">
+                            <h:outputText value="&gt;" />
+                          </f:facet>
+                          <f:facet name="previous">
+                            <h:outputText value="&lt;" />
+                          </f:facet>
+                        </rich:datascroller>
+                      </h:panelGroup>
+                      <h:panelGroup>
+                      </h:panelGroup>
+                    </h:panelGrid>
 
-        <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNapomena}"/>
-        <h:inputText styleClass="fimesInputText maxWidth"
-                value="#{nabNovaNabavkaController.novaProcenjenaVrednost.napomena}" />
-      </h:panelGrid>
+                  </f:facet>
+                    </rich:extendedDataTable>
       <a4j:commandButton id="nabProcenjenaVrednostModalPanelDugmePotvrdi"
         styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"
         value="#{nabNovaNabavkaController.module.messageSource.common_potvrdi}"
         action="#{nabNovaNabavkaController.dodajPlaniranuVrednostPoKontima}"
-        oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabProcenjenaVrednostUnosModalPanel')}.hide();#{rich:component('coreOkModalPanel')}.show();}"
+        oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabNovaPlaniranaVrednostPoKontimaLovModalPanel')}.hide();}"
         reRender="nabNovaNabavkaModalPanel,coreOkModalPanel" />
       <rich:spacer width="5" />
       <a4j:commandButton id="nabNovaPlaniranaVrednostPoKontimaLovModalPanelDugmeOdustani"
@@ -59,7 +91,7 @@
         ajaxSingle="true" action="#{nabNoviPlanController.resetForm}"
         value="#{nabNoviPlanController.module.messageSource.common_odustani}"
         immediate="true"
-        onclick="#{rich:component('nabProcenjenaVrednostUnosModalPanel')}.hide()" />
+        onclick="#{rich:component('nabNovaPlaniranaVrednostPoKontimaLovModalPanel')}.hide()" />
       
     </h:form>
   </rich:modalPanel>
