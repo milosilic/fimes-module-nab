@@ -1,5 +1,7 @@
 package rs.fimes.service.impl.nab;
 
+import java.util.List;
+
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
 import rs.etf.rc.common.service.impl.BaseServiceImpl;
@@ -37,6 +39,12 @@ implements NabPartijaNabavkeServiceApi{
     public void deletePartija(NabPartijaNabavke novaPartija) {
         NabPartijaNabavke partijaNabavke = nabPartijaNabavkeDAO.findById(novaPartija.getIdPartijaNabavke(), true);
         nabPartijaNabavkeDAO.delete(partijaNabavke);
+    }
+
+    @Override
+    public List<NabPartijaNabavke> dohvatiPartijeNabavke(Integer idJavnaNabavka) {
+       
+        return nabPartijaNabavkeDAO.dohvatiPartijeNabavke( idJavnaNabavka);
     }
 
 }

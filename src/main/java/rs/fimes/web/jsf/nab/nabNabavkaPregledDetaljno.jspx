@@ -396,7 +396,7 @@
                             value="#{nabNovaNabavkaController.module.messageSource.nabKontoPozicija}" />
                         </f:facet>
                         <h:outputText
-                          value="#{nabavkaKontoPartija.xnabKonto.naziv}" />
+                          value="#{nabavkaKontoPartija.nabKonto.naziv}" />
                       </rich:column>
                       <rich:column id="kolona1" width="15%"
                         styleClass="fimesAlignLeft">
@@ -405,7 +405,7 @@
                             value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaNazivPartije}" />
                         </f:facet>
                         <h:outputText
-                          value="#{nabavkaKontoPartija.xnabKonto.naziv}" />
+                          value="#{nabavkaKontoPartija.partijaNabavke.opisPredmetaNabavke}" />
                       </rich:column>
                       <rich:column id="kolona1" width="15%"
                         styleClass="fimesAlignLeft">
@@ -414,7 +414,7 @@
                             value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaPlaniranaBezPdv}" />
                         </f:facet>
                         <h:outputText
-                          value="#{nabavkaKontoPartija.xnabKonto.naziv}" />
+                          value="#{nabavkaKontoPartija.vrednostBezPdv}" />
                       </rich:column>
                       <rich:column id="kolona1" width="15%"
                         styleClass="fimesAlignLeft">
@@ -423,7 +423,7 @@
                             value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaPlaniranaSaPdv}" />
                         </f:facet>
                         <h:outputText
-                          value="#{nabavkaKontoPartija.xnabKonto.naziv}" />
+                          value="#{nabavkaKontoPartija.vrednostSaPdv}" />
                       </rich:column>
                       <rich:column id="kolona1" width="25%"
                         styleClass="fimesAlignLeft">
@@ -432,7 +432,7 @@
                             value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaPlaniranaVrednostPoKontimaIzvorFinansiranja}" />
                         </f:facet>
                         <h:outputText
-                          value="#{nabavkaKontoPartija.xnabKonto.naziv}" />
+                          value="#{nabavkaKontoPartija.izvorFinansiranja.naziv}" />
                       </rich:column>
                       <rich:column id="kolona1" width="15%"
                         styleClass="fimesAlignLeft">
@@ -441,7 +441,7 @@
                             value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNapomena}" />
                         </f:facet>
                         <h:outputText
-                          value="#{nabavkaKontoPartija.xnabKonto.naziv}" />
+                          value="#{nabavkaKontoPartija.napomena}" />
                       </rich:column>
                       <f:facet name="footer">
                         <h:panelGroup layout="block"

@@ -22,6 +22,7 @@ import rs.fimes.domain.nab.NabPartijaNabavke;
 import rs.fimes.domain.nab.NabPlan;
 import rs.fimes.domain.nab.NabProcenaPoGodini;
 import rs.fimes.domain.nab.XnabIzvorFinansiranja;
+import rs.fimes.domain.nab.XnabKonto;
 import rs.fimes.domain.nab.XnabPredmetNabavke;
 import rs.fimes.domain.nab.XnabStatusNabavke;
 import rs.fimes.domain.nab.XnabTipNabavke;
@@ -132,6 +133,10 @@ public class NabNovaNabavkaController extends BaseController{
     private NabKontoLovSelectionController nabKontoLovSelectionController;
     private static final long serialVersionUID = -788600541631559492L;
 
+    //23.08.2014
+    private XnabKonto xnabKonto;
+    private ArrayList<SelectItem> nabPartijaNabavkeSelectionItems;    
+    
     public NabNovaNabavkaController(Module module, String controllerId)
             throws ConfigurationException {
         super(module, controllerId);
@@ -160,6 +165,9 @@ public class NabNovaNabavkaController extends BaseController{
             novaNabavka.setStatusNabavke(statusNabavke);
             novaNabavka.setVrstaPostupka(vrstaPostupka);
             novaProcenjenaVrednost= new NabProcenaPoGodini();
+            novaNabNabavkaKontoPartija = new NabNabavkaKontoPartija();
+            novaNabNabavkaKontoPartija.setPartijaNabavke(new NabPartijaNabavke());
+            novaNabNabavkaKontoPartija.setIzvorFinansiranja(new XnabIzvorFinansiranja());
         }
         
        
@@ -386,7 +394,6 @@ public class NabNovaNabavkaController extends BaseController{
     }
 
     public void setIdPredmetNabavke(Integer idPredmetNabavke) {
-        System.out.println( "**************************  : aaaaaaaaaaaa"  + idPredmetNabavke );
         this.idPredmetNabavke = idPredmetNabavke;
     }
 
@@ -572,7 +579,6 @@ public class NabNovaNabavkaController extends BaseController{
     }
 
     public void setNabProcenaPoGodini(NabProcenaPoGodini nabProcenaPoGodini) {
-        System.out.println( "===================================");
         this.nabProcenaPoGodini = nabProcenaPoGodini;
     }
 
@@ -628,6 +634,35 @@ public class NabNovaNabavkaController extends BaseController{
     public void setNabKontoLovSelectionController(
             NabKontoLovSelectionController nabKontoLovSelectionController) {
         this.nabKontoLovSelectionController = nabKontoLovSelectionController;
+    }
+
+    public XnabKonto getXnabKonto() {
+        return xnabKonto;
+    }
+
+    public void setXnabKonto(XnabKonto xnabKonto) {
+        this.xnabKonto = xnabKonto;
+    }
+
+    public ArrayList<SelectItem> getNabPartijaNabavkeSelectionItems() {
+        nabPartijaNabavkeSelectionItems = new ArrayList<SelectItem>();
+        // po uzoru na OrgGrupaRadnihMestaDAOImpl.dohvatiGrupeSaVecimIliJednakimRedonimBrojem
+        if (null != novaNabavka && null != novaNabavka.getIdJavnaNabavka()) {
+            List<NabPartijaNabavke> NabPartijaNabavkes = nabPartijaNabavkeServiceApi.dohvatiPartijeNabavke( novaNabavka.getIdJavnaNabavka() );
+            if( null != NabPartijaNabavkes) {
+                Iterator<NabPartijaNabavke> iterNabPartijaNabavke = NabPartijaNabavkes.iterator();
+                while ( iterNabPartijaNabavke.hasNext()){
+                    NabPartijaNabavke NabPartijaNabavke = (NabPartijaNabavke) iterNabPartijaNabavke.next();
+                    nabPartijaNabavkeSelectionItems.add(new SelectItem( NabPartijaNabavke.getIdPartijaNabavke(),  NabPartijaNabavke.getOpisPredmetaNabavke()));
+                 }
+            }
+        }
+        return nabPartijaNabavkeSelectionItems;
+    }
+
+    public void setNabPartijaNabavkeSelectionItems(
+            ArrayList<SelectItem> nabPartijaNabavkeSelectionItems) {
+        this.nabPartijaNabavkeSelectionItems = nabPartijaNabavkeSelectionItems;
     }
 
     public void clearPartijaSelection(){
@@ -730,11 +765,19 @@ public class NabNovaNabavkaController extends BaseController{
         }
     }
     
-    public void dodajPlaniranuVrednostPoKontima(){
-        if ( null != novaNabNabavkaKontoPartija ) {
-            populateModalOkPanelSnimanjeDefaultMessagesCommonHeader(true);
+    public void actionSnimiPlaniranuVrednostPoKontima(){
+        if ( null != novaNabNabavkaKontoPartija) {
+            try {
+                novaNabNabavkaKontoPartija.setNabJavnaNabavka(novaNabavka);
+                novaNabNabavkaKontoPartija.setNabKonto(xnabKonto);
+                nabNabavkaKontoPartijaServiceApi.createNabNabavkaKontoPartija(novaNabNabavkaKontoPartija);
+                populateModalOkPanelSnimanjeDefaultMessagesWithHeaderMessage(true,getMessage("nabNabavkaPlaniranaVrednostPoKontimaHeader"));
+            } catch (Exception e) {
+                populateModalOkPanelSnimanjeDefaultMessagesWithHeaderMessage(false, getMessage("nabNabavkaPlaniranaVrednostPoKontimaHeader"));populateModalOkPanelSnimanjeDefaultMessagesWithHeaderMessage(false, getMessage("nabNabavkaPlaniranaVrednostPoKontimaHeader"));
+                e.printStackTrace();
+            }
         }else{
-            populateModalOkPanelSnimanjeDefaultMessagesCommonHeader(false); 
+            populateModalOkPanelSnimanjeDefaultMessagesWithHeaderMessage(false, getMessage("nabNabavkaPlaniranaVrednostPoKontimaHeader")); 
         }
         
     }
@@ -749,12 +792,14 @@ public class NabNovaNabavkaController extends BaseController{
         
     }
     
+    //za konto lov modal panel
     public void actionTransferKonto(){
-        System.out.println( "11111111111111111111111111111111111111111111111");
+        setXnabKonto(nabKontoLovSelectionController.getNabKonto());
     }
     
+    // kada se klikne na delete konta iz modalnog prozora partijekontanabavke
     public void resetNabKonto(){
-        
+        // TODO implementirati
     }
     
 

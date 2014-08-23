@@ -22,7 +22,11 @@
                       enableContextMenu="false"
                       noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}"
                       value="#{nabKontoSelectionController.xnabKontoExtendedDataTableModelApi}"
+                      selection="#{nabKontoLovSelectionController.xnabKontoExtendedDataTableModelApi.selection}"
                       var="konto">
+          <a4j:support event="onselectionchange" ajaxSingle="true" status="waitStatus"
+            action="#{nabKontoLovSelectionController.handleSelection}"
+            reRender="nabProcenjenaVrednostModalPanelDugmePotvrdi" />
                       <rich:column id="idKontoTab" width="50%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
@@ -79,19 +83,21 @@
 
                   </f:facet>
                     </rich:extendedDataTable>
+      <h:panelGroup layout="block"
+        styleClass="alignCenter fimesTopPadding">
       <a4j:commandButton id="nabProcenjenaVrednostModalPanelDugmePotvrdi"
         styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"
-        value="#{nabNovaNabavkaController.module.messageSource.common_potvrdi}"
-        action="#{nabNovaNabavkaController.dodajPlaniranuVrednostPoKontima}"
-        oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabNovaPlaniranaVrednostPoKontimaLovModalPanel')}.hide();}"
-        reRender="nabNovaNabavkaModalPanel,coreOkModalPanel" />
+        binding="#{nabKontoLovSelectionController.dugme}"
+        oncomplete="#{rich:component('nabNovaPlaniranaVrednostPoKontimaLovModalPanel')}.hide()"
+        disabled="#{empty nabKontoLovSelectionController.nabKonto}"
+        focus="#{nabKontoLovSelectionController.focusIdOK}" />
       <rich:spacer width="5" />
       <a4j:commandButton id="nabNovaPlaniranaVrednostPoKontimaLovModalPanelDugmeOdustani"
         styleClass="fimesButton fimesButtonImageCancel"
         ajaxSingle="true" action="#{nabNoviPlanController.resetForm}"
         value="#{nabNoviPlanController.module.messageSource.common_odustani}"
-        immediate="true"
         onclick="#{rich:component('nabNovaPlaniranaVrednostPoKontimaLovModalPanel')}.hide()" />
+      </h:panelGroup>
       
     </h:form>
   </rich:modalPanel>

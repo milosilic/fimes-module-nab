@@ -22,8 +22,11 @@
       <h:panelGrid columns="2">
         <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabKontoPozicija}" />
         <a4j:outputPanel id="panelKonto">
-            <h:inputText styleClass="fimesInputText" id="inputNabKonto"
-                    value="#{nabNovaNabavkaController.novaProcenjenaVrednost.godina}" readonly="true" />
+            <h:inputText styleClass="fimesInputText"
+             id="inputNabKonto"
+             readonly="true"
+             label="#{nabNovaNabavkaController.module.messageSource.nabKontoPozicija}"
+             value="#{nabNovaNabavkaController.xnabKonto.naziv}"/>
             <a4j:commandButton ajaxSingle="true" status="waitStatus"
               tabindex="5"
               action="#{nabNovaNabavkaController.actionInitNabKontoLovAction}"
@@ -32,7 +35,7 @@
               styleClass="fimesButtonImageLov"
               title="#{nabNovaNabavkaController.module.messageSource.coreLabelaOrgOrganizacionaJedinicaLovModalPanelIkonicaIzaberi}" />
             <a4j:commandButton status="waitStatus" tabindex="6"
-              disabled="#{empty orgOrganizacionaJedinicaUnosController.orgOrganizacionaJedinica.orgOrganizacionaJedinica}"
+              disabled="#{empty nabNovaNabavkaController.xnabKonto}"
               action="#{nabNovaNabavkaController.resetNabKonto}"
               immediate="true" ajaxSingle="true"
               reRender="panelKonto,selectTipOrganizacioneJediniceUnos"
@@ -42,31 +45,35 @@
               validator="#{orgOrganizacionaJedinicaUnosController.validateOrgJedinicaNadredjena}" />
         </a4j:outputPanel>
         <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaNazivPartije}"/>
-        <h:inputText styleClass="fimesInputText maxWidth" id="inputNazivPartije"
-                value="#{nabNovaNabavkaController.novaProcenjenaVrednost.procenaBezPdv}" />
+        <h:selectOneMenu id="selectOneNazivPartije"
+          tabindex="1" styleClass="fimesInputDropDown"
+          value="#{nabNovaNabavkaController.novaNabNabavkaKontoPartija.partijaNabavke.idPartijaNabavke}">
+          <f:selectItems
+            value="#{nabNovaNabavkaController.nabPartijaNabavkeSelectionItems}" />
+        </h:selectOneMenu>
         <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaPlaniranaBezPdv}"/>
         <h:inputText styleClass="fimesInputText maxWidth"
-                value="#{nabNovaNabavkaController.novaProcenjenaVrednost.vezaSaFinPlanom}" />
+                value="#{nabNovaNabavkaController.novaNabNabavkaKontoPartija.vrednostBezPdv}" />
         <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaPlaniranaSaPdv}"/>
         <h:inputText styleClass="fimesInputText maxWidth"
-                value="#{nabNovaNabavkaController.novaProcenjenaVrednost.vezaSaFinPlanom}" />
+                value="#{nabNovaNabavkaController.novaNabNabavkaKontoPartija.vrednostSaPdv}" />
         <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaPlaniranaVrednostPoKontimaIzvorFinansiranja}"/>
           <h:selectOneMenu id="selectOneXnabVrstaPredmetaNabavke"
             tabindex="1" 
             styleClass="fimesInputDropDown"
-            value="#{nabNovaNabavkaController.novaNabavka.vrstaPredmetaNabavke.idVrstaPredmetaNabavke}">
+            value="#{nabNovaNabavkaController.novaNabNabavkaKontoPartija.izvorFinansiranja.idIzvorFinansiranja}">
             <f:selectItems
               value="#{nabNovaNabavkaController.xnabIzvorFinansiranjaSelectionItems}" />
           </h:selectOneMenu>
 
         <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNapomena}"/>
         <h:inputText styleClass="fimesInputText maxWidth"
-                value="#{nabNovaNabavkaController.novaProcenjenaVrednost.napomena}" />
+                value="#{nabNovaNabavkaController.novaNabNabavkaKontoPartija.napomena}" />
       </h:panelGrid>
       <a4j:commandButton id="nabProcenjenaVrednostModalPanelDugmePotvrdi"
         styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"
         value="#{nabNovaNabavkaController.module.messageSource.common_potvrdi}"
-        action="#{nabNovaNabavkaController.dodajPlaniranuVrednostPoKontima}"
+        action="#{nabNovaNabavkaController.actionSnimiPlaniranuVrednostPoKontima}"
         oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabProcenjenaVrednostUnosModalPanel')}.hide();#{rich:component('coreOkModalPanel')}.show();}"
         reRender="nabNovaNabavkaModalPanel,coreOkModalPanel" />
       <rich:spacer width="5" />
