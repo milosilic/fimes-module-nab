@@ -62,42 +62,16 @@
                     value="#{nabNovaNabavkaController.novaNabavka.procenaSaPdv}" readonly="true" />
                   <h:outputLabel styleClass="fimesLabelLeft"
                     value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaVrstaPredmeta}" />
-                  <h:panelGrid columns="1" styleClass="alignCenter"
-                    width="100%">
-                    <h:selectOneMenu
-                      id="selectOneXnabVrstaPredmetaNabavke"
-                      tabindex="1" style="width: 200px;"
-                      styleClass="fimesInputDropDown"
-                      value="#{nabNovaNabavkaController.novaNabavka.vrstaPredmetaNabavke.idVrstaPredmetaNabavke}">
-                      <f:selectItems
-                        value="#{nabNovaNabavkaController.xnabVrstaPredmetaNabavkeSelectionItems}" />
-                    </h:selectOneMenu>
-                  </h:panelGrid>
+                  <h:inputText styleClass="fimesInputText maxWidth"
+                    value="#{nabNovaNabavkaController.novaNabavka.vrstaPredmetaNabavke.naziv}" readonly="true" />
                   <h:outputLabel styleClass="fimesLabelLeft"
                     value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaPredmetNabavke}" />
-                  <h:panelGrid columns="1" styleClass="alignCenter"
-                    width="100%">
-                    <h:selectOneMenu id="selectOneXnabPredmetNabavke"
-                      tabindex="1" style="width: 200px;"
-                      styleClass="fimesInputDropDown"
-                      value="#{nabNovaNabavkaController.novaNabavka.predmetNabavke.idPredmetNabavke}">
-                      <f:selectItems
-                        value="#{nabNovaNabavkaController.xnabPredmetNabavkeSelectionItems}" />
-                    </h:selectOneMenu>
-                  </h:panelGrid>
-
+                  <h:inputText styleClass="fimesInputText maxWidth"
+                    value="#{nabNovaNabavkaController.novaNabavka.predmetNabavke.naziv}" readonly="true" />
                   <h:outputLabel styleClass="fimesLabelLeft"
                     value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaVrstaPostupka}" />
-                  <h:panelGrid columns="1" styleClass="alignCenter"
-                    width="100%">
-                    <h:selectOneMenu id="selectOneXnabVrstaPostupka"
-                      tabindex="1" style="width: 200px;"
-                      styleClass="fimesInputDropDown"
-                      value="#{nabNovaNabavkaController.novaNabavka.vrstaPostupka.idVrstaPostupka}">
-                      <f:selectItems
-                        value="#{nabNovaNabavkaController.xnabVrstaPostupkaSelectionItems}" />
-                    </h:selectOneMenu>
-                  </h:panelGrid>
+                  <h:inputText styleClass="fimesInputText maxWidth"
+                    value="#{nabNovaNabavkaController.novaNabavka.vrstaPostupka.naziv}" readonly="true" />
                   <h:outputLabel styleClass="fimesLabelLeft"
                     value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaOpravdanostNabavke}" />
                   <h:inputText styleClass="fimesInputText maxWidth"
@@ -117,16 +91,8 @@
                   cellspacing="10px">
                   <h:outputLabel styleClass="fimesLabelLeft"
                     value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaStatusNabavke}" />
-                  <h:panelGrid columns="1" styleClass="alignCenter"
-                    width="100%">
-                    <h:selectOneMenu id="selectOneXnabStatusNabavke"
-                      tabindex="1" style="width: 200px;"
-                      styleClass="fimesInputDropDown"
-                      value="#{nabNovaNabavkaController.novaNabavka.statusNabavke.idStatusNabavke}">
-                      <f:selectItems
-                        value="#{nabNovaNabavkaController.xnabStatusNabavkeSelectionItems}" />
-                    </h:selectOneMenu>
-                  </h:panelGrid>
+                  <h:inputText styleClass="fimesInputText maxWidth"
+                    value="#{nabNovaNabavkaController.novaNabavka.statusNabavke.naziv}" readonly="true"  />
                   <h:panelGrid columns="4" styleClass="alignCenter"
                     width="100%">
                     <h:outputLabel styleClass="fimesLabelLeft"
@@ -158,13 +124,8 @@
                     width="100%">
                     <h:outputLabel styleClass="fimesLabelLeft"
                       value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
-                    <h:selectOneMenu id="selectOneXnabTipPredmeta"
-                      tabindex="1" style="width: 200px;"
-                      styleClass="fimesInputDropDown"
-                      value="#{nabNovaNabavkaController.novaNabavka.tipNabavke.idTipNabavke}">
-                      <f:selectItems
-                        value="#{nabNovaNabavkaController.xnabTipNabavkeSelectionItems}" />
-                    </h:selectOneMenu>
+                     <h:inputText styleClass="fimesInputText maxWidth"
+                      value="#{nabNovaNabavkaController.novaNabavka.tipNabavke.naziv}" readonly="true" />
                   </h:panelGrid>
                 </h:panelGrid>
               </h:panelGrid>
