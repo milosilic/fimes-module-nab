@@ -152,3 +152,29 @@ ALTER TABLE nab_nabavka_konto_partija
    ALTER COLUMN vrednost_bez_pdv SET NOT NULL;
 ALTER TABLE nab_nabavka_konto_partija
    ALTER COLUMN vrednost_sa_pdv SET NOT NULL;
+
+
+CREATE TABLE nab_nabavka_jrn
+(
+   id_nabavka_jrn integer NOT NULL, 
+   id_javna_nabavka integer NOT NULL, 
+   id_jrn integer NOT NULL, 
+    PRIMARY KEY (id_nabavka_jrn), 
+    FOREIGN KEY (id_javna_nabavka) REFERENCES nab_javna_nabavka (id_javna_nabavka) ON UPDATE NO ACTION ON DELETE NO ACTION, 
+    FOREIGN KEY (id_jrn) REFERENCES xnab_jrn (id_jrn) ON UPDATE NO ACTION ON DELETE NO ACTION
+) 
+WITH (
+  OIDS = FALSE
+)
+;
+ALTER TABLE nab_nabavka_jrn OWNER TO "fimes-demo";
+COMMENT ON TABLE nab_nabavka_jrn
+  IS 'veza izmedju  nabavke i šifranika iz opšteg rečnika nabavki';
+
+CREATE SEQUENCE seq_nab_nabavka_jrn
+   INCREMENT 1
+   START 1
+   MINVALUE 1;
+ALTER TABLE seq_nab_nabavka_jrn OWNER TO "fimes-demo";
+
+

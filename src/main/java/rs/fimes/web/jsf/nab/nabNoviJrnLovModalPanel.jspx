@@ -1,0 +1,139 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:a4j="http://richfaces.org/a4j"
+  xmlns:rich="http://richfaces.org/rich">
+
+  <rich:modalPanel id="nabNoviJrnLovModalPanel" minWidth="600" autosized="true"
+    resizeable="false" moveable="true">
+    <f:facet name="controls">
+      <!--     @onclick - stavi id dugmeta Odustani. njemu se prosledjuje akcija. Primer : 
+     onclick="#{rich:element('nabNovaPlaniranaVrednostPoKontimaLovModalPanelDugmeOdustani')}.click()"   -->
+      <h:graphicImage value="#{coreWebController.iconClose16Path}"
+        styleClass="fimesImageClose"
+        onclick="#{rich:element('nabNoviJrnLovModalPanelDugmeOdustani')}.click()" />
+    </f:facet>
+    <f:facet name="header">
+      <!--     @value - naziv header-a iz message.xml  value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaPlaniranaVrednostPoKontimaHeader}"-->
+      <h:outputText styleClass="fimesPanelHeader" value="" />
+    </f:facet>
+    <h:form id="formNabNovaPlaniranaVrednostPoKontima">
+      <rich:extendedDataTable height="427px" rows="15"
+        rowClasses="redAnimacija" id="tabelaNabKonto"
+        enableContextMenu="false"
+        noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}"
+        value="#{nabKontoSelectionController.xnabKontoExtendedDataTableModelApi}"
+        selection="#{nabKontoLovSelectionController.xnabKontoExtendedDataTableModelApi.selection}"
+        var="konto">
+        <a4j:support event="onselectionchange" ajaxSingle="true"
+          status="waitStatus"
+          action="#{nabKontoLovSelectionController.handleSelection}"
+          reRender="nabProcenjenaVrednostModalPanelDugmePotvrdi" />
+        <rich:column id="idKontoTab" width="50%"
+          styleClass="fimesAlignLeft">
+          <f:facet name="header">
+            <h:panelGrid columns="1"
+              styleClass="maxWidth fimesTableCentered fimesTableInput">
+              <h:outputText styleClass="headerText"
+                value="#{nabKontoSelectionController.module.messageSource.nabKontoPozicija}" />
+              <h:inputText id="pretragaKonto"
+                styleClass="fimesInputText"
+                onkeypress="if (event.keyCode == 13) {jsPretraga(); return false;}"
+                value="#{nabKontoSelectionController.pretragaNaziv}" />
+            </h:panelGrid>
+          </f:facet>
+          <h:outputText value="#{konto.idKonto}"></h:outputText>
+        </rich:column>
+        <rich:column id="nazivKontoTab" width="50%"
+          styleClass="fimesAlignLeft">
+          <f:facet name="header">
+            <h:outputText styleClass="headerText"
+              value="#{nabKontoSelectionController.module.messageSource.nabKontoNaziv}" />
+          </f:facet>
+          <h:outputText value="#{konto.naziv}"></h:outputText>
+        </rich:column>
+        <f:fa
+          noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}"
+          value="#{nabKontoSelectionController.xnabKontoExtendedDataTableModelApi}"
+          selection="" var="konto">
+          <a4j:support event="onselectionchange" ajaxSingle="true"
+            status="waitStatus"
+            action="#{nabKontoLovSelectionController.handleSelection}"
+            reRender="nabProcenjenaVrednostModalPanelDugmePotvrdi" />
+          <rich:column id="idKontoTab" width="50%"
+            styleClass="fimesAlignLeft">
+            <f:facet name="header">
+              <h:panelGrid columns="1"
+                styleClass="maxWidth fimesTableCentered fimesTableInput">
+                <h:outputText styleClass="headerText"
+                  value="#{nabKontoSelectionController.module.messageSource.nabKontoPozicija}" />
+                <h:inputText id="pretragaKonto"
+                  styleClass="fimesInputText"
+                  onkeypress="if (event.keyCode == 13) {jsPretraga(); return false;}"
+                  value="#{nabKontoSelectionController.pretragaNaziv}" />
+              </h:panelGrid>
+            </f:facet>
+            <h:outputText value="#{konto.idKonto}"></h:outputText>
+          </rich:column>
+          <rich:column id="nazivKontoTab" width="50%"
+            styleClass="fimesAlignLeft">
+            <f:facet name="header">
+              <h:outputText styleClass="headerText"
+                value="#{nabKontoSelectionController.module.messageSource.nabKontoNaziv}" />
+            </f:facet>
+            <h:outputText value="#{konto.naziv}"></h:outputText>
+          </rich:column>
+          <f:facet name="footer">
+            <h:panelGrid width="100%" columns="3"
+              columnClasses="fimesDataTableFooterColumnLeft,fimesDataTableFooterColumnCenter,fimesDataTableFooterColumnRight">
+              <h:panelGroup>
+                <h:outputText
+                  value="#{nabKontoSelectionController.module.messageSource.commonUkupno}" />
+                <h:outputText
+                  value="#{nabKontoSelectionController.xnabKontoExtendedDataTableModelApi.ukupnoRedova}">
+                  <f:convertNumber
+                    pattern="#{nabKontoSelectionController.module.application.numberFormatMask}"
+                    locale="#{nabKontoSelectionController.module.application.numberLocale}" />
+                </h:outputText>
+              </h:panelGroup>
+              <h:panelGroup>
+                <rich:datascroller for="tabelaNabKonto"
+                  ajaxSingle="true"
+                  action="#{nabKontoSelectionController.resetSelection}"
+                  renderIfSinglePage="false" fastStep="10">
+                  <f:facet name="next">
+                    <h:outputText value="&gt;" />
+                  </f:facet>
+                  <f:facet name="previous">
+                    <h:outputText value="&lt;" />
+                  </f:facet>
+                </rich:datascroller>
+              </h:panelGroup>
+              <h:panelGroup>
+              </h:panelGroup>
+            </h:panelGrid>
+
+          </f:facet>
+      </rich:extendedDataTable>
+      <h:panelGroup layout="block"
+        styleClass="alignCenter fimesTopPadding">
+        <a4j:commandButton
+          id="nabProcenjenaVrednostModalPanelDugmePotvrdi"
+          styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"
+          binding="#{nabKontoLovSelectionController.dugme}"
+          oncomplete="#{rich:component('nabNovaPlaniranaVrednostPoKontimaLovModalPanel')}.hide()"
+          disabled="#{empty nabKontoLovSelectionController.nabKonto}"
+          focus="#{nabKontoLovSelectionController.focusIdOK}" />
+        <rich:spacer width="5" />
+        <a4j:commandButton
+          id="nabNoviJrnLovModalPanelDugmeOdustani"
+          styleClass="fimesButton fimesButtonImageCancel"
+          ajaxSingle="true" action="#{nabNoviPlanController.resetForm}"
+          value="#{nabNoviPlanController.module.messageSource.common_odustani}"
+          onclick="#{rich:component('nabNoviJrnLovModalPanel')}.hide()" />
+      </h:panelGroup>
+
+    </h:form>
+  </rich:modalPanel>
+</ui:composition>
