@@ -69,6 +69,8 @@
 <entry key="nabNabavkaNovaNabаvkaNazivPartije">Назив партије</entry>
 <entry key="nabNabavkaNovaNabаvkaNovaPartije">Нова партија</entry>
 <entry key="nabNabavkaNovaNabаvkaOrn">ОРН</entry>
+<entry key="nabNabavkaNovaNabаvkaOrnHeader">Нова ОРН</entry>
+<entry key="nabNabavkaNovaNabаvkaOrnKod">Код</entry>
 <entry key="nabNabavkaNovaNabаvkaOrnDopunski">ОРН допунски</entry>
 
 <entry key="nabNabavkaOsnovniPodaci">Основни подаци</entry>
@@ -88,6 +90,8 @@
 <entry key="nabNabavkaPartijaHeader">Партија</entry>
 <entry key="nabNabavkaPartijaBrisanjePitanje">Да ли сигурно желите да обришете ову партију</entry>
 <entry key="nabNabavkaProcenaBrisanjePitanje">Да ли сигурно желите да обришете процену по години?</entry>
+<entry key="nabNabavkaJrnBrisanjePitanje">Да ли сигурно желите да обришете изабрану ОРН из набавке?</entry>
 <entry key="nabNabavkaProcenaPoGodiniBrisanjeHeader">Брисање процене по години</entry>
+<entry key="nabNabavkaJrnBrisanjeHeader">Брисање ОРН из набавке</entry>
 
 </properties>

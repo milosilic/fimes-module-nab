@@ -10,6 +10,7 @@ import javax.faces.model.SelectItem;
 
 import org.ajax4jsf.component.html.HtmlAjaxCommandButton;
 
+import antlr.NoViableAltException;
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
 import rs.etf.rc.common.utils.MessageBundleProperty;
@@ -17,11 +18,13 @@ import rs.fimes.data.dao.generic.QueryRestriction;
 import rs.fimes.data.dao.generic.QueryRestrictionComparison1;
 import rs.fimes.domain.core.OrgFirma;
 import rs.fimes.domain.nab.NabJavnaNabavka;
+import rs.fimes.domain.nab.NabNabavkaJrn;
 import rs.fimes.domain.nab.NabNabavkaKontoPartija;
 import rs.fimes.domain.nab.NabPartijaNabavke;
 import rs.fimes.domain.nab.NabPlan;
 import rs.fimes.domain.nab.NabProcenaPoGodini;
 import rs.fimes.domain.nab.XnabIzvorFinansiranja;
+import rs.fimes.domain.nab.XnabJrn;
 import rs.fimes.domain.nab.XnabKonto;
 import rs.fimes.domain.nab.XnabPredmetNabavke;
 import rs.fimes.domain.nab.XnabStatusNabavke;
@@ -30,6 +33,7 @@ import rs.fimes.domain.nab.XnabVrstaPostupka;
 import rs.fimes.domain.nab.XnabVrstaPredmetaNabavke;
 import rs.fimes.service.api.core.UsrKorisnikServiceApi;
 import rs.fimes.service.api.nab.NabJavnaNabavkaServiceApi;
+import rs.fimes.service.api.nab.NabNabavkaJrnServiceApi;
 import rs.fimes.service.api.nab.NabNabavkaKontoPartijaServiceApi;
 import rs.fimes.service.api.nab.NabNaruciociServiceApi;
 import rs.fimes.service.api.nab.NabPartijaNabavkeServiceApi;
@@ -42,6 +46,7 @@ import rs.fimes.service.api.nab.XnabTipNabavkeServiceApi;
 import rs.fimes.service.api.nab.XnabVrstaPostupkaServiceApi;
 import rs.fimes.service.api.nab.XnabVrstaPredmetaNabavkeServiceApi;
 import rs.fimes.web.controller.BaseController;
+import rs.fimes.web.datamodel.api.nab.NabNabavkaJrnExtendedDataTableModelApi;
 import rs.fimes.web.datamodel.api.nab.NabNabavkaKontoPartijaExtendedDataTableModelApi;
 import rs.fimes.web.datamodel.api.nab.NabPartijaNabavkeExtendedDataTableModelApi;
 import rs.fimes.web.datamodel.api.nab.NabProcenaPoGodiniExtendedDataTableModelApi;
@@ -135,7 +140,14 @@ public class NabNovaNabavkaController extends BaseController{
 
     //23.08.2014
     private XnabKonto xnabKonto;
-    private ArrayList<SelectItem> nabPartijaNabavkeSelectionItems;    
+    private ArrayList<SelectItem> nabPartijaNabavkeSelectionItems;  
+    
+    //24.08.2014.
+    private NabNabavkaJrn novaNabavkaJrn;
+    private NabNabavkaJrnExtendedDataTableModelApi nabNabavkaJrnExtendedDataTableModelApi;
+    private NabNabavkaJrnServiceApi nabNabavkaJrnServiceApi;
+    private XnabJrn xnabJrn;
+    private NabJrnLovSelectionController nabJrnLovSelectionController;
     
     public NabNovaNabavkaController(Module module, String controllerId)
             throws ConfigurationException {
@@ -168,6 +180,9 @@ public class NabNovaNabavkaController extends BaseController{
             novaNabNabavkaKontoPartija = new NabNabavkaKontoPartija();
             novaNabNabavkaKontoPartija.setPartijaNabavke(new NabPartijaNabavke());
             novaNabNabavkaKontoPartija.setIzvorFinansiranja(new XnabIzvorFinansiranja());
+            // TODO Skloniti u posebne funkcije ili kontrolere.
+            novaNabavkaJrn = new NabNabavkaJrn();
+            novaNabavkaJrn.setNabJrn(new XnabJrn());
         }
         
        
@@ -665,6 +680,55 @@ public class NabNovaNabavkaController extends BaseController{
         this.nabPartijaNabavkeSelectionItems = nabPartijaNabavkeSelectionItems;
     }
 
+    public NabNabavkaJrn getNovaNabavkaJrn() {
+        return novaNabavkaJrn;
+    }
+
+    public void setNovaNabavkaJrn(NabNabavkaJrn novaNabavkaJrn) {
+        this.novaNabavkaJrn = novaNabavkaJrn;
+    }
+
+    public NabNabavkaJrnExtendedDataTableModelApi getNabNabavkaJrnExtendedDataTableModelApi() {
+        if ( null != novaNabavka.getIdJavnaNabavka()){
+            List<QueryRestriction> parametri = new ArrayList<QueryRestriction>();
+            parametri.add(QueryRestrictionComparison1.addIsEqual("nabJavnaNabavka", novaNabavka));
+            nabNabavkaJrnExtendedDataTableModelApi.setParametri(parametri);
+        }
+
+        return nabNabavkaJrnExtendedDataTableModelApi;
+    }
+
+    public void setNabNabavkaJrnExtendedDataTableModelApi(
+            NabNabavkaJrnExtendedDataTableModelApi nabavkaJrnExtendedDataTableModelApi) {
+        this.nabNabavkaJrnExtendedDataTableModelApi = nabavkaJrnExtendedDataTableModelApi;
+    }
+
+    public NabNabavkaJrnServiceApi getNabNabavkaJrnServiceApi() {
+        return nabNabavkaJrnServiceApi;
+    }
+
+    public void setNabNabavkaJrnServiceApi(
+            NabNabavkaJrnServiceApi nabNabavkaJrnServiceApi) {
+        this.nabNabavkaJrnServiceApi = nabNabavkaJrnServiceApi;
+    }
+
+    public XnabJrn getXnabJrn() {
+        return xnabJrn;
+    }
+
+    public void setXnabJrn(XnabJrn xnabJrn) {
+        this.xnabJrn = xnabJrn;
+    }
+
+    public NabJrnLovSelectionController getNabJrnLovSelectionController() {
+        return nabJrnLovSelectionController;
+    }
+
+    public void setNabJrnLovSelectionController(
+            NabJrnLovSelectionController nabJrnLovSelectionController) {
+        this.nabJrnLovSelectionController = nabJrnLovSelectionController;
+    }
+
     public void clearPartijaSelection(){
         novaPartija = new NabPartijaNabavke();
     }
@@ -800,6 +864,76 @@ public class NabNovaNabavkaController extends BaseController{
     // kada se klikne na delete konta iz modalnog prozora partijekontanabavke
     public void resetNabKonto(){
         // TODO implementirati
+    }
+    
+    public void initModalDialogBrisanjeJrn(){
+        System.out.println( "JEESII LI SIIIIGUURANN");
+        initModalDialogBrisanje(
+                "nabNabavkaPartijaiHeader",
+                new MessageBundleProperty(
+                        "nabNabavkaJrnBrisanjePitanje"),
+                "nabNabavkaJrnBrisanje()");
+
+    }
+    
+    public void obrisiNabavkaJrn(){
+        System.out.println( "Ok , tražio si brisanje JRN i dobio si");
+         
+            if ( null != novaNabavkaJrn){
+                try {
+                    nabNabavkaJrnServiceApi.deleteNabavkaJrn(novaNabavkaJrn);
+                    populateModalOkPanelSnimanjeDefaultMessages(true,"nabNabavkaProcenaPoGodiniBrisanjeHeader" );
+                    novaNabavkaJrn = null;
+                } catch (Exception e) {
+                   
+                    populateModalOkPanelSnimanjeDefaultMessages(false,"nabNabavkaProcenaPoGodiniBrisanjeHeader" );                e.printStackTrace();
+                }
+                
+            }else {
+                System.out.println( "Ne postoji novaNabavkaJrn");
+                populateModalOkPanelSnimanjeDefaultMessages(false,"nabNabavkaProcenaPoGodiniBrisanjeHeader" );
+            }
+
+
+    }
+    
+    public void actionInitNabJrnLovAction(){
+        nabJrnLovSelectionController.onEntry();
+        nabJrnLovSelectionController.setDugmeAction("nabNovaNabavkaController.actionTransferJrn");
+        nabJrnLovSelectionController.setDugmeReRender("panelJrn"); 
+        nabJrnLovSelectionController.setFocusIdCancel("inputNabJrn");
+        nabJrnLovSelectionController.setFocusIdOK("nabJrnModalPanelDugmePotvrdi");
+
+    }
+    
+    public void actionTransferJrn(){
+        xnabJrn = nabJrnLovSelectionController.getNabJrn();
+    }
+    
+    public void dodajOrn(){
+        try {
+            if ( null == novaNabavka || null == novaNabavka.getIdJavnaNabavka()) {
+                throw new Exception( "Nije Setovana nabavka za koju se radi procena");
+            }
+            novaNabavkaJrn.setNabJavnaNabavka(novaNabavka);
+            novaNabavkaJrn.setNabJrn(xnabJrn);
+            nabNabavkaJrnServiceApi.createNabNabavkaJrn(novaNabavkaJrn);
+            populateModalOkPanelSnimanjeDefaultMessagesWithHeaderMessage(true,
+                    getMessage("nabNabavkaAzuriranjeNabavkeHeader"));
+        } catch (Exception e) {
+            populateModalOkPanelSnimanjeDefaultMessagesWithHeaderMessage(false,
+                    getMessage("nabNabavkaAzuriranjeNabavkeHeader"));
+
+            e.printStackTrace();
+        }finally{
+            resetNabNovuProcenjenuVrednost();
+        }
+
+    }
+    
+    public void resetNabNabavkaJrn(){
+        novaNabavkaJrn = new NabNabavkaJrn();
+        
     }
     
 

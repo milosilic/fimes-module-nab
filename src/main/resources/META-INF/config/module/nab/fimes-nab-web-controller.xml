@@ -77,6 +77,9 @@
         <property name="nabNabavkaKontoPartijaExtendedDataTableModelApi" ref="nabNabavkaKontoPartijaExtendedDataTableModelApi" />
         <property name="xnabIzvorFinansiranjaServiceApi" ref="xnabIzvorFinansiranjaServiceApi" />
         <property name="nabKontoLovSelectionController" ref="nabKontoLovSelectionController"></property>
+        <property name="nabNabavkaJrnExtendedDataTableModelApi" ref="nabNabavkaJrnExtendedDataTableModelApi"></property>
+        <property name="nabNabavkaJrnServiceApi" ref="nabNabavkaJrnServiceApi"></property>
+        <property name="nabJrnLovSelectionController" ref="nabJrnLovSelectionController"></property>
 	</bean>
     <bean id="nabKontoSelectionController" class="rs.fimes.web.controller.nab.NabKontoSelectionController"
         parent="nabBaseController" scope="session" lazy-init="true">
@@ -92,4 +95,11 @@
 			type="java.lang.String" />
 		<property name="xnabKontoExtendedDataTableModelApi" ref="xnabKontoExtendedDataTableModelApi" />
 	</bean>
+    <bean id="nabJrnLovSelectionController"
+        class="rs.fimes.web.controller.nab.NabJrnLovSelectionController"
+        parent="nabBaseSelectionController" scope="session" lazy-init="true">
+        <constructor-arg value="nabJrnLovSelectionController"
+            type="java.lang.String" />
+        <property name="xnabJrnExtendedDataTableModelApi" ref="xnabJrnExtendedDataTableModelApi" />
+    </bean>
 </beans>

@@ -17,39 +17,37 @@
         value="#{nabNovaNabavkaController.module.messageSource.nabPlanoviNoviPlan}" />
     </f:facet>
     <h:form id="formNoviJrn">
-      <rich:extendedDataTable height="200px" rowClasses="redAnimacija"
-        id="tabelaProcenaPoGodinama" enableContextMenu="false"
-        noDataLabel="#{nabNovaNabavkaController.module.messageSource.commonNoDataLabel}"
-        value="#{nabNovaNabavkaController.xnabJrnExtendedDataTableModelApi}"
-        selection="#{nabNovaNabavkaController.xnabJrnExtendedDataTableModelApi.selection}"
-        var="jrn">
-        <rich:column id="kolona1" width="50%"
-          styleClass="fimesAlignLeft">
-          <f:facet name="header">
-            <h:outputText styleClass="headerText"
-              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaOrn}" />
-          </f:facet>
-          <h:outputText value="#{jrn.kod}" />
-        </rich:column>
-        <rich:column id="kolona2" width="50%"
-          styleClass="fimesAlignLeft">
-          <f:facet name="header">
-            <h:outputText styleClass="headerText"
-              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaOrnDopunski}" />
-          </f:facet>
-          <h:outputText value="#{jrn.opis}" />
-        </rich:column>
-      </rich:extendedDataTable>
+        <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabKontoPozicija}" />
+        <a4j:outputPanel id="panelNabavkaJrn">
+            <h:inputText styleClass="fimesInputText"
+             id="inputNabavkaJrn"
+             readonly="true"
+             label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaOrnKod}"
+             value="#{nabNovaNabavkaController.xnabJrn}"/>
+            <a4j:commandButton ajaxSingle="true" status="waitStatus"
+              tabindex="5"
+              action="#{nabNovaNabavkaController.actionInitNabJrnLovAction}"
+              oncomplete="#{rich:component('nabNoviJrnLovModalPanel')}.show()"
+              reRender="nabNovaPlaniranaVrednostPoKontimaLovModalPanel"
+              styleClass="fimesButtonImageLov"
+              title="#{nabNovaNabavkaController.module.messageSource.coreLabelaOrgOrganizacionaJedinicaLovModalPanelIkonicaIzaberi}" />
+            <a4j:commandButton status="waitStatus" tabindex="6"
+              disabled="#{empty nabNovaNabavkaController.xnabKonto}"
+              action="#{nabNovaNabavkaController.resetNabKonto}"
+              immediate="true" ajaxSingle="true"
+              reRender="panelNabavkaJrn,selectTipOrganizacioneJediniceUnos"
+              styleClass="fimesButtonImageCross" />
+            <rich:message for="inputNabKonto" styleClass="errorMsgBlock" />
+            <h:inputHidden value="nesto" id="inputHiddenOrgParent"
+              validator="#{orgOrganizacionaJedinicaUnosController.validateOrgJedinicaNadredjena}" />
+        </a4j:outputPanel>
       <h:panelGrid columns="2">
-        <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaOrn}" />
-        <h:inputText styleClass="fimesInputText maxWidth"
-                value="#{nabNovaNabavkaController.novaProcenjenaVrednost.godina}" /> 
         <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaOrnDopunski}"/>
       </h:panelGrid>
       <a4j:commandButton id="nabJrnModalPanelDugmePotvrdi"
         styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"
         value="#{nabNovaNabavkaController.module.messageSource.common_potvrdi}"
-        action="#{nabNovaNabavkaController.dodajProcenu}"
+        action="#{nabNovaNabavkaController.dodajOrn}"
         oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabNoviJrnModalPanel')}.hide();#{rich:component('coreOkModalPanel')}.show();}"
         reRender="nabNovaNabavkaModalPanel,coreOkModalPanel" />
       <rich:spacer width="5" />

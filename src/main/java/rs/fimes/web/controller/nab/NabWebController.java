@@ -22,8 +22,9 @@ public class NabWebController extends BaseWebController {
     private WebComponent nabNovaPlaniranaVrednostPoKontimaModalPanel;
     
     //20.08.2014. 
-    
     private WebComponent nabNovaPlaniranaVrednostPoKontimaLovModalPanel;
+    //24.08.2014.
+    private WebComponent nabNoviJrnLovModalPanel;
 
     public NabWebController(Module module, String shortId)
             throws ConfigurationException {
@@ -112,6 +113,17 @@ public class NabWebController extends BaseWebController {
         
     }
 
+    public String getNabNoviJrnLovModalPanelView(){
+        try {
+            return getNavigationUtil().getView("nabNoviJrnLovModalPanel");
+        } catch (CommonWebException e) {
+          
+            e.printStackTrace();
+            return "null";
+        }
+        
+    }
+    
     public WebComponent getNabProcenjenaVrednostUnosModalPanel() {
         return nabProcenjenaVrednostUnosModalPanel;
     }
@@ -161,6 +173,14 @@ public class NabWebController extends BaseWebController {
     public void setNabNovaPlaniranaVrednostPoKontimaLovModalPanel(
             WebComponent nabNovaPlaniranaVrednostPoKontimaLovModalPanel) {
         this.nabNovaPlaniranaVrednostPoKontimaLovModalPanel = nabNovaPlaniranaVrednostPoKontimaLovModalPanel;
+    }
+
+    public WebComponent getNabNoviJrnLovModalPanel() {
+        return nabNoviJrnLovModalPanel;
+    }
+
+    public void setNabNoviJrnLovModalPanel(WebComponent nabNoviJrnLovModalPanel) {
+        this.nabNoviJrnLovModalPanel = nabNoviJrnLovModalPanel;
     }
     
     
