@@ -154,19 +154,6 @@
                     <h:inputText styleClass="fimesInputText maxWidth"
                       value="#{nabNovaNabavkaController.novaNabavka.godinaIzvrsenja}" readonly="true" />
                   </h:panelGrid>
-                  <h:panelGrid columns="2">
-                    <h:outputLabel styleClass="fimesLabelLeft"
-                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaOrn}" />
-                    <h:inputText styleClass="fimesInputText maxWidth" readonly="true" />
-                    <a4j:commandButton id="nabNovaNabavkaOrnDugmeLov"
-                      ajaxSingle="true" tabindex="3"
-                      action="#{nabNovaNabavkaController.actionInitSffPoslovniZiroRacunLov}"
-                      oncomplete="#{rich:component('nabNoviJrnModalPanel')}.show()"
-                      reRender="nabNoviJrnModalPanel"
-                      styleClass="fimesButtonImageLov"
-                      title="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
-
-                  </h:panelGrid>
                   <h:panelGrid columns="2" styleClass="alignCenter"
                     width="100%">
                     <h:outputLabel styleClass="fimesLabelLeft"
