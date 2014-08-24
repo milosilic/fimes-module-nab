@@ -9,7 +9,7 @@ public interface NabNabavkaJrnServiceApi extends BaseServiceApi{
 
     void createNabNabavkaJrn(NabNabavkaJrn novaNabavka);
 
-    void deletePartija(NabNabavkaJrn novaPartija);
+    void deleteNabavkaJrn(NabNabavkaJrn nabavkaJrn);
 
     List<NabNabavkaJrn> dohvatiNabavkaJrn(Integer idJavnaNabavka);
 

@@ -36,8 +36,8 @@ implements NabNabavkaJrnServiceApi{
     }
 
     @Override
-    public void deletePartija(NabNabavkaJrn novaPartija) {
-        NabNabavkaJrn NabavkaJrn = nabNabavkaJrnDAO.findById(novaPartija.getIdNabavkaJrn(), true);
+    public void deleteNabavkaJrn(NabNabavkaJrn nabavkaJrn) {
+        NabNabavkaJrn NabavkaJrn = nabNabavkaJrnDAO.findById(nabavkaJrn.getIdNabavkaJrn(), true);
         nabNabavkaJrnDAO.delete(NabavkaJrn);
     }
 
