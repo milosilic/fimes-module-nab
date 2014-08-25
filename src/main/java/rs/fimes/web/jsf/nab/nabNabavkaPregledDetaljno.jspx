@@ -407,17 +407,27 @@
                           </h:outputText>
                         </h:panelGroup>
                       </f:facet>
-                      
+                      <rich:column width="5%" styleClass="alignCenter">
+                        <f:facet name="header">
+                          <h:panelGroup>
+                            <a4j:commandButton
+                              id="nabPlaniranaVrednostPoKontimaDugmeLov"
+                              ajaxSingle="true" tabindex="3"
+                              action="#{nabNovaNabavkaController.actionInitSffPoslovniZiroRacunLov}"
+                              oncomplete="#{rich:component('nabNovaPlaniranaVrednostPoKontimaModalPanel')}.show()"
+                              reRender="nabNovaPlaniranaVrednostPoKontimaModalPanel"
+                              styleClass="fimesButtonImageAdd"
+                              title="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
+                            <rich:toolTip for="nabPlaniranaVrednostPoKontimaDugmeLov"
+                              styleClass="tooltipRichAdd"
+                              value="#{nabNovaNabavkaController.module.messageSource.nabTooltipVrednostPoKontimaUnesi}"
+                              direction="bottom-left" />
+                          </h:panelGroup>
+                        </f:facet>
+                      </rich:column>
                     </rich:extendedDataTable>
-                    <a4j:commandButton
-                      id="nabPlaniranaVrednostPoKontimaDugmeLov"
-                      ajaxSingle="true" tabindex="3"
-                      action="#{nabNovaNabavkaController.actionInitSffPoslovniZiroRacunLov}"
-                      oncomplete="#{rich:component('nabNovaPlaniranaVrednostPoKontimaModalPanel')}.show()"
-                      reRender="nabNovaPlaniranaVrednostPoKontimaModalPanel"
-                      styleClass="fimesButtonImageLov"
-                      title="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
                   </rich:tab>
+<!--                   TAB JRN -->
                   <rich:tab id="tab4Jrn" name="tab4Jrn"
                     ajaxSingle="true"
                     label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaOrn}"
