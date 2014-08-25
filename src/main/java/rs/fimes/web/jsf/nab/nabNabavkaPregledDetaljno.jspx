@@ -465,6 +465,24 @@
                         <h:outputText
                           value="#{nabavkaJrn.nabJrn.opis}" />
                       </rich:column>
+                      <rich:column width="5%" styleClass="alignCenter">
+                        <f:facet name="header">
+                          <h:panelGroup>
+                            <a4j:commandButton
+                              id="nabNabavkaJrnDugmeLov"
+                              ajaxSingle="true" tabindex="3"
+                              action="#{nabNovaNabavkaController.actionInitSffPoslovniZiroRacunLov}"
+                              oncomplete="#{rich:component('nabNoviJrnModalPanel')}.show()"
+                              reRender="nabNoviJrnModalPanel"
+                              styleClass="fimesButtonImageAdd"
+                              title="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
+                            <rich:toolTip for="nabNabavkaJrnDugmeLov"
+                              styleClass="tooltipRichAdd"
+                              value="#{nabNovaNabavkaController.module.messageSource.nabTooltipOrnUnesi}"
+                              direction="bottom-left" />
+                          </h:panelGroup>
+                        </f:facet>
+                      </rich:column>
                       <f:facet name="footer">
                         <h:panelGroup layout="block"
                           styleClass="fimesAlignLeft">
@@ -478,14 +496,6 @@
                         </h:panelGroup>
                       </f:facet>
                     </rich:extendedDataTable>
-                       <a4j:commandButton
-                      id="nabNabavkaJrnDugmeLov"
-                      ajaxSingle="true" tabindex="3"
-                      action="#{nabNovaNabavkaController.actionInitSffPoslovniZiroRacunLov}"
-                      oncomplete="#{rich:component('nabNoviJrnModalPanel')}.show()"
-                      reRender="nabNoviJrnModalPanel"
-                      styleClass="fimesButtonImageLov"
-                      title="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
                   </rich:tab>
                   <rich:tab id="tab5Izmene" name="tab5Izmene"
                     ajaxSingle="true"
