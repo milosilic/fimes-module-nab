@@ -41,8 +41,8 @@
                       var="plan">
                       
                     <!-- selekcija  iz objEvidencija objekata.jspx-->
-                    <a4j:support event="onRowClick" action="nabavkeLista"
-                      immediate="true" status="waitStatus">
+                    <a4j:support event="onRowClick" 
+                      immediate="true" status="waitStatus" reRender="nabPlanDugmeDetaljno">
                       <f:setPropertyActionListener value="#{plan}"
                         target="#{nabPlanController.nabPlanSelected}" />
                     </a4j:support>
@@ -89,6 +89,12 @@
                     </rich:extendedDataTable>
                     <h:panelGroup layout="block"
                       styleClass="fimesAlignRight">
+                      <a4j:commandButton id="nabPlanDugmeDetaljno"
+                        styleClass="fimesButton objDugmeUFuteruTabele"
+                        status="statusWait"
+                        value="#{nabPlanController.module.messageSource.nabNabavkaAzuriranjeNabavke}"
+                        action="nabavkeLista"
+                        disabled="#{empty nabPlanController.nabPlanSelected}" />
                       <a4j:commandButton id="nabPlanoviNoviPlan" ajaxSingle="true" status="waitStatus"
                         value="#{nabPlanController.module.messageSource.nabPlanoviNoviPlan}"
                         styleClass="fimesButton"
