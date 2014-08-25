@@ -17,13 +17,14 @@
         value="#{nabNovaNabavkaController.module.messageSource.nabPlanoviNoviPlan}" />
     </f:facet>
     <h:form id="formNoviJrn">
-        <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabKontoPozicija}" />
+      <h:panelGrid columns="2" id="panelGridNabavkaJrn">
+        <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaOrnKod}" />
         <a4j:outputPanel id="panelNabavkaJrn">
             <h:inputText styleClass="fimesInputText"
              id="inputNabavkaJrn"
              readonly="true"
              label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaOrnKod}"
-             value="#{nabNovaNabavkaController.xnabJrn}"/>
+             value="#{nabNovaNabavkaController.xnabJrn.kod}"/>
             <a4j:commandButton ajaxSingle="true" status="waitStatus"
               tabindex="5"
               action="#{nabNovaNabavkaController.actionInitNabJrnLovAction}"
@@ -35,14 +36,14 @@
               disabled="#{empty nabNovaNabavkaController.xnabKonto}"
               action="#{nabNovaNabavkaController.resetNabKonto}"
               immediate="true" ajaxSingle="true"
-              reRender="panelNabavkaJrn,selectTipOrganizacioneJediniceUnos"
+              reRender="panelNabavkaJrn"
               styleClass="fimesButtonImageCross" />
             <rich:message for="inputNabKonto" styleClass="errorMsgBlock" />
             <h:inputHidden value="nesto" id="inputHiddenOrgParent"
               validator="#{orgOrganizacionaJedinicaUnosController.validateOrgJedinicaNadredjena}" />
         </a4j:outputPanel>
-      <h:panelGrid columns="2">
-        <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaOrnDopunski}"/>
+        <h:outputText value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaOrnOpis}"/>
+        <h:inputText  value="#{nabNovaNabavkaController.xnabJrn.opis}" readonly="true" />
       </h:panelGrid>
       <a4j:commandButton id="nabJrnModalPanelDugmePotvrdi"
         styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"

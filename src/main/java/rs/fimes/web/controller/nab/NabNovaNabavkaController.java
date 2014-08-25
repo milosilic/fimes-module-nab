@@ -900,7 +900,7 @@ public class NabNovaNabavkaController extends BaseController{
     public void actionInitNabJrnLovAction(){
         nabJrnLovSelectionController.onEntry();
         nabJrnLovSelectionController.setDugmeAction("nabNovaNabavkaController.actionTransferJrn");
-        nabJrnLovSelectionController.setDugmeReRender("panelJrn"); 
+        nabJrnLovSelectionController.setDugmeReRender("panelGridNabavkaJrn"); 
         nabJrnLovSelectionController.setFocusIdCancel("inputNabJrn");
         nabJrnLovSelectionController.setFocusIdOK("nabJrnModalPanelDugmePotvrdi");
 
