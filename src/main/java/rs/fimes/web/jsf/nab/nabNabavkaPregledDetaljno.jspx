@@ -329,6 +329,7 @@
                       title="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
 
                   </rich:tab>
+<!--                   TAB Vrednost po Kontima -->
                   <rich:tab id="tab3VrednostPoKontima"
                     name="tab3VrednostPoKontima" ajaxSingle="true"
                     label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaPlaniranaVrednostPoKontima}"
@@ -424,6 +425,21 @@
                               direction="bottom-left" />
                           </h:panelGroup>
                         </f:facet>
+                        <a4j:commandButton
+                          id="tabelaNabVrednostPoKontimaAzuriranje"
+                          ajaxSingle="true"
+                          styleClass="fimesButtonImageEdit"
+                          action="#{nabNovaNabavkaController.actionInitVrednostPoKontimaAzur}"
+                          oncomplete="#{rich:component('nabNovaPlaniranaVrednostPoKontimaModalPanel')}.show();"
+                          reRender="nabNovaPlaniranaVrednostPoKontimaModalPanel">
+<!-- Ovo se stalno forsira, ali se uvek kliknuti objekat može dohvatiti iz extended... -->
+                           <f:setPropertyActionListener value="#{nabavkaKontoPartija}" 
+                             target="#{nabNovaNabavkaController.novaNabNabavkaKontoPartija}" /> 
+                        </a4j:commandButton>
+                        <rich:toolTip for="tabelaNabVrednostPoKontimaAzuriranje"
+                          styleClass="tooltipRichEdit"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabTooltipVrednostPoKontimaAzuriraj}"
+                          direction="top-left" />
                       </rich:column>
                     </rich:extendedDataTable>
                   </rich:tab>

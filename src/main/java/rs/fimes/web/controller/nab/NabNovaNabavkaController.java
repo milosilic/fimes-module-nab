@@ -936,5 +936,12 @@ public class NabNovaNabavkaController extends BaseController{
         
     }
     
+    public void actionInitVrednostPoKontimaAzur(){
+        //System.out.println( nabNabavkaKontoPartijaExtendedDataTableModelApi.getSelection())
+//        nabNabavkaKontoPartijaExtendedDataTableModelApi.getSelection();
+//        novaNabNabavkaKontoPartija = nabNabavkaKontoPartijaExtendedDataTableModelApi.getDomainObject();
+//        System.out.println( novaNabNabavkaKontoPartija);
+    }
+    
 
 }
