@@ -807,7 +807,7 @@ public class NabNovaNabavkaController extends BaseController{
     public void initModalDialogBrisanjePartija(){
 
         initModalDialogBrisanje(
-                "nabNabavkaPartijaiHeader",
+                "nabNabavkaPartijaHeader",
                 new MessageBundleProperty(
                         "nabNabavkaPartijaBrisanjePitanje"),
                 "nabPartijaBrisanje()");
@@ -867,9 +867,8 @@ public class NabNovaNabavkaController extends BaseController{
     }
     
     public void initModalDialogBrisanjeJrn(){
-        System.out.println( "JEESII LI SIIIIGUURANN");
         initModalDialogBrisanje(
-                "nabNabavkaPartijaiHeader",
+                "nabNabavkaJrnBrisanjeHeader",
                 new MessageBundleProperty(
                         "nabNabavkaJrnBrisanjePitanje"),
                 "nabNabavkaJrnBrisanje()");
@@ -877,7 +876,6 @@ public class NabNovaNabavkaController extends BaseController{
     }
     
     public void obrisiNabavkaJrn(){
-        System.out.println( "Ok , tražio si brisanje JRN i dobio si");
          
             if ( null != novaNabavkaJrn){
                 try {
@@ -938,6 +936,30 @@ public class NabNovaNabavkaController extends BaseController{
     
     public void actionInitVrednostPoKontimaAzur(){
         xnabKonto = novaNabNabavkaKontoPartija.getNabKonto();
+    }
+    
+    public void initModalDialogBrisanjeKontoPartija(){
+        System.out.println( "JEESII LI SIIIIGUURANN");
+        initModalDialogBrisanje(
+                "nabNabavkaPartijaiHeader",
+                new MessageBundleProperty(
+                        "nabNabavkaJrnBrisanjePitanje"),
+                "nabNabavkaKontoPartijaBrisanje()");
+       
+    }
+    
+    public void obrisiNabKontoPartiju(){
+        System.out.println( "Ok , tražio si brisanje Nab Konto Partija i dobio si");
+        
+        try {
+            if ( null == novaNabNabavkaKontoPartija) throw new Exception( "Ne postoji objekat");
+            nabNabavkaKontoPartijaServiceApi.deleteNabavkaKontoPartija(novaNabNabavkaKontoPartija);
+            populateModalOkPanelSnimanjeDefaultMessages(true,"nabNabavkaKontoPartijaBrisanjeHeader" );
+            novaNabNabavkaKontoPartija = null;
+        } catch (Exception e) {               
+            populateModalOkPanelSnimanjeDefaultMessages(false,"nabNabavkaKontoPartijaBrisanjeHeader" );
+            e.printStackTrace();
+        }
     }
     
 

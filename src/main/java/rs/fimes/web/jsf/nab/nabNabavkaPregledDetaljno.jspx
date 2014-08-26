@@ -31,10 +31,14 @@
               action="#{nabNovaNabavkaController.obrisiPartiju}"
               oncomplete="#{rich:component('coreModalDaNeDijalog')}.hide();#{rich:component('coreOkModalPanel')}.show();"
               reRender="coreOkModalPanel,tabelaPartijaNabavke" />
+            <a4j:jsFunction name="nabNabavkaKontoPartijaBrisanje"
+              action="#{nabNovaNabavkaController.obrisiNabKontoPartiju}"
+              oncomplete="#{rich:component('coreModalDaNeDijalog')}.hide();#{rich:component('coreOkModalPanel')}.show();"
+              reRender="coreOkModalPanel,tabelaNabKontoPartija" />
             <a4j:jsFunction name="nabNabavkaJrnBrisanje"
               action="#{nabNovaNabavkaController.obrisiNabavkaJrn}"
               oncomplete="#{rich:component('coreModalDaNeDijalog')}.hide();#{rich:component('coreOkModalPanel')}.show();"
-              reRender="coreOkModalPanel,tabelaPartijaNabavke" />
+              reRender="coreOkModalPanel,tabelaNabavkaJrnExtended" />
             <h:panelGroup id="nabavkaBody" styleClass="fimesZrdBody">
               <h:panelGrid id="tabelaObjObjekat"
                 styleClass="objKartonTab" columns="2" width="100%"
@@ -336,12 +340,29 @@
                     height="220px">
                     <rich:extendedDataTable height="200px"
                       rowClasses="redAnimacija"
-                      id="tabelaPartijaNabavke"
+                      id="tabelaNabKontoPartija"
                       enableContextMenu="false"
                       noDataLabel="#{nabNovaNabavkaController.module.messageSource.commonNoDataLabel}"
                       value="#{nabNovaNabavkaController.nabNabavkaKontoPartijaExtendedDataTableModelApi}"
                       selection="#{nabNovaNabavkaController.nabNabavkaKontoPartijaExtendedDataTableModelApi.selection}"
                       var="nabavkaKontoPartija">
+                      <rich:column width="5%"
+                        styleClass="tabelaHederCentrirano">
+                        <f:facet name="header">
+                        </f:facet>
+                        <a4j:commandButton id="ikonica"
+                          action="#{nabNovaNabavkaController.initModalDialogBrisanjeKontoPartija}"
+                          oncomplete="#{rich:component('coreModalDaNeDijalog')}.show()"
+                          reRender="coreModalDaNeDijalog"
+                          styleClass="fimesButtonImageCross">
+                          <f:setPropertyActionListener
+                            value="#{nabavkaKontoPartija}"
+                            target="#{nabNovaNabavkaController.novaNabNabavkaKontoPartija}" />
+                          <rich:toolTip
+                            value="#{nabNovaNabavkaController.module.messageSource.nabTooltipVrednostPoKontimaObrisi}"
+                            direction="bottom-right" />
+                        </a4j:commandButton>
+                      </rich:column>
                       <rich:column id="kolona1" width="20%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
