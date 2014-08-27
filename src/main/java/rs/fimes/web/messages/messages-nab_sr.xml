@@ -74,9 +74,11 @@
 <entry key="nabNabavkaNovaNabаvkaOrnKod">Код</entry>
 <entry key="nabNabavkaNovaNabаvkaOrnDopunski">ОРН допунски</entry>
 <entry key="nabTooltipOrnUnesi">Унос новог ОРН</entry>
+<entry key="nabTooltipprocenaPoGodiniUnesi">Унос нове процене по години</entry>
 <entry key="nabTooltipVrednostPoKontimaUnesi">Унос нове вредности по контима</entry>
 <entry key="nabTooltipVrednostPoKontimaAzuriraj">Ажурирај вредности по контима</entry>
 <entry key="nabTooltipVrednostPoKontimaObrisi">Обриши вредност по контима и партији</entry>
+<entry key="nabTooltipProcenaPoGodiniAzuriraj">Ажурирај процену по години</entry>
 <entry key="nabNabavkaOsnovniPodaci">Основни подаци</entry>
 <entry key="nabNabavkaProcenjenaVrednost">Процењена вредност по годинама</entry>
 <entry key="nabNovaNabavkaProcenaBrisanjeToolTip">Обришите процену</entry>

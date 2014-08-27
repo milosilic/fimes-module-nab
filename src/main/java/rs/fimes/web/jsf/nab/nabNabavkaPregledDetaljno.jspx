@@ -143,6 +143,7 @@
                 <rich:tabPanel switchType="ajax" id="tabPanel"
                   styleClass="maxWidth"
                   rendered="#{not empty nabNovaNabavkaController.novaNabavka.idJavnaNabavka}">
+<!-- PROCENJENA VREDNOST PO GODINAMA -->
                   <rich:tab id="tab1VrednostPoGodinama"
                     name="tab1VrednostPoGodinama" ajaxSingle="true"
                     label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaProcenjenaVrednost}"
@@ -155,9 +156,8 @@
                       value="#{nabNovaNabavkaController.nabProcenaPoGodiniExtendedDataTableModelApi}"
                       selection="#{nabNovaNabavkaController.nabProcenaPoGodiniExtendedDataTableModelApi.selection}"
                       var="procena">
-                      <rich:column width="10%"
+                      <rich:column width="5%"
                         styleClass="fimesAlignCenter noPadding">
-
                         <a4j:commandButton ajaxSingle="true"
                           status="waitStatus"
                           id="tabelaNabProcenaPoGodiniBrisanje"
@@ -168,9 +168,7 @@
                           reRender="coreModalDaNeDijalog,coreErrorModalPanel">
                       <f:setPropertyActionListener value="#{procena}"
                         target="#{nabNovaNabavkaController.nabProcenaPoGodini}" />
-
                         </a4j:commandButton>
-
                       </rich:column>
                       <rich:column id="kolona1" width="10%"
                         styleClass="fimesAlignLeft">
@@ -214,6 +212,38 @@
                         </f:facet>
                         <h:outputText value="#{procena.napomena}" />
                       </rich:column>
+                      <rich:column width="5%" styleClass="alignCenter">
+                        <f:facet name="header">
+                          <h:panelGroup>
+                          <a4j:commandButton id="nabProcenaPoGodiniDugmeLov"
+                            ajaxSingle="true" tabindex="3"
+                            action="#{nabNovaNabavkaController.actionInitSffPoslovniZiroRacunLov}"
+                            oncomplete="#{rich:component('nabProcenjenaVrednostUnosModalPanel')}.show()"
+                            reRender="nabProcenjenaVrednostUnosModalPanel"
+                            styleClass="fimesButtonImageAdd"
+                            title="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
+                            <rich:toolTip for="nabProcenaPoGodiniDugmeLov"
+                              styleClass="tooltipRichAdd"
+                              value="#{nabNovaNabavkaController.module.messageSource.nabTooltipprocenaPoGodiniUnesi}"
+                              direction="bottom-left" />
+                          </h:panelGroup>
+                        </f:facet>
+                        <a4j:commandButton
+                          id="tabelaNabVrednostPoKontimaAzuriranje"
+                          ajaxSingle="true"
+                          styleClass="fimesButtonImageEdit"
+                          action="#{nabNovaNabavkaController.actionInitProcenaPoGodiniAzur}"
+                          oncomplete="#{rich:component('nabProcenjenaVrednostUnosModalPanel')}.show();"
+                          reRender="nabProcenjenaVrednostUnosModalPanel">
+<!-- Ovo se stalno forsira, ali se uvek kliknuti objekat može dohvatiti iz extended... -->
+                           <f:setPropertyActionListener value="#{procena}" 
+                             target="#{nabNovaNabavkaController.novaProcenjenaVrednost}" /> 
+                        </a4j:commandButton>
+                        <rich:toolTip for="tabelaNabVrednostPoKontimaAzuriranje"
+                          styleClass="tooltipRichEdit"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabTooltipProcenaPoGodiniAzuriraj}"
+                          direction="top-left" />
+                      </rich:column>
                       <f:facet name="footer">
                         <h:panelGroup layout="block"
                           styleClass="fimesAlignLeft">
@@ -226,16 +256,7 @@
                           </h:outputText>
                         </h:panelGroup>
                       </f:facet>
-
                     </rich:extendedDataTable>
-                    <a4j:commandButton id="nabProcenaPoGodiniDugmeLov"
-                      ajaxSingle="true" tabindex="3"
-                      action="#{nabNovaNabavkaController.actionInitSffPoslovniZiroRacunLov}"
-                      oncomplete="#{rich:component('nabProcenjenaVrednostUnosModalPanel')}.show()"
-                      reRender="nabProcenjenaVrednostUnosModalPanel"
-                      styleClass="fimesButtonImageLov"
-                      title="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
-
                   </rich:tab>
                   <rich:tab id="tab2Partije" name="tab2Partije"
                     ajaxSingle="true"

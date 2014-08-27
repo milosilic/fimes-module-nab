@@ -962,5 +962,9 @@ public class NabNovaNabavkaController extends BaseController{
         }
     }
     
+    public void actionInitProcenaPoGodiniAzur(){
+        
+    }
+    
 
 }
