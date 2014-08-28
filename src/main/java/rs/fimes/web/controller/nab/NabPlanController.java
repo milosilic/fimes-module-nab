@@ -45,7 +45,6 @@ public class NabPlanController extends BaseController{
 
     public void onStart() {
         nabPlanExtendedDataTableModelApi.helperWalkByRequest();
-        System.out.println( ":::Ukenjao sam se od srece NAbPlanController " + System.currentTimeMillis());
         if ( orgFirma == null ) {
             setOrgFirma(nabNaruciociServiceApi.getActiveOrgFirma(getUserSessionUtil().getCurrentUserCurrentOrgFirma().getIdFirma()));
           }

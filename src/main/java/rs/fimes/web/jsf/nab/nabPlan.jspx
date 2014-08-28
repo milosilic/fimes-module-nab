@@ -42,9 +42,10 @@
                       
                     <!-- selekcija  iz objEvidencija objekata.jspx-->
                     <a4j:support event="onRowClick" 
-                      immediate="true" status="waitStatus" reRender="nabPlanDugmeDetaljno">
+                      immediate="true" status="waitStatus" reRender="nabPlanDugmeDetaljno,nabPlanDugmeAzuriraj">
                       <f:setPropertyActionListener value="#{plan}"
                         target="#{nabPlanController.nabPlanSelected}" />
+                        <f:setPropertyActionListener value="#{plan}" target="#{nabNoviPlanController.noviPlan}" />
                     </a4j:support>
                       <rich:column id="godinaPlanTab" width="20%"
                         styleClass="fimesAlignLeft">
@@ -89,12 +90,14 @@
                     </rich:extendedDataTable>
                     <h:panelGroup layout="block"
                       styleClass="fimesAlignRight">
-                      <a4j:commandButton id="nabPlanDugmeDetaljno"
+                      <a4j:commandButton id="nabPlanDugmeAzuriraj"
                         styleClass="fimesButton objDugmeUFuteruTabele"
                         status="statusWait"
-                        value="#{nabPlanController.module.messageSource.nabNabavkaAzuriranjeNabavke}"
-                        action="nabavkeLista"
-                        disabled="#{empty nabPlanController.nabPlanSelected}" />
+                        value="#{nabPlanController.module.messageSource.nabPlanoviAzuriranjePlana}"
+                        oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
+                        disabled="#{empty nabPlanController.nabPlanSelected}" 
+                        reRender="nabNoviPlanModalPanel"/>
+                      <rich:spacer width="10px"/>
                       <a4j:commandButton id="nabPlanoviNoviPlan" ajaxSingle="true" status="waitStatus"
                         value="#{nabPlanController.module.messageSource.nabPlanoviNoviPlan}"
                         styleClass="fimesButton"
@@ -102,8 +105,14 @@
                         oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
                         reRender="nabNoviPlanModalPanel">
                       </a4j:commandButton>
+                      <rich:spacer width="10px"/>
+                      <a4j:commandButton id="nabPlanDugmeDetaljno"
+                        styleClass="fimesButton objDugmeUFuteruTabele"
+                        status="statusWait"
+                        value="#{nabPlanController.module.messageSource.nabPlanoviSpisakNabavki}"
+                        action="nabavkeLista"
+                        disabled="#{empty nabPlanController.nabPlanSelected}" />
                     </h:panelGroup>
-                    <rich:spacer height="50px" />
                   </h:panelGroup>
                 </rich:layoutPanel>
               </rich:layout>
