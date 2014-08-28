@@ -7,6 +7,11 @@
 
   <rich:modalPanel id="nabNoviPlanModalPanel" minWidth="700"
     autosized="true" resizeable="false" moveable="true">
+    <f:facet name="controls">
+      <h:graphicImage value="#{coreWebController.iconClose16Path}"
+        styleClass="fimesImageClose"
+        onclick="#{rich:element('nabNoviPlanModalPanelDugmeOdustani')}.click()" />
+    </f:facet>
     <f:facet name="header">
       <h:outputText styleClass="fimesPanelHeader"
         value="#{nabPlanController.module.messageSource.nabPlanoviNoviPlan}" />
