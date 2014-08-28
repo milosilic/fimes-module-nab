@@ -598,6 +598,12 @@ public class NabNovaNabavkaController extends BaseController{
     }
 
     public NabNabavkaKontoPartijaExtendedDataTableModelApi getNabNabavkaKontoPartijaExtendedDataTableModelApi() {
+        if ( null != novaNabavka.getIdJavnaNabavka()){
+            List<QueryRestriction> parametri = new ArrayList<QueryRestriction>();
+            parametri.add(QueryRestrictionComparison1.addIsEqual("nabJavnaNabavka", novaNabavka));
+            nabNabavkaKontoPartijaExtendedDataTableModelApi.setParametri(parametri);
+        }
+
         return nabNabavkaKontoPartijaExtendedDataTableModelApi;
     }
 
