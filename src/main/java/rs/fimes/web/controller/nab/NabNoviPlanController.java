@@ -26,6 +26,9 @@ public class NabNoviPlanController extends BaseController{
     private HtmlForm formNabNoviPlan;
     private HtmlAjaxCommandButton dugmePotvrdi;
     private UsrKorisnikServiceApi usrKorisnikServiceApi;
+    
+    //29.08.2014. za kopiranje izabranog plana u novi plan
+    private NabPlan izabraniPlan;
 
     private static final long serialVersionUID = -788600541631559492L;
 
@@ -132,6 +135,15 @@ public class NabNoviPlanController extends BaseController{
 
     public void setUsrKorisnikServiceApi(UsrKorisnikServiceApi usrKorisnikServiceApi) {
         this.usrKorisnikServiceApi = usrKorisnikServiceApi;
+    }
+
+    public NabPlan getIzabraniPlan() {
+        return izabraniPlan;
+    }
+
+    public void setIzabraniPlan(NabPlan izabraniPlan) {
+        this.izabraniPlan = izabraniPlan;
+        System.out.println( izabraniPlan );
     }
     
 

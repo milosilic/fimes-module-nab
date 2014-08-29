@@ -27,6 +27,7 @@
 <entry key="nabPlanoviDatumUsvajanja">Датум усвајања</entry>
 <entry key="nabPlanoviNoviPlan">Нови план</entry>
 <entry key="nabPlanoviAzuriranjePlana">Ажурирање плана</entry>
+<entry key="nabPlanoviKopiranjePlana">Копирај план</entry>
 <entry key="nabPlanoviSpisakNabavki">Списак набавки</entry>
 <entry key="nabNabavkaListaHeader">Кратки преглед поступака за {0} годину: {1}</entry>
 <entry key="nabNabavkaListaRb">Рб</entry>

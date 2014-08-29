@@ -25,6 +25,11 @@ public class NabPlanController extends BaseController{
     //05.07.2014.
     private NabJavnaNabavkaExtendedDataTableModelApi nabJavnaNabavkaExtendedDataTableModelApi;
     
+    //29.08.2014.
+    private boolean kopirajPodatke;
+    private NabNoviPlanController nabNoviPlanController;
+
+    
 
     private static final long serialVersionUID = -788600541631559492L;
 
@@ -49,6 +54,14 @@ public class NabPlanController extends BaseController{
             setOrgFirma(nabNaruciociServiceApi.getActiveOrgFirma(getUserSessionUtil().getCurrentUserCurrentOrgFirma().getIdFirma()));
           }
              
+    }
+    
+    public void noviPlan(){
+        if ( kopirajPodatke ){
+            nabNoviPlanController.setIzabraniPlan( nabPlanSelected);
+        }else{
+            nabNoviPlanController.setIzabraniPlan( null);
+        }
     }
 
     public NabPlanServiceApi getNabPlanServiceApi() {
@@ -95,6 +108,22 @@ public class NabPlanController extends BaseController{
     public void setNabJavnaNabavkaExtendedDataTableModelApi(
             NabJavnaNabavkaExtendedDataTableModelApi nabJavnaNabavkaExtendedDataTableModelApi) {
         this.nabJavnaNabavkaExtendedDataTableModelApi = nabJavnaNabavkaExtendedDataTableModelApi;
+    }
+
+    public boolean isKopirajPodatke() {
+        return kopirajPodatke;
+    }
+
+    public void setKopirajPodatke(boolean kopirajPodatke) {
+        this.kopirajPodatke = kopirajPodatke;
+    }
+
+    public NabNoviPlanController getNabNoviPlanController() {
+        return nabNoviPlanController;
+    }
+
+    public void setNabNoviPlanController(NabNoviPlanController nabNoviPlanController) {
+        this.nabNoviPlanController = nabNoviPlanController;
     }
 
     

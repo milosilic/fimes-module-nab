@@ -36,13 +36,13 @@
                     <rich:extendedDataTable height="318px"
                       rowClasses="redAnimacija" id="tabelaNabPlan"
                       enableContextMenu="false"
-                      noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}"
+                      noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}" 
                       value="#{nabPlanController.nabPlanExtendedDataTableModelApi}"
                       var="plan">
                       
                     <!-- selekcija  iz objEvidencija objekata.jspx-->
                     <a4j:support event="onRowClick" 
-                      immediate="true" status="waitStatus" reRender="nabPlanDugmeDetaljno,nabPlanDugmeAzuriraj">
+                      immediate="true" status="waitStatus" reRender="nabPlanDugmeDetaljno,nabPlanDugmeAzuriraj,nabPlanDugmeKopiraj">
                       <f:setPropertyActionListener value="#{plan}"
                         target="#{nabPlanController.nabPlanSelected}" />
                         <f:setPropertyActionListener value="#{plan}" target="#{nabNoviPlanController.noviPlan}" />
@@ -90,6 +90,18 @@
                     </rich:extendedDataTable>
                     <h:panelGroup layout="block"
                       styleClass="fimesAlignRight">
+                      <a4j:commandButton id="nabPlanDugmeKopiraj"
+                        styleClass="fimesButton objDugmeUFuteruTabele"
+                        status="statusWait"
+                        value="#{nabPlanController.module.messageSource.nabPlanoviKopiranjePlana}"
+                        action="#{nabPlanController.noviPlan}"
+                        oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
+                        disabled="#{empty nabPlanController.nabPlanSelected}" 
+                        reRender="nabNoviPlanModalPanel">
+                        <f:setPropertyActionListener value="#{true}"
+                          target="#{nabPlanController.kopirajPodatke}" />
+                      </a4j:commandButton>                        
+                      <rich:spacer width="10px"/>
                       <a4j:commandButton id="nabPlanDugmeAzuriraj"
                         styleClass="fimesButton objDugmeUFuteruTabele"
                         status="statusWait"
@@ -104,6 +116,8 @@
                         action="#{nabNoviPlanController.initNoviPlan}"
                         oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
                         reRender="nabNoviPlanModalPanel">
+                        <f:setPropertyActionListener value="#{false}"
+                          target="#{nabPlanController.kopirajPodatke}" />
                       </a4j:commandButton>
                       <rich:spacer width="10px"/>
                       <a4j:commandButton id="nabPlanDugmeDetaljno"
