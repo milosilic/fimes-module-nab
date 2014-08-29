@@ -58,7 +58,10 @@ public class NabNoviPlanController extends BaseController{
     
     public void initNoviPlan(){
         System.out.println(" ----> initNoviPlan");
-        noviPlan = new NabPlan();
+        if ( null == izabraniPlan) {
+            noviPlan = new NabPlan();
+        }
+        
     }
     
     public void snimiNabPlan(){
@@ -66,11 +69,17 @@ public class NabNoviPlanController extends BaseController{
       
        
     try {
+        if ( null != izabraniPlan ){
+            noviPlan.setIdPlan(null);
+        }else {
+            System.out.println( noviPlan.getIdPlan());
+        }
         noviPlan.setOrgFirma(usrKorisnikServiceApi.getUlogovaniKorisnikFirma());
         noviPlan.setUsrKorisnik(getUserSessionUtil().getCurrentUsrKorisnik());
         noviPlan.setTrenutakKreiranja(new java.util.Date());
         nabPlan = nabPlanServiceApi.createNabPlan(noviPlan);
         System.out.println( nabPlan );
+        izabraniPlan = null;
         populateModalOkPanelSnimanjeDefaultMessages(true,
                 "nabPlanoviNoviPlan");
     } catch (Exception e) {
@@ -80,6 +89,12 @@ public class NabNoviPlanController extends BaseController{
     }
        System.out.println( "Završeno snimanje");
        
+    }
+    
+    
+    public void resetForm(){
+        izabraniPlan = null;
+        noviPlan = null;
     }
 
     public NabPlanServiceApi getNabPlanServiceApi() {
