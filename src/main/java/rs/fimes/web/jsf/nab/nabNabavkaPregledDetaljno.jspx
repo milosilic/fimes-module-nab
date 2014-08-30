@@ -614,6 +614,17 @@
                 oncomplete="#{rich:component('nabNovaNabavkaModalPanel')}.show()"
                 reRender="nabNovaNabavkaModalPanel"
                 disabled="#{empty nabNabavkaController.izabranaNabavka}" />
+              <a4j:commandButton id="nabNabavkaDetaljnoDugmeKopiraj"
+                styleClass="fimesButton objDugmeUFuteruTabele"
+                status="statusWait"
+                value="#{nabNabavkaController.module.messageSource.nabNabavkaKopiranjeNabavke}"
+                action="#{nabNovaNabavkaController.initKopiranjeNabavke}"
+                oncomplete="#{rich:component('nabNovaNabavkaModalPanel')}.show()"
+                disabled="#{empty nabPlanController.nabPlanSelected}" 
+                reRender="nabNoviPlanModalPanel">
+                <f:setPropertyActionListener value="#{true}"
+                  target="#{nabNovaNabavkaController.kopirajPodatke}" />
+              </a4j:commandButton>                        
               <a4j:commandButton styleClass="fimesButton"
                 action="nazad"
                 value="#{nabNabavkaController.module.messageSource.common_izlaz}" />

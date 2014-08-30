@@ -149,6 +149,8 @@ public class NabNovaNabavkaController extends BaseController{
     private XnabJrn xnabJrn;
     private NabJrnLovSelectionController nabJrnLovSelectionController;
     
+    private boolean kopirajPodatke;
+    
     public NabNovaNabavkaController(Module module, String controllerId)
             throws ConfigurationException {
         super(module, controllerId);
@@ -740,6 +742,14 @@ public class NabNovaNabavkaController extends BaseController{
         this.nabJrnLovSelectionController = nabJrnLovSelectionController;
     }
 
+    public boolean isKopirajPodatke() {
+        return kopirajPodatke;
+    }
+
+    public void setKopirajPodatke(boolean kopirajPodatke) {
+        this.kopirajPodatke = kopirajPodatke;
+    }
+
     public void clearPartijaSelection(){
         novaPartija = new NabPartijaNabavke();
     }
@@ -974,6 +984,17 @@ public class NabNovaNabavkaController extends BaseController{
     }
     
     public void actionInitProcenaPoGodiniAzur(){
+        
+    }
+    
+    public void initKopiranjeNabavke(){
+        //force creation of new
+        if( kopirajPodatke) {
+            novaNabavka.setIdJavnaNabavka(null);
+            novaNabavka.setNabPlan(new NabPlan());
+        }else{
+            
+        }
         
     }
     
