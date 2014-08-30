@@ -23,7 +23,6 @@
             <a4j:region>
               <rich:layout>
                 <rich:layoutPanel position="top">
-                  </h:panelGrid>
                   <h:panelGroup id="p1" layout="block">
                     <a4j:jsFunction name="jsPretraga"
                       action="#{nabKontoSelectionController.pretraga}"
