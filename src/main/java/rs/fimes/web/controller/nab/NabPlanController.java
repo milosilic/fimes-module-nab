@@ -5,6 +5,7 @@ import java.util.List;
 
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
+import rs.fimes.data.dao.generic.QueryJoin;
 import rs.fimes.data.dao.generic.QueryRestriction;
 import rs.fimes.data.dao.generic.QueryRestrictionComparison1;
 import rs.fimes.domain.core.OrgFirma;
@@ -28,6 +29,7 @@ public class NabPlanController extends BaseController{
     //29.08.2014.
     private boolean kopirajPodatke;
     private NabNoviPlanController nabNoviPlanController;
+    private String godina;
 
     
 
@@ -62,6 +64,29 @@ public class NabPlanController extends BaseController{
         }else{
             nabNoviPlanController.setIzabraniPlan( null);
         }
+    }
+    
+    public void planPretraga(){
+        List<QueryRestriction> parametri = new ArrayList<QueryRestriction>();
+ 
+        godina = godina.trim();
+        Integer intGodina = null;
+        try {
+            intGodina= Integer.valueOf(godina);
+        } catch (NumberFormatException e) {
+            godina=null;
+        }catch (NullPointerException e) {
+            godina = null;
+        }
+        
+        if( godina != null) {
+            parametri.add( QueryRestrictionComparison1.addIsEqual("godina", intGodina.intValue()));
+        }
+        
+        nabPlanExtendedDataTableModelApi.setParametri(parametri);
+        nabPlanExtendedDataTableModelApi.clearSelection();
+        
+        
     }
 
     public NabPlanServiceApi getNabPlanServiceApi() {
@@ -124,6 +149,14 @@ public class NabPlanController extends BaseController{
 
     public void setNabNoviPlanController(NabNoviPlanController nabNoviPlanController) {
         this.nabNoviPlanController = nabNoviPlanController;
+    }
+
+    public String getGodina() {
+        return godina;
+    }
+
+    public void setGodina(String godina) {
+        this.godina = godina;
     }
 
     

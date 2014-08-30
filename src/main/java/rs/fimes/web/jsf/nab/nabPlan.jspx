@@ -18,21 +18,21 @@
           <h:form>
             <h:panelGrid styleClass="fimesFormTitle" width="100%">
               <h:outputText
-                value="#{nabPlanController.module.messageSource.nabPlanoviNaruciocaHeader}" />
+                value="#{nabPlanController.module.messageSource.nabPlanoviSpisakPlanovaHeader}" />
             </h:panelGrid>
             <a4j:region>
               <rich:layout>
                 <rich:layoutPanel position="top">
-                  <h:panelGrid styleClass="fimesInputGroup"
-                    columnClasses="fimesAlignCenter" width="100%">
-                    <h:panelGrid columns="3"
-                      styleClass="fimesTableCentered"
-                      columnClasses="fimesAlignCenter">
-                    </h:panelGrid>
-                  </h:panelGrid>
                   <h:panelGroup id="p1" layout="block">
 
                     <rich:spacer height="20px" />
+                    <a4j:jsFunction name="pretragaNabPlan"
+                      ajaxSingle="true"
+                      action="#{nabPlanController.planPretraga}"
+                      reRender="tabelaNabPlan">
+                      <a4j:actionparam name="param1"
+                        assignTo="#{nabPlanController.godina}" />
+                    </a4j:jsFunction>
                     <rich:extendedDataTable height="318px"
                       rowClasses="redAnimacija" id="tabelaNabPlan"
                       enableContextMenu="false"
@@ -50,8 +50,19 @@
                       <rich:column id="godinaPlanTab" width="20%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
-                          <h:outputText styleClass="headerText"
-                            value="#{nabPlanController.module.messageSource.nabPlanoviZaGodinu}" />
+                        <h:panelGrid columns="1"
+                          style="margin : auto; height: 37px;"
+                          headerClass="tableHeader" rowClasses="tableHeader">
+                            <h:outputText styleClass="headerText"
+                              value="#{nabPlanController.module.messageSource.nabPlanoviZaGodinu}" />
+                            <h:inputText id="pretragaGodinaPlana"
+                              tabindex="1" style="width: 70px"
+                              value="#{nabPlanController.godina}"
+                              onkeypress="if (event.keyCode == 13) {
+                                    pretragaNabPlan(
+                                        #{rich:element('pretragaGodinaPlana')}.value);
+                                        return false;}" />
+                          </h:panelGrid>
                         </f:facet>
                         <h:outputText value="#{plan.godina}"></h:outputText>
                       </rich:column>
