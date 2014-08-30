@@ -156,6 +156,11 @@
                       action="nabavkaDetaljno"
                       value="Детаљно"
                       />
+                    <rich:spacer width="5px" />
+                    <a4j:commandButton styleClass="fimesButton"
+                      action="nabPlan"
+                      value="#{nabNabavkaController.module.messageSource.common_izlaz}"
+                      />
                       
                   </h:panelGroup>
                 </h:panelGroup>

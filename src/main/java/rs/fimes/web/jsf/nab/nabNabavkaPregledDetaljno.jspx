@@ -14,7 +14,7 @@
   <f:view>
     <ui:composition template="/WEB-INF/layouts/standard.jspx">
       <ui:define name="content">
-        <rich:panel styleClass="fimesMainForm maxWidth">
+        <rich:panel styleClass="fimesMainForm">
           <h:panelGrid styleClass="fimesFormTitle" width="100%">
             <h:outputText
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaHeader}" />
@@ -47,7 +47,7 @@
                 <h:panelGrid columns="2"
                   styleClass="fimesInputGroup fimesTableCentered maxWidth"
                   columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField"
-                  cellspacing="10px">
+                  cellspacing="2">
                   <h:outputLabel styleClass="fimesLabelLeft"
                     value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaOpisPredmetaNabavke}" />
                   <h:inputText styleClass="fimesInputText maxWidth"
@@ -89,14 +89,17 @@
                   <h:inputText styleClass="fimesInputText maxWidth"
                     value="#{nabNovaNabavkaController.novaNabavka.napomena}" readonly="true" />
                 </h:panelGrid>
-                <h:panelGrid columns="2"
+                <h:panelGrid columns="1"
                   styleClass="fimesInputGroup fimesTableCentered maxWidth"
                   columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField"
-                  cellspacing="10px">
-                  <h:outputLabel styleClass="fimesLabelLeft"
-                    value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaStatusNabavke}" />
-                  <h:inputText styleClass="fimesInputText maxWidth"
-                    value="#{nabNovaNabavkaController.novaNabavka.statusNabavke.naziv}" readonly="true"  />
+                  cellspacing="2">
+                  <h:panelGrid columns="2" styleClass="alignCenter"
+                    width="100%">
+                    <h:outputLabel styleClass="fimesLabelLeft"
+                      value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaStatusNabavke}" />
+                    <h:inputText styleClass="fimesInputText maxWidth"
+                      value="#{nabNovaNabavkaController.novaNabavka.statusNabavke.naziv}" readonly="true"  />
+                  </h:panelGrid>
                   <h:panelGrid columns="4" styleClass="alignCenter"
                     width="100%">
                     <h:outputLabel styleClass="fimesLabelLeft"

@@ -29,6 +29,7 @@
     </on-entry>
     <transition on="novaNabavka" to="novaNabavka" />
     <transition on="nabavkaDetaljno" to="nabavkaDetaljno" />
+        <transition on="nabPlan" to="nabPlan" />
   </view-state>
   <view-state id="novaNabavka" view="/rs/fimes/web/jsf/nab/nabNabavka.jspx">
     <on-entry>
