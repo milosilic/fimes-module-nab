@@ -41,7 +41,7 @@
 
                     <!-- selekcija  iz objEvidencija objekata.jspx-->
                     <a4j:support event="onRowClick" 
-                      immediate="true" status="waitStatus">
+                      immediate="true" status="waitStatus" reRender="nabNabavkaDugmeDetaljno">
                       <f:setPropertyActionListener value="#{nabavka}"
                         target="#{nabNovaNabavkaController.novaNabavka}" />
                       <f:setPropertyActionListener value="#{nabavka}"
@@ -136,6 +136,7 @@
                   <rich:spacer height="50px" />
                   <h:panelGroup id="t1" layout="block"
                     styleClass="fimesAlignRight">
+<!-- 
                     <a4j:commandButton
                       styleClass="fimesButton objDugmeUFuteruTabele"
                       status="statusWait"
@@ -145,16 +146,19 @@
                       reRender="nabNovaNabavkaModalPanel"
                       disabled="#{empty nabNabavkaController.izabranaNabavka}" />
                     <rich:spacer width="5px" />
-                    <a4j:commandButton styleClass="fimesButton"
+ -->
+                     <a4j:commandButton styleClass="fimesButton"
                       action="#{nabNovaNabavkaController.resetSelection}"
                       oncomplete="#{rich:component('nabNovaNabavkaModalPanel')}.show()"
                       reRender="nabNovaNabavkaModalPanel"
                       value="#{nabNabavkaController.module.messageSource.nabNabavkaNovaNabavka}"
                       />
                     <rich:spacer width="5px" />
-                    <a4j:commandButton styleClass="fimesButton"
+                    <a4j:commandButton id="nabNabavkaDugmeDetaljno"
+                      styleClass="fimesButton"
                       action="nabavkaDetaljno"
                       value="Детаљно"
+                      disabled="#{empty nabNabavkaController.izabranaNabavka}"
                       />
                     <rich:spacer width="5px" />
                     <a4j:commandButton styleClass="fimesButton"

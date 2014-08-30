@@ -49,7 +49,11 @@ public class NabNabavkaController extends BaseController{
     public void handleSelection(){
         izabranaNabavka = nabJavnaNabavkaExtendedDataTableModelApi.getDomainObject();
      }
-    
+
+    @Deprecated
+    /**
+     * korisitilo kao akcija na dugmetu ažuriranje nabavke u nabNabavkeLista.jspx
+     */
     public void azurirajNabavku(){
         nabNovaNabavkaController.setNovaNabavka(izabranaNabavka);
     }
