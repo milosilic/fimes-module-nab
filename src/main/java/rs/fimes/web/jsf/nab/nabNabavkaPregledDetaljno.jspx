@@ -17,7 +17,7 @@
         <rich:panel styleClass="fimesMainForm">
           <h:panelGrid styleClass="fimesFormTitle" width="100%">
             <h:outputText
-              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaHeader}" />
+              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaDetaljiHeader}" />
           </h:panelGrid>
 
 
@@ -629,14 +629,9 @@
                 value="#{nabNovaNabavkaController.module.messageSource.common_odustani}"
                 immediate="true"
                 onclick="#{rich:component('nabNovaNabavkaModalPanel')}.hide()" />
-              <a4j:commandButton
-                id="nabNovaNabavkaModalPanelDugmeOdustani"
-                styleClass="fimesButton fimesButtonImageCancel"
-                ajaxSingle="true"
-                action="#{nabNovaNabavkaController.resetForm}"
-                value="#{nabNovaNabavkaController.module.messageSource.common_nazad}"
-                immediate="true"
-                onclick="#{rich:component('nabNovaNabavkaModalPanel')}.hide()" />
+              <a4j:commandButton styleClass="fimesButton"
+                action="nazad"
+                value="#{nabNabavkaController.module.messageSource.common_izlaz}" />
             </h:panelGrid>
             <a4j:include
               viewId="#{coreWebController.coreModalDaNeDijalogView}" />
