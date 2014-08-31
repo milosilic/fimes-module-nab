@@ -104,16 +104,16 @@
                         styleClass="fimesButton objDugmeUFuteruTabele"
                         status="statusWait"
                         value="#{nabUgovorController.module.messageSource.nabUgovoriAzurirajUgovor}"
-                        oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
+                        oncomplete="#{rich:component('nabNoviUgovorModalPanel')}.show()"
                         disabled="#{empty nabUgovorController.nabUgovorSelected}" 
-                        reRender="nabNoviPlanModalPanel"/>
+                        reRender="nabNoviUgovorModalPanel"/>
                       <rich:spacer width="10px"/>
                       <a4j:commandButton id="nabPlanoviNoviPlan" ajaxSingle="true" status="waitStatus"
                         value="#{nabUgovorController.module.messageSource.nabUgovoriNoviUgovor}"
                         styleClass="fimesButton"
                         action="#{nabUgovorController.initNoviUgovor}"
-                        oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
-                        reRender="nabNoviPlanModalPanel"/>
+                        oncomplete="#{rich:component('nabNoviUgovorModalPanel')}.show()"
+                        reRender="nabNoviUgovorModalPanel"/>
                     </h:panelGroup>
                   </h:panelGroup>
                 </rich:layoutPanel>
@@ -129,7 +129,7 @@
         </rich:panel>
 
         <a4j:include
-          viewId="#{nabWebController.nabNoviPlanModalPanelView}" />
+          viewId="#{nabWebController.nabNoviUgovorModalPanelView}" />
         <a4j:status id="waitStatus"
           onstart="#{rich:component('ajaxStatusModalPanel')}.show()"
           onstop="#{rich:component('ajaxStatusModalPanel')}.hide()" />
