@@ -29,4 +29,7 @@
   <bean id="nabNabavkaJrnExtendedDataTableModelApi" class="rs.fimes.web.datamodel.impl.nab.NabNabavkaJrnExtendedDataTableModelImpl" scope="session" lazy-init="true">
     <property name="dao" ref="nabNabavkaJrnDAO" />
   </bean>
+  <bean id="nabUgovorExtendedDataTableModelApi" class="rs.fimes.web.datamodel.impl.nab.NabUgovorExtendedDataTableModelImpl" scope="session" lazy-init="true">
+    <property name="dao" ref="nabUgovorDAO" />
+  </bean>
 </beans>

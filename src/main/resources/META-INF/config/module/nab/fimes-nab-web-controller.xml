@@ -106,5 +106,6 @@
     <bean id="nabUgovorController" class="rs.fimes.web.controller.nab.NabUgovorController"
         parent="nabBaseController" scope="session" lazy-init="true">
         <constructor-arg value="nabUgovorController" type="java.lang.String" />
+        <property name="nabUgovorExtendedDataTableModelApi" ref="nabUgovorExtendedDataTableModelApi" />
     </bean>
 </beans>

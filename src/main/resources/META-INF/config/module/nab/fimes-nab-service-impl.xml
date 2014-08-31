@@ -70,4 +70,8 @@
     <constructor-arg index="1" value="nabNabavkaJrnServiceApi" type="java.lang.String"/>
     <property name="nabNabavkaJrnDAO" ref="nabNabavkaJrnDAO"></property>
   </bean>
+  <bean id="nabUgovorServiceApi" class="rs.fimes.service.impl.nab.NabUgovorServiceImpl" parent="nabBaseService" lazy-init="true">
+    <constructor-arg index="1" value="nabUgovorServiceApi" type="java.lang.String"/>
+    <property name="nabUgovorDAO" ref="nabUgovorDAO"></property>
+  </bean>
 </beans>
