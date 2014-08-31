@@ -113,10 +113,13 @@
 
 <!-- UGOVORI -->
 <entry key="nabUgovoriSpisakHeader">Списак уговора</entry>
-<entry key="nabUgovoriSpisakHeader">Датум закључења уговора</entry>
-<entry key="nabUgovoriSpisakHeader">Интерни број уговора</entry>
-<entry key="nabUgovoriSpisakHeader">Добављач</entry>
-<entry key="nabUgovoriSpisakHeader">Уговорена вредност без ПДВ</entry>
+<entry key="nabUgovoriDatumZakljucenja">Датум закључења уговора</entry>
+<entry key="nabUgovoriInterniBroj">Интерни број уговора</entry>
+<entry key="nabUgovoriDobavljac">Добављач</entry>
+<entry key="nabUgovoriVrednostBezPdv">Уговорена вредност без ПДВ</entry>
+<entry key="nabUgovoriVrednostSaPdv">Уговорена вредност са ПДВ</entry>
+<entry key="nabUgovoriNoviUgovor">Нови уговор</entry>
+<entry key="nabUgovoriAzurirajUgovor">Измени уговор</entry>
 
 
 </properties>
