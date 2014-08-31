@@ -14,70 +14,46 @@
     </f:facet>
     <f:facet name="header">
       <h:outputText styleClass="fimesPanelHeader"
-        value="#{nabPlanController.module.messageSource.nabPlanoviNoviPlan}" />
+        value="#{nabUgovorController.module.messageSource.nabUgovoriNoviUgovor}" />
     </f:facet>
     <h:form id="formNoviObjekat">
       <h:panelGrid columns="2" width="380px"
         id="panelGridNabNoviPlanLevel1"
         styleClass="fimesTableCentered fimesTableInput"
-        columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField">
+        columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField"
+        cellspacing="2">
         <h:outputLabel styleClass="fimesLabelLeft"
-          value="#{nabPlanController.module.messageSource.nabPlanoviZaGodinu}" />
-        <h:inputText id="godinaPolje"
-          styleClass="fimesInputText maxWidth"
-          value="#{nabNoviPlanController.noviPlan.godina}"
-          label="#{nabPlanController.module.messageSource.nabPlanoviZaGodinu}"
-          required="true" maxlength="128">
-          <f:converter converterId="fimes.converter.common.intPozitive" />
-        </h:inputText>
-        <h:outputText value=" " />
-        <rich:message for="godinaPolje" styleClass="fimesValidErrMsg" />
+          value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaOpisPredmetaNabavke}" />
+        <h:inputText styleClass="fimesInputText maxWidth"
+          value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.opis}" readonly="true"/>
         <h:outputLabel styleClass="fimesLabelLeft"
-          value="#{nabPlanController.module.messageSource.nabPlanoviNazivPlana}" />
-        <h:inputText id="nazivPolje"
-          styleClass="fimesInputText maxWidth"
-          value="#{nabNoviPlanController.noviPlan.naziv}"
-          label="#{nabPlanController.module.messageSource.nabPlanoviNazivPlana}"
-          required="true" maxlength="128">
-          <f:converter
-            converterId="fimes.converter.common.stringRequired" />
-        </h:inputText>
+          value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaInterniBroj}" />
+        <h:inputText styleClass="fimesInputText maxWidth"
+          value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.interniBroj}" readonly="true"/>
         <h:outputLabel styleClass="fimesLabelLeft"
-          value="#{nabPlanController.module.messageSource.nabPlanoviDatumIzrade}" />
-        <rich:calendar id="datumIzradePolje"
-          inputClass="fimesInputDate"
-          value="#{nabNoviPlanController.noviPlan.datumIzrade}"
-          datePattern="dd.MM.yyyy." enableManualInput="true"
-          label="#{nabPlanController.module.messageSource.nabPlanoviDatumIzrade}"
-          required="true">
-          <f:convertDateTime
-            locale="#{nabNoviPlanController.module.application.defaultLocale}"
-            pattern="#{nabNoviPlanController.module.application.dateFormatMask}"
-            timeZone="#{nabNoviPlanController.module.application.defaultTimeZone}" />
-        </rich:calendar>
+          value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaUkupnaBezPdv}" />
+        <h:inputText styleClass="fimesInputText maxWidth"
+          value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.procenaBezPdv}" readonly="true"/>
         <h:outputLabel styleClass="fimesLabelLeft"
-          value="#{nabPlanController.module.messageSource.nabPlanovicInterniBrojPlana}" />
-        <h:inputText id="brojPlanaPolje"
-          styleClass="fimesInputText maxWidth"
-          value="#{nabNoviPlanController.noviPlan.brojPlana}"
-          label="#{nabPlanController.module.messageSource.nabPlanovicInterniBrojPlana}"
-          required="true" maxlength="128">
-          <f:converter
-            converterId="fimes.converter.common.stringRequired" />
-        </h:inputText>
+          value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaUkupnaSaPdv}" />
+        <h:inputText styleClass="fimesInputText maxWidth"
+          value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.procenaSaPdv}" readonly="true" />
         <h:outputLabel styleClass="fimesLabelLeft"
-          value="#{nabPlanController.module.messageSource.nabPlanoviDatumUsvajanja}" />
-        <rich:calendar id="datumUsvajanjaPolje"
-          inputClass="fimesInputDate"
-          value="#{nabNoviPlanController.noviPlan.datumUsvajanja}"
-          datePattern="dd.MM.yyyy." enableManualInput="true"
-          label="#{nabPlanController.module.messageSource.nabPlanoviDatumUsvajanja}"
-          required="true">
-          <f:convertDateTime
-            locale="#{nabNoviPlanController.module.application.defaultLocale}"
-            pattern="#{nabNoviPlanController.module.application.dateFormatMask}"
-            timeZone="#{nabNoviPlanController.module.application.defaultTimeZone}" />
-        </rich:calendar>
+          value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaVrstaPredmeta}" />
+        <h:inputText styleClass="fimesInputText maxWidth"
+          value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.vrstaPredmetaNabavke.naziv}" readonly="true" />
+        <h:outputLabel styleClass="fimesLabelLeft"
+          value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaPredmetNabavke}" />
+        <h:inputText styleClass="fimesInputText maxWidth"
+          value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.predmetNabavke.naziv}" readonly="true" />
+        <h:outputLabel styleClass="fimesLabelLeft"
+          value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaVrstaPostupka}" />
+        <h:inputText styleClass="fimesInputText maxWidth"
+          value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.vrstaPostupka.naziv}" readonly="true" />
+        <h:outputLabel styleClass="fimesLabelLeft"
+          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
+        <h:inputText styleClass="fimesInputText maxWidth"
+          value="#{nabNovaNabavkaController.novaNabavka.tipNabavke.naziv}" readonly="true" />
         <h:outputText value=" " />
         <rich:message for="datumUsvajanjaPolje"
           styleClass="fimesValidErrMsg" />

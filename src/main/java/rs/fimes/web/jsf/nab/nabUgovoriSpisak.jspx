@@ -103,6 +103,7 @@
                       <a4j:commandButton id="nabPlanDugmeAzuriraj"
                         styleClass="fimesButton objDugmeUFuteruTabele"
                         status="statusWait"
+                        action="#{nabUgovorController.initAzuriranjeUgovora}"
                         value="#{nabUgovorController.module.messageSource.nabUgovoriAzurirajUgovor}"
                         oncomplete="#{rich:component('nabNoviUgovorModalPanel')}.show()"
                         disabled="#{empty nabUgovorController.nabUgovorSelected}" 
