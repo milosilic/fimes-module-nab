@@ -118,6 +118,8 @@
 <entry key="nabUgovoriDobavljac">Добављач</entry>
 <entry key="nabUgovoriVrednostBezPdv">Уговорена вредност без ПДВ</entry>
 <entry key="nabUgovoriVrednostSaPdv">Уговорена вредност са ПДВ</entry>
+<entry key="nabUgovoriVrednostBezPdvHiljade">Уговорена вредност без ПДВ-а у хиљадама динара</entry>
+<entry key="nabUgovoriVrednostSaPdvHiljade">Уговорена вредност са ПДВ у хиљадама динара</entry>
 <entry key="nabUgovoriNoviUgovor">Нови уговор</entry>
 <entry key="nabUgovoriAzurirajUgovor">Измени уговор</entry>
 

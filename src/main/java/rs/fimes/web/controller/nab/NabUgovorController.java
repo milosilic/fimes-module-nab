@@ -33,6 +33,14 @@ public class NabUgovorController extends BaseController{
         noviUgovor = nabUgovorSelected;
         noviUgovor.getNabJavnaNabavka().getVrstaPredmetaNabavke();
     }
+    
+    public void snimiNabUgovor(){
+        
+    }
+    
+    public void resetForm(){
+        
+    }
 
     public NabUgovorExtendedDataTableModelApi getNabUgovorExtendedDataTableModelApi() {
         return nabUgovorExtendedDataTableModelApi;
