@@ -8,7 +8,7 @@
   xmlns:rich="http://richfaces.org/rich">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Планови наручиоца</title>
+<title>Списак уговора</title>
 </head>
 <body>
   <f:view>
@@ -16,9 +16,146 @@
       <ui:define name="content">
         <rich:panel styleClass="fimesMainForm">
           <h:form>
-            
+            <h:panelGrid styleClass="fimesFormTitle" width="100%">
+              <h:outputText
+                value="#{nabPlanController.module.messageSource.nabUgovoriSpisakHeader}" />
+            </h:panelGrid>
+            <a4j:region>
+              <rich:layout>
+                <rich:layoutPanel position="top">
+                  <h:panelGroup id="p1" layout="block">
+
+                    <rich:spacer height="20px" />
+                    <a4j:jsFunction name="pretragaNabPlan"
+                      ajaxSingle="true"
+                      action="#{nabPlanController.planPretraga}"
+                      reRender="tabelaNabPlan">
+                      <a4j:actionparam name="param1"
+                        assignTo="#{nabPlanController.godina}" />
+                    </a4j:jsFunction>
+                    <rich:extendedDataTable height="318px"
+                      rowClasses="redAnimacija" id="tabelaNabPlan"
+                      enableContextMenu="false"
+                      noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}" 
+                      value="#{nabPlanController.nabPlanExtendedDataTableModelApi}"
+                      var="plan">
+                      
+                    <!-- selekcija  iz objEvidencija objekata.jspx-->
+                    <a4j:support event="onRowClick" 
+                      immediate="true" status="waitStatus" reRender="nabPlanDugmeDetaljno,nabPlanDugmeAzuriraj,nabPlanDugmeKopiraj">
+                      <f:setPropertyActionListener value="#{plan}"
+                        target="#{nabPlanController.nabPlanSelected}" />
+                        <f:setPropertyActionListener value="#{plan}" target="#{nabNoviPlanController.noviPlan}" />
+                    </a4j:support>
+                      <rich:column id="godinaPlanTab" width="20%"
+                        styleClass="fimesAlignLeft">
+                        <f:facet name="header">
+                        <h:panelGrid columns="1"
+                          style="margin : auto; height: 37px;"
+                          headerClass="tableHeader" rowClasses="tableHeader">
+                            <h:outputText styleClass="headerText"
+                              value="#{nabPlanController.module.messageSource.nabPlanoviZaGodinu}" />
+                            <h:inputText id="pretragaGodinaPlana"
+                              tabindex="1" style="width: 70px"
+                              value="#{nabPlanController.godina}"
+                              onkeypress="if (event.keyCode == 13) {
+                                    pretragaNabPlan(
+                                        #{rich:element('pretragaGodinaPlana')}.value);
+                                        return false;}" />
+                          </h:panelGrid>
+                        </f:facet>
+                        <h:outputText value="#{plan.godina}"></h:outputText>
+                      </rich:column>
+                      <rich:column id="nazivPlanTab" width="20%"
+                        styleClass="fimesAlignLeft">
+                        <f:facet name="header">
+                          <h:outputText styleClass="headerText"
+                            value="#{nabPlanController.module.messageSource.nabPlanoviNazivPlana}" />
+                        </f:facet>
+                        <h:outputText value="#{plan.naziv}"></h:outputText>
+                      </rich:column>
+                      <rich:column id="datumIzradePlanTab" width="20%"
+                        styleClass="fimesAlignLeft">
+                        <f:facet name="header">
+                          <h:outputText styleClass="headerText"
+                            value="#{nabPlanController.module.messageSource.nabPlanoviDatumIzrade}" />
+                        </f:facet>
+                        <h:outputText value="#{plan.datumIzrade}"></h:outputText>
+                      </rich:column>
+                      <rich:column id="brojPlanaPlanTab" width="20%"
+                        styleClass="fimesAlignLeft">
+                        <f:facet name="header">
+                          <h:outputText styleClass="headerText"
+                            value="#{nabPlanController.module.messageSource.nabPlanovicInterniBrojPlana}" />
+                        </f:facet>
+                        <h:outputText value="#{plan.brojPlana}"></h:outputText>
+                      </rich:column>
+                      <rich:column id="datumUsvajanjaPlanTab" width="20%"
+                        styleClass="fimesAlignLeft">
+                        <f:facet name="header">
+                          <h:outputText styleClass="headerText"
+                            value="#{nabPlanController.module.messageSource.nabPlanoviDatumUsvajanja}" />
+                        </f:facet>
+                        <h:outputText value="#{plan.datumUsvajanja}"></h:outputText>
+                      </rich:column>
+                    </rich:extendedDataTable>
+                    <h:panelGroup layout="block"
+                      styleClass="fimesAlignRight">
+                      <a4j:commandButton id="nabPlanDugmeKopiraj"
+                        styleClass="fimesButton objDugmeUFuteruTabele"
+                        status="statusWait"
+                        value="#{nabPlanController.module.messageSource.nabPlanoviKopiranjePlana}"
+                        action="#{nabPlanController.noviPlan}"
+                        oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
+                        disabled="#{empty nabPlanController.nabPlanSelected}" 
+                        reRender="nabNoviPlanModalPanel">
+                        <f:setPropertyActionListener value="#{true}"
+                          target="#{nabPlanController.kopirajPodatke}" />
+                      </a4j:commandButton>                        
+                      <rich:spacer width="10px"/>
+                      <a4j:commandButton id="nabPlanDugmeAzuriraj"
+                        styleClass="fimesButton objDugmeUFuteruTabele"
+                        status="statusWait"
+                        value="#{nabPlanController.module.messageSource.nabPlanoviAzuriranjePlana}"
+                        oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
+                        disabled="#{empty nabPlanController.nabPlanSelected}" 
+                        reRender="nabNoviPlanModalPanel"/>
+                      <rich:spacer width="10px"/>
+                      <a4j:commandButton id="nabPlanoviNoviPlan" ajaxSingle="true" status="waitStatus"
+                        value="#{nabPlanController.module.messageSource.nabPlanoviNoviPlan}"
+                        styleClass="fimesButton"
+                        action="#{nabNoviPlanController.initNoviPlan}"
+                        oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
+                        reRender="nabNoviPlanModalPanel">
+                        <f:setPropertyActionListener value="#{false}"
+                          target="#{nabPlanController.kopirajPodatke}" />
+                      </a4j:commandButton>
+                      <rich:spacer width="10px"/>
+                      <a4j:commandButton id="nabPlanDugmeDetaljno"
+                        styleClass="fimesButton objDugmeUFuteruTabele"
+                        status="statusWait"
+                        value="#{nabPlanController.module.messageSource.nabPlanoviSpisakNabavki}"
+                        action="nabavkeLista"
+                        disabled="#{empty nabPlanController.nabPlanSelected}" />
+                    </h:panelGroup>
+                  </h:panelGroup>
+                </rich:layoutPanel>
+              </rich:layout>
+            </a4j:region>
+                        <a4j:include
+              viewId="#{coreWebController.coreModalDaNeDijalogView}" />
+            <a4j:include
+              viewId="#{coreWebController.coreModalOkDijalogView}" />
+            <a4j:include
+              viewId="#{coreWebController.coreModalErrorDijalogView}" />
           </h:form>
         </rich:panel>
+
+        <a4j:include
+          viewId="#{nabWebController.nabNoviPlanModalPanelView}" />
+        <a4j:status id="waitStatus"
+          onstart="#{rich:component('ajaxStatusModalPanel')}.show()"
+          onstop="#{rich:component('ajaxStatusModalPanel')}.hide()" />
       </ui:define>
     </ui:composition>
   </f:view>

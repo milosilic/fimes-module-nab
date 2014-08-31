@@ -13,8 +13,8 @@
 <!--   </on-start> -->
   
   <view-state id="nabUgovoriSpisak" view="/rs/fimes/web/jsf/nab/nabUgovoriSpisak.jspx">
-    <transition on="meni" to="nabPlan" />
-    <transition on="nabavkeLista" to="nabavkeLista" />
+<!--     <transition on="meni" to="nabPlan" /> -->
+<!--     <transition on="nabavkeLista" to="nabavkeLista" /> -->
   </view-state>
   
 </flow>

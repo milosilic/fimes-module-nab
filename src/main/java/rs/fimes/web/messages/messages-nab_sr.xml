@@ -111,4 +111,12 @@
 <entry key="nabNabavkaJrnBrisanjeHeader">Брисање ОРН из набавке</entry>
 <entry key="nabNabavkaKontoPartijaBrisanjeHeader">Брисање ОРН из набавке</entry>
 
+<!-- UGOVORI -->
+<entry key="nabUgovoriSpisakHeader">Списак уговора</entry>
+<entry key="nabUgovoriSpisakHeader">Датум закључења уговора</entry>
+<entry key="nabUgovoriSpisakHeader">Интерни број уговора</entry>
+<entry key="nabUgovoriSpisakHeader">Добављач</entry>
+<entry key="nabUgovoriSpisakHeader">Уговорена вредност без ПДВ</entry>
+
+
 </properties>
