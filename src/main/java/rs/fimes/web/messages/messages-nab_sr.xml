@@ -116,6 +116,12 @@
 <entry key="nabUgovoriDatumZakljucenja">Датум закључења уговора</entry>
 <entry key="nabUgovoriInterniBroj">Интерни број уговора</entry>
 <entry key="nabUgovoriDobavljac">Добављач</entry>
+<entry key="nabUgovoriDobavljacMaticniBroj">Матични број добављача</entry>
+<entry key="nabUgovoriDobavljacNaziv">Назив добављача</entry>
+<entry key="nabUgovoriDobavljacSediste">Седиште добављача</entry>
+<entry key="nabUgovoriDobavljacDrzava">Држава добављача</entry>
+<entry key="nabUgovoriBrojPonuda">Број понуда</entry>
+<entry key="nabUgovoriKriterijum">Критеријум</entry>
 <entry key="nabUgovoriVrednostBezPdv">Уговорена вредност без ПДВ</entry>
 <entry key="nabUgovoriVrednostSaPdv">Уговорена вредност са ПДВ</entry>
 <entry key="nabUgovoriVrednostBezPdvHiljade">Уговорена вредност без ПДВ-а у хиљадама динара</entry>

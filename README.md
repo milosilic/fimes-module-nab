@@ -177,4 +177,25 @@ CREATE SEQUENCE seq_nab_nabavka_jrn
    MINVALUE 1;
 ALTER TABLE seq_nab_nabavka_jrn OWNER TO "fimes-demo";
 
+CREATE TABLE nab_ugovor
+(
+  id_ugovor integer NOT NULL,
+  id_javna_nabavka integer NOT NULL,
+  interni_broj character varying(128),
+  datum_zakljucenja date NOT NULL,
+  CONSTRAINT nab_ugovor_pkey PRIMARY KEY (id_ugovor ),
+  CONSTRAINT nab_ugovor_id_javna_nabavka_fkey FOREIGN KEY (id_javna_nabavka)
+      REFERENCES nab_javna_nabavka (id_javna_nabavka) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE nab_ugovor
+  OWNER TO "fimes-demo";
+
+CREATE SEQUENCE seq_nab_ugovor;
+ALTER TABLE seq_nab_ugovor OWNER TO "fimes-demo";
+
+
 
