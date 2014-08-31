@@ -17,46 +17,66 @@
         value="#{nabUgovorController.module.messageSource.nabUgovoriNoviUgovor}" />
     </f:facet>
     <h:form id="formNoviObjekat">
-      <h:panelGrid columns="2" width="380px"
-        id="panelGridNabNoviPlanLevel1"
-        styleClass="fimesTableCentered fimesTableInput"
-        columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField"
-        cellspacing="2">
-        <h:outputLabel styleClass="fimesLabelLeft"
-          value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaOpisPredmetaNabavke}" />
-        <h:inputText styleClass="fimesInputText maxWidth"
-          value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.opis}" readonly="true"/>
-        <h:outputLabel styleClass="fimesLabelLeft"
-          value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaInterniBroj}" />
-        <h:inputText styleClass="fimesInputText maxWidth"
-          value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.interniBroj}" readonly="true"/>
-        <h:outputLabel styleClass="fimesLabelLeft"
-          value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaUkupnaBezPdv}" />
-        <h:inputText styleClass="fimesInputText maxWidth"
-          value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.procenaBezPdv}" readonly="true"/>
-        <h:outputLabel styleClass="fimesLabelLeft"
-          value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaUkupnaSaPdv}" />
-        <h:inputText styleClass="fimesInputText maxWidth"
-          value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.procenaSaPdv}" readonly="true" />
-        <h:outputLabel styleClass="fimesLabelLeft"
-          value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaVrstaPredmeta}" />
-        <h:inputText styleClass="fimesInputText maxWidth"
-          value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.vrstaPredmetaNabavke.naziv}" readonly="true" />
-        <h:outputLabel styleClass="fimesLabelLeft"
-          value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaPredmetNabavke}" />
-        <h:inputText styleClass="fimesInputText maxWidth"
-          value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.predmetNabavke.naziv}" readonly="true" />
-        <h:outputLabel styleClass="fimesLabelLeft"
-          value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaVrstaPostupka}" />
-        <h:inputText styleClass="fimesInputText maxWidth"
-          value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.vrstaPostupka.naziv}" readonly="true" />
-        <h:outputLabel styleClass="fimesLabelLeft"
-          value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
-        <h:inputText styleClass="fimesInputText maxWidth"
-          value="#{nabNovaNabavkaController.novaNabavka.tipNabavke.naziv}" readonly="true" />
-        <h:outputText value=" " />
-        <rich:message for="datumUsvajanjaPolje"
-          styleClass="fimesValidErrMsg" />
+      <h:panelGrid columns="2">
+        <h:panelGrid columns="2" 
+          id="panelGridNabNoviPlanLevel1"
+          styleClass="fimesTableCentered fimesTableInput"
+          columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField"
+          cellspacing="2">
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaOpisPredmetaNabavke}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.opis}" readonly="true"/>
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaInterniBroj}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.interniBroj}" readonly="true"/>
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaUkupnaBezPdv}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.procenaBezPdv}" readonly="true"/>
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaUkupnaSaPdv}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.procenaSaPdv}" readonly="true" />
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaVrstaPredmeta}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.vrstaPredmetaNabavke.naziv}" readonly="true" />
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaPredmetNabavke}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.predmetNabavke.naziv}" readonly="true" />
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaVrstaPostupka}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.vrstaPostupka.naziv}" readonly="true" />
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabNovaNabavkaController.novaNabavka.tipNabavke.naziv}" readonly="true" />
+          <h:outputText value=" " />
+          <rich:message for="datumUsvajanjaPolje"
+            styleClass="fimesValidErrMsg" />
+        </h:panelGrid>
+        <h:panelGrid columns="2" id="nabUgovorDobavljacId">
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabUgovoriDobavljacMaticniBroj}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabUgovorController.noviUgovor.ppPoslovniPartner.maticniBroj}" readonly="true" />
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabUgovoriDobavljacNaziv}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabUgovorController.noviUgovor.ppPoslovniPartner.naziv}" readonly="true" />
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabUgovoriDobavljacSediste}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabUgovorController.noviUgovor.ppPoslovniPartner.adresaUlica} #{nabUgovorController.noviUgovor.ppPoslovniPartner.adresaBroj}" readonly="true" />        
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabUgovoriDobavljacDrzava}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabUgovorController.noviUgovor.ppPoslovniPartner.rzsDrzava.naziv}" readonly="true" />        
+        </h:panelGrid>      
       </h:panelGrid>
       <h:panelGrid columns="1" styleClass="maxWidth">
         <rich:messages globalOnly="true" warnClass="validationAttention"
@@ -75,6 +95,17 @@
         value="#{nabUgovorController.module.messageSource.common_odustani}"
         immediate="true"
         onclick="#{rich:component('nabNoviUgovorModalPanel')}.hide()" />
+      <a4j:commandButton id="nabNoviUgovorModalPanelDugaadsameOdustani"
+        styleClass="fimesButton fimesButtonImageCancel"
+        ajaxSingle="true" action="#{nabUgovorController.setPpPoslovniPartnerAction}"
+        value="Poslovni partner"
+        immediate="true"
+        oncomplete="Richfaces.showModalPanel('ppPoslovniPartnerLovModalPanel');" 
+        reRender="nivoSaFormom">
+        <f:setPropertyActionListener
+          value="#{ppWebController.ppPoslovniPartnerLovModalPanelView}"
+          target="#{nabWebController.viewIdFormLevel}" />
+        </a4j:commandButton>
     </h:form>
   </rich:modalPanel>
 </ui:composition>

@@ -128,6 +128,21 @@
               viewId="#{coreWebController.coreModalErrorDijalogView}" />
           </h:form>
         </rich:panel>
+          <!-- nivoi za dinamicko ucitavanje modalnih panela -->
+          <h:panelGroup layout="block" id="prviNivo">
+            <a4j:include viewId="#{nabWebController.firstLevelViewId}" />
+
+            <h:panelGroup layout="block" id="drugiNivo">
+              <a4j:include viewId="#{nabWebController.secondLevelViewId}" />
+            </h:panelGroup>
+
+            <!-- koristiti za modalne panele koji nemaju svoju formu -->
+            <h:panelGroup layout="block" id="nivoSaFormom">
+              <h:form>
+                <a4j:include viewId="#{nabWebController.formLevelViewId}" />
+              </h:form>
+            </h:panelGroup>
+          </h:panelGroup>
 
         <a4j:include
           viewId="#{nabWebController.nabNoviUgovorModalPanelView}" />

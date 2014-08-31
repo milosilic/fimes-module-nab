@@ -107,5 +107,6 @@
         parent="nabBaseController" scope="session" lazy-init="true">
         <constructor-arg value="nabUgovorController" type="java.lang.String" />
         <property name="nabUgovorExtendedDataTableModelApi" ref="nabUgovorExtendedDataTableModelApi" />
+        <property name="ppPoslovniPartnerSelectionController" ref="ppPoslovniPartnerSelectionController" />
     </bean>
 </beans>
