@@ -28,24 +28,23 @@
                     <rich:spacer height="20px" />
                     <a4j:jsFunction name="pretragaNabPlan"
                       ajaxSingle="true"
-                      action="#{nabPlanController.planPretraga}"
+                      action="#{nabUgovorController.planPretraga}"
                       reRender="tabelaNabUgovor">
                       <a4j:actionparam name="param1"
-                        assignTo="#{nabPlanController.godina}" />
+                        assignTo="#{nabUgovorController.godina}" />
                     </a4j:jsFunction>
                     <rich:extendedDataTable height="318px"
                       rowClasses="redAnimacija" id="tabelaNabUgovor"
                       enableContextMenu="false"
                       noDataLabel="#{nabUgovorController.module.messageSource.commonNoDataLabel}" 
-                      value="#{nabPlanController.nabPlanExtendedDataTableModelApi}"
+                      value="#{nabUgovorController.nabUgovorExtendedDataTableModelApi}"
                       var="ugovor">
                       
                     <!-- selekcija  iz objEvidencija objekata.jspx-->
                     <a4j:support event="onRowClick" 
                       immediate="true" status="waitStatus" reRender="nabPlanDugmeDetaljno,nabPlanDugmeAzuriraj,nabPlanDugmeKopiraj">
                       <f:setPropertyActionListener value="#{ugovor}"
-                        target="#{nabPlanController.nabPlanSelected}" />
-                        <f:setPropertyActionListener value="#{ugovor}" target="#{nabNoviPlanController.noviPlan}" />
+                        target="#{nabUgovorController.nabUgovorSelected}" />
                     </a4j:support>
                       <rich:column id="godinaPlanTab" width="20%"
                         styleClass="fimesAlignLeft">
@@ -54,49 +53,49 @@
                           style="margin : auto; height: 37px;"
                           headerClass="tableHeader" rowClasses="tableHeader">
                             <h:outputText styleClass="headerText"
-                              value="#{nabPlanController.module.messageSource.nabPlanoviZaGodinu}" />
-                            <h:inputText id="pretragaGodinaPlana"
+                              value="#{nabUgovorController.module.messageSource.nabUgovoriInterniBroj}" />
+                            <h:inputText id="pretragaInterniBrojUgovora"
                               tabindex="1" style="width: 70px"
-                              value="#{nabPlanController.godina}"
+                              value="#{nabUgovorController.interniBroj}"
                               onkeypress="if (event.keyCode == 13) {
                                     pretragaNabPlan(
-                                        #{rich:element('pretragaGodinaPlana')}.value);
+                                        #{rich:element('pretragaInterniBrojUgovora')}.value);
                                         return false;}" />
                           </h:panelGrid>
                         </f:facet>
-                        <h:outputText value="#{ugovor.godina}"></h:outputText>
+                        <h:outputText value="#{ugovor.interniBroj}"></h:outputText>
                       </rich:column>
                       <rich:column id="nazivPlanTab" width="20%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
                           <h:outputText styleClass="headerText"
-                            value="#{nabPlanController.module.messageSource.nabPlanoviNazivPlana}" />
+                            value="#{nabUgovorController.module.messageSource.nabUgovoriDatumZakljucenja}" />
                         </f:facet>
-                        <h:outputText value="#{ugovor.naziv}"></h:outputText>
+                        <h:outputText value="#{ugovor.datumZakljucenja}"></h:outputText>
                       </rich:column>
                       <rich:column id="datumIzradePlanTab" width="20%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
                           <h:outputText styleClass="headerText"
-                            value="#{nabPlanController.module.messageSource.nabPlanoviDatumIzrade}" />
+                            value="#{nabUgovorController.module.messageSource.nabNabavkaListaVrstaPostupka}" />
                         </f:facet>
-                        <h:outputText value="#{ugovor.datumIzrade}"></h:outputText>
+                        <h:outputText value="#{ugovor.nabJavnaNabavka.vrstaPostupka.naziv}"></h:outputText>
                       </rich:column>
                       <rich:column id="brojPlanaPlanTab" width="20%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
                           <h:outputText styleClass="headerText"
-                            value="#{nabPlanController.module.messageSource.nabPlanovicInterniBrojPlana}" />
+                            value="#{nabUgovorController.module.messageSource.nabNabavkaListaInterniBrojPostupka}" />
                         </f:facet>
-                        <h:outputText value="#{ugovor.brojPlana}"></h:outputText>
+                        <h:outputText value="#{ugovor.nabJavnaNabavka.interniBroj}"></h:outputText>
                       </rich:column>
                       <rich:column id="datumUsvajanjaPlanTab" width="20%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
                           <h:outputText styleClass="headerText"
-                            value="#{nabPlanController.module.messageSource.nabPlanoviDatumUsvajanja}" />
+                            value="#{nabUgovorController.module.messageSource.nabNabavkaListaVrstaPredmeta}" />
                         </f:facet>
-                        <h:outputText value="#{ugovor.datumUsvajanja}"></h:outputText>
+                        <h:outputText value="#{ugovor.nabJavnaNabavka.vrstaPredmetaNabavke.naziv}"></h:outputText>
                       </rich:column>
                     </rich:extendedDataTable>
                     <h:panelGroup layout="block"
@@ -106,18 +105,15 @@
                         status="statusWait"
                         value="#{nabUgovorController.module.messageSource.nabUgovoriAzurirajUgovor}"
                         oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
-                        disabled="#{empty nabPlanController.nabPlanSelected}" 
+                        disabled="#{empty nabUgovorController.nabUgovorSelected}" 
                         reRender="nabNoviPlanModalPanel"/>
                       <rich:spacer width="10px"/>
                       <a4j:commandButton id="nabPlanoviNoviPlan" ajaxSingle="true" status="waitStatus"
                         value="#{nabUgovorController.module.messageSource.nabUgovoriNoviUgovor}"
                         styleClass="fimesButton"
-                        action="#{nabNoviPlanController.initNoviPlan}"
+                        action="#{nabUgovorController.initNoviUgovor}"
                         oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
-                        reRender="nabNoviPlanModalPanel">
-                        <f:setPropertyActionListener value="#{false}"
-                          target="#{nabPlanController.kopirajPodatke}" />
-                      </a4j:commandButton>
+                        reRender="nabNoviPlanModalPanel"/>
                     </h:panelGroup>
                   </h:panelGroup>
                 </rich:layoutPanel>
