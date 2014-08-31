@@ -29,23 +29,23 @@
                     <a4j:jsFunction name="pretragaNabPlan"
                       ajaxSingle="true"
                       action="#{nabPlanController.planPretraga}"
-                      reRender="tabelaNabPlan">
+                      reRender="tabelaNabUgovor">
                       <a4j:actionparam name="param1"
                         assignTo="#{nabPlanController.godina}" />
                     </a4j:jsFunction>
                     <rich:extendedDataTable height="318px"
-                      rowClasses="redAnimacija" id="tabelaNabPlan"
+                      rowClasses="redAnimacija" id="tabelaNabUgovor"
                       enableContextMenu="false"
                       noDataLabel="#{nabUgovorController.module.messageSource.commonNoDataLabel}" 
                       value="#{nabPlanController.nabPlanExtendedDataTableModelApi}"
-                      var="plan">
+                      var="ugovor">
                       
                     <!-- selekcija  iz objEvidencija objekata.jspx-->
                     <a4j:support event="onRowClick" 
                       immediate="true" status="waitStatus" reRender="nabPlanDugmeDetaljno,nabPlanDugmeAzuriraj,nabPlanDugmeKopiraj">
-                      <f:setPropertyActionListener value="#{plan}"
+                      <f:setPropertyActionListener value="#{ugovor}"
                         target="#{nabPlanController.nabPlanSelected}" />
-                        <f:setPropertyActionListener value="#{plan}" target="#{nabNoviPlanController.noviPlan}" />
+                        <f:setPropertyActionListener value="#{ugovor}" target="#{nabNoviPlanController.noviPlan}" />
                     </a4j:support>
                       <rich:column id="godinaPlanTab" width="20%"
                         styleClass="fimesAlignLeft">
@@ -64,7 +64,7 @@
                                         return false;}" />
                           </h:panelGrid>
                         </f:facet>
-                        <h:outputText value="#{plan.godina}"></h:outputText>
+                        <h:outputText value="#{ugovor.godina}"></h:outputText>
                       </rich:column>
                       <rich:column id="nazivPlanTab" width="20%"
                         styleClass="fimesAlignLeft">
@@ -72,7 +72,7 @@
                           <h:outputText styleClass="headerText"
                             value="#{nabPlanController.module.messageSource.nabPlanoviNazivPlana}" />
                         </f:facet>
-                        <h:outputText value="#{plan.naziv}"></h:outputText>
+                        <h:outputText value="#{ugovor.naziv}"></h:outputText>
                       </rich:column>
                       <rich:column id="datumIzradePlanTab" width="20%"
                         styleClass="fimesAlignLeft">
@@ -80,7 +80,7 @@
                           <h:outputText styleClass="headerText"
                             value="#{nabPlanController.module.messageSource.nabPlanoviDatumIzrade}" />
                         </f:facet>
-                        <h:outputText value="#{plan.datumIzrade}"></h:outputText>
+                        <h:outputText value="#{ugovor.datumIzrade}"></h:outputText>
                       </rich:column>
                       <rich:column id="brojPlanaPlanTab" width="20%"
                         styleClass="fimesAlignLeft">
@@ -88,7 +88,7 @@
                           <h:outputText styleClass="headerText"
                             value="#{nabPlanController.module.messageSource.nabPlanovicInterniBrojPlana}" />
                         </f:facet>
-                        <h:outputText value="#{plan.brojPlana}"></h:outputText>
+                        <h:outputText value="#{ugovor.brojPlana}"></h:outputText>
                       </rich:column>
                       <rich:column id="datumUsvajanjaPlanTab" width="20%"
                         styleClass="fimesAlignLeft">
@@ -96,7 +96,7 @@
                           <h:outputText styleClass="headerText"
                             value="#{nabPlanController.module.messageSource.nabPlanoviDatumUsvajanja}" />
                         </f:facet>
-                        <h:outputText value="#{plan.datumUsvajanja}"></h:outputText>
+                        <h:outputText value="#{ugovor.datumUsvajanja}"></h:outputText>
                       </rich:column>
                     </rich:extendedDataTable>
                     <h:panelGroup layout="block"
@@ -104,13 +104,13 @@
                       <a4j:commandButton id="nabPlanDugmeAzuriraj"
                         styleClass="fimesButton objDugmeUFuteruTabele"
                         status="statusWait"
-                        value="#{nabPlanController.module.messageSource.nabPlanoviAzuriranjePlana}"
+                        value="#{nabUgovorController.module.messageSource.nabUgovoriAzurirajUgovor}"
                         oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
                         disabled="#{empty nabPlanController.nabPlanSelected}" 
                         reRender="nabNoviPlanModalPanel"/>
                       <rich:spacer width="10px"/>
                       <a4j:commandButton id="nabPlanoviNoviPlan" ajaxSingle="true" status="waitStatus"
-                        value="#{nabPlanController.module.messageSource.nabPlanoviNoviPlan}"
+                        value="#{nabUgovorController.module.messageSource.nabUgovoriNoviUgovor}"
                         styleClass="fimesButton"
                         action="#{nabNoviPlanController.initNoviPlan}"
                         oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
