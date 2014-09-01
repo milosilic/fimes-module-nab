@@ -77,7 +77,7 @@
               action="#{nabUgovorController.setPpPoslovniPartnerAction}"
               value="Poslovni partner" immediate="true"
               oncomplete="Richfaces.showModalPanel('ppPoslovniPartnerLovModalPanel');"
-              reRender="nivoSaFormom">
+              reRender="nabUgovorDobavljacId">
               <f:setPropertyActionListener
                 value="#{ppWebController.ppPoslovniPartnerLovModalPanelView}"
                 target="#{nabWebController.viewIdFormLevel}" />
