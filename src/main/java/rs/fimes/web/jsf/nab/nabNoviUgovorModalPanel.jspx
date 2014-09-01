@@ -78,25 +78,37 @@
             value="#{nabUgovorController.noviUgovor.ppPoslovniPartner.rzsDrzava.naziv}" readonly="true" />        
         </h:panelGrid>      
       </h:panelGrid>
-      <h:panelGrid columns="1" styleClass="maxWidth">
+      <h:panelGrid columns="2" styleClass="maxWidth">
 <!--         <rich:messages globalOnly="true" warnClass="validationAttention" -->
 <!--           errorClass="fimesValidErrMsg" /> -->
-        <h:outputLabel styleClass="fimesLabelLeft"
-          value="#{nabUgovorController.module.messageSource.nabUgovoriBrojPonuda}" />
-        <h:inputText styleClass="fimesInputText maxWidth"
-          value="#{nabUgovorController.noviUgovor.brojPonuda}" />
-        <h:outputLabel styleClass="fimesLabelLeft"
-          value="#{nabUgovorController.module.messageSource.nabUgovoriKriterijum}" />
-        <h:inputText styleClass="fimesInputText maxWidth"
-          value="#{nabUgovorController.noviUgovor.kriterijum.naziv}" />
-        <h:outputLabel styleClass="fimesLabelLeft"
-          value="#{nabUgovorController.module.messageSource.nabUgovoriJednicnaCena}" />
-        <h:inputText styleClass="fimesInputText maxWidth"
-          value="#{nabUgovorController.noviUgovor.jedinicnaCena}" />
-        <h:outputLabel styleClass="fimesLabelLeft"
-          value="#{nabUgovorController.module.messageSource.nabUgovoriTroskoviPripreme}" />
-        <h:inputText styleClass="fimesInputText maxWidth"
-          value="#{nabUgovorController.noviUgovor.troskoviPripreme}" />
+        <h:panelGrid columns="2">
+           <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabUgovoriVrednostBezPdvHiljade}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabUgovorController.noviUgovor.brojPonuda}" />
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabUgovoriVrednostSaPdvHiljade}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabUgovorController.noviUgovor.kriterijum.naziv}" />       
+        </h:panelGrid>
+        <h:panelGrid columns="2">
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabUgovoriBrojPonuda}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabUgovorController.noviUgovor.brojPonuda}" />
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabUgovoriKriterijum}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabUgovorController.noviUgovor.kriterijum.naziv}" />
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabUgovoriJednicnaCena}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabUgovorController.noviUgovor.jedinicnaCena}" />
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabUgovoriTroskoviPripreme}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabUgovorController.noviUgovor.troskoviPripreme}" />
+        </h:panelGrid>
 
       </h:panelGrid>
       <a4j:commandButton id="nabNoviUgovorModalPanelDugmePotvrdi"

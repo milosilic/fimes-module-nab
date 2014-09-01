@@ -177,6 +177,24 @@ CREATE SEQUENCE seq_nab_nabavka_jrn
    MINVALUE 1;
 ALTER TABLE seq_nab_nabavka_jrn OWNER TO "fimes-demo";
 
+
+CREATE TABLE xnab_kriterijum
+(
+   id_kriterijum integer, 
+   naziv character varying(128) NOT NULL, 
+   f_arhivirano boolean NOT NULL DEFAULT false, 
+    PRIMARY KEY (id_kriterijum)
+) 
+WITH (
+  OIDS = FALSE
+)
+;
+ALTER TABLE xnab_kriterijum OWNER TO "fimes-demo";
+
+-- Table: nab_ugovor
+
+-- DROP TABLE nab_ugovor;
+
 CREATE TABLE nab_ugovor
 (
   id_ugovor integer NOT NULL,
@@ -194,6 +212,9 @@ CREATE TABLE nab_ugovor
   CONSTRAINT nab_ugovor_id_javna_nabavka_fkey FOREIGN KEY (id_javna_nabavka)
       REFERENCES nab_javna_nabavka (id_javna_nabavka) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT nab_ugovor_id_kriterijum_fkey FOREIGN KEY (id_kriterijum)
+      REFERENCES xnab_kriterijum (id_kriterijum) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT nab_ugovor_id_poslovni_partner_fkey FOREIGN KEY (id_poslovni_partner)
       REFERENCES pp_poslovni_partner (id_poslovni_partner) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -207,16 +228,4 @@ WITH (
 ALTER TABLE nab_ugovor
   OWNER TO "fimes-demo";
 
-CREATE TABLE xnab_kriterijum
-(
-   id_kriterijum integer, 
-   naziv character varying(128) NOT NULL, 
-   f_arhivirano boolean NOT NULL DEFAULT false, 
-    PRIMARY KEY (id_kriterijum)
-) 
-WITH (
-  OIDS = FALSE
-)
-;
-ALTER TABLE xnab_kriterijum OWNER TO "fimes-demo";
 
