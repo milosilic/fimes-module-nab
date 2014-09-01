@@ -130,5 +130,5 @@
 <entry key="nabUgovoriAzurirajUgovor">Измени уговор</entry>
 <entry key="nabUgovoriJednicnaCena">Јединична цена(пун износ у динарима)</entry>
 <entry key="nabUgovoriTroskoviPripreme">Трошкови припремања понуде(пун износ у динарима)</entry>
-
+<entry key="nabUgovoriTooltipPoslovniPartner">Унос послобног партнера</entry>
 </properties>
