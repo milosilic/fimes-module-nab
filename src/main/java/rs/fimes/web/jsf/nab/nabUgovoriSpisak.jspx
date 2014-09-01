@@ -26,12 +26,12 @@
                   <h:panelGroup id="p1" layout="block">
 
                     <rich:spacer height="20px" />
-                    <a4j:jsFunction name="pretragaNabPlan"
+                    <a4j:jsFunction name="pretragaNabUgovor"
                       ajaxSingle="true"
                       action="#{nabUgovorController.planPretraga}"
                       reRender="tabelaNabUgovor">
                       <a4j:actionparam name="param1"
-                        assignTo="#{nabUgovorController.godina}" />
+                        assignTo="#{nabUgovorController.interniBroj}" />
                     </a4j:jsFunction>
                     <rich:extendedDataTable height="318px"
                       rowClasses="redAnimacija" id="tabelaNabUgovor"
@@ -58,7 +58,7 @@
                               tabindex="1" style="width: 70px"
                               value="#{nabUgovorController.interniBroj}"
                               onkeypress="if (event.keyCode == 13) {
-                                    pretragaNabPlan(
+                                    pretragaNabUgovor(
                                         #{rich:element('pretragaInterniBrojUgovora')}.value);
                                         return false;}" />
                           </h:panelGrid>
