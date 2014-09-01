@@ -41,8 +41,8 @@ public class NabUgovorController extends BaseController{
         
     }
     
-    public void resetForm(){
-        
+    public void odustani(){
+        super.resetForm();
     }
     
     public void resetPpPoslovniPartner(){

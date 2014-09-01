@@ -145,7 +145,7 @@
       <rich:spacer width="5" />
       <a4j:commandButton id="nabNoviUgovorModalPanelDugmeOdustani"
         styleClass="fimesButton fimesButtonImageCancel"
-        ajaxSingle="true" action="#{nabUgovorController.resetForm}"
+        ajaxSingle="true" action="#{nabUgovorController.odustani}"
         value="#{nabUgovorController.module.messageSource.common_odustani}"
         immediate="true"
         onclick="#{rich:component('nabNoviUgovorModalPanel')}.hide()" />
