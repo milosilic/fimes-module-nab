@@ -71,22 +71,22 @@
               rendered="#{empty nabUgovorController.noviUgovor.ppPoslovniPartner.maticniBroj}"
               value="#{nabUgovorController.module.messageSource.nabUgovoriTooltipPoslovniPartner}" />
             <a4j:commandButton
-              id="nabNoviUgovorModalPanelDugaadsameOdustani"
+              id="nabNoviUgovorPpPoslovniPartnerIzaberi"
               tabindex="5"
               styleClass="fimesButtonImageLov" ajaxSingle="true"
               action="#{nabUgovorController.setPpPoslovniPartnerAction}"
               value="Poslovni partner" immediate="true"
               oncomplete="Richfaces.showModalPanel('ppPoslovniPartnerLovModalPanel');"
-              reRender="nabUgovorDobavljacId">
+              reRender="nabUgovorDobavljacId, nivoSaFormom">
               <f:setPropertyActionListener
                 value="#{ppWebController.ppPoslovniPartnerLovModalPanelView}"
                 target="#{nabWebController.viewIdFormLevel}" />
             </a4j:commandButton>
             <a4j:commandButton status="waitStatus" tabindex="6"
-              disabled="#{empty nabNovaNabavkaController.xnabKonto}"
-              action="#{nabNovaNabavkaController.resetNabKonto}"
+              disabled="#{empty nabUgovorController.noviUgovor.ppPoslovniPartner}"
+              action="#{nabUgovorController.resetPpPoslovniPartner}"
               immediate="true" ajaxSingle="true"
-              reRender="panelNabavkaJrn"
+              reRender="nabUgovorDobavljacId"
               styleClass="fimesButtonImageCross" />
           </a4j:outputPanel>
           <h:outputLabel styleClass="fimesLabelLeft"

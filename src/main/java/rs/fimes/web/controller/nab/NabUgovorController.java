@@ -45,6 +45,12 @@ public class NabUgovorController extends BaseController{
         
     }
     
+    public void resetPpPoslovniPartner(){
+        if ( ( null != noviUgovor ) && ( null != noviUgovor.getPpPoslovniPartner())){
+            noviUgovor.setPpPoslovniPartner(null);
+        }
+    }
+    
     public void setPpPoslovniPartnerAction(){
         ppPoslovniPartnerSelectionController.setDugmeAction("nabUgovorController.transferPpPoslovniPartner");
         ppPoslovniPartnerSelectionController.setDugmeReRender("nabUgovorDobavljacId");
