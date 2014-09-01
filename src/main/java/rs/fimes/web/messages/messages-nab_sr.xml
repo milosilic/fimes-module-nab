@@ -128,6 +128,7 @@
 <entry key="nabUgovoriVrednostSaPdvHiljade">Уговорена вредност са ПДВ у хиљадама динара</entry>
 <entry key="nabUgovoriNoviUgovor">Нови уговор</entry>
 <entry key="nabUgovoriAzurirajUgovor">Измени уговор</entry>
-
+<entry key="nabUgovoriJednicnaCena">Јединична цена(пун износ у динарима)</entry>
+<entry key="nabUgovoriTroskoviPripreme">Трошкови припремања понуде(пун износ у динарима)</entry>
 
 </properties>

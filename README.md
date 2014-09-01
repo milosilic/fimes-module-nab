@@ -177,10 +177,6 @@ CREATE SEQUENCE seq_nab_nabavka_jrn
    MINVALUE 1;
 ALTER TABLE seq_nab_nabavka_jrn OWNER TO "fimes-demo";
 
--- Table: nab_ugovor
-
--- DROP TABLE nab_ugovor;
-
 CREATE TABLE nab_ugovor
 (
   id_ugovor integer NOT NULL,
@@ -188,6 +184,12 @@ CREATE TABLE nab_ugovor
   interni_broj character varying(128),
   datum_zakljucenja date NOT NULL,
   id_poslovni_partner integer,
+  broj_ponuda integer,
+  id_kriterijum integer,
+  jedinicna_cena numeric(15,2),
+  troskovi_pripreme numeric(15,2),
+  ugovorena_vrednost_bez_pdv numeric(15,2),
+  ugovorena_vrednost_sa_pdv numeric(15,2),
   CONSTRAINT nab_ugovor_pkey PRIMARY KEY (id_ugovor ),
   CONSTRAINT nab_ugovor_id_javna_nabavka_fkey FOREIGN KEY (id_javna_nabavka)
       REFERENCES nab_javna_nabavka (id_javna_nabavka) MATCH SIMPLE
@@ -205,6 +207,16 @@ WITH (
 ALTER TABLE nab_ugovor
   OWNER TO "fimes-demo";
 
-
-
+CREATE TABLE xnab_kriterijum
+(
+   id_kriterijum integer, 
+   naziv character varying(128) NOT NULL, 
+   f_arhivirano boolean NOT NULL DEFAULT false, 
+    PRIMARY KEY (id_kriterijum)
+) 
+WITH (
+  OIDS = FALSE
+)
+;
+ALTER TABLE xnab_kriterijum OWNER TO "fimes-demo";
 
