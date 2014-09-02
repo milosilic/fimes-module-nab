@@ -21,6 +21,7 @@
     <property name="nabNovaPlaniranaVrednostPoKontimaModalPanel" ref="nabNovaPlaniranaVrednostPoKontimaModalPanel" />
     <property name="nabNovaPlaniranaVrednostPoKontimaLovModalPanel" ref="nabNovaPlaniranaVrednostPoKontimaLovModalPanel" />
     <property name="nabNoviJrnLovModalPanel" ref="nabNoviJrnLovModalPanel" />
+    <property name="nabNabavkaLovModalPanel" ref="nabNabavkaLovModalPanel" />
   </bean>
 
   <bean id="nabNoviPlanModalPanel" class="rs.etf.rc.common.web.WebComponent"
@@ -66,6 +67,11 @@
   <bean id="nabNoviUgovorModalPanel" class="rs.etf.rc.common.web.WebComponent"
     parent="nabWebComponent">
     <constructor-arg value="nabNoviUgovorModalPanel"
+      type="java.lang.String" />
+  </bean>
+  <bean id="nabNabavkaLovModalPanel" class="rs.etf.rc.common.web.WebComponent"
+    parent="nabWebComponent">
+    <constructor-arg value="nabNabavkaLovModalPanel"
       type="java.lang.String" />
   </bean>
 </beans>
