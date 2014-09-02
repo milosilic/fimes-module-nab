@@ -54,7 +54,7 @@ public class NabUgovorController extends BaseController{
     }
     public void setNabNabavkaAction(){
         nabNabavkaSelectionController.setDugmeAction("nabUgovorController.transferNabNabavka");
-        nabNabavkaSelectionController.setDugmeReRender("");
+        nabNabavkaSelectionController.setDugmeReRender("panelGridNabNoviUgovorLevel1");
         
     }
     

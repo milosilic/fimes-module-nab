@@ -38,7 +38,7 @@
               action="#{nabUgovorController.setNabNabavkaAction}"
               immediate="true"
               oncomplete="Richfaces.showModalPanel('nabNabavkaLovModalPanel');"
-              reRender="panelGridNabNoviUgovorLevel1, nivoSaFormom">
+              reRender="nivoSaFormom">
               <f:setPropertyActionListener
                 value="#{nabWebController.nabNabavkaLovModalPanelView}"
                 target="#{nabWebController.viewIdFormLevel}" />
