@@ -128,4 +128,23 @@ public class NabUgovorController extends BaseController{
         this.ppPoslovniPartner = ppPoslovniPartner;
     }
 
+    public NabNabavkaSelectionController getNabNabavkaSelectionController() {
+        return nabNabavkaSelectionController;
+    }
+
+    public void setNabNabavkaSelectionController(
+            NabNabavkaSelectionController nabNabavkaSelectionController) {
+        this.nabNabavkaSelectionController = nabNabavkaSelectionController;
+    }
+
+    public NabJavnaNabavka getNabNabavka() {
+        return nabNabavka;
+    }
+
+    public void setNabNabavka(NabJavnaNabavka nabNabavka) {
+        this.nabNabavka = nabNabavka;
+    }
+    
+    
+
 }
