@@ -34,9 +34,9 @@ public class NabNabavkaSelectionController extends
     }
 
     // DATA MODEL
-    private NabJavnaNabavkaExtendedDataTableModelApi nabNabavkaExtendedDataTableModelApi;
+    private NabJavnaNabavkaExtendedDataTableModelApi nabJavnaNabavkaExtendedDataTableModelApi;
     
-    private NabJavnaNabavka nabKonto;
+    private NabJavnaNabavka nabNabavka;
     
     // polja za pretragu
     private String naziv;
@@ -73,24 +73,24 @@ public class NabNabavkaSelectionController extends
                    getStringUtil().transliterationCirToAbc (konto.trim().replaceAll("\\s+", " "))));
         }
         
-        nabNabavkaExtendedDataTableModelApi.setParametri( parametri);
-        nabNabavkaExtendedDataTableModelApi.setSortField("konto asc");
+        nabJavnaNabavkaExtendedDataTableModelApi.setParametri( parametri);
+        nabJavnaNabavkaExtendedDataTableModelApi.setSortField("konto asc");
         resetSelection();
     }
 
     @Override
     public void handleSelection() {
-        nabKonto = nabNabavkaExtendedDataTableModelApi.getDomainObject();
+        nabNabavka = nabJavnaNabavkaExtendedDataTableModelApi.getDomainObject();
     }
 
     @Override
     public void resetSelection() {
-        nabKonto = null;
-        nabNabavkaExtendedDataTableModelApi.clearSelection();
+        nabNabavka = null;
+        nabJavnaNabavkaExtendedDataTableModelApi.clearSelection();
     }
 
     public void odrediSort() {
-        nabNabavkaExtendedDataTableModelApi.odrediSort();
+        nabJavnaNabavkaExtendedDataTableModelApi.odrediSort();
         resetSelection();
     }
 
@@ -119,20 +119,20 @@ public class NabNabavkaSelectionController extends
     // GETTERS AND SETTERS
     
     public NabJavnaNabavkaExtendedDataTableModelApi getNabJavnaNabavkaExtendedDataTableModelApi() {
-        return nabNabavkaExtendedDataTableModelApi;
+        return nabJavnaNabavkaExtendedDataTableModelApi;
     }
 
     public void setNabJavnaNabavkaExtendedDataTableModelApi(
             NabJavnaNabavkaExtendedDataTableModelApi nabNabavkaExtendedDataTableModelApi) {
-        this.nabNabavkaExtendedDataTableModelApi = nabNabavkaExtendedDataTableModelApi;
+        this.nabJavnaNabavkaExtendedDataTableModelApi = nabNabavkaExtendedDataTableModelApi;
     }
 
-    public NabJavnaNabavka getNabKonto() {
-        return nabKonto;
+    public NabJavnaNabavka getNabNabavka() {
+        return nabNabavka;
     }
 
-    public void setNabKonto(NabJavnaNabavka nabKonto) {
-        this.nabKonto = nabKonto;
+    public void setNabNabavka(NabJavnaNabavka nabNabavka) {
+        this.nabNabavka = nabNabavka;
     }
 
     public String getNaziv() {

@@ -11,6 +11,7 @@ import rs.fimes.web.datamodel.api.nab.NabUgovorExtendedDataTableModelApi;
 
 public class NabUgovorController extends BaseController{
 
+    //01.08.2014.
     private static final long serialVersionUID = 1L;
     private NabUgovorExtendedDataTableModelApi nabUgovorExtendedDataTableModelApi;
     
@@ -19,7 +20,9 @@ public class NabUgovorController extends BaseController{
     private NabUgovor noviUgovor;
     private PpPoslovniPartnerSelectionController ppPoslovniPartnerSelectionController;
     private PpPoslovniPartner ppPoslovniPartner;
-    
+    //02.08.2014
+    private NabNabavkaSelectionController nabNabavkaSelectionController;
+    private NabJavnaNabavka nabNabavka;
 
     public NabUgovorController(Module module, String controllerId)
             throws ConfigurationException {
@@ -46,6 +49,19 @@ public class NabUgovorController extends BaseController{
         super.resetForm();
     }
     
+    public void resetNabNabavka(){
+        
+    }
+    public void setNabNababavkaAction(){
+        nabNabavkaSelectionController.setDugmeAction("nabUgovorController.transferNabNabavka");
+        nabNabavkaSelectionController.setDugmeReRender("");
+        
+    }
+    
+    public void transferNabNabavka(){
+        nabNabavka = nabNabavkaSelectionController.getNabNabavka();
+        noviUgovor.setNabJavnaNabavka(nabNabavka);
+    }
     public void resetPpPoslovniPartner(){
         if ( ( null != noviUgovor ) && ( null != noviUgovor.getPpPoslovniPartner())){
             noviUgovor.setPpPoslovniPartner(null);

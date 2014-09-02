@@ -30,22 +30,22 @@
               value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.opis}"
               readonly="true" />
             <rich:toolTip for="noviPoslovniPartner" showDelay="500"
-              rendered="#{empty nabUgovorController.noviUgovor.ppPoslovniPartner.maticniBroj}"
+              rendered="#{empty nabUgovorController.noviUgovor.nabJavnaNabavka.opis}"
               value="#{nabUgovorController.module.messageSource.nabUgovoriTooltipPoslovniPartner}" />
             <a4j:commandButton
-              id="nabNoviUgovorPpPoslovniPartnerIzaberi" tabindex="5"
+              id="nabNoviUgovorNabNabavkaIzaberi" tabindex="5"
               styleClass="fimesButtonImageLov" ajaxSingle="true"
-              action="#{nabUgovorController.setPpPoslovniPartnerAction}"
-              value="Poslovni partner" immediate="true"
-              oncomplete="Richfaces.showModalPanel('ppPoslovniPartnerLovModalPanel');"
+              action="#{nabUgovorController.setNabNabavkaAction}"
+              immediate="true"
+              oncomplete="Richfaces.showModalPanel('nabNabavkaLovModalPanel');"
               reRender="panelGridNabNoviUgovorLevel1, nivoSaFormom">
               <f:setPropertyActionListener
-                value="#{ppWebController.ppPoslovniPartnerLovModalPanelView}"
+                value="#{nabWebController.nabNabavkaLovModalPanelView}"
                 target="#{nabWebController.viewIdFormLevel}" />
             </a4j:commandButton>
             <a4j:commandButton status="waitStatus" tabindex="6"
-              disabled="#{empty nabUgovorController.noviUgovor.ppPoslovniPartner}"
-              action="#{nabUgovorController.resetPpPoslovniPartner}"
+              disabled="#{empty nabUgovorController.noviUgovor.nabJavnaNabavka}"
+              action="#{nabUgovorController.resetNabNabavka}"
               immediate="true" ajaxSingle="true"
               reRender="panelGridNabNoviUgovorLevel1"
               styleClass="fimesButtonImageCross" />
