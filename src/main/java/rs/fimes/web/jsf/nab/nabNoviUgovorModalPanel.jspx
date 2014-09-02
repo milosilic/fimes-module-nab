@@ -19,14 +19,37 @@
     <h:form id="formNoviObjekat">
       <h:panelGrid columns="2">
         <h:panelGrid columns="2" 
-          id="panelGridNabNoviPlanLevel1"
+          id="panelGridNabNoviUgovorLevel1"
           styleClass="fimesTableCentered fimesTableInput"
           columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField"
           cellspacing="2">
           <h:outputLabel styleClass="fimesLabelLeft"
             value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaOpisPredmetaNabavke}" />
-          <h:inputText styleClass="fimesInputText maxWidth"
-            value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.opis}" readonly="true"/>
+          <a4j:outputPanel>
+            <h:inputText styleClass="fimesInputText maxWidth"
+              value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.opis}"
+              readonly="true" />
+            <rich:toolTip for="noviPoslovniPartner" showDelay="500"
+              rendered="#{empty nabUgovorController.noviUgovor.ppPoslovniPartner.maticniBroj}"
+              value="#{nabUgovorController.module.messageSource.nabUgovoriTooltipPoslovniPartner}" />
+            <a4j:commandButton
+              id="nabNoviUgovorPpPoslovniPartnerIzaberi" tabindex="5"
+              styleClass="fimesButtonImageLov" ajaxSingle="true"
+              action="#{nabUgovorController.setPpPoslovniPartnerAction}"
+              value="Poslovni partner" immediate="true"
+              oncomplete="Richfaces.showModalPanel('ppPoslovniPartnerLovModalPanel');"
+              reRender="panelGridNabNoviUgovorLevel1, nivoSaFormom">
+              <f:setPropertyActionListener
+                value="#{ppWebController.ppPoslovniPartnerLovModalPanelView}"
+                target="#{nabWebController.viewIdFormLevel}" />
+            </a4j:commandButton>
+            <a4j:commandButton status="waitStatus" tabindex="6"
+              disabled="#{empty nabUgovorController.noviUgovor.ppPoslovniPartner}"
+              action="#{nabUgovorController.resetPpPoslovniPartner}"
+              immediate="true" ajaxSingle="true"
+              reRender="panelGridNabNoviUgovorLevel1"
+              styleClass="fimesButtonImageCross" />
+          </a4j:outputPanel>
           <h:outputLabel styleClass="fimesLabelLeft"
             value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaInterniBroj}" />
           <h:inputText styleClass="fimesInputText maxWidth"

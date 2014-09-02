@@ -19,6 +19,7 @@ public class NabUgovorController extends BaseController{
     private NabUgovor noviUgovor;
     private PpPoslovniPartnerSelectionController ppPoslovniPartnerSelectionController;
     private PpPoslovniPartner ppPoslovniPartner;
+    
 
     public NabUgovorController(Module module, String controllerId)
             throws ConfigurationException {
