@@ -52,7 +52,7 @@ public class NabUgovorController extends BaseController{
     public void resetNabNabavka(){
         
     }
-    public void setNabNababavkaAction(){
+    public void setNabNabavkaAction(){
         nabNabavkaSelectionController.setDugmeAction("nabUgovorController.transferNabNabavka");
         nabNabavkaSelectionController.setDugmeReRender("");
         
