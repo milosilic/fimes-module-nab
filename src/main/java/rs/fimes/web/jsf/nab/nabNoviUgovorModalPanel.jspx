@@ -146,13 +146,16 @@
             value="#{nabUgovorController.noviUgovor.brojPonuda}" />
           <h:outputLabel styleClass="fimesLabelLeft"
             value="#{nabUgovorController.module.messageSource.nabUgovoriKriterijum}" />
-          <h:selectOneMenu id="selectOneXnabKriterijum"
-            tabindex="1" style="width: 200px;"
-            styleClass="fimesInputDropDown"
-            value="#{nabUgovorController.noviUgovor.kriterijum.idKriterijum}">
-            <f:selectItems
-              value="#{nabUgovorController.xnabKriterijumSelectionItems}" />
-          </h:selectOneMenu>
+            <h:panelGrid columns="1" styleClass="alignCenter"
+              width="100%">
+              <h:selectOneMenu id="selectOneXnabPredmetNabavke"
+                tabindex="1" style="width: 200px;"
+                styleClass="fimesInputDropDown"
+                value="#{nabUgovorController.noviUgovor.kriterijum.idKriterijum}">
+                <f:selectItems
+                  value="#{nabUgovorController.xnabKriterijumSelectionItems}" />
+              </h:selectOneMenu>
+            </h:panelGrid>
           <h:outputLabel styleClass="fimesLabelLeft"
             value="#{nabUgovorController.module.messageSource.nabUgovoriJednicnaCena}" />
           <h:inputText styleClass="fimesInputText maxWidth"

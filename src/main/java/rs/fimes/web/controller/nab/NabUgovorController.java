@@ -46,27 +46,12 @@ public class NabUgovorController extends BaseController{
     public void initNoviUgovor(){
         noviUgovor = new NabUgovor();
         noviUgovor.setKriterijum(new XnabKriterijum());
-        initKriterijum();
     }
     
     public void initAzuriranjeUgovora(){
         noviUgovor = nabUgovorSelected;
-        initKriterijum();
     }
     
-    public void initKriterijum(){
-
-        xnabKriterijumSelectionItems = new ArrayList<SelectItem>();
-        List<XnabKriterijum> xnabKriterijums = xnabKriterijumServiceApi.getAllKriterijum();
-        Iterator<XnabKriterijum> iterXnabKriterijum = xnabKriterijums.iterator();
-        while ( iterXnabKriterijum.hasNext()){
-            XnabKriterijum xnabKriterijum = (XnabKriterijum) iterXnabKriterijum.next();
-            System.out.println( xnabKriterijum);
-            xnabKriterijumSelectionItems.add(new SelectItem( xnabKriterijum.getPrimaryKey(), String.valueOf( xnabKriterijum.getNaziv())));
-         }
-            
-
-    }
     
     public void snimiNabUgovor(){
         
@@ -181,6 +166,14 @@ public class NabUgovorController extends BaseController{
     }
 
     public ArrayList<SelectItem> getXnabKriterijumSelectionItems() {
+        xnabKriterijumSelectionItems = new ArrayList<SelectItem>();
+        List<XnabKriterijum> xnabKriterijums = xnabKriterijumServiceApi.getAllKriterijum();
+        Iterator<XnabKriterijum> iterXnabKriterijum = xnabKriterijums.iterator();
+        while ( iterXnabKriterijum.hasNext()){
+            XnabKriterijum xnabKriterijum = (XnabKriterijum) iterXnabKriterijum.next();
+            xnabKriterijumSelectionItems.add(new SelectItem( xnabKriterijum.getPrimaryKey(), String.valueOf( xnabKriterijum.getNaziv())));
+         }
+
         return xnabKriterijumSelectionItems;
     }
 
