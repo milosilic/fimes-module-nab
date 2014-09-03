@@ -13,12 +13,12 @@
         onclick="#{rich:element('nabNabavkaLovModalPanelDugmeOdustani')}.click()" />
     </f:facet>
     <f:facet name="header">
-      <h:outputText styleClass="fimesPanelHeader" value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabаvkaOrnHeader}" />
+      <h:outputText styleClass="fimesPanelHeader" value="#{nabNabavkaSelectionController.module.messageSource.nabNabavkaNovaNabаvkaOrnHeader}" />
     </f:facet>
     <h:form id="formNabNovaPlaniranaVrednostPoKontima">
       <rich:extendedDataTable height="200px" rowClasses="redAnimacija"
         id="tabelaProcenaPoGodinama" enableContextMenu="false"
-        noDataLabel="#{nabUgovorController.module.messageSource.commonNoDataLabel}"
+        noDataLabel="#{nabNabavkaSelectionController.module.messageSource.commonNoDataLabel}"
         value="#{nabNabavkaSelectionController.nabJavnaNabavkaExtendedDataTableModelApi}"
         var="nabavka">
           <a4j:support event="onselectionchange" ajaxSingle="true" status="waitStatus"
@@ -28,7 +28,7 @@
           styleClass="fimesAlignLeft">
           <f:facet name="header">
             <h:outputText styleClass="headerText"
-              value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabаvkaOrn}" />
+              value="#{nabNabavkaSelectionController.module.messageSource.nabNabavkaNovaNabаvkaOrn}" />
           </f:facet>
           <h:outputText value="#{nabavka.interniBroj}" />
         </rich:column>
@@ -36,7 +36,7 @@
           styleClass="fimesAlignLeft">
           <f:facet name="header">
             <h:outputText styleClass="headerText"
-              value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabаvkaOrnDopunski}" />
+              value="#{nabNabavkaSelectionController.module.messageSource.nabNabavkaNovaNabаvkaOrnDopunski}" />
           </f:facet>
           <h:outputText value="#{nabavka.opis}" />
         </rich:column>
