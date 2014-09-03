@@ -74,4 +74,8 @@
     <constructor-arg index="1" value="nabUgovorServiceApi" type="java.lang.String"/>
     <property name="nabUgovorDAO" ref="nabUgovorDAO"></property>
   </bean>
+  <bean id="xnabKriterijumServiceApi" class="rs.fimes.service.impl.nab.XnabKriterijumServiceImpl" parent="nabBaseService" lazy-init="true">
+    <constructor-arg index="1" value="xnabKriterijumServiceApi" type="java.lang.String"/>
+    <property name="xnabKriterijumDAO" ref="xnabKriterijumDAO"></property>
+  </bean>      
 </beans>

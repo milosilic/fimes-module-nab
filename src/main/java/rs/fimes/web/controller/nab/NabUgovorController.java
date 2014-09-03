@@ -1,17 +1,25 @@
 package rs.fimes.web.controller.nab;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.faces.model.SelectItem;
+
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
 import rs.fimes.domain.core.PpPoslovniPartner;
 import rs.fimes.domain.nab.NabJavnaNabavka;
 import rs.fimes.domain.nab.NabUgovor;
+import rs.fimes.domain.nab.XnabKriterijum;
+import rs.fimes.service.api.nab.XnabKriterijumServiceApi;
 import rs.fimes.web.controller.BaseController;
 import rs.fimes.web.controller.pp.PpPoslovniPartnerSelectionController;
 import rs.fimes.web.datamodel.api.nab.NabUgovorExtendedDataTableModelApi;
 
 public class NabUgovorController extends BaseController{
 
-    //01.08.2014.
+    //01.09.2014.
     private static final long serialVersionUID = 1L;
     private NabUgovorExtendedDataTableModelApi nabUgovorExtendedDataTableModelApi;
     
@@ -20,10 +28,14 @@ public class NabUgovorController extends BaseController{
     private NabUgovor noviUgovor;
     private PpPoslovniPartnerSelectionController ppPoslovniPartnerSelectionController;
     private PpPoslovniPartner ppPoslovniPartner;
-    //02.08.2014
+    //02.09.2014.
     private NabNabavkaSelectionController nabNabavkaSelectionController;
     private NabJavnaNabavka nabNabavka;
+    //03.09.2014.
+    private XnabKriterijumServiceApi xnabKriterijumServiceApi;
+    private ArrayList<SelectItem> xnabKriterijumSelectionItems;
 
+    
     public NabUgovorController(Module module, String controllerId)
             throws ConfigurationException {
         super(module, controllerId);
@@ -33,11 +45,28 @@ public class NabUgovorController extends BaseController{
     // TODO implementirati  
     public void initNoviUgovor(){
         noviUgovor = new NabUgovor();
-        
+        noviUgovor.setKriterijum(new XnabKriterijum());
+        initKriterijum();
     }
     
     public void initAzuriranjeUgovora(){
         noviUgovor = nabUgovorSelected;
+        initKriterijum();
+    }
+    
+    public void initKriterijum(){
+        if ( null == xnabKriterijumSelectionItems ){
+            xnabKriterijumSelectionItems = new ArrayList<SelectItem>();
+            List<XnabKriterijum> xnabKriterijums = xnabKriterijumServiceApi.getAllKriterijum();
+            Iterator<XnabKriterijum> iterXnabKriterijum = xnabKriterijums.iterator();
+            while ( iterXnabKriterijum.hasNext()){
+                XnabKriterijum xnabKriterijum = (XnabKriterijum) iterXnabKriterijum.next();
+//                System.out.println( xnabKriterijum);
+                xnabKriterijumSelectionItems.add(new SelectItem( xnabKriterijum.getPrimaryKey(), String.valueOf( xnabKriterijum.getNaziv())));
+             }
+            
+        }
+
     }
     
     public void snimiNabUgovor(){
@@ -142,6 +171,23 @@ public class NabUgovorController extends BaseController{
 
     public void setNabNabavka(NabJavnaNabavka nabNabavka) {
         this.nabNabavka = nabNabavka;
+    }
+
+    public XnabKriterijumServiceApi getXnabKriterijumServiceApi() {
+        return xnabKriterijumServiceApi;
+    }
+
+    public void setXnabKriterijumServiceApi(XnabKriterijumServiceApi xnabKriterijumServiceApi) {
+        this.xnabKriterijumServiceApi = xnabKriterijumServiceApi;
+    }
+
+    public ArrayList<SelectItem> getXnabKriterijumSelectionItems() {
+        return xnabKriterijumSelectionItems;
+    }
+
+    public void setXnabKriterijumSelectionItems(
+            ArrayList<SelectItem> xnabKriterijumSelectionItems) {
+        this.xnabKriterijumSelectionItems = xnabKriterijumSelectionItems;
     }
     
     
