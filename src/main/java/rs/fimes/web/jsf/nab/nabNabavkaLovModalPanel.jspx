@@ -58,7 +58,7 @@
       <a4j:commandButton
         id="nabNabavkaLovModalPanelDugmeOdustani"
         styleClass="fimesButton fimesButtonImageCancel"
-        ajaxSingle="true" action="#{nabNoviPlanController.resetForm}"
+        ajaxSingle="true" action="#{nabNabavkaSelectionController.resetSelection}"
         value="#{nabNoviPlanController.module.messageSource.common_odustani}"
         onclick="#{rich:component('nabNabavkaLovModalPanel')}.hide()" />
     </h:panelGroup>
