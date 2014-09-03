@@ -81,6 +81,8 @@ public class NabNabavkaSelectionController extends
     @Override
     public void handleSelection() {
         nabNabavka = nabJavnaNabavkaExtendedDataTableModelApi.getDomainObject();
+        System.out.println( nabNabavka);
+        System.out.println("RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR");
     }
 
     @Override
