@@ -151,7 +151,7 @@
             styleClass="fimesInputDropDown"
             value="#{nabUgovorController.noviUgovor.kriterijum.idKriterijum}">
             <f:selectItems
-              value="#{nabNovaNabavkaController.xnabKriterijumSelectionItems}" />
+              value="#{nabUgovorController.xnabKriterijumSelectionItems}" />
           </h:selectOneMenu>
           <h:outputLabel styleClass="fimesLabelLeft"
             value="#{nabUgovorController.module.messageSource.nabUgovoriJednicnaCena}" />
