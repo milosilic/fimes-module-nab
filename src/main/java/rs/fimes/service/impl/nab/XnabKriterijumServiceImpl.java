@@ -5,15 +5,15 @@ import java.util.List;
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
 import rs.etf.rc.common.service.impl.BaseServiceImpl;
-import rs.fimes.data.dao.api.nab.XnabKontoDAO;
-import rs.fimes.domain.nab.XnabKonto;
-import rs.fimes.service.api.nab.XnabKontoServiceApi;
+import rs.fimes.data.dao.api.nab.XnabKriterijumDAO;
+import rs.fimes.domain.nab.XnabKriterijum;
+import rs.fimes.service.api.nab.XnabKriterijumServiceApi;
 
 public class XnabKriterijumServiceImpl extends BaseServiceImpl
-        implements XnabKontoServiceApi {
+        implements XnabKriterijumServiceApi {
 
     private static final long serialVersionUID = -1293467406667274933L;
-    private XnabKontoDAO xnabKontoDAO; 
+    private XnabKriterijumDAO xnabKriterijumDAO; 
 
 
 
@@ -24,18 +24,18 @@ public class XnabKriterijumServiceImpl extends BaseServiceImpl
     }
 
     @Override
-    public List<XnabKonto> getAllKonto() {
+    public List<XnabKriterijum> getAllKriterijum() {
         
-        return xnabKontoDAO.getXnabKontoList();
+        return xnabKriterijumDAO.getXnabKriterijumList();
     }
 
-    public XnabKontoDAO getXnabKontoDAO() {
-        return xnabKontoDAO;
+    public XnabKriterijumDAO getXnabKriterijumDAO() {
+        return xnabKriterijumDAO;
     }
 
-    public void setXnabKontoDAO(
-            XnabKontoDAO xnabKontoDAO) {
-        this.xnabKontoDAO = xnabKontoDAO;
+    public void setXnabKriterijumDAO(
+            XnabKriterijumDAO xnabKriterijumDAO) {
+        this.xnabKriterijumDAO = xnabKriterijumDAO;
     }
     
 }
