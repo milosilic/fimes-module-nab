@@ -5,56 +5,58 @@
   xmlns:a4j="http://richfaces.org/a4j"
   xmlns:rich="http://richfaces.org/rich">
 
-  <!--    @id naziv modalnog panela ( bez ekstenzije .jspx) . example = id="nabNovaPlaniranaVrednostPoKontimaLovModalPanel" -->
-  <rich:modalPanel id="" minWidth="600" autosized="true"
+  <rich:modalPanel id="nabNabavkaLovModalPanel" minWidth="600" autosized="true"
     resizeable="false" moveable="true">
     <f:facet name="controls">
-      <!--     @onclick - stavi id dugmeta Odustani. njemu se prosledjuje akcija. Primer : 
-     onclick="#{rich:element('nabNovaPlaniranaVrednostPoKontimaLovModalPanelDugmeOdustani')}.click()"   -->
       <h:graphicImage value="#{coreWebController.iconClose16Path}"
         styleClass="fimesImageClose"
-        onclick="#{rich:element('')}.click()" />
+        onclick="#{rich:element('nabNabavkaLovModalPanelDugmeOdustani')}.click()" />
     </f:facet>
     <f:facet name="header">
-      <!--     @value - naziv header-a iz message.xml  value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaPlaniranaVrednostPoKontimaHeader}"-->
-      <h:outputText styleClass="fimesPanelHeader" value="" />
+      <h:outputText styleClass="fimesPanelHeader" value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabаvkaOrnHeader}" />
     </f:facet>
     <h:form id="formNabNovaPlaniranaVrednostPoKontima">
-      <rich:extendedDataTable height="427px" rows="15"
-        rowClasses="redAnimacija" id="tabelaNabKonto"
-        enableContextMenu="false"
-        noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}"
-        value="#{nabKontoSelectionController.xnabKontoExtendedDataTableModelApi}"
-        selection="#{nabKontoLovSelectionController.xnabKontoExtendedDataTableModelApi.selection}"
-        var="konto">
-<!--         @action   action="#{nabKontoLovSelectionController.handleSelection}"-->
-<!--         @reRender reRender="nabProcenjenaVrednostModalPanelDugmePotvrdi"-->
+      <rich:extendedDataTable height="200px" rowClasses="redAnimacija"
+        id="tabelaProcenaPoGodinama" enableContextMenu="false"
+        noDataLabel="#{nabUgovorController.module.messageSource.commonNoDataLabel}"
+        value="#{nabNabavkaSelectionController.nabJavnaNabavkaExtendedDataTableModelApi}"
+        var="nabavka">
           <a4j:support event="onselectionchange" ajaxSingle="true" status="waitStatus"
-            action=""
-            reRender="" />
-
+            action="#{nabNabavkaSelectionController.handleSelection}"
+            reRender="nabNabavkaLovModalPanelDugmePotvrdi" />
+        <rich:column id="kolona1" width="50%"
+          styleClass="fimesAlignLeft">
+          <f:facet name="header">
+            <h:outputText styleClass="headerText"
+              value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabаvkaOrn}" />
+          </f:facet>
+          <h:outputText value="#{nabavka.interniBroj}" />
+        </rich:column>
+        <rich:column id="kolona2" width="50%"
+          styleClass="fimesAlignLeft">
+          <f:facet name="header">
+            <h:outputText styleClass="headerText"
+              value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabаvkaOrnDopunski}" />
+          </f:facet>
+          <h:outputText value="#{nabavka.opis}" />
+        </rich:column>
       </rich:extendedDataTable>
       <h:panelGroup layout="block"
         styleClass="alignCenter fimesTopPadding">
-<!--  @binding stavlja se imeBinaLovSelectionController, a imeBina je ustvari naziv(tip) objekata iz tabele iznad nnpr:   binding="#{nabKontoLovSelectionController.dugme}"  -->
-<!-- @oncomplete            oncomplete="#{rich:component('nabNovaPlaniranaVrednostPoKontimaLovModalPanel')}.hide()"   -->
-<!-- @disabled empty imeBinaLovSelectionController.imeObjekta      disabled="#{empty nabKontoLovSelectionController.nabKonto} -->
-<!-- @focus    focus="#{nabKontoLovSelectionController.focusIdOK}"  -->
         <a4j:commandButton
-          id="nabProcenjenaVrednostModalPanelDugmePotvrdi"
+          id="nabNabavkaLovModalPanelDugmePotvrdi"
           styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"
-          binding=""
-          oncomplete="#{rich:component('')}.hide()"
-          disabled="#{empty }"
-          focus="#{nabKontoLovSelectionController.focusIdOK}" />
+          binding="#{nabNabavkaSelectionController.dugme}"
+          oncomplete="#{rich:component('nabNabavkaLovModalPanel')}.hide()"
+          disabled="#{empty nabNabavkaSelectionController.nabNabavka}"
+          focus="#{nabNabavkaSelectionController.focusIdOK}" />
         <rich:spacer width="5" />
-        <!--         @id isto kao i gore nabNovaPlaniranaVrednostPoKontimaLovModalPanelDugmeOdustani -->
-        <!-- @onclick u rich component se stavlja naziv modalnog prozora koji se gasi nabNovaPlaniranaVrednostPoKontimaLovModalPanel -->
-        <a4j:commandButton id=""
+        <a4j:commandButton
+          id="nabNabavkaLovModalPanelDugmeOdustani"
           styleClass="fimesButton fimesButtonImageCancel"
           ajaxSingle="true" action="#{nabNoviPlanController.resetForm}"
           value="#{nabNoviPlanController.module.messageSource.common_odustani}"
-          onclick="#{rich:component('')}.hide()" />
+          onclick="#{rich:component('nabNabavkaLovModalPanel')}.hide()" />
       </h:panelGroup>
 
     </h:form>
