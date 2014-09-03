@@ -21,7 +21,7 @@
         noDataLabel="#{nabNabavkaSelectionController.module.messageSource.commonNoDataLabel}"
         value="#{nabNabavkaSelectionController.nabJavnaNabavkaExtendedDataTableModelApi}"
         var="nabavka">
-          <a4j:support event="onselectionchange" ajaxSingle="true" status="waitStatus"
+          <a4j:support event="onRowClick" ajaxSingle="true" status="waitStatus"
             action="#{nabNabavkaSelectionController.handleSelection}"
             reRender="nabNabavkaLovModalPanelDugmePotvrdi" />
         <rich:column id="kolona1" width="50%"
@@ -49,7 +49,8 @@
           binding="#{nabNabavkaSelectionController.dugme}"
           oncomplete="#{rich:component('nabNabavkaLovModalPanel')}.hide()"
           disabled="#{empty nabNabavkaSelectionController.nabNabavka}"
-          focus="#{nabNabavkaSelectionController.focusIdOK}" />
+          focus="#{nabNabavkaSelectionController.focusIdOK}"
+          reRender="#{nabNabavkaSelectionController.setDugmeReRender}" />
         <rich:spacer width="5" />
         <a4j:commandButton
           id="nabNabavkaLovModalPanelDugmeOdustani"
