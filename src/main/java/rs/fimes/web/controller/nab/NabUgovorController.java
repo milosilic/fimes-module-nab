@@ -55,17 +55,16 @@ public class NabUgovorController extends BaseController{
     }
     
     public void initKriterijum(){
-        if ( null == xnabKriterijumSelectionItems ){
-            xnabKriterijumSelectionItems = new ArrayList<SelectItem>();
-            List<XnabKriterijum> xnabKriterijums = xnabKriterijumServiceApi.getAllKriterijum();
-            Iterator<XnabKriterijum> iterXnabKriterijum = xnabKriterijums.iterator();
-            while ( iterXnabKriterijum.hasNext()){
-                XnabKriterijum xnabKriterijum = (XnabKriterijum) iterXnabKriterijum.next();
-//                System.out.println( xnabKriterijum);
-                xnabKriterijumSelectionItems.add(new SelectItem( xnabKriterijum.getPrimaryKey(), String.valueOf( xnabKriterijum.getNaziv())));
-             }
+
+        xnabKriterijumSelectionItems = new ArrayList<SelectItem>();
+        List<XnabKriterijum> xnabKriterijums = xnabKriterijumServiceApi.getAllKriterijum();
+        Iterator<XnabKriterijum> iterXnabKriterijum = xnabKriterijums.iterator();
+        while ( iterXnabKriterijum.hasNext()){
+            XnabKriterijum xnabKriterijum = (XnabKriterijum) iterXnabKriterijum.next();
+            System.out.println( xnabKriterijum);
+            xnabKriterijumSelectionItems.add(new SelectItem( xnabKriterijum.getPrimaryKey(), String.valueOf( xnabKriterijum.getNaziv())));
+         }
             
-        }
 
     }
     
