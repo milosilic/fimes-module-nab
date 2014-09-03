@@ -33,7 +33,6 @@ public class NabUgovorController extends BaseController{
     // TODO implementirati  
     public void initNoviUgovor(){
         noviUgovor = new NabUgovor();
-        noviUgovor.setNabJavnaNabavka(new NabJavnaNabavka());
         
     }
     

@@ -6,7 +6,10 @@
   xmlns:rich="http://richfaces.org/rich">
 
   <rich:modalPanel id="nabNabavkaLovModalPanel" minWidth="800" autosized="true"
-    resizeable="false" moveable="true">
+    resizeable="false" moveable="true"
+    onbeforeshow="pushButtonIdStack('#{rich:clientId('nabNabavkaLovModalPanelDugmeOdustani')}');"
+    onhide="popButtonIdStack();">
+    
     <f:facet name="controls">
       <h:graphicImage value="#{coreWebController.iconClose16Path}"
         styleClass="fimesImageClose"
@@ -19,11 +22,12 @@
       id="tabelaNabNabavka" enableContextMenu="false"
       noDataLabel="#{nabNabavkaSelectionController.module.messageSource.commonNoDataLabel}"
       value="#{nabNabavkaSelectionController.nabJavnaNabavkaExtendedDataTableModelApi}"
-      selection="#{nabNabavkaSelectionController.nabJavnaNabavkaExtendedDataTableModelApi.selection}"
       var="nabavka">
-        <a4j:support event="onRowClick" ajaxSingle="true" status="waitStatus"
-          action="#{nabNabavkaSelectionController.handleSelection}"
-          reRender="nabNabavkaLovModalPanelDugmeOdaberi" />
+      <a4j:support event="onRowClick" 
+        immediate="true" status="waitStatus" reRender="nabNabavkaLovModalPanelDugmeOdaberi">
+        <f:setPropertyActionListener value="#{nabavka}"
+          target="#{nabNabavkaSelectionController.nabNabavka}" />
+      </a4j:support>
       <rich:column id="kolona1" width="50%"
         styleClass="fimesAlignLeft">
         <f:facet name="header">
@@ -49,7 +53,6 @@
         binding="#{nabNabavkaSelectionController.dugme}"
         oncomplete="#{rich:component('nabNabavkaLovModalPanel')}.hide()"
         disabled="#{empty nabNabavkaSelectionController.nabNabavka}"
-        focus="#{nabNabavkaSelectionController.focusIdOK}"
         reRender="#{nabNabavkaSelectionController.setDugmeReRender}" />
       <rich:spacer width="5" />
       <a4j:commandButton

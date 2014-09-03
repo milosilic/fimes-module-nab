@@ -120,13 +120,14 @@ public class NabNabavkaSelectionController extends
     
     // GETTERS AND SETTERS
     
+
     public NabJavnaNabavkaExtendedDataTableModelApi getNabJavnaNabavkaExtendedDataTableModelApi() {
         return nabJavnaNabavkaExtendedDataTableModelApi;
     }
 
     public void setNabJavnaNabavkaExtendedDataTableModelApi(
-            NabJavnaNabavkaExtendedDataTableModelApi nabNabavkaExtendedDataTableModelApi) {
-        this.nabJavnaNabavkaExtendedDataTableModelApi = nabNabavkaExtendedDataTableModelApi;
+            NabJavnaNabavkaExtendedDataTableModelApi nabJavnaNabavkaExtendedDataTableModelApi) {
+        this.nabJavnaNabavkaExtendedDataTableModelApi = nabJavnaNabavkaExtendedDataTableModelApi;
     }
 
     public NabJavnaNabavka getNabNabavka() {
