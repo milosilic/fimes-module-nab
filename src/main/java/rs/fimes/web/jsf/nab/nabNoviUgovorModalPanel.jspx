@@ -134,7 +134,7 @@
           value="#{nabUgovorController.module.messageSource.nabUgovoriDatumZakljucenja}" />
         <rich:calendar id="datumZakljucenjaPolje"
           inputClass="fimesInputDate"
-          value="#{nabUgovorController.noviUgovor.datumIzrade}"
+          value="#{nabUgovorController.noviUgovor.datumZakljucenja}"
           datePattern="dd.MM.yyyy." enableManualInput="true"
           label="#{nabUgovorController.module.messageSource.datumZakljucenja}"
           required="true">
