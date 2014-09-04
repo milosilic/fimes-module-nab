@@ -3,15 +3,15 @@ package rs.fimes.service.impl.nab;
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
 import rs.etf.rc.common.service.impl.BaseServiceImpl;
-import rs.fimes.data.dao.api.nab.NabProcenaPoGodiniDAO;
-import rs.fimes.domain.nab.NabProcenaPoGodini;
-import rs.fimes.service.api.nab.NabProcenaPoGodiniServiceApi;
+import rs.fimes.data.dao.api.nab.NabUgovorDAO;
+import rs.fimes.domain.nab.NabUgovor;
+import rs.fimes.service.api.nab.NabUgovorServiceApi;
 
 public class NabUgovorServiceImpl extends BaseServiceImpl
-implements NabProcenaPoGodiniServiceApi{
+implements NabUgovorServiceApi{
 
     private static final long serialVersionUID = -509698140590760044L;
-    private NabProcenaPoGodiniDAO nabProcenaPoGodiniDAO;
+    private NabUgovorDAO nabUgovorDAO;
     
     public NabUgovorServiceImpl(Module module, String serviceId)
             throws ConfigurationException {
@@ -20,23 +20,23 @@ implements NabProcenaPoGodiniServiceApi{
     }
 
     @Override
-    public void createNabProcenaPoGodini(NabProcenaPoGodini novaNabavka) {
-      nabProcenaPoGodiniDAO.merge(novaNabavka);
+    public void createNabUgovor(NabUgovor novaNabavka) {
+      nabUgovorDAO.merge(novaNabavka);
         
     }
 
-    public NabProcenaPoGodiniDAO getNabProcenaPoGodiniDAO() {
-        return nabProcenaPoGodiniDAO;
+    public NabUgovorDAO getNabUgovorDAO() {
+        return nabUgovorDAO;
     }
 
-    public void setNabProcenaPoGodiniDAO(NabProcenaPoGodiniDAO nabProcenaPoGodiniDAO) {
-        this.nabProcenaPoGodiniDAO = nabProcenaPoGodiniDAO;
+    public void setNabUgovorDAO(NabUgovorDAO nabUgovorDAO) {
+        this.nabUgovorDAO = nabUgovorDAO;
     }
 
     @Override
-    public void deleteProcenaPoGodini(NabProcenaPoGodini nabProcenaPoGodini) {
-        NabProcenaPoGodini procena = nabProcenaPoGodiniDAO.findById(nabProcenaPoGodini.getIdProcenaPoGodini(), false);
-        nabProcenaPoGodiniDAO.delete(procena);
+    public void deleteUgovor(NabUgovor nabUgovor) {
+        NabUgovor procena = nabUgovorDAO.findById(nabUgovor.getIdUgovor(), false);
+        nabUgovorDAO.delete(procena);
         
     }
 
