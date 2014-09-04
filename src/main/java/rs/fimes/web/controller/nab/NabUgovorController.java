@@ -12,6 +12,7 @@ import rs.fimes.domain.core.PpPoslovniPartner;
 import rs.fimes.domain.nab.NabJavnaNabavka;
 import rs.fimes.domain.nab.NabUgovor;
 import rs.fimes.domain.nab.XnabKriterijum;
+import rs.fimes.service.api.nab.NabUgovorServiceApi;
 import rs.fimes.service.api.nab.XnabKriterijumServiceApi;
 import rs.fimes.web.controller.BaseController;
 import rs.fimes.web.controller.pp.PpPoslovniPartnerSelectionController;
@@ -34,6 +35,8 @@ public class NabUgovorController extends BaseController{
     //03.09.2014.
     private XnabKriterijumServiceApi xnabKriterijumServiceApi;
     private ArrayList<SelectItem> xnabKriterijumSelectionItems;
+    //04.09.2014
+    private NabUgovorServiceApi nabUgovorServiceApi;
 
     
     public NabUgovorController(Module module, String controllerId)
@@ -54,7 +57,19 @@ public class NabUgovorController extends BaseController{
     
     
     public void snimiNabUgovor(){
-        
+        try {
+            nabUgovorServiceApi.createNabUgovor( noviUgovor);
+            populateModalOkPanelSnimanjeDefaultMessagesWithHeaderMessage(true,
+                    getMessage("nabUgovoriSnimanjeHeader"));
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            populateModalOkPanelSnimanjeDefaultMessagesWithHeaderMessage(false,
+                    getMessage("nabUgovoriSnimanjeHeader"));
+        }finally{
+            //resetSelection();
+        }
+
     }
     
     public void odustani(){
@@ -180,6 +195,14 @@ public class NabUgovorController extends BaseController{
     public void setXnabKriterijumSelectionItems(
             ArrayList<SelectItem> xnabKriterijumSelectionItems) {
         this.xnabKriterijumSelectionItems = xnabKriterijumSelectionItems;
+    }
+
+    public NabUgovorServiceApi getNabUgovorServiceApi() {
+        return nabUgovorServiceApi;
+    }
+
+    public void setNabUgovorServiceApi(NabUgovorServiceApi nabUgovorServiceApi) {
+        this.nabUgovorServiceApi = nabUgovorServiceApi;
     }
     
     

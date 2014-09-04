@@ -110,6 +110,7 @@
         <property name="ppPoslovniPartnerSelectionController" ref="ppPoslovniPartnerSelectionController" />
         <property name="nabNabavkaSelectionController" ref="nabNabavkaSelectionController" />
         <property name="xnabKriterijumServiceApi" ref="xnabKriterijumServiceApi" />
+        <property name="nabUgovorServiceApi" ref="nabUgovorServiceApi" />
     </bean>
     <bean id="nabNabavkaSelectionController"
         class="rs.fimes.web.controller.nab.NabNabavkaSelectionController"
