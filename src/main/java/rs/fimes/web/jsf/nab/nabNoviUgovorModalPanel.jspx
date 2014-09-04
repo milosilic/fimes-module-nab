@@ -130,6 +130,10 @@
 <!--         <rich:messages globalOnly="true" warnClass="validationAttention" -->
 <!--           errorClass="fimesValidErrMsg" /> -->
         <h:panelGrid columns="2">
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabUgovoriInterniBroj}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabUgovorController.noviUgovor.interniBroj}" />
         <h:outputLabel styleClass="fimesLabelLeft"
           value="#{nabUgovorController.module.messageSource.nabUgovoriDatumZakljucenja}" />
         <rich:calendar id="datumZakljucenjaPolje"
