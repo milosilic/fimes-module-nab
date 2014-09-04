@@ -28,7 +28,7 @@
                     <rich:spacer height="20px" />
                     <a4j:jsFunction name="pretragaNabUgovor"
                       ajaxSingle="true"
-                      action="#{nabUgovorController.planPretraga}"
+                      action="#{nabUgovorController.ugovorPretraga}"
                       reRender="tabelaNabUgovor">
                       <a4j:actionparam name="param1"
                         assignTo="#{nabUgovorController.interniBroj}" />

@@ -8,6 +8,8 @@ import javax.faces.model.SelectItem;
 
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
+import rs.fimes.data.dao.generic.QueryRestriction;
+import rs.fimes.data.dao.generic.QueryRestrictionComparison1;
 import rs.fimes.domain.core.PpPoslovniPartner;
 import rs.fimes.domain.nab.NabJavnaNabavka;
 import rs.fimes.domain.nab.NabUgovor;
@@ -93,6 +95,21 @@ public class NabUgovorController extends BaseController{
         if ( ( null != noviUgovor ) && ( null != noviUgovor.getPpPoslovniPartner())){
             noviUgovor.setPpPoslovniPartner(null);
         }
+    }
+    public void ugovorPretraga(){
+        List<QueryRestriction> parametri = new ArrayList<QueryRestriction>();
+        
+        if (interniBroj != null && !interniBroj.trim().isEmpty()) {
+            parametri.add(QueryRestrictionComparison1
+                    .addCirToAbcStringContains(
+                            "interniBroj",
+                            getStringUtil().transliterationCirToAbc(
+                                    interniBroj.trim().replaceAll("\\s+", " "))));
+        }
+        
+        nabUgovorExtendedDataTableModelApi.setParametri(parametri);
+        nabUgovorExtendedDataTableModelApi.clearSelection();
+
     }
     
     public void setPpPoslovniPartnerAction(){
