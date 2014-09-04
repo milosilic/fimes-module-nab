@@ -47,7 +47,6 @@ public class NabUgovorController extends BaseController{
         System.out.println("*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/");
     }
     
-    // TODO implementirati  
     public void initNoviUgovor(){
         noviUgovor = new NabUgovor();
         noviUgovor.setKriterijum(new XnabKriterijum());

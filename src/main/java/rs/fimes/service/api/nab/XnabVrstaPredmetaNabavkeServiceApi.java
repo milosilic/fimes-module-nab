@@ -9,4 +9,6 @@ public interface XnabVrstaPredmetaNabavkeServiceApi extends BaseServiceApi {
     
     List<XnabVrstaPredmetaNabavke> getAllVrstaPredmetaNabavke();
 
+    XnabVrstaPredmetaNabavke findById(int idVrstaPredmetaNabavke);
+
 }

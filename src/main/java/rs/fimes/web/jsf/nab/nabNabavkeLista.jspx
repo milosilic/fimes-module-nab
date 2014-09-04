@@ -27,6 +27,28 @@
                   <h:panelGrid columns="3"
                     styleClass="fimesTableCentered"
                     columnClasses="fimesAlignCenter">
+                    <h:outputText styleClass="fimesLabelUp"
+                      value="#{nabNabavkaController.module.messageSource.nabNabavkaListaVrstaPredmeta}" />
+                    <h:outputText styleClass="fimesLabelUp"
+                      value="#{nabNabavkaController.module.messageSource.nabNabavkaListaVrstaPostupka}" />
+                    <rich:spacer />
+                    <h:selectOneMenu
+                      styleClass="fimesInputDropDown maxWidth"
+                      value="#{nabNabavkaController.idVrstaPredmetaNabavke}">
+                      <f:selectItems
+                        value="#{nabNabavkaController.xnabVrstaPredmetaNabavkeSelectionItems}" />
+                    </h:selectOneMenu>
+                    <h:selectOneMenu
+                      styleClass="fimesInputDropDown maxWidth"
+                      value="#{nabNabavkaController.idVrstaPostupka}">
+                      <f:selectItems
+                        value="#{nabNabavkaController.xnabVrstaPostupkaSelectionItems}" />
+                    </h:selectOneMenu>
+
+                    <a4j:commandButton styleClass="fimesButton"
+                      value="#{nabNabavkaController.module.messageSource.common_pretrazi}"
+                      action="#{nabNabavkaController.pretraga}"
+                      reRender="p1" />
                   </h:panelGrid>
                 </h:panelGrid>
                 <rich:spacer height="20px" />
@@ -34,7 +56,7 @@
                   <rich:extendedDataTable height="318px"
                     rowClasses="redAnimacija" id="tabelaNabavkeLista"
                     enableContextMenu="false"
-                    noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}"
+                    noDataLabel="#{nabNabavkaController.module.messageSource.commonNoDataLabel}"
                     value="#{nabPlanController.nabJavnaNabavkaExtendedDataTableModelApi}"
                      selection="#{nabNabavkaController.nabJavnaNabavkaExtendedDataTableModelApi.selection}"
                     var="nabavka">
@@ -124,7 +146,7 @@
                       <h:panelGroup layout="block"
                         styleClass="fimesAlignLeft">
                         <h:outputText
-                          value="#{objEvidencijaObjekataController.module.messageSource.commonUkupno}" />
+                          value="#{nabNabavkaController.module.messageSource.commonUkupno}" />
                         <h:outputText
                           value="#{nabPlanController.nabJavnaNabavkaExtendedDataTableModelApi.ukupnoRedova}">
                           <f:convertNumber pattern="#,###"

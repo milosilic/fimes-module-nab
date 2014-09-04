@@ -1,11 +1,23 @@
 package rs.fimes.web.controller.nab;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.faces.model.SelectItem;
+
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
+import rs.fimes.data.dao.generic.QueryRestriction;
+import rs.fimes.data.dao.generic.QueryRestrictionComparison1;
+import rs.fimes.data.domain.obj.XobjTipObjekta;
 import rs.fimes.domain.core.OrgFirma;
 import rs.fimes.domain.nab.NabJavnaNabavka;
 import rs.fimes.domain.nab.NabPlan;
+import rs.fimes.domain.nab.XnabVrstaPostupka;
+import rs.fimes.domain.nab.XnabVrstaPredmetaNabavke;
 import rs.fimes.service.api.nab.NabNaruciociServiceApi;
+import rs.fimes.service.api.nab.XnabVrstaPostupkaServiceApi;
+import rs.fimes.service.api.nab.XnabVrstaPredmetaNabavkeServiceApi;
 import rs.fimes.web.controller.BaseController;
 import rs.fimes.web.datamodel.api.nab.NabJavnaNabavkaExtendedDataTableModelApi;
 
@@ -27,7 +39,16 @@ public class NabNabavkaController extends BaseController{
     
     //31.07.2014.
     private NabPlan nabPlan;
-
+    
+    //04.09.2014.
+    private int idVrstaPredmetaNabavke; 
+    private int idVrstaPostupka;
+    //ova 4 su prekopirana iz NabNovaNabavkaController-a - prekršen DRY princip
+    private ArrayList<SelectItem> xnabVrstaPredmetaNabavkeSelectionItems;
+    private ArrayList<SelectItem> xnabVrstaPostupkaSelectionItems;
+    private XnabVrstaPredmetaNabavkeServiceApi xnabVrstaPredmetaNabavkeServiceApi;
+    private XnabVrstaPostupkaServiceApi xnabVrstaPostupkaServiceApi; 
+    
     public NabNabavkaController(Module module, String controllerId)
             throws ConfigurationException {
         super(module, controllerId);
@@ -35,15 +56,33 @@ public class NabNabavkaController extends BaseController{
     
     public void onStart() {
        
-        System.out.println( ":::Ukenjao sam se od srece " + System.currentTimeMillis()+ " NabNabavkaController");
+        System.out.println( ":::Sreca " + System.currentTimeMillis()+ " NabNabavkaController");
         if ( orgFirma == null ) {
           setOrgFirma(nabNaruciociServiceApi.getActiveOrgFirma(getUserSessionUtil().getCurrentUserCurrentOrgFirma().getIdFirma()));
         }
         
         nabJavnaNabavkaExtendedDataTableModelApi.helperWalkByRequest();
         nabNovaNabavkaController.onStart();
+        xnabVrstaPredmetaNabavkeSelectionItems = nabNovaNabavkaController.getXnabVrstaPredmetaNabavkeSelectionItems();
+        xnabVrstaPostupkaSelectionItems = nabNovaNabavkaController.getXnabVrstaPostupkaSelectionItems();
 //        orgFirma = (OrgFirma) getUserSessionUtil().getCurrentUserCurrentOrgFirma();
      
+    }
+    
+    public void pretraga(){
+        List<QueryRestriction> parametri = new ArrayList<QueryRestriction>();
+                
+        if (idVrstaPredmetaNabavke != 0) {
+            XnabVrstaPredmetaNabavke xnabVrstaPredmetaNabavke = xnabVrstaPredmetaNabavkeServiceApi
+                    .findById(idVrstaPredmetaNabavke);
+            parametri.add(QueryRestrictionComparison1.addIsEqual(
+                    "vrstaPredmetaNabavke", xnabVrstaPredmetaNabavke));
+        }
+
+        nabJavnaNabavkaExtendedDataTableModelApi.setParametri(parametri);
+        //nabJavnaNabavkaExtendedDataTableModelApi.setSortField("vrstaPredmetaNabavke.naziv,naziv");
+        resetSelection();
+
     }
     
     public void handleSelection(){
@@ -120,6 +159,58 @@ public class NabNabavkaController extends BaseController{
 
     public void setNabPlan(NabPlan nabPlan) {
         this.nabPlan = nabPlan;
+    }
+
+    public int getIdVrstaPredmetaNabavke() {
+        return idVrstaPredmetaNabavke;
+    }
+
+    public void setIdVrstaPredmetaNabavke(int idVrstaPredmetaNabavke) {
+        this.idVrstaPredmetaNabavke = idVrstaPredmetaNabavke;
+    }
+
+    public int getIdVrstaPostupka() {
+        return idVrstaPostupka;
+    }
+
+    public void setIdVrstaPostupka(int idVrstaPostupka) {
+        this.idVrstaPostupka = idVrstaPostupka;
+    }
+
+    public ArrayList<SelectItem> getXnabVrstaPredmetaNabavkeSelectionItems() {
+        return xnabVrstaPredmetaNabavkeSelectionItems;
+    }
+
+    public void setXnabVrstaPredmetaNabavkeSelectionItems(
+            ArrayList<SelectItem> xnabVrstaPredmetaNabavkeSelectionItems) {
+        this.xnabVrstaPredmetaNabavkeSelectionItems = xnabVrstaPredmetaNabavkeSelectionItems;
+    }
+
+    public ArrayList<SelectItem> getXnabVrstaPostupkaSelectionItems() {
+        return xnabVrstaPostupkaSelectionItems;
+    }
+
+    public void setXnabVrstaPostupkaSelectionItems(
+            ArrayList<SelectItem> xnabVrstaPostupkaSelectionItems) {
+        this.xnabVrstaPostupkaSelectionItems = xnabVrstaPostupkaSelectionItems;
+    }
+
+    public XnabVrstaPredmetaNabavkeServiceApi getXnabVrstaPredmetaNabavkeServiceApi() {
+        return xnabVrstaPredmetaNabavkeServiceApi;
+    }
+
+    public void setXnabVrstaPredmetaNabavkeServiceApi(
+            XnabVrstaPredmetaNabavkeServiceApi xnabVrstaPredmetaNabavkeServiceApi) {
+        this.xnabVrstaPredmetaNabavkeServiceApi = xnabVrstaPredmetaNabavkeServiceApi;
+    }
+
+    public XnabVrstaPostupkaServiceApi getXnabVrstaPostupkaServiceApi() {
+        return xnabVrstaPostupkaServiceApi;
+    }
+
+    public void setXnabVrstaPostupkaServiceApi(
+            XnabVrstaPostupkaServiceApi xnabVrstaPostupkaServiceApi) {
+        this.xnabVrstaPostupkaServiceApi = xnabVrstaPostupkaServiceApi;
     }
 
     

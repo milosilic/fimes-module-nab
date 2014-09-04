@@ -14,7 +14,11 @@ public class XnabVrstaPredmetaNabavkeServiceImpl extends BaseServiceImpl
 
     private static final long serialVersionUID = -1293467406667274933L;
     private XnabVrstaPredmetaNabavkeDAO xnabVrstaPredmetaNabavkeDAO; 
+    @Override
+    public XnabVrstaPredmetaNabavke findById(int idVrstaPredmetaNabavke) {
 
+        return xnabVrstaPredmetaNabavkeDAO.findById(new Integer(idVrstaPredmetaNabavke), false);
+    }
 
 
     public XnabVrstaPredmetaNabavkeServiceImpl(Module module, String serviceId)
@@ -37,5 +41,6 @@ public class XnabVrstaPredmetaNabavkeServiceImpl extends BaseServiceImpl
             XnabVrstaPredmetaNabavkeDAO xnabVrstaPredmetaNabavkeDAO) {
         this.xnabVrstaPredmetaNabavkeDAO = xnabVrstaPredmetaNabavkeDAO;
     }
+
     
 }
