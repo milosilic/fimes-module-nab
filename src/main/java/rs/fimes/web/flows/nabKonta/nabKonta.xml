@@ -16,7 +16,7 @@
     view="/rs/fimes/web/jsf/nab/nabKonta.jspx">
 
 <!--     proveriti -->
-    <transition on="meni" to="nabKonta" />
+<!--     <transition on="meni" to="nabKonta" /> -->
 
   </view-state>
 </flow>

@@ -22,11 +22,7 @@
             </h:panelGrid>
             <a4j:region>
               <h:panelGroup id="kartonBody" styleClass="fimesZrdBody">
-                <h:outputLabel styleClass="fimesLabelLeft"
-                  value="Naziv naručioca" />
                 <h:panelGroup layout="block" styleClass="maxWidth">
-                  <h:outputLabel styleClass="fimesLabelLeft"
-                    value="#{nabNaruciociController.module.messageSource.nabNaruciociNaziv}" />
                   <rich:layout>
                     <rich:layoutPanel position="top">
                       <h:panelGrid id="tabelaObjObjekat"
@@ -130,6 +126,17 @@
                             title="title?" readonly="true" />
                         </h:panelGrid>
                       </h:panelGrid>
+                      <h:panelGrid columns="2" width="100%"
+                        columnClasses="fimesTable2ColumnFieldWidthEqual,fimesTable2ColumnLabelWidthEqual">
+                        <a4j:commandButton styleClass="fimesButton"
+                          immediate="true"
+                          value="#{nabNaruciociController.module.messageSource.common_izvestaj}" />
+
+                        <h:commandButton styleClass="fimesButton"
+                          action="meni" immediate="true"
+                          value="#{nabNaruciociController.module.messageSource.common_izlaz}" />
+                      </h:panelGrid>
+
                     </rich:layoutPanel>
                   </rich:layout>
                 </h:panelGroup>

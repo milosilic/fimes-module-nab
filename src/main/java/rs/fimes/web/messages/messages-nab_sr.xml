@@ -44,6 +44,7 @@
 <entry key="nabNabavkaAzuriranjeNabavkeHeader">Ажурирање набавке</entry>
 <!--Konta -->
 <entry key="nabKontaSpisakKontaHeader">Списак конта</entry>
+<entry key="nabKontaNoviKonto">Нови контo</entry>
 
 <!--Nabavka -->
 <entry key="nabNabavkaNovaNabavkaHeader">Нова набавка</entry>

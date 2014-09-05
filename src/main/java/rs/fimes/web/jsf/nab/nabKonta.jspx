@@ -91,6 +91,16 @@
                   </f:facet>
                     </rich:extendedDataTable>
                   </h:panelGroup>
+                  <h:panelGrid columns="2" width="100%"
+                    columnClasses="fimesTable2ColumnFieldWidthEqual,fimesTable2ColumnLabelWidthEqual">
+                    <h:commandButton styleClass="fimesButton"
+                      action="meni" immediate="true"
+                      value="#{nabKontoSelectionController.module.messageSource.nabKontaNoviKonto}" />
+                    <h:commandButton styleClass="fimesButton"
+                      action="meni" immediate="true"
+                      value="#{nabKontoSelectionController.module.messageSource.common_izlaz}" />
+                  </h:panelGrid>
+
                 </rich:layoutPanel>
               </rich:layout>
             </a4j:region>
