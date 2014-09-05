@@ -39,7 +39,7 @@
               action="#{nabNovaNabavkaController.obrisiNabavkaJrn}"
               oncomplete="#{rich:component('coreModalDaNeDijalog')}.hide();#{rich:component('coreOkModalPanel')}.show();"
               reRender="coreOkModalPanel,tabelaNabavkaJrnExtended" />
-            <h:panelGroup id="nabavkaBody" styleClass="fimesZrdBody" style="height: 400px">
+            <h:panelGroup id="nabavkaBody" styleClass="fimesZrdBody" style="height: 300px">
               <h:panelGrid id="tabelaObjObjekat"
                 styleClass="objKartonTab" columns="2" width="100%"
                 columnClasses="fimesTable2ColumnWidthEqual,fimesTable2ColumnWidthEqual"
