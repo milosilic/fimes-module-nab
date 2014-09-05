@@ -181,6 +181,7 @@
                       action="nabavkaDetaljno"
                       value="Детаљно"
                       disabled="#{empty nabNabavkaController.izabranaNabavka}"
+                      status="waitStatus"
                       />
                     <rich:spacer width="5px" />
                     <a4j:commandButton styleClass="fimesButton"

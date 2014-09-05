@@ -111,7 +111,7 @@
                       styleClass="fimesAlignRight">
                       <a4j:commandButton id="nabPlanDugmeKopiraj"
                         styleClass="fimesButton objDugmeUFuteruTabele"
-                        status="statusWait"
+                        status="waitStatus"
                         value="#{nabPlanController.module.messageSource.nabPlanoviKopiranjePlana}"
                         action="#{nabPlanController.noviPlan}"
                         oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
@@ -123,7 +123,7 @@
                       <rich:spacer width="10px"/>
                       <a4j:commandButton id="nabPlanDugmeAzuriraj"
                         styleClass="fimesButton objDugmeUFuteruTabele"
-                        status="statusWait"
+                        status="waitStatus"
                         value="#{nabPlanController.module.messageSource.nabPlanoviAzuriranjePlana}"
                         oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
                         disabled="#{empty nabPlanController.nabPlanSelected}" 
@@ -132,6 +132,7 @@
                       <a4j:commandButton id="nabPlanoviNoviPlan" ajaxSingle="true" status="waitStatus"
                         value="#{nabPlanController.module.messageSource.nabPlanoviNoviPlan}"
                         styleClass="fimesButton"
+                        status="waitStatus"
                         action="#{nabNoviPlanController.initNoviPlan}"
                         oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
                         reRender="nabNoviPlanModalPanel">
@@ -141,7 +142,7 @@
                       <rich:spacer width="10px"/>
                       <a4j:commandButton id="nabPlanDugmeDetaljno"
                         styleClass="fimesButton objDugmeUFuteruTabele"
-                        status="statusWait"
+                        status="waitStatus"
                         value="#{nabPlanController.module.messageSource.nabPlanoviSpisakNabavki}"
                         action="nabavkeLista"
                         disabled="#{empty nabPlanController.nabPlanSelected}" />
