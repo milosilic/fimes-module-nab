@@ -71,7 +71,11 @@
                           <h:outputText styleClass="headerText"
                             value="#{nabUgovorController.module.messageSource.nabUgovoriDatumZakljucenja}" />
                         </f:facet>
-                        <h:outputText value="#{ugovor.datumZakljucenja}"></h:outputText>
+                        <h:outputText value="#{ugovor.datumZakljucenja}">
+                          <f:convertDateTime
+                            pattern="#{nabPlanController.module.application.dateFormatMask}"
+                            timeZone="#{nabPlanController.module.application.defaultTimeZoneString}" />
+                        </h:outputText>
                       </rich:column>
                       <rich:column id="datumIzradePlanTab" width="20%"
                         styleClass="fimesAlignLeft">
