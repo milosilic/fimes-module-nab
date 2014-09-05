@@ -110,7 +110,7 @@
                       styleClass="fimesAlignLeft">
                       <f:facet name="header">
                         <h:outputText styleClass="headerText"
-                          value="#{nabNabavkaController.module.messageSource.nabNabavkaListaMesec}" />
+                          value="#{nabNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecPokretanja}" />
                       </f:facet>
                       <h:outputText
                         value="#{nabavka.mesecPokretanja}" />
@@ -119,7 +119,7 @@
                       styleClass="fimesAlignLeft">
                       <f:facet name="header">
                         <h:outputText styleClass="headerText"
-                          value="#{nabNabavkaController.module.messageSource.nabNabavkaListaGodina}" />
+                          value="#{nabNabavkaController.module.messageSource.nabNabavkaNovaNabavkaGodinaPokretanja}" />
                       </f:facet>
                       <h:outputText
                         value="#{nabavka.godinaPokretanja}" />
