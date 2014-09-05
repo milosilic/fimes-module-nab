@@ -129,7 +129,7 @@
                         disabled="#{empty nabPlanController.nabPlanSelected}" 
                         reRender="nabNoviPlanModalPanel"/>
                       <rich:spacer width="10px"/>
-                      <a4j:commandButton id="nabPlanoviNoviPlan" ajaxSingle="true" status="waitStatus"
+                      <a4j:commandButton id="nabPlanoviNoviPlan" ajaxSingle="true" 
                         value="#{nabPlanController.module.messageSource.nabPlanoviNoviPlan}"
                         styleClass="fimesButton"
                         status="waitStatus"
