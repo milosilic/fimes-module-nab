@@ -91,20 +91,24 @@
             <h:inputText styleClass="fimesInputText maxWidth"
               value="#{nabNovaNabavkaController.novaNabavka.napomena}" />
           </h:panelGrid>
-          <h:panelGrid columns="2"
+          <h:panelGrid columns="1"
             styleClass="fimesInputGroup fimesTableCentered maxWidth"
             columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField"
-            cellspacing="10px">
+            cellspacing="2">
+            <h:panelGrid columns="2" styleClass="alignCenter"
+              width="100%">
             <h:outputLabel styleClass="fimesLabelLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaStatusNabavke}" />
-            <h:panelGrid columns="1" styleClass="alignCenter"
-              width="100%">
               <h:selectOneMenu id="selectOneXnabStatusNabavke"
                 tabindex="1" style="width: 200px;"
                 styleClass="fimesInputDropDown"
                 value="#{nabNovaNabavkaController.novaNabavka.statusNabavke.idStatusNabavke}">
                 <f:selectItems
                   value="#{nabNovaNabavkaController.xnabStatusNabavkeSelectionItems}" />
+                <a4j:support event="onchange" status="waitStatus"
+                  ajaxSingle="true"
+                  action="#{nabNovaNabavkaController.statusNabavkeOnChange}"
+                  reRender="ektor" />
               </h:selectOneMenu>
             </h:panelGrid>
             <h:panelGrid columns="4" styleClass="alignCenter"
@@ -134,25 +138,12 @@
               <h:inputText styleClass="fimesInputText maxWidth"
                 value="#{nabNovaNabavkaController.novaNabavka.godinaIzvrsenja}" />
             </h:panelGrid>
-            <h:panelGrid columns="2">
-              <h:outputLabel styleClass="fimesLabelLeft"
-                value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabаvkaOrn}" />
-              <h:inputText styleClass="fimesInputText maxWidth" />
-              <a4j:commandButton id="nabNovaNabavkaOrnDugmeLov"
-                ajaxSingle="true" tabindex="3"
-                action="#{nabNovaNabavkaController.actionInitSffPoslovniZiroRacunLov}"
-                oncomplete="#{rich:component('nabNoviJrnModalPanel')}.show()"
-                reRender="nabNoviJrnModalPanel"
-                styleClass="fimesButtonImageLov"
-                title="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
-
-            </h:panelGrid>
             <h:panelGrid columns="2" styleClass="alignCenter"
               width="100%">
               <h:outputLabel styleClass="fimesLabelLeft"
                 value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
               <h:selectOneMenu id="selectOneXnabTipPredmeta"
-                tabindex="1" style="width: 200px;"
+                tabindex="1" 
                 styleClass="fimesInputDropDown"
                 value="#{nabNovaNabavkaController.novaNabavka.tipNabavke.idTipNabavke}">
                 <f:selectItems

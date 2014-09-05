@@ -75,7 +75,6 @@ public class NabWebController extends BaseWebController {
     
     public String getNabNoviJrnModalPanelView(){
         try {
-            System.out.println("ČČČČČČČČČČČČČČČČČČČČČČČČČČČČČČ");
             return getNavigationUtil().getView("nabNoviJrnModalPanel");
         } catch (CommonWebException e) {
           

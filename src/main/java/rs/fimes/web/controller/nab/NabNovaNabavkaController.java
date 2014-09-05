@@ -295,6 +295,10 @@ public class NabNovaNabavkaController extends BaseController{
             resetSelection();
         }
     }
+    
+    public void statusNabavkeOnChange(){
+        System.out.println("WWWWWWWWWWWWWWWWWWWWWWEEEEEEEEEEEEEEEEEEEEHHHHHHO");
+    }
    
 
     public NabPlanServiceApi getNabPlanServiceApi() {

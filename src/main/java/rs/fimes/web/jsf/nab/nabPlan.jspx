@@ -80,7 +80,11 @@
                           <h:outputText styleClass="headerText"
                             value="#{nabPlanController.module.messageSource.nabPlanoviDatumIzrade}" />
                         </f:facet>
-                        <h:outputText value="#{plan.datumIzrade}"></h:outputText>
+                        <h:outputText value="#{plan.datumIzrade}">
+                          <f:convertDateTime
+                            pattern="#{nabPlanController.module.application.dateFormatMask}"
+                            timeZone="#{nabPlanController.module.application.defaultTimeZoneString}" />
+                        </h:outputText>
                       </rich:column>
                       <rich:column id="brojPlanaPlanTab" width="20%"
                         styleClass="fimesAlignLeft">
