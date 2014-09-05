@@ -100,7 +100,11 @@
                           <h:outputText styleClass="headerText"
                             value="#{nabPlanController.module.messageSource.nabPlanoviDatumUsvajanja}" />
                         </f:facet>
-                        <h:outputText value="#{plan.datumUsvajanja}"></h:outputText>
+                        <h:outputText value="#{plan.datumUsvajanja}">
+                          <f:convertDateTime
+                            pattern="#{nabPlanController.module.application.dateFormatMask}"
+                            timeZone="#{nabPlanController.module.application.defaultTimeZoneString}" />
+                        </h:outputText>
                       </rich:column>
                     </rich:extendedDataTable>
                     <h:panelGroup layout="block"
