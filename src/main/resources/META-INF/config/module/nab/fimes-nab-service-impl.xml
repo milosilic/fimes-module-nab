@@ -17,6 +17,7 @@
     <constructor-arg index="1" value="nabPlanServiceApi" type="java.lang.String"/>
 <!--     <property name="orgFirmaDAO" ref="orgFirmaDAO"></property> -->
     <property name="nabPlanDAO" ref="nabPlanDAO"></property>
+    <property name="nabJavnaNabavkaDAO" ref="nabJavnaNabavkaDAO"></property>
   </bean>
   <bean id="nabJavnaNabavkaServiceApi" class="rs.fimes.service.impl.nab.NabJavnaNabavkaServiceImpl" parent="nabBaseService" lazy-init="true">
     <constructor-arg index="1" value="nabJavnaNabavkaServiceApi" type="java.lang.String"/>

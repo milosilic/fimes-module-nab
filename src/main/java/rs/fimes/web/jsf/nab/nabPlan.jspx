@@ -34,7 +34,7 @@
                         assignTo="#{nabPlanController.godina}" />
                     </a4j:jsFunction>
                     <a4j:jsFunction name="nabPlanBrisanje"
-                      action="#{nabPlanController.obrisiProcenu}"
+                      action="#{nabPlanController.obrisiPlan}"
                       oncomplete="#{rich:component('coreModalDaNeDijalog')}.hide();#{rich:component('coreOkModalPanel')}.show();"
                       reRender="coreOkModalPanel,tabelaNabPlan" />
                     <rich:extendedDataTable height="318px"

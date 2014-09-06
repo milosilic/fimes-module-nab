@@ -8,13 +8,17 @@ import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
 import rs.etf.rc.common.service.impl.BaseServiceImpl;
 import rs.etf.rc.common.utils.StringUtil;
+import rs.fimes.data.dao.api.nab.NabJavnaNabavkaDAO;
 import rs.fimes.data.dao.api.nab.NabPlanDAO;
+import rs.fimes.domain.nab.NabJavnaNabavka;
 import rs.fimes.domain.nab.NabPlan;
 import rs.fimes.service.api.nab.NabPlanServiceApi;
+import rs.fimes.service.exception.FimesServiceException;
 
 public class NabPlanServiceImpl extends BaseServiceImpl implements NabPlanServiceApi {
     
     private NabPlanDAO nabPlanDAO;
+    private NabJavnaNabavkaDAO nabJavnaNabavkaDAO;
 
     public NabPlanServiceImpl(Module module, String serviceId)
             throws ConfigurationException {
@@ -26,11 +30,17 @@ public class NabPlanServiceImpl extends BaseServiceImpl implements NabPlanServic
 
     @Override
     public NabPlan createNabPlan(NabPlan noviPlan) {
-       System.out.println(noviPlan);
    
         return nabPlanDAO.merge(noviPlan);
     }
 
+    public void deleteNabPlan(NabPlan nabPlanSelected) throws FimesServiceException {
+        if(nabJavnaNabavkaDAO.countNabNabavkiIzPlana( nabPlanSelected )>0){
+            throw new FimesServiceException();
+        }
+        
+    }
+    
     public NabPlanDAO getNabPlanDAO() {
         return nabPlanDAO;
     }
@@ -39,5 +49,12 @@ public class NabPlanServiceImpl extends BaseServiceImpl implements NabPlanServic
         this.nabPlanDAO = nabPlanDao;
     }
 
+    public NabJavnaNabavkaDAO getNabJavnaNabavkaDAO() {
+        return nabJavnaNabavkaDAO;
+    }
+
+    public void setNabJavnaNabavkaDAO(NabJavnaNabavkaDAO nabJavnaNabavkaDAO) {
+        this.nabJavnaNabavkaDAO = nabJavnaNabavkaDAO;
+    }
   
 }

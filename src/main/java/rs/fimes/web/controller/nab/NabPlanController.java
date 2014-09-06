@@ -13,6 +13,7 @@ import rs.fimes.domain.core.OrgFirma;
 import rs.fimes.domain.nab.NabPlan;
 import rs.fimes.service.api.nab.NabNaruciociServiceApi;
 import rs.fimes.service.api.nab.NabPlanServiceApi;
+import rs.fimes.service.exception.FimesServiceException;
 import rs.fimes.web.controller.BaseController;
 import rs.fimes.web.datamodel.api.nab.NabJavnaNabavkaExtendedDataTableModelApi;
 import rs.fimes.web.datamodel.api.nab.NabPlanExtendedDataTableModelApi;
@@ -63,7 +64,13 @@ public class NabPlanController extends BaseController{
     }
     
     public void obrisiPlan(){
-        
+        if ( null != nabPlanSelected ){
+            try {
+                nabPlanServiceApi.deleteNabPlan( nabPlanSelected);
+            } catch (FimesServiceException e) {
+                System.out.println( "EEVOOOOOOOOOOOO");e.printStackTrace();
+            }
+        }
     }
 
     public void onStart() {
