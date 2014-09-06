@@ -110,7 +110,7 @@
                         </f:facet>
                         <h:outputText value="#{plan.brojPlana}"></h:outputText>
                       </rich:column>
-                      <rich:column id="datumUsvajanjaPlanTab" width="15%"
+                      <rich:column id="datumUsvajanjaPlanTab" width="10%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
                           <h:outputText styleClass="headerText"
@@ -159,7 +159,6 @@
                       <a4j:commandButton id="nabPlanDugmeKopiraj"
                         styleClass="fimesButton objDugmeUFuteruTabele"
                         status="waitStatus"
-                        value="#{nabPlanController.module.messageSource.nabPlanoviKopiranjePlana}"
                         action="#{nabPlanController.noviPlan}"
                         oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
                         disabled="#{empty nabPlanController.nabPlanSelected}" 
@@ -171,7 +170,6 @@
                       <a4j:commandButton id="nabPlanDugmeAzuriraj"
                         styleClass="fimesButton objDugmeUFuteruTabele"
                         status="waitStatus"
-                        value="#{nabPlanController.module.messageSource.nabPlanoviAzuriranjePlana}"
                         oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
                         disabled="#{empty nabPlanController.nabPlanSelected}" 
                         reRender="nabNoviPlanModalPanel"/>
