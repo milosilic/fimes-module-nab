@@ -55,7 +55,7 @@
                           action="#{nabPlanController.initModalDialogBrisanje}"
                           oncomplete="if(#{empty facesContext.maximumSeverity}){ #{rich:component('coreModalDaNeDijalog')}.show();}
                                     else #{rich:component('coreErrorModalPanel')}.show();"
-                          styleClass="fimesButtonImageAdd"
+                          styleClass="fimesButtonImageCross"
                           reRender="coreModalDaNeDijalog,coreErrorModalPanel">
                         </a4j:commandButton>
                       </rich:column>
@@ -123,7 +123,7 @@
                           <h:panelGroup>
                             <a4j:commandButton id="nabPlanoviNoviPlan" ajaxSingle="true" 
                               value="#{nabPlanController.module.messageSource.nabPlanoviNoviPlan}"
-                              styleClass="fimesButton"
+                              styleClass="fimesButtonImageCross"
                               status="waitStatus"
                               action="#{nabNoviPlanController.initNoviPlan}"
                               oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
