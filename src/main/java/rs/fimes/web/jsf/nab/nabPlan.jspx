@@ -110,7 +110,7 @@
                         </f:facet>
                         <h:outputText value="#{plan.brojPlana}"></h:outputText>
                       </rich:column>
-                      <rich:column id="datumUsvajanjaPlanTab" width="20%"
+                      <rich:column id="datumUsvajanjaPlanTab" width="15%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
                           <h:outputText styleClass="headerText"
@@ -141,20 +141,16 @@
                               direction="bottom-left" />
                           </h:panelGroup>
                         </f:facet>
-                        <a4j:commandButton
-                          id="tabelaNabVrednostPoKontimaAzuriranje"
-                          ajaxSingle="true"
-                          styleClass="fimesButtonImageEdit"
-                          action="#{nabNovaNabavkaController.actionInitProcenaPoGodiniAzur}"
-                          oncomplete="#{rich:component('nabProcenjenaVrednostUnosModalPanel')}.show();"
-                          reRender="nabProcenjenaVrednostUnosModalPanel">
-<!-- Ovo se stalno forsira, ali se uvek kliknuti objekat može dohvatiti iz extended... -->
-                           <f:setPropertyActionListener value="#{procena}" 
-                             target="#{nabNovaNabavkaController.novaProcenjenaVrednost}" /> 
-                        </a4j:commandButton>
-                        <rich:toolTip for="tabelaNabVrednostPoKontimaAzuriranje"
+                      <a4j:commandButton id="nabPlanDugmeAzuriraj"
+                        styleClass="fimesButtonImageEdit"
+                        status="waitStatus"
+                        value="#{nabPlanController.module.messageSource.nabPlanoviAzuriranjePlana}"
+                        oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
+                        disabled="#{empty nabPlanController.nabPlanSelected}" 
+                        reRender="nabNoviPlanModalPanel"/>
+                        <rich:toolTip for="nabPlanDugmeAzuriraj"
                           styleClass="tooltipRichEdit"
-                          value="#{nabNovaNabavkaController.module.messageSource.nabTooltipProcenaPoGodiniAzuriraj}"
+                          value="#{nabPlanController.module.messageSource.nabTooltipPlanAzuriraj}"
                           direction="top-left" />
                       </rich:column>
                     </rich:extendedDataTable>
