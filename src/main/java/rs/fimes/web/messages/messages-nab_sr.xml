@@ -22,6 +22,7 @@
 <entry key="nabPlanoviZaGodinu">За годину</entry>
 <entry key="nabPlanoviNazivPlana">Назив плана</entry>
 <entry key="nabPlanoviPlanBrisanjeHeader">Брисање плана</entry>
+<entry key="nabPlanoviPlanBrisanjeImaNabavki">Не можете обрисати план који садржи набавку</entry>
 <entry key="nabPlanBrisanjePitanje">Да ли сигурно желите да обришете план?</entry>
 <entry key="nabPlanoviNaruciocaHeader">Планови наручиоца</entry>
 <entry key="nabPlanoviSpisakPlanovaHeader">Списак планова</entry>

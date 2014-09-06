@@ -67,10 +67,29 @@ public class NabPlanController extends BaseController{
         if ( null != nabPlanSelected ){
             try {
                 nabPlanServiceApi.deleteNabPlan( nabPlanSelected);
+                populateModalOkPanelSnimanjeDefaultMessages(true,
+                        "nabPlanoviPlanBrisanjeHeader");
             } catch (FimesServiceException e) {
-                System.out.println( "EEVOOOOOOOOOOOO");e.printStackTrace();
+                e.printStackTrace();
+                populateModalOkPanelBrisanje(false,
+                        "nabPlanoviPlanBrisanjeHeader",
+                        new MessageBundleProperty(
+                                "nabPlanoviPlanBrisanjeImaNabavki"));
+            }catch (Exception e) {
+                e.printStackTrace();
+                populateModalOkPanelSnimanjeDefaultMessages(false,
+                        "nabPlanoviPlanBrisanjeHeader");
+            } finally {
+                resetSelection();
             }
+
         }
+    }
+
+    public void resetSelection() {
+        nabPlanSelected = null;
+        nabPlanExtendedDataTableModelApi.clearSelection();
+        setKopirajPodatke(false);
     }
 
     public void onStart() {

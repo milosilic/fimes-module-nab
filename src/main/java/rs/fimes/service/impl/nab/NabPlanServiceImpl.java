@@ -38,6 +38,7 @@ public class NabPlanServiceImpl extends BaseServiceImpl implements NabPlanServic
         if(nabJavnaNabavkaDAO.countNabNabavkiIzPlana( nabPlanSelected )>0){
             throw new FimesServiceException();
         }
+        nabPlanDAO.delete(nabPlanSelected.getIdPlan());
         
     }
     
