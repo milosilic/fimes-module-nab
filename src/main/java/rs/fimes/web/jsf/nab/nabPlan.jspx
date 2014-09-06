@@ -36,7 +36,7 @@
                     <rich:extendedDataTable height="318px"
                       rowClasses="redAnimacija" id="tabelaNabPlan"
                       enableContextMenu="false"
-                      noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}" 
+                      noDataLabel="#{nabPlanController.module.messageSource.commonNoDataLabel}" 
                       value="#{nabPlanController.nabPlanExtendedDataTableModelApi}"
                       var="plan">
                       
@@ -47,6 +47,18 @@
                         target="#{nabPlanController.nabPlanSelected}" />
                         <f:setPropertyActionListener value="#{plan}" target="#{nabNoviPlanController.noviPlan}" />
                     </a4j:support>
+                      <rich:column width="5%"
+                        styleClass="fimesAlignCenter noPadding">
+                        <a4j:commandButton ajaxSingle="true"
+                          status="waitStatus"
+                          id="delPlanTab"
+                          action="#{nabPlanController.initModalDialogBrisanje}"
+                          oncomplete="if(#{empty facesContext.maximumSeverity}){ #{rich:component('coreModalDaNeDijalog')}.show();}
+                                    else #{rich:component('coreErrorModalPanel')}.show();"
+                          styleClass="fimesButtonImageAdd"
+                          reRender="coreModalDaNeDijalog,coreErrorModalPanel">
+                        </a4j:commandButton>
+                      </rich:column>
                       <rich:column id="godinaPlanTab" width="20%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
@@ -106,6 +118,41 @@
                             timeZone="#{nabPlanController.module.application.defaultTimeZoneString}" />
                         </h:outputText>
                       </rich:column>
+                      <rich:column width="5%" styleClass="alignCenter">
+                        <f:facet name="header">
+                          <h:panelGroup>
+                            <a4j:commandButton id="nabPlanoviNoviPlan" ajaxSingle="true" 
+                              value="#{nabPlanController.module.messageSource.nabPlanoviNoviPlan}"
+                              styleClass="fimesButton"
+                              status="waitStatus"
+                              action="#{nabNoviPlanController.initNoviPlan}"
+                              oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
+                              reRender="nabNoviPlanModalPanel">
+                              <f:setPropertyActionListener value="#{false}"
+                                target="#{nabPlanController.kopirajPodatke}" />
+                            </a4j:commandButton>
+                            <rich:toolTip for="nabPlanoviNoviPlan"
+                              styleClass="tooltipRichAdd"
+                              value="#{nabNovaNabavkaController.module.messageSource.nabTooltipNoviPlanUnesi}"
+                              direction="bottom-left" />
+                          </h:panelGroup>
+                        </f:facet>
+                        <a4j:commandButton
+                          id="tabelaNabVrednostPoKontimaAzuriranje"
+                          ajaxSingle="true"
+                          styleClass="fimesButtonImageEdit"
+                          action="#{nabNovaNabavkaController.actionInitProcenaPoGodiniAzur}"
+                          oncomplete="#{rich:component('nabProcenjenaVrednostUnosModalPanel')}.show();"
+                          reRender="nabProcenjenaVrednostUnosModalPanel">
+<!-- Ovo se stalno forsira, ali se uvek kliknuti objekat može dohvatiti iz extended... -->
+                           <f:setPropertyActionListener value="#{procena}" 
+                             target="#{nabNovaNabavkaController.novaProcenjenaVrednost}" /> 
+                        </a4j:commandButton>
+                        <rich:toolTip for="tabelaNabVrednostPoKontimaAzuriranje"
+                          styleClass="tooltipRichEdit"
+                          value="#{nabNovaNabavkaController.module.messageSource.nabTooltipProcenaPoGodiniAzuriraj}"
+                          direction="top-left" />
+                      </rich:column>
                     </rich:extendedDataTable>
                     <h:panelGroup layout="block"
                       styleClass="fimesAlignRight">
@@ -128,17 +175,6 @@
                         oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
                         disabled="#{empty nabPlanController.nabPlanSelected}" 
                         reRender="nabNoviPlanModalPanel"/>
-                      <rich:spacer width="10px"/>
-                      <a4j:commandButton id="nabPlanoviNoviPlan" ajaxSingle="true" 
-                        value="#{nabPlanController.module.messageSource.nabPlanoviNoviPlan}"
-                        styleClass="fimesButton"
-                        status="waitStatus"
-                        action="#{nabNoviPlanController.initNoviPlan}"
-                        oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
-                        reRender="nabNoviPlanModalPanel">
-                        <f:setPropertyActionListener value="#{false}"
-                          target="#{nabPlanController.kopirajPodatke}" />
-                      </a4j:commandButton>
                       <rich:spacer width="10px"/>
                       <a4j:commandButton id="nabPlanDugmeDetaljno"
                         styleClass="fimesButton objDugmeUFuteruTabele"

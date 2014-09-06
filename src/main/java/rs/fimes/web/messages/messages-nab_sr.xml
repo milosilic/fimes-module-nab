@@ -134,4 +134,9 @@
 <entry key="nabUgovoriJednicnaCena">Јединична цена(пун износ у динарима)</entry>
 <entry key="nabUgovoriTroskoviPripreme">Трошкови припремања понуде(пун износ у динарима)</entry>
 <entry key="nabUgovoriTooltipPoslovniPartner">Унос пословног партнера</entry>
+
+<!-- TOOLTIPS -->
+
+<entry key="nabTooltipNoviPlanUnesi">Унеси нови план</entry>
+
 </properties>

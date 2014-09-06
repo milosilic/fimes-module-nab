@@ -44,8 +44,8 @@
       <rich:spacer width="5" />
       <a4j:commandButton id="nabProcenjenaVrednostModalPanelDugmeOdustani"
         styleClass="fimesButton fimesButtonImageCancel"
-        ajaxSingle="true" action="#{nabNoviPlanController.resetForm}"
-        value="#{nabNoviPlanController.module.messageSource.common_odustani}"
+        ajaxSingle="true" action="#{nabNovaNabavkaController.resetForm}"
+        value="#{nabNovaNabavkaController.module.messageSource.common_odustani}"
         immediate="true"
         onclick="#{rich:component('nabProcenjenaVrednostUnosModalPanel')}.hide()" />
     </h:form>

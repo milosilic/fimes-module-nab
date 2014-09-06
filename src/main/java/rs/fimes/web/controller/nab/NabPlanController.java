@@ -49,6 +49,10 @@ public class NabPlanController extends BaseController{
             NabNaruciociServiceApi nabNaruciociServiceApi) {
         this.nabNaruciociServiceApi = nabNaruciociServiceApi;
     }
+    
+    public void initModalDialogBrisanje() {
+        
+    }
 
     public void onStart() {
         nabPlanExtendedDataTableModelApi.helperWalkByRequest();

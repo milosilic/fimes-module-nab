@@ -252,6 +252,10 @@ public class NabNovaNabavkaController extends BaseController{
         System.out.println("initNovaProcenjenaVrednost");
     }
     
+    public void resetForm(){
+        
+    }
+    
     public void resetSelection(){
         novaNabavka = new NabJavnaNabavka();
         vrstaPredmetaNabavke = new XnabVrstaPredmetaNabavke();
