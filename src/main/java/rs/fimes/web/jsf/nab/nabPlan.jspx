@@ -167,13 +167,6 @@
                           target="#{nabPlanController.kopirajPodatke}" />
                       </a4j:commandButton>                        
                       <rich:spacer width="10px"/>
-                      <a4j:commandButton id="nabPlanDugmeAzuriraj"
-                        styleClass="fimesButton objDugmeUFuteruTabele"
-                        status="waitStatus"
-                        oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
-                        disabled="#{empty nabPlanController.nabPlanSelected}" 
-                        reRender="nabNoviPlanModalPanel"/>
-                      <rich:spacer width="10px"/>
                       <a4j:commandButton id="nabPlanDugmeDetaljno"
                         styleClass="fimesButton objDugmeUFuteruTabele"
                         status="waitStatus"
