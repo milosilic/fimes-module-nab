@@ -5,6 +5,7 @@ import java.util.List;
 
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
+import rs.etf.rc.common.utils.MessageBundleProperty;
 import rs.fimes.data.dao.generic.QueryJoin;
 import rs.fimes.data.dao.generic.QueryRestriction;
 import rs.fimes.data.dao.generic.QueryRestrictionComparison1;
@@ -51,6 +52,17 @@ public class NabPlanController extends BaseController{
     }
     
     public void initModalDialogBrisanje() {
+
+        initModalDialogBrisanje(
+              "nabPlanoviPlanBrisanjeHeader",
+              new MessageBundleProperty(
+                      "nabPlanBrisanjePitanje"),
+              "nabPlanBrisanje()");
+              
+        
+    }
+    
+    public void obrisiPlan(){
         
     }
 

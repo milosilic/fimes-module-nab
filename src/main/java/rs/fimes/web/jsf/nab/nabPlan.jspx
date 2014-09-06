@@ -33,6 +33,10 @@
                       <a4j:actionparam name="param1"
                         assignTo="#{nabPlanController.godina}" />
                     </a4j:jsFunction>
+                    <a4j:jsFunction name="nabPlanBrisanje"
+                      action="#{nabPlanController.obrisiProcenu}"
+                      oncomplete="#{rich:component('coreModalDaNeDijalog')}.hide();#{rich:component('coreOkModalPanel')}.show();"
+                      reRender="coreOkModalPanel,tabelaNabPlan" />
                     <rich:extendedDataTable height="318px"
                       rowClasses="redAnimacija" id="tabelaNabPlan"
                       enableContextMenu="false"
