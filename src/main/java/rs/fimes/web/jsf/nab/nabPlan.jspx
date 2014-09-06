@@ -123,7 +123,7 @@
                           <h:panelGroup>
                             <a4j:commandButton id="nabPlanoviNoviPlan" ajaxSingle="true" 
                               value="#{nabPlanController.module.messageSource.nabPlanoviNoviPlan}"
-                              styleClass="fimesButtonImageCross"
+                              styleClass="fimesButtonImageAdd"
                               status="waitStatus"
                               action="#{nabNoviPlanController.initNoviPlan}"
                               oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
