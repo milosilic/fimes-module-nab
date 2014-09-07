@@ -35,8 +35,8 @@ implements NabUgovorServiceApi{
 
     @Override
     public void deleteUgovor(NabUgovor nabUgovor) {
-        NabUgovor procena = nabUgovorDAO.findById(nabUgovor.getIdUgovor(), false);
-        nabUgovorDAO.delete(procena);
+        NabUgovor ugovor = nabUgovorDAO.findById(nabUgovor.getIdUgovor(), false);
+        nabUgovorDAO.delete(ugovor);
         
     }
 

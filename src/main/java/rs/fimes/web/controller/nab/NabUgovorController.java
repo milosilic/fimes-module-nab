@@ -8,6 +8,7 @@ import javax.faces.model.SelectItem;
 
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
+import rs.etf.rc.common.utils.MessageBundleProperty;
 import rs.fimes.data.dao.generic.QueryRestriction;
 import rs.fimes.data.dao.generic.QueryRestrictionComparison1;
 import rs.fimes.domain.core.PpPoslovniPartner;
@@ -16,6 +17,7 @@ import rs.fimes.domain.nab.NabUgovor;
 import rs.fimes.domain.nab.XnabKriterijum;
 import rs.fimes.service.api.nab.NabUgovorServiceApi;
 import rs.fimes.service.api.nab.XnabKriterijumServiceApi;
+import rs.fimes.service.exception.FimesServiceException;
 import rs.fimes.web.controller.BaseController;
 import rs.fimes.web.controller.pp.PpPoslovniPartnerSelectionController;
 import rs.fimes.web.datamodel.api.nab.NabUgovorExtendedDataTableModelApi;
@@ -50,6 +52,38 @@ public class NabUgovorController extends BaseController{
     public void initNoviUgovor(){
         noviUgovor = new NabUgovor();
         noviUgovor.setKriterijum(new XnabKriterijum());
+    }
+    
+    public void initModalDialogBrisanje(){
+        initModalDialogBrisanje(
+                "nabUgovoriBrisanjeUgovoraHeader",
+                new MessageBundleProperty(
+                        "nabUgovoriBrisanjeUgovoraPitanje"),
+                "jsNabUgovorBrisanje()");
+
+    }
+    
+    public void obrisiUgovor(){
+        if ( null != nabUgovorSelected ){
+            try {
+                nabUgovorServiceApi.deleteUgovor( nabUgovorSelected);
+                populateModalOkPanelSnimanjeDefaultMessages(true,
+                        "nabUgovoriBrisanjeUgovoraHeader");
+            }catch (Exception e) {
+                e.printStackTrace();
+                populateModalOkPanelSnimanjeDefaultMessages(false,
+                        "nabUgovoriBrisanjeUgovoraHeader");
+            } finally {
+                resetSelection();
+            }
+        }
+            
+    }
+        
+    public void resetSelection(){
+        nabUgovorSelected = null;
+        nabUgovorExtendedDataTableModelApi.clearSelection();
+ 
     }
     
     public void initAzuriranjeUgovora(){

@@ -121,6 +121,8 @@
 <!-- UGOVORI -->
 <entry key="nabUgovoriSpisakHeader">Списак уговора</entry>
 <entry key="nabUgovoriSnimanjeHeader">Списак уговора</entry>
+<entry key="nabUgovoriBrisanjeUgovoraHeader">Брисање плана</entry>
+<entry key="nabUgovoriBrisanjeUgovoraPitanje">Да ли сигурно желите да обришете уговор</entry>
 <entry key="nabUgovoriDatumZakljucenja">Датум закључења уговора</entry>
 <entry key="nabUgovoriInterniBroj">Интерни број уговора</entry>
 <entry key="nabUgovoriDobavljac">Добављач</entry>

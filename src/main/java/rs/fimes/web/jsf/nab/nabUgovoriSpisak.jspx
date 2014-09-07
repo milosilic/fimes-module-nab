@@ -33,6 +33,10 @@
                       <a4j:actionparam name="param1"
                         assignTo="#{nabUgovorController.interniBroj}" />
                     </a4j:jsFunction>
+                     <a4j:jsFunction name="jsNabUgovorBrisanje"
+                      action="#{nabUgovorController.obrisiUgovor}"
+                      oncomplete="#{rich:component('coreModalDaNeDijalog')}.hide();#{rich:component('coreOkModalPanel')}.show();"
+                      reRender="coreOkModalPanel,tabelaNabUgovor" />
                     <rich:extendedDataTable height="318px"
                       rowClasses="redAnimacija" id="tabelaNabUgovor"
                       enableContextMenu="false"
@@ -46,7 +50,19 @@
                       <f:setPropertyActionListener value="#{ugovor}"
                         target="#{nabUgovorController.nabUgovorSelected}" />
                     </a4j:support>
-                      <rich:column id="godinaPlanTab" width="20%"
+                      <rich:column width="5%"
+                        styleClass="fimesAlignCenter noPadding">
+                        <a4j:commandButton ajaxSingle="true"
+                          status="waitStatus"
+                          id="delUgovorTab"
+                          action="#{nabUgovorController.initModalDialogBrisanje}"
+                          oncomplete="if(#{empty facesContext.maximumSeverity}){ #{rich:component('coreModalDaNeDijalog')}.show();}
+                                    else #{rich:component('coreErrorModalPanel')}.show();"
+                          styleClass="fimesButtonImageCross"
+                          reRender="coreModalDaNeDijalog,coreErrorModalPanel">
+                        </a4j:commandButton>
+                      </rich:column>
+                      <rich:column id="godinaPlanTab" width="15%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
                         <h:panelGrid columns="1"
@@ -65,7 +81,7 @@
                         </f:facet>
                         <h:outputText value="#{ugovor.interniBroj}"></h:outputText>
                       </rich:column>
-                      <rich:column id="nazivPlanTab" width="20%"
+                      <rich:column id="nazivPlanTab" width="15%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
                           <h:outputText styleClass="headerText"
@@ -85,7 +101,7 @@
                         </f:facet>
                         <h:outputText value="#{ugovor.nabJavnaNabavka.vrstaPostupka.naziv}"></h:outputText>
                       </rich:column>
-                      <rich:column id="brojPlanaPlanTab" width="15%"
+                      <rich:column id="brojPlanaPlanTab" width="20%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
                           <h:outputText styleClass="headerText"
@@ -144,7 +160,7 @@
                             </h:outputText>
                           </h:panelGroup>
                           <rich:datascroller for="tabelaNabUgovor"
-                            renderIfSinglePage="false" fastStep="10">
+                            renderIfSinglePage="false" fastStep="2">
                             <f:facet name="next">
                               <h:outputText value="&gt;" />
                             </f:facet>

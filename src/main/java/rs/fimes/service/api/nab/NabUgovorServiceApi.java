@@ -9,4 +9,5 @@ public interface NabUgovorServiceApi extends BaseServiceApi{
 
     void deleteUgovor(NabUgovor nabUgovor);
 
+
 }
