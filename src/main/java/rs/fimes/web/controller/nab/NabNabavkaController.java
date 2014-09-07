@@ -7,6 +7,7 @@ import javax.faces.model.SelectItem;
 
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
+import rs.etf.rc.common.utils.MessageBundleProperty;
 import rs.fimes.data.dao.generic.QueryRestriction;
 import rs.fimes.data.dao.generic.QueryRestrictionComparison1;
 import rs.fimes.data.domain.obj.XobjTipObjekta;
@@ -15,9 +16,11 @@ import rs.fimes.domain.nab.NabJavnaNabavka;
 import rs.fimes.domain.nab.NabPlan;
 import rs.fimes.domain.nab.XnabVrstaPostupka;
 import rs.fimes.domain.nab.XnabVrstaPredmetaNabavke;
+import rs.fimes.service.api.nab.NabJavnaNabavkaServiceApi;
 import rs.fimes.service.api.nab.NabNaruciociServiceApi;
 import rs.fimes.service.api.nab.XnabVrstaPostupkaServiceApi;
 import rs.fimes.service.api.nab.XnabVrstaPredmetaNabavkeServiceApi;
+import rs.fimes.service.exception.FimesServiceException;
 import rs.fimes.web.controller.BaseController;
 import rs.fimes.web.datamodel.api.nab.NabJavnaNabavkaExtendedDataTableModelApi;
 
@@ -49,6 +52,9 @@ public class NabNabavkaController extends BaseController{
     private XnabVrstaPredmetaNabavkeServiceApi xnabVrstaPredmetaNabavkeServiceApi;
     private XnabVrstaPostupkaServiceApi xnabVrstaPostupkaServiceApi; 
     
+    //07.09.2014.
+    private NabJavnaNabavkaServiceApi nabJavnaNabavkaServiceApi;
+    
     public NabNabavkaController(Module module, String controllerId)
             throws ConfigurationException {
         super(module, controllerId);
@@ -69,6 +75,36 @@ public class NabNabavkaController extends BaseController{
      
     }
     
+    public void initModalDialogBrisanje(){
+        initModalDialogBrisanje(
+                "nabNabavkaNabavkaBrisanjeHeader",
+                new MessageBundleProperty(
+                        "nabNabavkaNabavkaBrisanjePitanje"),
+                "nabNabavkaBrisanje()");
+   
+    }
+    
+    public void obrisiNabavku(){
+        try {
+            if (null != izabranaNabavka) {
+                nabJavnaNabavkaServiceApi.deleteNabNabavka(izabranaNabavka);
+                populateModalOkPanelSnimanjeDefaultMessages(true,
+                        "nabPlanoviPlanBrisanjeHeader");
+
+            }
+        } catch (FimesServiceException e) {
+            e.printStackTrace();
+            populateModalOkPanelBrisanje(false, "nabPlanoviPlanBrisanjeHeader",
+                    new MessageBundleProperty(
+                            "nabPlanoviPlanBrisanjeImaNabavki"));
+        } catch (Exception e) {
+            e.printStackTrace();
+            populateModalOkPanelSnimanjeDefaultMessages(false,
+                    "nabPlanoviPlanBrisanjeHeader");
+        } finally {
+            resetSelection();
+        }
+    }
     public void pretraga(){
         List<QueryRestriction> parametri = new ArrayList<QueryRestriction>();
                 
@@ -211,6 +247,15 @@ public class NabNabavkaController extends BaseController{
     public void setXnabVrstaPostupkaServiceApi(
             XnabVrstaPostupkaServiceApi xnabVrstaPostupkaServiceApi) {
         this.xnabVrstaPostupkaServiceApi = xnabVrstaPostupkaServiceApi;
+    }
+
+    public NabJavnaNabavkaServiceApi getNabJavnaNabavkaServiceApi() {
+        return nabJavnaNabavkaServiceApi;
+    }
+
+    public void setNabJavnaNabavkaServiceApi(
+            NabJavnaNabavkaServiceApi nabJavnaNabavkaServiceApi) {
+        this.nabJavnaNabavkaServiceApi = nabJavnaNabavkaServiceApi;
     }
 
     

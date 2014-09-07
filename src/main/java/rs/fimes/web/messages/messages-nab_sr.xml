@@ -112,6 +112,8 @@
 <entry key="nabNabavkaPartijaBrisanjePitanje">Да ли сигурно желите да обришете ову партију</entry>
 <entry key="nabNabavkaProcenaBrisanjePitanje">Да ли сигурно желите да обришете процену по години?</entry>
 <entry key="nabNabavkaJrnBrisanjePitanje">Да ли сигурно желите да обришете изабрану ОРН из набавке?</entry>
+<entry key="nabNabavkaNabavkaBrisanjeHeader">Брисање јавне набавке</entry>
+<entry key="nabNabavkaNabavkaBrisanjePitanje">Да ли сигурно желите да набавку?</entry>
 <entry key="nabNabavkaProcenaPoGodiniBrisanjeHeader">Брисање процене по години</entry>
 <entry key="nabNabavkaJrnBrisanjeHeader">Брисање ОРН из набавке</entry>
 <entry key="nabNabavkaKontoPartijaBrisanjeHeader">Брисање ОРН из набавке</entry>
@@ -142,5 +144,6 @@
 
 <entry key="nabTooltipNoviPlanUnesi">Унеси нови план</entry>
 <entry key="nabTooltipPlanAzuriraj">Ажурирај план</entry>
-
+<entry key="nabTooltipNabavkaUnesi">Унеси нову набавку</entry>
+<entry key="nabTooltipNabavkaAzuriraj">Ажурирај набавку</entry>
 </properties>

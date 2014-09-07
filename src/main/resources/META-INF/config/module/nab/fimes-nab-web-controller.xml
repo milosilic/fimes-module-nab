@@ -59,6 +59,7 @@
         <property name="nabNovaNabavkaController" ref="nabNovaNabavkaController" />
         <property name="xnabVrstaPredmetaNabavkeServiceApi" ref="xnabVrstaPredmetaNabavkeServiceApi" />
         <property name="xnabVrstaPostupkaServiceApi" ref="xnabVrstaPostupkaServiceApi" />
+        <property name="nabJavnaNabavkaServiceApi" ref="nabJavnaNabavkaServiceApi" />
 	</bean>
 	<bean id="nabNovaNabavkaController" class="rs.fimes.web.controller.nab.NabNovaNabavkaController"
 		parent="nabBaseController" scope="session" lazy-init="true">

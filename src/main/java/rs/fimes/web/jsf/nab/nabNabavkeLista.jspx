@@ -52,6 +52,10 @@
                   </h:panelGrid>
                 </h:panelGrid>
                 <rich:spacer height="20px" />
+                <a4j:jsFunction name="nabNabavkaBrisanje"
+                  action="#{nabNabavkaController.obrisiNabavku}"
+                  oncomplete="#{rich:component('coreModalDaNeDijalog')}.hide();#{rich:component('coreOkModalPanel')}.show();"
+                  reRender="coreOkModalPanel,tabelaNabavkeLista" />
                 <h:panelGroup id="p1" layout="block">
                   <rich:extendedDataTable height="318px"
                     rowClasses="redAnimacija" id="tabelaNabavkeLista"
@@ -70,7 +74,19 @@
                         target="#{nabNabavkaController.izabranaNabavka}" />
                     </a4j:support>
 
-                    <rich:column id="kolona1" width="10%"
+                    <rich:column width="5%"
+                      styleClass="fimesAlignCenter noPadding">
+                      <a4j:commandButton ajaxSingle="true"
+                        status="waitStatus"
+                        id="tabelaNabNabavkaBrisanje"
+                        action="#{nabNabavkaController.initModalDialogBrisanje}"
+                        oncomplete="if(#{empty facesContext.maximumSeverity}){ #{rich:component('coreModalDaNeDijalog')}.show();}
+                                    else #{rich:component('coreErrorModalPanel')}.show();"
+                        styleClass="fimesButtonImageCross"
+                        reRender="coreModalDaNeDijalog,coreErrorModalPanel">
+                      </a4j:commandButton>
+                    </rich:column>
+                    <rich:column id="kolona1" width="5%"
                       styleClass="fimesAlignLeft">
                       <f:facet name="header">
                         <h:outputText styleClass="headerText"
@@ -141,6 +157,34 @@
                       </f:facet>
                       <h:outputText
                         value="#{nabavka.statusNabavke.naziv}" />
+                    </rich:column>
+                    <rich:column width="5%" styleClass="alignCenter">
+                      <f:facet name="header">
+                        <h:panelGroup>
+                          <a4j:commandButton ajaxSingle="true"
+                            id="tabelaNabNabavkaNova"
+                            action="#{nabNovaNabavkaController.resetSelection}"
+                            oncomplete="#{rich:component('nabNovaNabavkaModalPanel')}.show()"
+                            reRender="nabNovaNabavkaModalPanel"
+                            styleClass="fimesButtonImageAdd" />
+                          <rich:toolTip for="tabelaNabNabavkaNova"
+                            styleClass="tooltipRichAdd"
+                            value="#{nabNovaNabavkaController.module.messageSource.nabTooltipNabavkaUnesi}"
+                            direction="bottom-left" />
+                        </h:panelGroup>
+                      </f:facet>
+                      <a4j:commandButton id="tabelaNabNabavkaAzuriranje"
+                        ajaxSingle="true"
+                        styleClass="fimesButtonImageEdit"
+                        action="#{nabNabavkaController.azurirajNabavku}"
+                        oncomplete="#{rich:component('nabNovaNabavkaModalPanel')}.show()"
+                        reRender="nabNovaNabavkaModalPanel">
+                      </a4j:commandButton>
+                      <rich:toolTip
+                        for="tabelaNabNabavkaAzuriranje"
+                        styleClass="tooltipRichEdit"
+                        value="#{nabNovaNabavkaController.module.messageSource.nabTooltipNabavkaAzuriraj}"
+                        direction="top-left" />
                     </rich:column>
                     <f:facet name="footer">
                       <h:panelGroup layout="block"

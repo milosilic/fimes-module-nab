@@ -22,6 +22,7 @@
   <bean id="nabJavnaNabavkaServiceApi" class="rs.fimes.service.impl.nab.NabJavnaNabavkaServiceImpl" parent="nabBaseService" lazy-init="true">
     <constructor-arg index="1" value="nabJavnaNabavkaServiceApi" type="java.lang.String"/>
     <property name="nabJavnaNabavkaDAO" ref="nabJavnaNabavkaDAO"></property>
+    <property name="nabProcenaPoGodiniDAO" ref="nabProcenaPoGodiniDAO"></property>
   </bean>
   <bean id="xnabVrstaPredmetaNabavkeServiceApi" class="rs.fimes.service.impl.nab.XnabVrstaPredmetaNabavkeServiceImpl" parent="nabBaseService" lazy-init="true">
     <constructor-arg index="1" value="xnabVrstaPredmetaNabavkeServiceApi" type="java.lang.String"/>
