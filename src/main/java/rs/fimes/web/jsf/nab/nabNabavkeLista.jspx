@@ -186,16 +186,37 @@
                         direction="top-left" />
                     </rich:column>
                     <f:facet name="footer">
-                      <h:panelGroup layout="block"
-                        styleClass="fimesAlignLeft">
-                        <h:outputText
-                          value="#{nabNabavkaController.module.messageSource.commonUkupno}" />
-                        <h:outputText
-                          value="#{nabPlanController.nabJavnaNabavkaExtendedDataTableModelApi.ukupnoRedova}">
-                          <f:convertNumber pattern="#,###"
-                            locale="#{applicationBean.numberLocale}" />
-                        </h:outputText>
-                      </h:panelGroup>
+
+                      <h:panelGrid width="100%" columns="3"
+                        columnClasses="fimesDataTableFooterColumnLeft,fimesDataTableFooterColumnCenter,fimesDataTableFooterColumnRight">
+                        <h:panelGroup layout="block"
+                          styleClass="alignLeft">
+                          <h:outputText
+                            value="#{nabNabavkaController.module.messageSource.commonUkupno}" />
+                          <h:outputText
+                            value="#{nabPlanController.nabJavnaNabavkaExtendedDataTableModelApi.ukupnoRedova}">
+                            <f:convertNumber pattern="#,###"
+                              locale="#{applicationBean.numberLocale}" />
+                          </h:outputText>
+                        </h:panelGroup>
+                        <rich:datascroller for="tabelaNabavkeLista"
+                          renderIfSinglePage="false" fastStep="10">
+                          <f:facet name="next">
+                            <h:outputText value="&gt;" />
+                          </f:facet>
+                          <f:facet name="previous">
+                            <h:outputText value="&lt;" />
+                          </f:facet>
+                        </rich:datascroller>
+                        <h:panelGroup>
+                          <h:graphicImage id="infoImg"
+                            value="#{coreWebController.iconInfoPath}" />
+                          <rich:toolTip for="infoImg"
+                            value="#{ppSpisakPoslovnihPartneraController.module.messageSource.commonKartonNavigacija}"
+                            direction="top-left" />
+                        </h:panelGroup>
+                      </h:panelGrid>
+
                     </f:facet>
                   </rich:extendedDataTable>
                   <rich:spacer height="50px" />
