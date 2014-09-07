@@ -146,4 +146,8 @@
 <entry key="nabTooltipPlanAzuriraj">Ажурирај план</entry>
 <entry key="nabTooltipNabavkaUnesi">Унеси нову набавку</entry>
 <entry key="nabTooltipNabavkaAzuriraj">Ажурирај набавку</entry>
+
+<!-- GREŠKE -->
+<entry key="nabNabavkaBrisanjePostojeReference">Јавна набавка ''{0}'' није обрисана јер је
+    референцирана из других табела!</entry>
 </properties>
