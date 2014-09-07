@@ -62,7 +62,6 @@ public class NabNabavkaController extends BaseController{
     
     public void onStart() {
        
-        System.out.println( ":::Sreca " + System.currentTimeMillis()+ " NabNabavkaController");
         if ( orgFirma == null ) {
           setOrgFirma(nabNaruciociServiceApi.getActiveOrgFirma(getUserSessionUtil().getCurrentUserCurrentOrgFirma().getIdFirma()));
         }
@@ -80,11 +79,12 @@ public class NabNabavkaController extends BaseController{
                 "nabNabavkaNabavkaBrisanjeHeader",
                 new MessageBundleProperty(
                         "nabNabavkaNabavkaBrisanjePitanje"),
-                "nabNabavkaBrisanje()");
+                "jsNabNabavkaBrisanje()");
    
     }
     
     public void obrisiNabavku(){
+        System.out.println( "Započet proces brisanja");
         try {
             if (null != izabranaNabavka) {
                 nabJavnaNabavkaServiceApi.deleteNabNabavka(izabranaNabavka);

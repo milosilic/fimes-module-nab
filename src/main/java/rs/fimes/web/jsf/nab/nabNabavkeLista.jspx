@@ -236,13 +236,13 @@
                 </h:panelGroup>
               </rich:layoutPanel>
             </rich:layout>
+            <a4j:include
+              viewId="#{coreWebController.coreModalDaNeDijalogView}" />
+            <a4j:include
+              viewId="#{coreWebController.coreModalOkDijalogView}" />
+            <a4j:include
+              viewId="#{coreWebController.coreModalErrorDijalogView}" />
           </h:form>
-          <a4j:include
-            viewId="#{coreWebController.coreModalDaNeDijalogView}" />
-          <a4j:include
-            viewId="#{coreWebController.coreModalOkDijalogView}" />
-          <a4j:include
-            viewId="#{coreWebController.coreModalErrorDijalogView}" />
         </rich:panel>
         <a4j:include
           viewId="#{nabWebController.nabProcenjenaVrednostUnosModalPanelView}" />
