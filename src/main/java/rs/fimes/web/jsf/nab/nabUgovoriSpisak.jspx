@@ -85,7 +85,7 @@
                         </f:facet>
                         <h:outputText value="#{ugovor.nabJavnaNabavka.vrstaPostupka.naziv}"></h:outputText>
                       </rich:column>
-                      <rich:column id="brojPlanaPlanTab" width="20%"
+                      <rich:column id="brojPlanaPlanTab" width="15%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
                           <h:outputText styleClass="headerText"
@@ -100,6 +100,34 @@
                             value="#{nabUgovorController.module.messageSource.nabNabavkaListaVrstaPredmeta}" />
                         </f:facet>
                         <h:outputText value="#{ugovor.nabJavnaNabavka.vrstaPredmetaNabavke.naziv}"></h:outputText>
+                      </rich:column>
+                      <rich:column width="5%" styleClass="alignCenter">
+                        <f:facet name="header">
+                          <h:panelGroup>
+                            <a4j:commandButton ajaxSingle="true"
+                              id="nabPlanoviNoviPlan"
+                              action="#{nabUgovorController.initNoviUgovor}"
+                              oncomplete="#{rich:component('nabNoviUgovorModalPanel')}.show()"
+                              reRender="nabNoviUgovorModalPanel"
+                              styleClass="fimesButtonImageAdd" />
+                            <rich:toolTip for="tabelaNabNabavkaNova"
+                              styleClass="tooltipRichAdd"
+                              value="#{nabUgovorController.module.messageSource.nabTooltipNoviUgovorUnesi}"
+                              direction="bottom-left" />
+                          </h:panelGroup>
+                        </f:facet>
+                        <a4j:commandButton
+                          id="tabelaNabNabavkaAzuriranje"
+                          ajaxSingle="true"
+                          styleClass="fimesButtonImageEdit"
+                          action="#{nabUgovorController.initAzuriranjeUgovora}"
+                          oncomplete="#{rich:component('nabNoviUgovorModalPanel')}.show()"
+                          reRender="nabNoviUgovorModalPanel">
+                        </a4j:commandButton>
+                        <rich:toolTip for="tabelaNabNabavkaAzuriranje"
+                          styleClass="tooltipRichEdit"
+                          value="#{nabUgovorController.module.messageSource.nabTooltipUgovorAzuriraj}"
+                          direction="top-left" />
                       </rich:column>
                       <f:facet name="footer">
 
@@ -135,24 +163,6 @@
 
                       </f:facet>
                     </rich:extendedDataTable>
-                    <h:panelGroup layout="block"
-                      styleClass="fimesAlignRight">
-                      <a4j:commandButton id="nabPlanDugmeAzuriraj"
-                        styleClass="fimesButton objDugmeUFuteruTabele"
-                        status="statusWait"
-                        action="#{nabUgovorController.initAzuriranjeUgovora}"
-                        value="#{nabUgovorController.module.messageSource.nabUgovoriAzurirajUgovor}"
-                        oncomplete="#{rich:component('nabNoviUgovorModalPanel')}.show()"
-                        disabled="#{empty nabUgovorController.nabUgovorSelected}" 
-                        reRender="nabNoviUgovorModalPanel"/>
-                      <rich:spacer width="10px"/>
-                      <a4j:commandButton id="nabPlanoviNoviPlan" ajaxSingle="true" status="waitStatus"
-                        value="#{nabUgovorController.module.messageSource.nabUgovoriNoviUgovor}"
-                        styleClass="fimesButton"
-                        action="#{nabUgovorController.initNoviUgovor}"
-                        oncomplete="#{rich:component('nabNoviUgovorModalPanel')}.show()"
-                        reRender="nabNoviUgovorModalPanel"/>
-                    </h:panelGroup>
                   </h:panelGroup>
                 </rich:layoutPanel>
               </rich:layout>
