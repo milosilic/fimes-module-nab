@@ -80,10 +80,9 @@
                         status="waitStatus"
                         id="tabelaNabNabavkaBrisanje"
                         action="#{nabNabavkaController.initModalDialogBrisanje}"
-                        oncomplete="if(#{empty facesContext.maximumSeverity}){ #{rich:component('coreModalDaNeDijalog')}.show();}
-                                    else #{rich:component('coreErrorModalPanel')}.show();"
+                        oncomplete="#{rich:component('coreModalDaNeDijalog')}.show()"
                         styleClass="fimesButtonImageCross"
-                        reRender="coreModalDaNeDijalog,coreErrorModalPanel">
+                        reRender="coreModalDaNeDijalog">
                       </a4j:commandButton>
                     </rich:column>
                     <rich:column id="kolona1" width="5%"
