@@ -52,7 +52,7 @@
                   </h:panelGrid>
                 </h:panelGrid>
                 <rich:spacer height="20px" />
-                <a4j:jsFunction name="nabNabavkaBrisanje"
+                <a4j:jsFunction name="jsNabNabavkaBrisanje"
                   action="#{nabNabavkaController.obrisiNabavku}"
                   oncomplete="#{rich:component('coreModalDaNeDijalog')}.hide();#{rich:component('coreOkModalPanel')}.show();"
                   reRender="coreOkModalPanel,tabelaNabavkeLista" />
@@ -237,6 +237,8 @@
               </rich:layoutPanel>
             </rich:layout>
           </h:form>
+          <a4j:include
+            viewId="#{coreWebController.coreModalDaNeDijalogView}" />
           <a4j:include
             viewId="#{coreWebController.coreModalOkDijalogView}" />
           <a4j:include
