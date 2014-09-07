@@ -160,7 +160,7 @@
                             </h:outputText>
                           </h:panelGroup>
                           <rich:datascroller for="tabelaNabUgovor"
-                            renderIfSinglePage="false" fastStep="2">
+                            renderIfSinglePage="false" fastStep="10">
                             <f:facet name="next">
                               <h:outputText value="&gt;" />
                             </f:facet>

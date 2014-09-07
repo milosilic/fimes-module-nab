@@ -189,7 +189,7 @@
         value="#{nabUgovorController.module.messageSource.common_potvrdi}"
         action="#{nabUgovorController.snimiNabUgovor}"
         oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabNoviUgovorModalPanel')}.hide();#{rich:component('coreOkModalPanel')}.show();}"
-        reRender="tabelaNabPlan,coreOkModalPanel" />
+        reRender="tabelaNabUgovor,coreOkModalPanel" />
       <rich:spacer width="5" />
       <a4j:commandButton id="nabNoviUgovorModalPanelDugmeOdustani"
         styleClass="fimesButton fimesButtonImageCancel"
