@@ -34,13 +34,13 @@ implements NabJavnaNabavkaServiceApi{
            throw new FimesServiceException("nabNabavkaBrisanjePostojeReference");
        }
        if ( nabPartijaNabavkeDAO.countAllPartijeNabavke(izabranaNabavka) >0){
-           throw new FimesServiceException("Partija");
+           throw new FimesServiceException("nabNabavkaBrisanjePostojeReference");
        }
        if( nabNabavkaKontoPartijaDAO.countAllKontoPoNabavci( izabranaNabavka)>0){
-           throw new FimesServiceException("Konto");
+           throw new FimesServiceException("nabNabavkaBrisanjePostojeReference");
        }
        if( nabNabavkaJrnDAO.countAllJrnByNabavka( izabranaNabavka)>0){
-           throw new FimesServiceException("Jrn");
+           throw new FimesServiceException("nabNabavkaBrisanjePostojeReference");
        }
        nabJavnaNabavkaDAO.delete(izabranaNabavka.getIdJavnaNabavka());
     }
