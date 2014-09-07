@@ -73,8 +73,8 @@
                         </f:facet>
                         <h:outputText value="#{ugovor.datumZakljucenja}">
                           <f:convertDateTime
-                            pattern="#{nabPlanController.module.application.dateFormatMask}"
-                            timeZone="#{nabPlanController.module.application.defaultTimeZoneString}" />
+                            pattern="#{nabUgovorController.module.application.dateFormatMask}"
+                            timeZone="#{nabUgovorController.module.application.defaultTimeZoneString}" />
                         </h:outputText>
                       </rich:column>
                       <rich:column id="datumIzradePlanTab" width="20%"
@@ -101,6 +101,39 @@
                         </f:facet>
                         <h:outputText value="#{ugovor.nabJavnaNabavka.vrstaPredmetaNabavke.naziv}"></h:outputText>
                       </rich:column>
+                      <f:facet name="footer">
+
+                        <h:panelGrid width="100%" columns="3"
+                          columnClasses="fimesDataTableFooterColumnLeft,fimesDataTableFooterColumnCenter,fimesDataTableFooterColumnRight">
+                          <h:panelGroup layout="block"
+                            styleClass="alignLeft">
+                            <h:outputText
+                              value="#{nabUgovorController.module.messageSource.commonUkupno}" />
+                            <h:outputText
+                              value="#{nabUgovorController.nabUgovorExtendedDataTableModelApi.ukupnoRedova}">
+                              <f:convertNumber pattern="#,###"
+                                locale="#{applicationBean.numberLocale}" />
+                            </h:outputText>
+                          </h:panelGroup>
+                          <rich:datascroller for="tabelaNabUgovor"
+                            renderIfSinglePage="false" fastStep="10">
+                            <f:facet name="next">
+                              <h:outputText value="&gt;" />
+                            </f:facet>
+                            <f:facet name="previous">
+                              <h:outputText value="&lt;" />
+                            </f:facet>
+                          </rich:datascroller>
+                          <h:panelGroup>
+                            <h:graphicImage id="infoImg"
+                              value="#{coreWebController.iconInfoPath}" />
+                            <rich:toolTip for="infoImg"
+                              value="#{ppSpisakPoslovnihPartneraController.module.messageSource.commonKartonNavigacija}"
+                              direction="top-left" />
+                          </h:panelGroup>
+                        </h:panelGrid>
+
+                      </f:facet>
                     </rich:extendedDataTable>
                     <h:panelGroup layout="block"
                       styleClass="fimesAlignRight">
