@@ -32,6 +32,8 @@
                       reRender="tabelaNabUgovor">
                       <a4j:actionparam name="param1"
                         assignTo="#{nabUgovorController.pretragaInterniBroj}" />
+                      <a4j:actionparam name="param2"
+                        assignTo="#{nabUgovorController.pretragaInterniBrojNabavke}" />
                     </a4j:jsFunction>
                      <a4j:jsFunction name="jsNabUgovorBrisanje"
                       action="#{nabUgovorController.obrisiUgovor}"
@@ -79,12 +81,12 @@
                             <h:inputText id="pretragaInterniBroj"
                               tabindex="1"
                               value="#{nabUgovorController.pretragaInterniBroj}"
-                              onkeypress="if (event.keyCode == 13) {pretragaNabUgovor(#{rich:element('pretragaInterniBroj')}.value); return false;}" />
+                              onkeypress="if (event.keyCode == 13) {pretragaNabUgovor(#{rich:element('pretragaInterniBroj')}.value,#{rich:element('pretragaInterniBrojNabavke')}.value); return false;}" />
                           </h:panelGrid>
                         </f:facet>
                         <h:outputText value="#{ugovor.interniBroj}"></h:outputText>
                       </rich:column>
-                      <rich:column id="datumZakljucenjaUgovorTab" width="15%"
+                      <rich:column id="datumZakljucenjaUgovornTab" width="15%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
                           <h:outputText styleClass="headerText"
@@ -107,8 +109,22 @@
                       <rich:column id="brojPlanaPlanTab" width="20%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
-                          <h:outputText styleClass="headerText"
-                            value="#{nabUgovorController.module.messageSource.nabNabavkaListaInterniBrojPostupka}" />
+                          <h:panelGrid columns="1"
+                            headerClass="tableHeader"
+                            rowClasses="tableHeader">
+                            <a4j:commandLink ajaxSingle="true"
+                              value="#{nabUgovorController.module.messageSource.nabNabavkaListaInterniBrojPostupka}"
+                              action="#{nabUgovorController.nabUgovorExtendedDataTableModelApi.odrediSort}"
+                              reRender="tabelaNabUgovor">
+                              <a4j:actionparam name="sortField"
+                                value="nabJavnaNabavka.interniBroj"
+                                assignTo="#{nabUgovorController.nabUgovorExtendedDataTableModelApi.sortField}" />
+                            </a4j:commandLink>
+                            <h:inputText id="pretragaInterniBrojNabavke"
+                              tabindex="1"
+                              value="#{nabUgovorController.pretragaInterniBrojNabavke}"
+                              onkeypress="if (event.keyCode == 13) {pretragaNabUgovor(#{rich:element('pretragaInterniBroj')}.value,#{rich:element('pretragaInterniBrojNabavke')}.value); return false;}" />
+                          </h:panelGrid>
                         </f:facet>
                         <h:outputText value="#{ugovor.nabJavnaNabavka.interniBroj}"></h:outputText>
                       </rich:column>

@@ -43,6 +43,7 @@ public class NabUgovorController extends BaseController{
     private NabUgovorServiceApi nabUgovorServiceApi;
     private String pretragaIzvrsenUgovor;
     private String pretragaInterniBroj;
+    private String pretragaInterniBrojNabavke;
 
     
     public NabUgovorController(Module module, String controllerId)
@@ -60,7 +61,7 @@ public class NabUgovorController extends BaseController{
     
     private void resetUgovorPretraga() {
         pretragaInterniBroj = null;
-        
+        pretragaInterniBrojNabavke = null;
     }
 
     public void initNoviUgovor(){
@@ -153,7 +154,14 @@ public class NabUgovorController extends BaseController{
                             getStringUtil().transliterationCirToAbc(
                                     pretragaInterniBroj.trim().replaceAll("\\s+", " "))));
         }
-        System.out.println(pretragaInterniBroj + "qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
+        System.out.println(pretragaInterniBrojNabavke);
+        if (pretragaInterniBrojNabavke != null && !pretragaInterniBrojNabavke.trim().isEmpty()) {
+            parametri.add(QueryRestrictionComparison1
+                    .addCirToAbcStringContains(
+                            "nabJavnaNabavka.interniBroj",
+                            getStringUtil().transliterationCirToAbc(
+                                    pretragaInterniBrojNabavke.trim().replaceAll("\\s+", " "))));
+        }
         if (pretragaIzvrsenUgovor != null && !pretragaIzvrsenUgovor.isEmpty() && !pretragaIzvrsenUgovor.equals("1")) {
             parametri.add(QueryRestrictionComparison1
                     .addIsEqual(
@@ -291,6 +299,14 @@ public class NabUgovorController extends BaseController{
 
     public void setPretragaInterniBroj(String pretragaInterniBroj) {
         this.pretragaInterniBroj = pretragaInterniBroj;
+    }
+
+    public String getPretragaInterniBrojNabavke() {
+        return pretragaInterniBrojNabavke;
+    }
+
+    public void setPretragaInterniBrojNabavke(String pretragaInterniBrojNabavke) {
+        this.pretragaInterniBrojNabavke = pretragaInterniBrojNabavke;
     }
 
     
