@@ -68,8 +68,14 @@
                         <h:panelGrid columns="1"
                           style="margin : auto; height: 37px;"
                           headerClass="tableHeader" rowClasses="tableHeader">
-                            <h:outputText styleClass="headerText"
-                              value="#{nabUgovorController.module.messageSource.nabUgovoriInterniBroj}" />
+                            <a4j:commandLink ajaxSingle="true"
+                              value="#{nabUgovorController.module.messageSource.nabUgovoriInterniBroj}"
+                              action="#{nabUgovorController.nabUgovorExtendedDataTableModelApi.odrediSort}"
+                              reRender="tabelaNabUgovor">
+                              <a4j:actionparam name="sortField"
+                                value="interniBroj"
+                                assignTo="#{nabUgovorController.nabUgovorExtendedDataTableModelApi.sortField}" />
+                            </a4j:commandLink>
                             <h:inputText id="pretragaInterniBrojUgovora"
                               tabindex="1" style="width: 70px"
                               value="#{nabUgovorController.interniBroj}"
@@ -126,7 +132,7 @@
                               action="#{nabUgovorController.nabUgovorExtendedDataTableModelApi.odrediSort}"
                               reRender="tabelaNabUgovor">
                               <a4j:actionparam name="sortField"
-                                value="FUgovorIzvrsen"
+                                value="fUgovorIzvrsen"
                                 assignTo="#{nabUgovorController.nabUgovorExtendedDataTableModelApi.sortField}" />
                             </a4j:commandLink>
                             <h:selectOneMenu
