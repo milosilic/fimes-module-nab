@@ -42,14 +42,27 @@ public class NabUgovorController extends BaseController{
     //04.09.2014
     private NabUgovorServiceApi nabUgovorServiceApi;
     private String pretragaIzvrsenUgovor;
+    private String pretragaInterniBroj;
 
     
     public NabUgovorController(Module module, String controllerId)
             throws ConfigurationException {
         super(module, controllerId);
-        System.out.println("*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/");
     }
     
+    public void onStart(){
+        System.out.println("*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/");
+        resetUgovorPretraga();
+        ugovorPretraga();
+        nabUgovorExtendedDataTableModelApi.helperWalkByRequest();
+        
+    }
+    
+    private void resetUgovorPretraga() {
+        pretragaInterniBroj = null;
+        
+    }
+
     public void initNoviUgovor(){
         noviUgovor = new NabUgovor();
         noviUgovor.setKriterijum(new XnabKriterijum());
@@ -133,14 +146,14 @@ public class NabUgovorController extends BaseController{
     public void ugovorPretraga(){
         List<QueryRestriction> parametri = new ArrayList<QueryRestriction>();
         
-        if (interniBroj != null && !interniBroj.trim().isEmpty()) {
+        if (pretragaInterniBroj != null && !pretragaInterniBroj.trim().isEmpty()) {
             parametri.add(QueryRestrictionComparison1
                     .addCirToAbcStringContains(
                             "interniBroj",
                             getStringUtil().transliterationCirToAbc(
-                                    interniBroj.trim().replaceAll("\\s+", " "))));
+                                    pretragaInterniBroj.trim().replaceAll("\\s+", " "))));
         }
-        
+        System.out.println(pretragaInterniBroj + "qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
         if (pretragaIzvrsenUgovor != null && !pretragaIzvrsenUgovor.isEmpty() && !pretragaIzvrsenUgovor.equals("1")) {
             parametri.add(QueryRestrictionComparison1
                     .addIsEqual(
@@ -148,7 +161,9 @@ public class NabUgovorController extends BaseController{
         }
 
         nabUgovorExtendedDataTableModelApi.setParametri(parametri);
-        nabUgovorExtendedDataTableModelApi.clearSelection();
+        nabUgovorExtendedDataTableModelApi.setSortField("interniBroj");
+        nabUgovorExtendedDataTableModelApi.setDescending(false);
+//        nabUgovorExtendedDataTableModelApi.clearSelection();
 
     }
     
@@ -268,6 +283,14 @@ public class NabUgovorController extends BaseController{
 
     public void setPretragaIzvrsenUgovor(String pretragaIzvrsenUgovor) {
         this.pretragaIzvrsenUgovor = pretragaIzvrsenUgovor;
+    }
+
+    public String getPretragaInterniBroj() {
+        return pretragaInterniBroj;
+    }
+
+    public void setPretragaInterniBroj(String pretragaInterniBroj) {
+        this.pretragaInterniBroj = pretragaInterniBroj;
     }
 
     

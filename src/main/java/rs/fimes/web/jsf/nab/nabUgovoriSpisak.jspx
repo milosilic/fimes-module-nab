@@ -31,7 +31,7 @@
                       action="#{nabUgovorController.ugovorPretraga}"
                       reRender="tabelaNabUgovor">
                       <a4j:actionparam name="param1"
-                        assignTo="#{nabUgovorController.interniBroj}" />
+                        assignTo="#{nabUgovorController.pretragaInterniBroj}" />
                     </a4j:jsFunction>
                      <a4j:jsFunction name="jsNabUgovorBrisanje"
                       action="#{nabUgovorController.obrisiUgovor}"
@@ -46,7 +46,7 @@
                       
                     <!-- selekcija  iz objEvidencija objekata.jspx-->
                     <a4j:support event="onRowClick" 
-                      immediate="true" status="waitStatus" reRender="nabPlanDugmeDetaljno,nabPlanDugmeAzuriraj,nabPlanDugmeKopiraj">
+                      immediate="true" status="waitStatus" reRender="nabPlanDugmeKopiraj">
                       <f:setPropertyActionListener value="#{ugovor}"
                         target="#{nabUgovorController.nabUgovorSelected}" />
                     </a4j:support>
@@ -65,9 +65,9 @@
                       <rich:column id="godinaPlanTab" width="15%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
-                        <h:panelGrid columns="1"
-                          style="margin : auto; height: 37px;"
-                          headerClass="tableHeader" rowClasses="tableHeader">
+                          <h:panelGrid columns="1"
+                            headerClass="tableHeader"
+                            rowClasses="tableHeader">
                             <a4j:commandLink ajaxSingle="true"
                               value="#{nabUgovorController.module.messageSource.nabUgovoriInterniBroj}"
                               action="#{nabUgovorController.nabUgovorExtendedDataTableModelApi.odrediSort}"
@@ -76,18 +76,15 @@
                                 value="interniBroj"
                                 assignTo="#{nabUgovorController.nabUgovorExtendedDataTableModelApi.sortField}" />
                             </a4j:commandLink>
-                            <h:inputText id="pretragaInterniBrojUgovora"
-                              tabindex="1" style="width: 70px"
-                              value="#{nabUgovorController.interniBroj}"
-                              onkeypress="if (event.keyCode == 13) {
-                                    pretragaNabUgovor(
-                                        #{rich:element('pretragaInterniBrojUgovora')}.value);
-                                        return false;}" />
+                            <h:inputText id="pretragaInterniBroj"
+                              tabindex="1"
+                              value="#{nabUgovorController.pretragaInterniBroj}"
+                              onkeypress="if (event.keyCode == 13) {pretragaNabUgovor(#{rich:element('pretragaInterniBroj')}.value); return false;}" />
                           </h:panelGrid>
                         </f:facet>
                         <h:outputText value="#{ugovor.interniBroj}"></h:outputText>
                       </rich:column>
-                      <rich:column id="nazivPlanTab" width="15%"
+                      <rich:column id="datumZakljucenjaUgovorTab" width="15%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
                           <h:outputText styleClass="headerText"
@@ -115,11 +112,20 @@
                         </f:facet>
                         <h:outputText value="#{ugovor.nabJavnaNabavka.interniBroj}"></h:outputText>
                       </rich:column>
-                      <rich:column id="datumUsvajanjaPlanTab" width="10%"
+                      <rich:column id="vrstaPredmetaNabavkeUgovora" width="10%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
-                          <h:outputText styleClass="headerText"
-                            value="#{nabUgovorController.module.messageSource.nabNabavkaListaVrstaPredmeta}" />
+                          <h:panelGrid columns="1"
+                            styleClass="maxWidth fimesTableCentered fimesTableInput">
+                            <a4j:commandLink ajaxSingle="true"
+                              value="#{nabUgovorController.module.messageSource.nabNabavkaListaVrstaPredmeta}"
+                              action="#{nabUgovorController.nabUgovorExtendedDataTableModelApi.odrediSort}"
+                              reRender="tabelaNabUgovor">
+                              <a4j:actionparam name="sortField"
+                                value="nabJavnaNabavka.vrstaPredmetaNabavke"
+                                assignTo="#{nabUgovorController.nabUgovorExtendedDataTableModelApi.sortField}" />
+                            </a4j:commandLink>
+                          </h:panelGrid>
                         </f:facet>
                         <h:outputText value="#{ugovor.nabJavnaNabavka.vrstaPredmetaNabavke.naziv}"></h:outputText>
                       </rich:column>
