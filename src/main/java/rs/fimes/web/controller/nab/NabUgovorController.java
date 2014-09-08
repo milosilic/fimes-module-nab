@@ -41,6 +41,7 @@ public class NabUgovorController extends BaseController{
     private ArrayList<SelectItem> xnabKriterijumSelectionItems;
     //04.09.2014
     private NabUgovorServiceApi nabUgovorServiceApi;
+    private String pretragaIzvrsenUgovor;
 
     
     public NabUgovorController(Module module, String controllerId)
@@ -79,7 +80,7 @@ public class NabUgovorController extends BaseController{
         }
             
     }
-        
+
     public void resetSelection(){
         nabUgovorSelected = null;
         nabUgovorExtendedDataTableModelApi.clearSelection();
@@ -140,6 +141,12 @@ public class NabUgovorController extends BaseController{
                                     interniBroj.trim().replaceAll("\\s+", " "))));
         }
         
+        if (pretragaIzvrsenUgovor != null && !pretragaIzvrsenUgovor.isEmpty() && !pretragaIzvrsenUgovor.equals("1")) {
+            parametri.add(QueryRestrictionComparison1
+                    .addIsEqual(
+                            "fUgovorIzvrsen", pretragaIzvrsenUgovor.equals("2")));
+        }
+
         nabUgovorExtendedDataTableModelApi.setParametri(parametri);
         nabUgovorExtendedDataTableModelApi.clearSelection();
 
@@ -254,6 +261,15 @@ public class NabUgovorController extends BaseController{
     public void setNabUgovorServiceApi(NabUgovorServiceApi nabUgovorServiceApi) {
         this.nabUgovorServiceApi = nabUgovorServiceApi;
     }
+
+    public String getPretragaIzvrsenUgovor() {
+        return pretragaIzvrsenUgovor;
+    }
+
+    public void setPretragaIzvrsenUgovor(String pretragaIzvrsenUgovor) {
+        this.pretragaIzvrsenUgovor = pretragaIzvrsenUgovor;
+    }
+
     
     
 

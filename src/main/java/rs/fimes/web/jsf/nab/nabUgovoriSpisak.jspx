@@ -37,8 +37,8 @@
                       action="#{nabUgovorController.obrisiUgovor}"
                       oncomplete="#{rich:component('coreModalDaNeDijalog')}.hide();#{rich:component('coreOkModalPanel')}.show();"
                       reRender="coreOkModalPanel,tabelaNabUgovor" />
-                    <rich:extendedDataTable height="318px"
-                      rowClasses="redAnimacija" id="tabelaNabUgovor"
+                    <rich:extendedDataTable height="348px"
+                      rowClasses="redAnimacija" rows="10" id="tabelaNabUgovor"
                       enableContextMenu="false"
                       noDataLabel="#{nabUgovorController.module.messageSource.commonNoDataLabel}" 
                       value="#{nabUgovorController.nabUgovorExtendedDataTableModelApi}"
@@ -109,13 +109,49 @@
                         </f:facet>
                         <h:outputText value="#{ugovor.nabJavnaNabavka.interniBroj}"></h:outputText>
                       </rich:column>
-                      <rich:column id="datumUsvajanjaPlanTab" width="20%"
+                      <rich:column id="datumUsvajanjaPlanTab" width="10%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
                           <h:outputText styleClass="headerText"
                             value="#{nabUgovorController.module.messageSource.nabNabavkaListaVrstaPredmeta}" />
                         </f:facet>
                         <h:outputText value="#{ugovor.nabJavnaNabavka.vrstaPredmetaNabavke.naziv}"></h:outputText>
+                      </rich:column>
+                      <rich:column width="10%" styleClass="alignCenter">
+                        <f:facet name="header">
+                          <h:panelGrid columns="1"
+                            styleClass="maxWidth fimesTableCentered fimesTableInput">
+                            <a4j:commandLink ajaxSingle="true"
+                              value="#{nabUgovorController.module.messageSource.nabUgovorIzvrsen}"
+                              action="#{nabUgovorController.nabUgovorExtendedDataTableModelApi.odrediSort}"
+                              reRender="tabelaNabUgovor">
+                              <a4j:actionparam name="sortField"
+                                value="FUgovorIzvrsen"
+                                assignTo="#{nabUgovorController.nabUgovorExtendedDataTableModelApi.sortField}" />
+                            </a4j:commandLink>
+                            <h:selectOneMenu
+                              id="pretragaUgovorIzvrsenSelect"
+                              styleClass="fimesInputDropDown"
+                              value="#{nabUgovorController.pretragaIzvrsenUgovor}"
+                              onchange="pretragaNabUgovor();">
+                              <f:selectItem id="item1" itemLabel=""
+                                itemValue="1" />
+                              <f:selectItem id="item2" itemLabel="Да"
+                                itemValue="2" />
+                              <f:selectItem id="item3" itemLabel="Не"
+                                itemValue="3" />
+                            </h:selectOneMenu>
+                          </h:panelGrid>
+                        </f:facet>
+                        <h:panelGroup id="dozvoljenoRasporedjivanje">
+                          <h:outputText
+                            value="#{ugovor.fUgovorIzvrsen ? 'Да' : 'Не'}" />
+                        </h:panelGroup>
+                        <rich:toolTip for="dozvoljenoRasporedjivanje"
+                          direction="bottom-left" showDelay="500">
+                          <h:outputText
+                            value="#{ugovor.fUgovorIzvrsen ? 'Да' : 'Не'}" />
+                        </rich:toolTip>
                       </rich:column>
                       <rich:column width="5%" styleClass="alignCenter">
                         <f:facet name="header">

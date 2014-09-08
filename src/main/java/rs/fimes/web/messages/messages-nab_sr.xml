@@ -140,8 +140,7 @@
 <entry key="nabUgovoriAzurirajUgovor">Измени уговор</entry>
 <entry key="nabUgovoriJednicnaCena">Јединична цена(пун износ у динарима)</entry>
 <entry key="nabUgovoriTroskoviPripreme">Трошкови припремања понуде(пун износ у динарима)</entry>
-<entry key="nabUgovoriTooltipPoslovniPartner">Унос пословног партнера</entry>
-
+<entry key="nabUgovorIzvrsen">Уговор извршен</entry>
 <!-- TOOLTIPS -->
 
 <entry key="nabTooltipNoviPlanUnesi">Унеси нови план</entry>
@@ -150,6 +149,7 @@
 <entry key="nabTooltipNabavkaAzuriraj">Ажурирај набавку</entry>
 <entry key="nabTooltipNoviUgovorUnesi">Унеси нови уговор</entry>
 <entry key="nabTooltipUgovorAzuriraj">Ажурирај нови уговор</entry>
+<entry key="nabUgovoriTooltipPoslovniPartner">Унос пословног партнера</entry>
 <!-- GREŠKE -->
 <entry key="nabNabavkaBrisanjePostojeReference">Јавна набавка ''{0}'' није обрисана јер је
     референцирана из других табела!</entry>

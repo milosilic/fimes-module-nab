@@ -228,4 +228,8 @@ WITH (
 ALTER TABLE nab_ugovor
   OWNER TO "fimes-demo";
 
+ALTER TABLE nab_ugovor
+   ADD COLUMN f_ugovor_izvrsen boolean NOT NULL DEFAULT false;
+
+
 
