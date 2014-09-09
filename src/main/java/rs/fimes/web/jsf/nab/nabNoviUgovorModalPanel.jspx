@@ -203,6 +203,8 @@
               pattern="#{nabUgovorController.module.application.dateFormatMask}"
               timeZone="#{nabUgovorController.module.application.defaultTimeZone}" />
           </rich:calendar>
+          <h:outputText value=" " />
+          <rich:message for="datumFIzvrsenjaPolje" styleClass="fimesValidErrMsg" />
           <h:outputLabel styleClass="fimesLabelLeft"
             value="#{nabUgovorController.module.messageSource.nabUgovorNapomenaFIzvrsenja}" />
           <h:inputText styleClass="fimesInputText maxWidth"
