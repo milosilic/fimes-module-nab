@@ -141,6 +141,10 @@
 <entry key="nabUgovoriJednicnaCena">Јединична цена(пун износ у динарима)</entry>
 <entry key="nabUgovoriTroskoviPripreme">Трошкови припремања понуде(пун износ у динарима)</entry>
 <entry key="nabUgovorIzvrsen">Уговор извршен</entry>
+<entry key="nabUgovorDatumFIzvrsenja">Датум извршења/неизвршења</entry>
+<entry key="nabUgovorVrednostIzvrsenja">Вредност извршења/неизвршења</entry>
+<entry key="nabUgovorNapomenaFIzvrsenja">Напомена извршења/неизвршења</entry>
+<entry key="nabUgovorRazlogNeizvrsenja">Разлог неизвршења уговора</entry>
 <!-- TOOLTIPS -->
 
 <entry key="nabTooltipNoviPlanUnesi">Унеси нови план</entry>

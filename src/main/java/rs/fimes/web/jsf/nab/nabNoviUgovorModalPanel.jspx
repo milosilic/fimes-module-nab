@@ -184,6 +184,35 @@
         </h:panelGrid>
 
       </h:panelGrid>
+      <h:panelGrid columns="2" styleClass="maxWidth fimesInputGroup">
+        <h:panelGrid columns="2">
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabUgovorVrednostIzvrsenja}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabUgovorController.noviUgovor.iznosIzvrsenjaBezPdv}" />
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabUgovorDatumFIzvrsenja}" />
+          <rich:calendar id="datumFIzvrsenjaPolje"
+            inputClass="fimesInputDate"
+            value="#{nabUgovorController.noviUgovor.datumFIzvrsenja}"
+            datePattern="dd.MM.yyyy." enableManualInput="true"
+            label="#{nabUgovorController.module.messageSource.datumZakljucenja}"
+            required="true">
+            <f:convertDateTime
+              locale="#{nabUgovorController.module.application.defaultLocale}"
+              pattern="#{nabUgovorController.module.application.dateFormatMask}"
+              timeZone="#{nabUgovorController.module.application.defaultTimeZone}" />
+          </rich:calendar>
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabUgovorNapomenaFIzvrsenja}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabUgovorController.noviUgovor.napomena}" />
+          <h:outputLabel styleClass="fimesLabelLeft"
+            value="#{nabUgovorController.module.messageSource.nabUgovorRazlogNeizvrsenja}" />
+          <h:inputText styleClass="fimesInputText maxWidth"
+            value="#{nabUgovorController.noviUgovor.ugovorenaVrednostSaPdv}" />
+        </h:panelGrid>
+      </h:panelGrid>
       <a4j:commandButton id="nabNoviUgovorModalPanelDugmePotvrdi"
         styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"
         value="#{nabUgovorController.module.messageSource.common_potvrdi}"
