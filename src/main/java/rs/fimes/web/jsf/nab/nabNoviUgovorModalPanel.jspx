@@ -140,7 +140,7 @@
           inputClass="fimesInputDate"
           value="#{nabUgovorController.noviUgovor.datumZakljucenja}"
           datePattern="dd.MM.yyyy." enableManualInput="true"
-          label="#{nabUgovorController.module.messageSource.datumZakljucenja}"
+          label="#{nabUgovorController.module.messageSource.nabUgovoriDatumZakljucenja}"
           required="true">
           <f:convertDateTime
             locale="#{nabUgovorController.module.application.defaultLocale}"
@@ -196,7 +196,7 @@
             inputClass="fimesInputDate"
             value="#{nabUgovorController.noviUgovor.datumFIzvrsenja}"
             datePattern="dd.MM.yyyy." enableManualInput="true"
-            label="#{nabUgovorController.module.messageSource.datumZakljucenja}"
+            label="#{nabUgovorController.module.messageSource.nabUgovorDatumFIzvrsenja}"
             required="true">
             <f:convertDateTime
               locale="#{nabUgovorController.module.application.defaultLocale}"
