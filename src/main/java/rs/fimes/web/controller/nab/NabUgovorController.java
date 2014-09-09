@@ -17,7 +17,6 @@ import rs.fimes.domain.nab.NabUgovor;
 import rs.fimes.domain.nab.XnabKriterijum;
 import rs.fimes.service.api.nab.NabUgovorServiceApi;
 import rs.fimes.service.api.nab.XnabKriterijumServiceApi;
-import rs.fimes.service.exception.FimesServiceException;
 import rs.fimes.web.controller.BaseController;
 import rs.fimes.web.controller.pp.PpPoslovniPartnerSelectionController;
 import rs.fimes.web.datamodel.api.nab.NabUgovorExtendedDataTableModelApi;
