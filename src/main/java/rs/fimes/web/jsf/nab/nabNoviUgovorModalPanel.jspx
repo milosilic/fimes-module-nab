@@ -150,11 +150,11 @@
            <h:outputLabel styleClass="fimesLabelLeft"
             value="#{nabUgovorController.module.messageSource.nabUgovoriVrednostBezPdvHiljade}" />
           <h:inputText styleClass="fimesInputText maxWidth"
-            value="#{nabUgovorController.noviUgovor.brojPonuda}" />
+            value="#{nabUgovorController.noviUgovor.ugovorenaVrednostBezPdv}" />
           <h:outputLabel styleClass="fimesLabelLeft"
             value="#{nabUgovorController.module.messageSource.nabUgovoriVrednostSaPdvHiljade}" />
           <h:inputText styleClass="fimesInputText maxWidth"
-            value="#{nabUgovorController.noviUgovor.kriterijum.naziv}" />       
+            value="#{nabUgovorController.noviUgovor.ugovorenaVrednostSaPdv}" />       
         </h:panelGrid>
         <h:panelGrid columns="2">
           <h:outputLabel styleClass="fimesLabelLeft"
