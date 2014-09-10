@@ -130,11 +130,11 @@
 <!--         <rich:messages globalOnly="true" warnClass="validationAttention" -->
 <!--           errorClass="fimesValidErrMsg" /> -->
         <h:panelGrid columns="2">
-          <h:outputLabel styleClass="fimesLabelLeft"
+          <h:outputLabel styleClass="fimesLabelRequiredLeft"
             value="#{nabUgovorController.module.messageSource.nabUgovoriInterniBroj}" />
           <h:inputText styleClass="fimesInputText maxWidth"
             value="#{nabUgovorController.noviUgovor.interniBroj}" />
-        <h:outputLabel styleClass="fimesLabelLeft"
+        <h:outputLabel styleClass="fimesLabelRequiredLeft"
           value="#{nabUgovorController.module.messageSource.nabUgovoriDatumZakljucenja}" />
         <rich:calendar id="datumZakljucenjaPolje"
           inputClass="fimesInputDate"
@@ -147,11 +147,11 @@
             pattern="#{nabUgovorController.module.application.dateFormatMask}"
             timeZone="#{nabUgovorController.module.application.defaultTimeZone}" />
         </rich:calendar>
-           <h:outputLabel styleClass="fimesLabelLeft"
+           <h:outputLabel styleClass="fimesLabelRequiredLeft"
             value="#{nabUgovorController.module.messageSource.nabUgovoriVrednostBezPdvHiljade}" />
           <h:inputText styleClass="fimesInputText maxWidth"
             value="#{nabUgovorController.noviUgovor.ugovorenaVrednostBezPdv}" />
-          <h:outputLabel styleClass="fimesLabelLeft"
+          <h:outputLabel styleClass="fimesLabelRequiredLeft"
             value="#{nabUgovorController.module.messageSource.nabUgovoriVrednostSaPdvHiljade}" />
           <h:inputText styleClass="fimesInputText maxWidth"
             value="#{nabUgovorController.noviUgovor.ugovorenaVrednostSaPdv}" />       
