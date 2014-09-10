@@ -200,7 +200,7 @@
             datePattern="dd.MM.yyyy." enableManualInput="true"
             label="#{nabUgovorController.module.messageSource.nabUgovorDatumFIzvrsenja}"
             readonly="#{!(nabUgovorController.azuriranje)}"
-            required="true">
+            required="#{nabUgovorController.azuriranje}">
             <f:convertDateTime
               locale="#{nabUgovorController.module.application.defaultLocale}"
               pattern="#{nabUgovorController.module.application.dateFormatMask}"
