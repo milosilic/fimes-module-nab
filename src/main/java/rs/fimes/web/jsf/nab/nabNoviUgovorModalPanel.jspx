@@ -184,7 +184,7 @@
         </h:panelGrid>
 
       </h:panelGrid>
-      <h:panelGrid columns="2" styleClass="maxWidth fimesInputGroup">
+      <h:panelGrid columns="2" styleClass="maxWidth fimesInputGroup" id="izvrsenjeUgovoraPanel">
         <h:panelGrid columns="2">
           <h:outputLabel styleClass="fimesLabelLeft"
             value="#{nabUgovorController.module.messageSource.nabUgovorVrednostIzvrsenja}" />
@@ -213,6 +213,35 @@
             value="#{nabUgovorController.module.messageSource.nabUgovorRazlogNeizvrsenja}" />
           <h:inputText styleClass="fimesInputText maxWidth"
             value="#{nabUgovorController.noviUgovor.ugovorenaVrednostSaPdv}" />
+          <h:panelGroup layout="block">
+            <rich:message for="skrivenoPolje" style="color: red;" />
+            <h:inputHidden id="skrivenoPolje"
+              validator="#{nabUgovorController.validateSkrivenoPolje}"
+              value="#{nabUgovorController.skrivenoPolje}">
+            </h:inputHidden>
+          </h:panelGroup>
+        </h:panelGrid>
+        <h:panelGrid id="dugmici" columns="3">
+          <a4j:commandButton id="azuriranje" ajaxSingle="true"
+            styleClass="fimesButton"
+            value="#{nabUgovorController.module.messageSource.common_azuriraj}"
+            disabled="#{nabUgovorController.azuriranje}"
+            reRender="izvrsenjeUgovoraPanel"
+            action="#{nabUgovorController.azuriranjePodataka}" />
+          <a4j:commandButton id="snimi"
+            styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"
+            onclick="#{rich:element('skrivenoPolje')}.value = 'skrivenoPolje';"
+            value="#{nabUgovorController.module.messageSource.common_snimi}"
+            disabled="#{!(nabUgovorController.azuriranje)}"
+            reRender="izvrsenjeUgovoraPanel,coreOkModalPanel"
+            action="#{nabUgovorController.snimiPromenePodaci}" />
+          <a4j:commandButton id="odustani" ajaxSingle="true"
+            styleClass="fimesButton fimesButtonImageCancel"
+            value="#{nabUgovorController.module.messageSource.common_odustani}"
+            action="#{nabUgovorController.clearIzvrsenjeUgovora}"
+            reRender="izvrsenjeUgovoraPanel"
+            disabled="#{!(nabUgovorController.azuriranje)}">
+          </a4j:commandButton>
         </h:panelGrid>
       </h:panelGrid>
       <a4j:commandButton id="nabNoviUgovorModalPanelDugmePotvrdi"

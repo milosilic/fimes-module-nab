@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
+import javax.faces.validator.ValidatorException;
 
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
@@ -43,6 +46,9 @@ public class NabUgovorController extends BaseController{
     private String pretragaIzvrsenUgovor;
     private String pretragaInterniBroj;
     private String pretragaInterniBrojNabavke;
+    //10.09.2014.
+    private boolean azuriranje;
+    private String skrivenoPolje;
 
     
     public NabUgovorController(Module module, String controllerId)
@@ -55,9 +61,17 @@ public class NabUgovorController extends BaseController{
         resetUgovorPretraga();
         ugovorPretraga();
         nabUgovorExtendedDataTableModelApi.helperWalkByRequest();
+        azuriranje = false;
         
     }
     
+    public void azuriranjePodataka() {
+      azuriranje = true;
+    }
+    
+    public void clearIzvrsenjeUgovora(){
+        azuriranje=false;
+    }
     private void resetUgovorPretraga() {
         pretragaInterniBroj = null;
         pretragaInterniBrojNabavke = null;
@@ -100,6 +114,11 @@ public class NabUgovorController extends BaseController{
  
     }
     
+    public void snimiPromenePodaci(){
+        azuriranje = false;
+        
+    }
+    
     public void initAzuriranjeUgovora(){
         noviUgovor = nabUgovorSelected;
     }
@@ -128,6 +147,8 @@ public class NabUgovorController extends BaseController{
     public void resetNabNabavka(){
         
     }
+    
+    
     public void setNabNabavkaAction(){
         nabNabavkaSelectionController.setDugmeAction("nabUgovorController.transferNabNabavka");
         nabNabavkaSelectionController.setDugmeReRender("panelGridNabNoviUgovorLevel1");
@@ -173,6 +194,20 @@ public class NabUgovorController extends BaseController{
 //        nabUgovorExtendedDataTableModelApi.clearSelection();
 
     }
+    
+    // -------------- VALIDACIJE ----------------------
+
+    public void validateSkrivenoPolje(FacesContext context,
+            UIComponent validate, Object value) throws ValidatorException {
+        if (checkUgovor()) {
+            throwValidatorException("ppPpUnosNovogPartneraRequiredRzsDrzava");
+        }
+    }
+    
+    private boolean checkUgovor(){
+        return false;
+    }
+
     
     public void setPpPoslovniPartnerAction(){
         ppPoslovniPartnerSelectionController.setDugmeAction("nabUgovorController.transferPpPoslovniPartner");
@@ -306,6 +341,22 @@ public class NabUgovorController extends BaseController{
 
     public void setPretragaInterniBrojNabavke(String pretragaInterniBrojNabavke) {
         this.pretragaInterniBrojNabavke = pretragaInterniBrojNabavke;
+    }
+
+    public boolean isAzuriranje() {
+        return azuriranje;
+    }
+
+    public void setAzuriranje(boolean azuriranje) {
+        this.azuriranje = azuriranje;
+    }
+
+    public String getSkrivenoPolje() {
+        return skrivenoPolje;
+    }
+
+    public void setSkrivenoPolje(String skrivenoPolje) {
+        this.skrivenoPolje = skrivenoPolje;
     }
 
     
