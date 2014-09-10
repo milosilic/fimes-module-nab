@@ -143,6 +143,7 @@ public class NabUgovorController extends BaseController{
     
     public void odustani(){
         super.resetForm();
+        azuriranje = false;
     }
     
     public void resetNabNabavka(){

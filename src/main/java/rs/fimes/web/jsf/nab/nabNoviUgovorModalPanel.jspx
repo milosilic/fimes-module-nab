@@ -231,38 +231,41 @@
             styleClass="fimesButton"
             value="#{nabUgovorController.module.messageSource.common_azuriraj}"
             disabled="#{nabUgovorController.azuriranje}"
-            reRender="izvrsenjeUgovoraPanel"
+            reRender="izvrsenjeUgovoraPanel,noviUgovorCommandButtonPanelGrid"
             action="#{nabUgovorController.azuriranjePodataka}" />
           <a4j:commandButton id="snimi"
             styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"
             onclick="#{rich:element('skrivenoPolje')}.value = 'skrivenoPolje';"
             value="#{nabUgovorController.module.messageSource.common_snimi}"
             disabled="#{!(nabUgovorController.azuriranje)}"
-            reRender="izvrsenjeUgovoraPanel,coreOkModalPanel"
+            reRender="izvrsenjeUgovoraPanel,coreOkModalPanel,noviUgovorCommandButtonPanelGrid"
             action="#{nabUgovorController.snimiPromenePodaci}" />
           <a4j:commandButton id="odustani" ajaxSingle="true"
             styleClass="fimesButton fimesButtonImageCancel"
             value="#{nabUgovorController.module.messageSource.common_odustani}"
             action="#{nabUgovorController.clearIzvrsenjeUgovora}"
-            reRender="izvrsenjeUgovoraPanel"
+            reRender="izvrsenjeUgovoraPanel,noviUgovorCommandButtonPanelGrid"
             disabled="#{!(nabUgovorController.azuriranje)}">
           </a4j:commandButton>
         </h:panelGrid>
       </h:panelGrid>
-      <a4j:commandButton id="nabNoviUgovorModalPanelDugmePotvrdi"
-        styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"
-        value="#{nabUgovorController.module.messageSource.common_potvrdi}"
-        disabled="#{nabUgovorController.azuriranje}"
-        action="#{nabUgovorController.snimiNabUgovor}"
-        oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabNoviUgovorModalPanel')}.hide();#{rich:component('coreOkModalPanel')}.show();}"
-        reRender="tabelaNabUgovor,coreOkModalPanel" />
-      <rich:spacer width="5" />
-      <a4j:commandButton id="nabNoviUgovorModalPanelDugmeOdustani"
-        styleClass="fimesButton fimesButtonImageCancel"
-        ajaxSingle="true" action="#{nabUgovorController.odustani}"
-        value="#{nabUgovorController.module.messageSource.common_odustani}"
-        immediate="true"
-        onclick="#{rich:component('nabNoviUgovorModalPanel')}.hide()" />
+        <h:panelGrid columns="3" style="margin: auto" id="noviUgovorCommandButtonPanelGrid">
+          <a4j:commandButton id="nabNoviUgovorModalPanelDugmePotvrdi"
+            styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"
+            value="#{nabUgovorController.module.messageSource.common_potvrdi}"
+            disabled="#{nabUgovorController.azuriranje}"
+            action="#{nabUgovorController.snimiNabUgovor}"
+            oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabNoviUgovorModalPanel')}.hide();#{rich:component('coreOkModalPanel')}.show();}"
+            reRender="tabelaNabUgovor,coreOkModalPanel" />
+          <rich:spacer width="5" />
+          <a4j:commandButton id="nabNoviUgovorModalPanelDugmeOdustani"
+            styleClass="fimesButton fimesButtonImageCancel"
+            ajaxSingle="true" action="#{nabUgovorController.odustani}"
+            value="#{nabUgovorController.module.messageSource.common_odustani}"
+            immediate="true"
+            onclick="#{rich:component('nabNoviUgovorModalPanel')}.hide()" />
+        </h:panelGrid>
+
     </h:form>
   </rich:modalPanel>
 </ui:composition>
