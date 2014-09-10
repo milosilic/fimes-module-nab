@@ -27,14 +27,37 @@
                     <a4j:jsFunction name="jsPretraga"
                       action="#{nabKontoSelectionController.pretraga}"
                       reRender="tabelaNabKonto" />
+                      <a4j:jsFunction name="jsXnabKontoBrisanje"
+                      action="#{nabKontoSelectionController.obrisiKonto}"
+                      oncomplete="#{rich:component('coreModalDaNeDijalog')}.hide();#{rich:component('coreOkModalPanel')}.show();"
+                      reRender="coreOkModalPanel,tabelaNabUgovor" />
                     <rich:spacer height="20px" />
                     <rich:extendedDataTable height="427px" rows="15"
                       rowClasses="redAnimacija" id="tabelaNabKonto"
                       enableContextMenu="false"
-                      noDataLabel="#{objEvidencijaObjekataController.module.messageSource.commonNoDataLabel}"
+                      noDataLabel="#{nabKontoSelectionController.module.messageSource.commonNoDataLabel}"
                       value="#{nabKontoSelectionController.xnabKontoExtendedDataTableModelApi}"
                       var="konto">
-                      <rich:column id="idKontoTab" width="50%"
+                    <!-- selekcija  iz objEvidencija objekata.jspx-->
+                    <a4j:support event="onRowClick" 
+                      immediate="true" status="waitStatus" reRender="nabNabavkaDugmeDetaljno">
+                      <f:setPropertyActionListener value="#{konto}"
+                        target="#{nabKontoSelectionController.xnabKontoSelected}" />
+                    </a4j:support>
+                      
+                      <rich:column width="5%"
+                        styleClass="fimesAlignCenter noPadding">
+                        <a4j:commandButton ajaxSingle="true"
+                          status="waitStatus"
+                          id="delKontoTab"
+                          action="#{nabKontoSelectionController.initModalDialogBrisanje}"
+                          oncomplete="if(#{empty facesContext.maximumSeverity}){ #{rich:component('coreModalDaNeDijalog')}.show();}
+                                    else #{rich:component('coreErrorModalPanel')}.show();"
+                          styleClass="fimesButtonImageCross"
+                          reRender="coreModalDaNeDijalog,coreErrorModalPanel">
+                        </a4j:commandButton>
+                      </rich:column>
+                      <rich:column id="idKontoTab" width="45%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
                           <h:panelGrid columns="1"
@@ -50,7 +73,7 @@
                         </f:facet>
                         <h:outputText value="#{konto.idKonto}"></h:outputText>
                       </rich:column>
-                      <rich:column id="nazivKontoTab" width="50%"
+                      <rich:column id="nazivKontoTab" width="45%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
                           <h:outputText styleClass="headerText"
@@ -104,8 +127,17 @@
                 </rich:layoutPanel>
               </rich:layout>
             </a4j:region>
+            <a4j:include
+              viewId="#{coreWebController.coreModalDaNeDijalogView}" />
+            <a4j:include
+              viewId="#{coreWebController.coreModalOkDijalogView}" />
+            <a4j:include
+              viewId="#{coreWebController.coreModalErrorDijalogView}" />
           </h:form>
         </rich:panel>
+        <a4j:status id="waitStatus"
+          onstart="#{rich:component('ajaxStatusModalPanel')}.show()"
+          onstop="#{rich:component('ajaxStatusModalPanel')}.hide()" />
       </ui:define>
     </ui:composition>
   </f:view>

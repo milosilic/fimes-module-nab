@@ -6,6 +6,7 @@ import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
 import rs.etf.rc.common.service.impl.BaseServiceImpl;
 import rs.fimes.data.dao.api.nab.XnabKontoDAO;
+import rs.fimes.domain.nab.NabUgovor;
 import rs.fimes.domain.nab.XnabKonto;
 import rs.fimes.service.api.nab.XnabKontoServiceApi;
 
@@ -36,6 +37,12 @@ public class XnabKontoServiceImpl extends BaseServiceImpl
     public void setXnabKontoDAO(
             XnabKontoDAO xnabKontoDAO) {
         this.xnabKontoDAO = xnabKontoDAO;
+    }
+
+    public void deleteKonto(XnabKonto xnabKontoSelected) {
+        XnabKonto konto = xnabKontoDAO.findById(xnabKontoSelected.getIdKonto(), false);
+        xnabKontoDAO.delete(konto);
+        
     }
     
 }

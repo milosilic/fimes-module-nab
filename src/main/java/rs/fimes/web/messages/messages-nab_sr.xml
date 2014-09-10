@@ -48,6 +48,8 @@
 <!--Konta -->
 <entry key="nabKontaSpisakKontaHeader">Списак конта</entry>
 <entry key="nabKontaNoviKonto">Нови контo</entry>
+<entry key="nabKontoBrisanjeKontaHeader">Брисање конта</entry>
+<entry key="nabKontoBrisanjeKontaPitanje">Да ли сигурно желите да обришете конто</entry>
 
 <!--Nabavka -->
 <entry key="nabNabavkaNovaNabavkaHeader">Нова набавка</entry>

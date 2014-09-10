@@ -9,4 +9,6 @@ public interface XnabKontoServiceApi extends BaseServiceApi {
     
     List<XnabKonto> getAllKonto();
 
+    void deleteKonto(XnabKonto xnabKontoSelected);
+
 }

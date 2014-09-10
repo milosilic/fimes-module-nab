@@ -8,8 +8,11 @@ import java.util.List;
 
 
 
+
+
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
+import rs.etf.rc.common.utils.MessageBundleProperty;
 import rs.etf.rc.common.web.controller.BaseSelectionController;
 import rs.fimes.data.dao.generic.QueryRestriction;
 import rs.fimes.data.dao.generic.QueryRestrictionComparison1;
@@ -32,6 +35,10 @@ public class NabKontoSelectionController extends BaseSelectionController {
 
     private String pretragaNaziv;
     
+    //10.09.2014
+    private XnabKonto xnabKontoSelected;
+    
+    
     public NabKontoSelectionController(Module module, String messageSource)
             throws ConfigurationException {
         super(module, messageSource);
@@ -41,7 +48,6 @@ public class NabKontoSelectionController extends BaseSelectionController {
     private static final long serialVersionUID = -1102872899744848852L;
 
     public void onStart(){
-        System.out.println("učitao se nabKonta");
         xnabKontoExtendedDataTableModelApi.helperWalkByRequest();
 //        ukloniti ovo
 //        setListaKonta(xnabKontoServiceApi.getAllKonto());
@@ -89,6 +95,14 @@ public class NabKontoSelectionController extends BaseSelectionController {
         this.pretragaNaziv = pretragaNaziv;
     }
 
+    public XnabKonto getXnabKontoSelected() {
+        return xnabKontoSelected;
+    }
+
+    public void setXnabKontoSelected(XnabKonto xnabKontoSelected) {
+        this.xnabKontoSelected = xnabKontoSelected;
+    }
+
     @Override
     public void pretraga() {
         System.out.println("ovde se implemetira pretraga");
@@ -106,6 +120,32 @@ public class NabKontoSelectionController extends BaseSelectionController {
         xnabKontoExtendedDataTableModelApi.setParametri(parametri);
 
     }
+    
+    public void initModalDialogBrisanje(){
+        initModalDialogBrisanje(
+                "nabKontoBrisanjeKontaHeader",
+                new MessageBundleProperty(
+                        "nabKontoBrisanjeKontaPitanje"),
+                "jsXnabKontoBrisanje()");
+
+
+    }
+    
+    public void obrisiKonto(){
+        if ( null != xnabKontoSelected ){
+            try {
+                xnabKontoServiceApi.deleteKonto( xnabKontoSelected);
+                populateModalOkPanelSnimanjeDefaultMessages(true,
+                        "nabKontoBrisanjeKontaHeader");
+            }catch (Exception e) {
+                e.printStackTrace();
+                populateModalOkPanelSnimanjeDefaultMessages(false,
+                        "nabKontoBrisanjeKontaHeader");
+            } finally {
+                resetSelection();
+            }
+        }
+    }
 
     @Override
     public void handleSelection() {
@@ -116,6 +156,7 @@ public class NabKontoSelectionController extends BaseSelectionController {
     @Override
     public void resetSelection() {
       xnabKontoExtendedDataTableModelApi.clearSelection();
+      xnabKontoSelected = null;
         
     }
     
