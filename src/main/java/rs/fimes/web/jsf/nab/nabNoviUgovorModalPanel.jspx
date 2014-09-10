@@ -23,7 +23,7 @@
           styleClass="fimesTableCentered fimesTableInput"
           columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField"
           cellspacing="2">
-          <h:outputLabel styleClass="fimesLabelLeft"
+          <h:outputLabel styleClass="fimesLabelRequiredLeft"
             value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaOpisPredmetaNabavke}" />
           <a4j:outputPanel>
             <h:inputText styleClass="fimesInputText maxWidth"
@@ -50,31 +50,31 @@
               reRender="panelGridNabNoviUgovorLevel1"
               styleClass="fimesButtonImageCross" />
           </a4j:outputPanel>
-          <h:outputLabel styleClass="fimesLabelLeft"
+          <h:outputLabel styleClass="fimesLabelRequiredLeft"
             value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaInterniBroj}" />
           <h:inputText styleClass="fimesInputText maxWidth"
             value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.interniBroj}" readonly="true"/>
-          <h:outputLabel styleClass="fimesLabelLeft"
+          <h:outputLabel styleClass="fimesLabelRequiredLeft"
             value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaUkupnaBezPdv}" />
           <h:inputText styleClass="fimesInputText maxWidth"
             value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.procenaBezPdv}" readonly="true"/>
-          <h:outputLabel styleClass="fimesLabelLeft"
+          <h:outputLabel styleClass="fimesLabelRequiredLeft"
             value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaUkupnaSaPdv}" />
           <h:inputText styleClass="fimesInputText maxWidth"
             value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.procenaSaPdv}" readonly="true" />
-          <h:outputLabel styleClass="fimesLabelLeft"
+          <h:outputLabel styleClass="fimesLabelRequiredLeft"
             value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaVrstaPredmeta}" />
           <h:inputText styleClass="fimesInputText maxWidth"
             value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.vrstaPredmetaNabavke.naziv}" readonly="true" />
-          <h:outputLabel styleClass="fimesLabelLeft"
+          <h:outputLabel styleClass="fimesLabelRequiredLeft"
             value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaPredmetNabavke}" />
           <h:inputText styleClass="fimesInputText maxWidth"
             value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.predmetNabavke.naziv}" readonly="true" />
-          <h:outputLabel styleClass="fimesLabelLeft"
+          <h:outputLabel styleClass="fimesLabelRequiredLeft"
             value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaVrstaPostupka}" />
           <h:inputText styleClass="fimesInputText maxWidth"
             value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.vrstaPostupka.naziv}" readonly="true" />
-          <h:outputLabel styleClass="fimesLabelLeft"
+          <h:outputLabel styleClass="fimesLabelRequiredLeft"
             value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
           <h:inputText styleClass="fimesInputText maxWidth"
             value="#{nabNovaNabavkaController.novaNabavka.tipNabavke.naziv}" readonly="true" />
@@ -83,7 +83,7 @@
             styleClass="fimesValidErrMsg" />
         </h:panelGrid>
         <h:panelGrid columns="2" id="nabUgovorDobavljacId">
-          <h:outputLabel styleClass="fimesLabelLeft"
+          <h:outputLabel styleClass="fimesLabelRequiredLeft"
             value="#{nabUgovorController.module.messageSource.nabUgovoriDobavljacMaticniBroj}" />
           <a4j:outputPanel>
             <h:inputText id="noviPoslovniPartner" styleClass="fimesInputText maxWidth"
@@ -112,15 +112,15 @@
               reRender="nabUgovorDobavljacId"
               styleClass="fimesButtonImageCross" />
           </a4j:outputPanel>
-          <h:outputLabel styleClass="fimesLabelLeft"
+          <h:outputLabel styleClass="fimesLabelRequiredLeft"
             value="#{nabUgovorController.module.messageSource.nabUgovoriDobavljacNaziv}" />
           <h:inputText styleClass="fimesInputText maxWidth"
             value="#{nabUgovorController.noviUgovor.ppPoslovniPartner.naziv}" readonly="true" />
-          <h:outputLabel styleClass="fimesLabelLeft"
+          <h:outputLabel styleClass="fimesLabelRequiredLeft"
             value="#{nabUgovorController.module.messageSource.nabUgovoriDobavljacSediste}" />
           <h:inputText styleClass="fimesInputText maxWidth"
             value="#{nabUgovorController.noviUgovor.ppPoslovniPartner.adresaUlica} #{nabUgovorController.noviUgovor.ppPoslovniPartner.adresaBroj}" readonly="true" />        
-          <h:outputLabel styleClass="fimesLabelLeft"
+          <h:outputLabel styleClass="fimesLabelRequiredLeft"
             value="#{nabUgovorController.module.messageSource.nabUgovoriDobavljacDrzava}" />
           <h:inputText styleClass="fimesInputText maxWidth"
             value="#{nabUgovorController.noviUgovor.ppPoslovniPartner.rzsDrzava.naziv}" readonly="true" />        

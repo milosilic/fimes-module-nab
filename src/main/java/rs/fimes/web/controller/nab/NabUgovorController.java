@@ -60,6 +60,7 @@ public class NabUgovorController extends BaseController{
         System.out.println("*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/");
         resetUgovorPretraga();
         ugovorPretraga();
+        initNoviUgovor();
         nabUgovorExtendedDataTableModelApi.helperWalkByRequest();
         azuriranje = false;
         
