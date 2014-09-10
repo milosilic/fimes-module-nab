@@ -75,9 +75,9 @@
           <h:inputText styleClass="fimesInputText maxWidth"
             value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.vrstaPostupka.naziv}" readonly="true" />
           <h:outputLabel styleClass="fimesLabelRequiredLeft"
-            value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
+            value="#{nabUgovorController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
           <h:inputText styleClass="fimesInputText maxWidth"
-            value="#{nabNovaNabavkaController.novaNabavka.tipNabavke.naziv}" readonly="true" />
+            value="#{nabUgovorController.noviUgovor.nabJavnaNabavka.tipNabavke.naziv}" readonly="true" />
           <h:outputText value=" " />
           <rich:message for="datumUsvajanjaPolje"
             styleClass="fimesValidErrMsg" />
