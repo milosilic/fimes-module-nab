@@ -252,6 +252,7 @@
       <a4j:commandButton id="nabNoviUgovorModalPanelDugmePotvrdi"
         styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"
         value="#{nabUgovorController.module.messageSource.common_potvrdi}"
+        disabled="#{nabUgovorController.azuriranje}"
         action="#{nabUgovorController.snimiNabUgovor}"
         oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabNoviUgovorModalPanel')}.hide();#{rich:component('coreOkModalPanel')}.show();}"
         reRender="tabelaNabUgovor,coreOkModalPanel" />

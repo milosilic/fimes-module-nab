@@ -146,7 +146,9 @@ public class NabUgovorController extends BaseController{
     }
     
     public void resetNabNabavka(){
-        
+        if( (null != noviUgovor) && ( null != noviUgovor.getNabJavnaNabavka()) ){
+            noviUgovor.setNabJavnaNabavka(null);
+        }
     }
     
     
