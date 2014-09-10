@@ -184,12 +184,14 @@
         </h:panelGrid>
 
       </h:panelGrid>
+<!--       radjeno po uzoru na ppKartonPoslovnogPartnera.jspx -->
       <h:panelGrid columns="2" styleClass="maxWidth fimesInputGroup" id="izvrsenjeUgovoraPanel">
         <h:panelGrid columns="2">
           <h:outputLabel styleClass="fimesLabelLeft"
             value="#{nabUgovorController.module.messageSource.nabUgovorVrednostIzvrsenja}" />
           <h:inputText styleClass="fimesInputText maxWidth"
-            value="#{nabUgovorController.noviUgovor.iznosIzvrsenjaBezPdv}" />
+            value="#{nabUgovorController.noviUgovor.iznosIzvrsenjaBezPdv}"
+            readonly="#{!(nabUgovorController.azuriranje)}" />
           <h:outputLabel styleClass="fimesLabelLeft"
             value="#{nabUgovorController.module.messageSource.nabUgovorDatumFIzvrsenja}" />
           <rich:calendar id="datumFIzvrsenjaPolje"
@@ -197,6 +199,7 @@
             value="#{nabUgovorController.noviUgovor.datumFIzvrsenja}"
             datePattern="dd.MM.yyyy." enableManualInput="true"
             label="#{nabUgovorController.module.messageSource.nabUgovorDatumFIzvrsenja}"
+            readonly="#{!(nabUgovorController.azuriranje)}"
             required="true">
             <f:convertDateTime
               locale="#{nabUgovorController.module.application.defaultLocale}"
@@ -208,11 +211,13 @@
           <h:outputLabel styleClass="fimesLabelLeft"
             value="#{nabUgovorController.module.messageSource.nabUgovorNapomenaFIzvrsenja}" />
           <h:inputText styleClass="fimesInputText maxWidth"
-            value="#{nabUgovorController.noviUgovor.napomena}" />
+            value="#{nabUgovorController.noviUgovor.napomena}"
+            readonly="#{!(nabUgovorController.azuriranje)}" />
           <h:outputLabel styleClass="fimesLabelLeft"
             value="#{nabUgovorController.module.messageSource.nabUgovorRazlogNeizvrsenja}" />
           <h:inputText styleClass="fimesInputText maxWidth"
-            value="#{nabUgovorController.noviUgovor.ugovorenaVrednostSaPdv}" />
+            value="#{nabUgovorController.noviUgovor.ugovorenaVrednostSaPdv}"
+            readonly="#{!(nabUgovorController.azuriranje)}" />
           <h:panelGroup layout="block">
             <rich:message for="skrivenoPolje" style="color: red;" />
             <h:inputHidden id="skrivenoPolje"
