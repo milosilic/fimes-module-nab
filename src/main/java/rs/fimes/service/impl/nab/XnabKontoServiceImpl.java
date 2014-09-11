@@ -53,7 +53,7 @@ public class XnabKontoServiceImpl extends BaseServiceImpl
 
     public void deleteKonto(XnabKonto xnabKontoSelected) throws FimesServiceException {
         if ( nabNabavkaKontoPartijaDAO.countAllPoXnabKontu( xnabKontoSelected) > 0) {
-            throw new FimesServiceException();
+            throw new FimesServiceException("nabKontoBrisanjePostojeReference");
         }
         XnabKonto konto = xnabKontoDAO.findById(xnabKontoSelected.getIdKonto(), false);
         xnabKontoDAO.delete(konto);

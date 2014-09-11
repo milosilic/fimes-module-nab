@@ -142,7 +142,7 @@ public class NabKontoSelectionController extends BaseSelectionController {
             }catch (FimesServiceException e) {
                 e.printStackTrace();
                 populateModalOkPanelSnimanjeDefaultMessages(false,
-                        "nabKontoBrisanjePostojeReference");
+                        "nabKontoBrisanjeKontaHeader");
             }catch (Exception e) {
                 e.printStackTrace();
                 populateModalOkPanelSnimanjeDefaultMessages(false,
