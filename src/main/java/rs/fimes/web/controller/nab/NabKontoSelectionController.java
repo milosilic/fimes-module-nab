@@ -39,6 +39,7 @@ public class NabKontoSelectionController extends BaseSelectionController {
     
     //10.09.2014
     private XnabKonto xnabKontoSelected;
+    private String pretragaKonto;
     
     
     public NabKontoSelectionController(Module module, String messageSource)
@@ -105,12 +106,28 @@ public class NabKontoSelectionController extends BaseSelectionController {
         this.xnabKontoSelected = xnabKontoSelected;
     }
 
+    public String getPretragaKonto() {
+        return pretragaKonto;
+    }
+
+    public void setPretragaKonto(String pretragaKonto) {
+        this.pretragaKonto = pretragaKonto;
+    }
+
     @Override
     public void pretraga() {
         System.out.println("ovde se implemetira pretraga");
 
         resetSelection();
         List<QueryRestriction> parametri = new ArrayList<QueryRestriction>();
+        pretragaNaziv = emptyStringToNull(pretragaNaziv);
+        if (pretragaKonto != null) {
+            parametri.add(QueryRestrictionComparison1
+                    .addCirToAbcStringContains(
+                            "konto",
+                            getStringUtil().transliterationCirToAbc(
+                                    pretragaKonto.replaceAll("\\s+", " "))));
+        }
         pretragaNaziv = emptyStringToNull(pretragaNaziv);
         if (pretragaNaziv != null) {
             parametri.add(QueryRestrictionComparison1

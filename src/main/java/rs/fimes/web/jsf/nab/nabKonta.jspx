@@ -62,8 +62,14 @@
                         <f:facet name="header">
                           <h:panelGrid columns="1"
                             styleClass="maxWidth fimesTableCentered fimesTableInput">
-                            <h:outputText styleClass="headerText"
-                              value="#{nabKontoSelectionController.module.messageSource.nabKontoPozicija}" />
+                            <a4j:commandLink ajaxSingle="true"
+                              value="#{nabKontoSelectionController.module.messageSource.nabKontoPozicija}"
+                              action="#{nabKontoSelectionController.xnabKontoExtendedDataTableModelApi.odrediSort}"
+                              reRender="tabelaNabKonto">
+                              <a4j:actionparam name="sortField"
+                                value="konto"
+                                assignTo="#{nabUgovorController.nabUgovorExtendedDataTableModelApi.sortField}" />
+                            </a4j:commandLink>
                             <h:inputText 
                               id="pretragaKonto"  
                               styleClass="fimesInputText" 
@@ -76,8 +82,22 @@
                       <rich:column id="nazivKontoTab" width="45%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
-                          <h:outputText styleClass="headerText"
-                            value="#{nabKontoSelectionController.module.messageSource.nabKontoNaziv}" />
+                          <h:panelGrid columns="1"
+                            styleClass="maxWidth fimesTableCentered fimesTableInput">
+                            <a4j:commandLink ajaxSingle="true"
+                              value="#{nabKontoSelectionController.module.messageSource.nabKontoNaziv}"
+                              action="#{nabKontoSelectionController.xnabKontoExtendedDataTableModelApi.odrediSort}"
+                              reRender="tabelaNabKonto">
+                              <a4j:actionparam name="sortField"
+                                value="naziv"
+                                assignTo="#{nabKontoSelectionController.xnabKontoExtendedDataTableModelApi.sortField}" />
+                            </a4j:commandLink>
+                            <h:inputText 
+                              id="pretragaNaziv"  
+                              styleClass="fimesInputText" 
+                              onkeypress="if (event.keyCode == 13) {jsPretraga(); return false;}"
+                              value="#{nabKontoSelectionController.pretragaNaziv}"/>
+                           </h:panelGrid>
                         </f:facet>
                         <h:outputText value="#{konto.naziv}"></h:outputText>
                       </rich:column>

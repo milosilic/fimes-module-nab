@@ -186,6 +186,7 @@
 
                       </f:facet>
                     </rich:extendedDataTable>
+                      <rich:spacer height="10px"/>
                     <h:panelGroup layout="block"
                       styleClass="fimesAlignRight">
                       <a4j:commandButton id="nabPlanDugmeKopiraj"
