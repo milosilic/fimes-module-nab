@@ -90,6 +90,7 @@
         <constructor-arg value="nabKontoSelectionController"
             type="java.lang.String" />
         <property name="xnabKontoExtendedDataTableModelApi" ref="xnabKontoExtendedDataTableModelApi" />
+        <property name="xnabKontoServiceApi" ref="xnabKontoServiceApi" />
         
     </bean>
 	<bean id="nabKontoLovSelectionController"
