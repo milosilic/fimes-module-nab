@@ -68,7 +68,7 @@
                               reRender="tabelaNabKonto">
                               <a4j:actionparam name="sortField"
                                 value="konto"
-                                assignTo="#{nabUgovorController.nabUgovorExtendedDataTableModelApi.sortField}" />
+                                assignTo="#{nabKontoSelectionController.nabKontoSelectionController.sortField}" />
                             </a4j:commandLink>
                             <h:inputText 
                               id="pretragaKonto"  
