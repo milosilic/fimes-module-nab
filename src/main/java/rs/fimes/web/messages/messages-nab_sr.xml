@@ -159,4 +159,5 @@
 <!-- GREŠKE -->
 <entry key="nabNabavkaBrisanjePostojeReference">Јавна набавка ''{0}'' није обрисана јер је
     референцирана из других табела!</entry>
-</properties>
+<entry key="nabKontoBrisanjePostojeReference">Konto није обрисан, јер је
+    референциран из других табела!</entry></properties>

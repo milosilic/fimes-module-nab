@@ -10,6 +10,7 @@ import java.util.List;
 
 
 
+
 import rs.etf.rc.common.application.ConfigurationException;
 import rs.etf.rc.common.application.Module;
 import rs.etf.rc.common.utils.MessageBundleProperty;
@@ -18,6 +19,7 @@ import rs.fimes.data.dao.generic.QueryRestriction;
 import rs.fimes.data.dao.generic.QueryRestrictionComparison1;
 import rs.fimes.domain.nab.XnabKonto;
 import rs.fimes.service.api.nab.XnabKontoServiceApi;
+import rs.fimes.service.exception.FimesServiceException;
 import rs.fimes.web.datamodel.api.nab.XnabKontoExtendedDataTableModelApi;
 
 public class NabKontoSelectionController extends BaseSelectionController {
@@ -137,6 +139,10 @@ public class NabKontoSelectionController extends BaseSelectionController {
                 xnabKontoServiceApi.deleteKonto( xnabKontoSelected);
                 populateModalOkPanelSnimanjeDefaultMessages(true,
                         "nabKontoBrisanjeKontaHeader");
+            }catch (FimesServiceException e) {
+                e.printStackTrace();
+                populateModalOkPanelSnimanjeDefaultMessages(false,
+                        "nabKontoBrisanjePostojeReference");
             }catch (Exception e) {
                 e.printStackTrace();
                 populateModalOkPanelSnimanjeDefaultMessages(false,
