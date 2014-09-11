@@ -81,7 +81,35 @@
                         </f:facet>
                         <h:outputText value="#{konto.naziv}"></h:outputText>
                       </rich:column>
-                  <f:facet name="footer">
+                      <rich:column width="5%" styleClass="alignCenter">
+                        <f:facet name="header">
+                          <h:panelGroup>
+                            <a4j:commandButton ajaxSingle="true"
+                              id="tabelaNabKontoNovi"
+                              action="#{nabKontoSelectionController.initNoviKonto}"
+                              oncomplete="#{rich:component('nabNoviKontoModalPanel')}.show()"
+                              reRender="nabNoviKontoModalPanel"
+                              styleClass="fimesButtonImageAdd" />
+                            <rich:toolTip for="tabelaNabKontoNovi"
+                              styleClass="tooltipRichAdd"
+                              value="#{nabKontoSelectionController.module.messageSource.nabTooltipNoviUgovorUnesi}"
+                              direction="bottom-left" />
+                          </h:panelGroup>
+                        </f:facet>
+                        <a4j:commandButton
+                          id="tabelaNabKontoAzuriranje"
+                          ajaxSingle="true"
+                          styleClass="fimesButtonImageEdit"
+                          action="#{nabKontoSelectionController.initAzuriranjeKonto}"
+                          oncomplete="#{rich:component('nabNoviKontoModalPanel')}.show()"
+                          reRender="nabNoviKontoModalPanel">
+                        </a4j:commandButton>
+                        <rich:toolTip for="tabelaNabKontoAzuriranje"
+                          styleClass="tooltipRichEdit"
+                          value="#{nabKontoSelectionController.module.messageSource.nabTooltipUgovorAzuriraj}"
+                          direction="top-left" />
+                      </rich:column>
+                      <f:facet name="footer">
                     <h:panelGrid width="100%" columns="3"
                       columnClasses="fimesDataTableFooterColumnLeft,fimesDataTableFooterColumnCenter,fimesDataTableFooterColumnRight">
                       <h:panelGroup>
@@ -118,10 +146,10 @@
                     columnClasses="fimesTable2ColumnFieldWidthEqual,fimesTable2ColumnLabelWidthEqual">
                     <h:commandButton styleClass="fimesButton"
                       action="meni" immediate="true"
-                      value="#{nabKontoSelectionController.module.messageSource.nabKontaNoviKonto}" />
+                      value="#{nabKontoSelectionController.module.messageSource.common_izlaz}" />
                     <h:commandButton styleClass="fimesButton"
                       action="meni" immediate="true"
-                      value="#{nabKontoSelectionController.module.messageSource.common_izlaz}" />
+                      value="#{nabKontoSelectionController.module.messageSource.nabKontaNoviKonto}" />
                   </h:panelGrid>
 
                 </rich:layoutPanel>
@@ -135,6 +163,8 @@
               viewId="#{coreWebController.coreModalErrorDijalogView}" />
           </h:form>
         </rich:panel>
+        <a4j:include
+          viewId="#{nabWebController.nabNoviKontoModalPanelView}" />
         <a4j:status id="waitStatus"
           onstart="#{rich:component('ajaxStatusModalPanel')}.show()"
           onstop="#{rich:component('ajaxStatusModalPanel')}.hide()" />

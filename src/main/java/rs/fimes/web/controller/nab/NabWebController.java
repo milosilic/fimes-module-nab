@@ -28,6 +28,8 @@ public class NabWebController extends BaseWebController {
     //31.08.2014.
     private WebComponent nabNoviUgovorModalPanel;
     private WebComponent nabNabavkaLovModalPanel;
+    //11.09.2014.
+    private WebComponent nabNoviKontoModalPanel;
 
     public NabWebController(Module module, String shortId)
             throws ConfigurationException {
@@ -222,6 +224,26 @@ public class NabWebController extends BaseWebController {
     public void setNabNabavkaLovModalPanel(WebComponent nabNabavkaLovModalPanel) {
         this.nabNabavkaLovModalPanel = nabNabavkaLovModalPanel;
     }
+
+    public WebComponent getNabNoviKontoModalPanel() {
+        return nabNoviKontoModalPanel;
+    }
+
+    public void setNabNoviKontoModalPanel(WebComponent nabNoviKontoModalPanel) {
+        this.nabNoviKontoModalPanel = nabNoviKontoModalPanel;
+    }
+    
+    public String getNabNoviKontoModalPanelView(){
+        try {
+            return getNavigationUtil().getView("nabNoviKontoModalPanel");
+        } catch (CommonWebException e) {
+          
+            e.printStackTrace();
+            return "null";
+        }
+        
+    }
+
     
     
 

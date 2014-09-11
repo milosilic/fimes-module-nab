@@ -74,4 +74,9 @@
     <constructor-arg value="nabNabavkaLovModalPanel"
       type="java.lang.String" />
   </bean>
+  <bean id="nabNoviKontoModalPanel" class="rs.etf.rc.common.web.WebComponent"
+    parent="nabWebComponent">
+    <constructor-arg value="nabNoviKontoModalPanel"
+      type="java.lang.String" />
+  </bean>
 </beans>

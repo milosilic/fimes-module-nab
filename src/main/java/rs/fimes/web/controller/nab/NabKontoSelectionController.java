@@ -133,6 +133,14 @@ public class NabKontoSelectionController extends BaseSelectionController {
 
     }
     
+    public void initNoviKonto(){
+        
+    }
+    
+    public void initAzuriranjeKonto(){
+        
+    }
+    
     public void obrisiKonto(){
         if ( null != xnabKontoSelected ){
             try {

@@ -50,6 +50,7 @@
 <entry key="nabKontaNoviKonto">Нови контo</entry>
 <entry key="nabKontoBrisanjeKontaHeader">Брисање конта</entry>
 <entry key="nabKontoBrisanjeKontaPitanje">Да ли сигурно желите да обришете конто</entry>
+<entry key="nabKontoAzuriranjeKonta">Ажурирање конта</entry>
 
 <!--Nabavka -->
 <entry key="nabNabavkaNovaNabavkaHeader">Нова набавка</entry>
