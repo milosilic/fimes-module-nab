@@ -120,7 +120,7 @@ public class NabKontoSelectionController extends BaseSelectionController {
 
         resetSelection();
         List<QueryRestriction> parametri = new ArrayList<QueryRestriction>();
-        pretragaNaziv = emptyStringToNull(pretragaNaziv);
+        pretragaKonto = emptyStringToNull(pretragaKonto);
         if (pretragaKonto != null) {
             parametri.add(QueryRestrictionComparison1
                     .addCirToAbcStringContains(

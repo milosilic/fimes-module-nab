@@ -14,7 +14,7 @@
     </f:facet>
     <f:facet name="header">
       <h:outputText styleClass="fimesPanelHeader"
-        value="#{nabKontoSelectionController.module.messageSource.nabPlanoviNoviPlan}" />
+        value="#{nabKontoSelectionController.module.messageSource.nabKontaNoviKonto}" />
     </f:facet>
     <h:form id="formNoviKonto">
       <h:panelGrid columns="2" width="380px"

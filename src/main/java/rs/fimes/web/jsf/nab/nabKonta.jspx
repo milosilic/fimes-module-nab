@@ -74,7 +74,7 @@
                               id="pretragaKonto"  
                               styleClass="fimesInputText" 
                               onkeypress="if (event.keyCode == 13) {jsPretraga(); return false;}"
-                              value="#{nabKontoSelectionController.pretragaNaziv}"/>
+                              value="#{nabKontoSelectionController.pretragaKonto}"/>
                           </h:panelGrid>
                         </f:facet>
                         <h:outputText value="#{konto.idKonto}"></h:outputText>
@@ -167,9 +167,6 @@
                     <h:commandButton styleClass="fimesButton"
                       action="meni" immediate="true"
                       value="#{nabKontoSelectionController.module.messageSource.common_izlaz}" />
-                    <h:commandButton styleClass="fimesButton"
-                      action="meni" immediate="true"
-                      value="#{nabKontoSelectionController.module.messageSource.nabKontaNoviKonto}" />
                   </h:panelGrid>
 
                 </rich:layoutPanel>
