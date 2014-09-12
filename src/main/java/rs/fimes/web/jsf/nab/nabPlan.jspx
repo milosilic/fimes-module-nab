@@ -126,7 +126,6 @@
                         <f:facet name="header">
                           <h:panelGroup>
                             <a4j:commandButton id="nabPlanoviNoviPlan" ajaxSingle="true" 
-                              value="#{nabPlanController.module.messageSource.nabPlanoviNoviPlan}"
                               styleClass="fimesButtonImageAdd"
                               status="waitStatus"
                               action="#{nabNoviPlanController.initNoviPlan}"
