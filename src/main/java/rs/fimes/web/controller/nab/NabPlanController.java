@@ -32,7 +32,10 @@ public class NabPlanController extends BaseController{
     private boolean kopirajPodatke;
     private NabNoviPlanController nabNoviPlanController;
     private String godina;
-
+    
+    //13.09.2014.
+    private String pretragaNazivPlana;
+    private String pretragaInterniBrojPlana;
     
 
     private static final long serialVersionUID = -788600541631559492L;
@@ -124,6 +127,20 @@ public class NabPlanController extends BaseController{
         if( godina != null) {
             parametri.add( QueryRestrictionComparison1.addIsEqual("godina", intGodina.intValue()));
         }
+        if (pretragaNazivPlana != null && !pretragaNazivPlana.trim().isEmpty()) {
+            parametri.add(QueryRestrictionComparison1
+                    .addCirToAbcStringContains(
+                            "naziv",
+                            getStringUtil().transliterationCirToAbc(
+                                    pretragaNazivPlana.trim().replaceAll("\\s+", " "))));
+        }
+        if (pretragaInterniBrojPlana != null && !pretragaInterniBrojPlana.trim().isEmpty()) {
+            parametri.add(QueryRestrictionComparison1
+                    .addCirToAbcStringContains(
+                            "brojPlana",
+                            getStringUtil().transliterationCirToAbc(
+                                    pretragaInterniBrojPlana.trim().replaceAll("\\s+", " "))));
+        }
         
         nabPlanExtendedDataTableModelApi.setParametri(parametri);
         nabPlanExtendedDataTableModelApi.clearSelection();
@@ -199,6 +216,22 @@ public class NabPlanController extends BaseController{
 
     public void setGodina(String godina) {
         this.godina = godina;
+    }
+
+    public String getPretragaNazivPlana() {
+        return pretragaNazivPlana;
+    }
+
+    public void setPretragaNazivPlana(String pretragaNazivPlana) {
+        this.pretragaNazivPlana = pretragaNazivPlana;
+    }
+
+    public String getPretragaInterniBrojPlana() {
+        return pretragaInterniBrojPlana;
+    }
+
+    public void setPretragaInterniBrojPlana(String pretragaInterniBrojPlana) {
+        this.pretragaInterniBrojPlana = pretragaInterniBrojPlana;
     }
 
     

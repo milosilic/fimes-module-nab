@@ -80,6 +80,7 @@
                         status="waitStatus"
                         id="tabelaNabNabavkaBrisanje"
                         action="#{nabNabavkaController.initModalDialogBrisanje}"
+                        disabled="#{nabavka.nabPlan.datumUsvajanja!=null}"
                         oncomplete="#{rich:component('coreModalDaNeDijalog')}.show()"
                         styleClass="fimesButtonImageCross"
                         reRender="coreModalDaNeDijalog">
@@ -164,6 +165,7 @@
                             id="tabelaNabNabavkaNova"
                             action="#{nabNovaNabavkaController.resetSelection}"
                             oncomplete="#{rich:component('nabNovaNabavkaModalPanel')}.show()"
+                            disabled="#{nabavka.nabPlan.datumUsvajanja!=null}"
                             reRender="nabNovaNabavkaModalPanel"
                             styleClass="fimesButtonImageAdd" />
                           <rich:toolTip for="tabelaNabNabavkaNova"

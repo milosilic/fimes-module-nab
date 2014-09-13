@@ -32,6 +32,10 @@
                       reRender="tabelaNabPlan">
                       <a4j:actionparam name="param1"
                         assignTo="#{nabPlanController.godina}" />
+                      <a4j:actionparam name="param2"
+                        assignTo="#{nabPlanController.pretragaNazivPlana}" />
+                      <a4j:actionparam name="param3"
+                        assignTo="#{nabPlanController.pretragaInterniBrojPlana}" />
                     </a4j:jsFunction>
                     <a4j:jsFunction name="nabPlanBrisanje"
                       action="#{nabPlanController.obrisiPlan}"
@@ -69,24 +73,51 @@
                         <h:panelGrid columns="1"
                           style="margin : auto; height: 37px;"
                           headerClass="tableHeader" rowClasses="tableHeader">
-                            <h:outputText styleClass="headerText"
-                              value="#{nabPlanController.module.messageSource.nabPlanoviZaGodinu}" />
+                            <a4j:commandLink ajaxSingle="true"
+                              value="#{nabPlanController.module.messageSource.nabPlanoviZaGodinu}"
+                              action="#{nabPlanController.nabPlanExtendedDataTableModelApi.odrediSort}"
+                              reRender="tabelaNabPlan">
+                              <a4j:actionparam name="sortField"
+                                value="godina"
+                                assignTo="#{nabPlanController.nabPlanExtendedDataTableModelApi.sortField}" />
+                            </a4j:commandLink>
                             <h:inputText id="pretragaGodinaPlana"
                               tabindex="1" style="width: 70px"
                               value="#{nabPlanController.godina}"
                               onkeypress="if (event.keyCode == 13) {
                                     pretragaNabPlan(
-                                        #{rich:element('pretragaGodinaPlana')}.value);
+                                        #{rich:element('pretragaGodinaPlana')}.value,
+                                        #{rich:element('pretragaNazivPlana')}.value,
+                                        #{rich:element('pretragaInterniBrojPlana')}.value);
                                         return false;}" />
                           </h:panelGrid>
                         </f:facet>
                         <h:outputText value="#{plan.godina}"></h:outputText>
                       </rich:column>
                       <rich:column id="nazivPlanTab" width="20%"
-                        styleClass="fimesAlignLeft">
+                        styleClass="fimesAlignLeft" headerClass="tabelaHederCentrirano">
                         <f:facet name="header">
-                          <h:outputText styleClass="headerText"
-                            value="#{nabPlanController.module.messageSource.nabPlanoviNazivPlana}" />
+                        <h:panelGrid columns="1"
+                          style="margin : auto; height: 37px;"
+                          headerClass="tableHeader" rowClasses="tableHeader">
+                            <a4j:commandLink ajaxSingle="true"
+                              value="#{nabPlanController.module.messageSource.nabPlanoviNazivPlana}"
+                              action="#{nabPlanController.nabPlanExtendedDataTableModelApi.odrediSort}"
+                              reRender="tabelaNabPlan">
+                              <a4j:actionparam name="sortField"
+                                value="naziv"
+                                assignTo="#{nabPlanController.nabPlanExtendedDataTableModelApi.sortField}" />
+                            </a4j:commandLink>
+                            <h:inputText id="pretragaNazivPlana"
+                              tabindex="1" style="width: 70px"
+                              value="#{nabPlanController.pretragaNazivPlana}"
+                              onkeypress="if (event.keyCode == 13) {
+                                    pretragaNabPlan(
+                                        #{rich:element('pretragaGodinaPlana')}.value,
+                                        #{rich:element('pretragaNazivPlana')}.value,
+                                        #{rich:element('pretragaInterniBrojPlana')}.value);
+                                        return false;}" />
+                          </h:panelGrid>
                         </f:facet>
                         <h:outputText value="#{plan.naziv}"></h:outputText>
                       </rich:column>
@@ -105,8 +136,27 @@
                       <rich:column id="brojPlanaPlanTab" width="20%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
-                          <h:outputText styleClass="headerText"
-                            value="#{nabPlanController.module.messageSource.nabPlanovicInterniBrojPlana}" />
+                        <h:panelGrid columns="1"
+                          style="margin : auto; height: 37px;"
+                          headerClass="tableHeader" rowClasses="tableHeader">
+                            <a4j:commandLink ajaxSingle="true"
+                              value="#{nabPlanController.module.messageSource.nabPlanovicInterniBrojPlana}"
+                              action="#{nabPlanController.nabPlanExtendedDataTableModelApi.odrediSort}"
+                              reRender="tabelaNabPlan">
+                              <a4j:actionparam name="sortField"
+                                value="brojPlana"
+                                assignTo="#{nabPlanController.nabPlanExtendedDataTableModelApi.sortField}" />
+                            </a4j:commandLink>
+                            <h:inputText id="pretragaInterniBrojPlana"
+                              tabindex="1" style="width: 70px"
+                              value="#{nabPlanController.pretragaInterniBrojPlana}"
+                              onkeypress="if (event.keyCode == 13) {
+                                    pretragaNabPlan(
+                                        #{rich:element('pretragaGodinaPlana')}.value,
+                                        #{rich:element('pretragaNazivPlana')}.value,
+                                        #{rich:element('pretragaInterniBrojPlana')}.value);
+                                        return false;}" />
+                          </h:panelGrid>
                         </f:facet>
                         <h:outputText value="#{plan.brojPlana}"></h:outputText>
                       </rich:column>
