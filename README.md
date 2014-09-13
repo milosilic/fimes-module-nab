@@ -232,4 +232,11 @@ ALTER TABLE nab_ugovor
    ADD COLUMN f_ugovor_izvrsen boolean NOT NULL DEFAULT false;
 
 
+ALTER TABLE nab_plan
+   ALTER COLUMN datum_usvajanja SET DEFAULT NULL;
+ALTER TABLE nab_plan
+   ALTER COLUMN datum_usvajanja DROP NOT NULL;
+
+
+
 

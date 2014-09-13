@@ -19,6 +19,8 @@
 <entry key="nabNaruciociPoreskiIdentifikacioniBroj">Порески идентификациони број</entry>
 <entry key="nabNaruciociSkracenica">Скраћеница назива</entry>
 <entry key="nabNaruciociKategorija">Категорија</entry>
+
+<!-- PLAN -->
 <entry key="nabPlanoviZaGodinu">За годину</entry>
 <entry key="nabPlanoviNazivPlana">Назив плана</entry>
 <entry key="nabPlanoviPlanBrisanjeHeader">Брисање плана</entry>
@@ -32,6 +34,7 @@
 <entry key="nabPlanoviNoviPlan">Нови план</entry>
 <entry key="nabPlanoviAzuriranjePlana">Ажурирање плана</entry>
 <entry key="nabPlanoviKopiranjePlana">Копирај план</entry>
+<entry key="nabPlanoviUsvajanjePlana">Усвоји план</entry>
 <entry key="nabPlanoviSpisakNabavki">Списак набавки</entry>
 <entry key="nabNabavkaListaHeader">Кратки преглед поступака</entry>
 <entry key="nabNabavkaListaRb">Рб</entry>

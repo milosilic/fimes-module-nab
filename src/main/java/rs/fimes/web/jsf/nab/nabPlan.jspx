@@ -46,7 +46,7 @@
                       
                     <!-- selekcija  iz objEvidencija objekata.jspx-->
                     <a4j:support event="onRowClick" 
-                      immediate="true" status="waitStatus" reRender="nabPlanDugmeDetaljno,nabPlanDugmeAzuriraj,nabPlanDugmeKopiraj">
+                      immediate="true" status="waitStatus" reRender="nabPlanDugmeAzuriraj,nabPlanGridButtons">
                       <f:setPropertyActionListener value="#{plan}"
                         target="#{nabPlanController.nabPlanSelected}" />
                         <f:setPropertyActionListener value="#{plan}" target="#{nabNoviPlanController.noviPlan}" />
@@ -187,7 +187,7 @@
                     </rich:extendedDataTable>
                       <rich:spacer height="10px"/>
                     <h:panelGroup layout="block"
-                      styleClass="fimesAlignRight">
+                      styleClass="fimesAlignRight" id="nabPlanGridButtons">
                       <a4j:commandButton id="nabPlanDugmeKopiraj"
                         styleClass="fimesButton objDugmeUFuteruTabele"
                         status="waitStatus"
@@ -206,6 +206,16 @@
                         value="#{nabPlanController.module.messageSource.nabPlanoviSpisakNabavki}"
                         action="nabavkeLista"
                         disabled="#{empty nabPlanController.nabPlanSelected}" />
+                      <rich:spacer width="10px"/>
+                      <a4j:commandButton id="nabPlanDugmeUsvoji"
+                        styleClass="fimesButton objDugmeUFuteruTabele"
+                        status="waitStatus"
+                        value="#{nabPlanController.module.messageSource.nabPlanoviUsvajanjePlana}"
+                        action="#{nabPlanController.noviPlan}"
+                        oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
+                        disabled="#{(empty nabPlanController.nabPlanSelected) or (nabPlanController.nabPlanSelected.datumUsvajanja!=null)}" 
+                        reRender="nabNoviPlanModalPanel">
+                      </a4j:commandButton>                        
                     </h:panelGroup>
                   </h:panelGroup>
                 </rich:layoutPanel>
