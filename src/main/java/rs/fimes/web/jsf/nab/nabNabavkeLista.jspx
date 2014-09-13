@@ -121,7 +121,7 @@
                       <h:outputText
                         value="#{nabavka.vrstaPostupka.naziv}" />
                     </rich:column>
-                    <rich:column id="kolona5" width="15%"
+                    <rich:column id="kolona5" width="10%"
                       styleClass="fimesAlignLeft">
                       <f:facet name="header">
                         <h:outputText styleClass="headerText"
@@ -176,6 +176,7 @@
                         ajaxSingle="true"
                         styleClass="fimesButtonImageEdit"
                         action="#{nabNabavkaController.azurirajNabavku}"
+                        disabled="#{nabavka.nabPlan.datumUsvajanja!=null}"
                         oncomplete="#{rich:component('nabNovaNabavkaModalPanel')}.show()"
                         reRender="nabNovaNabavkaModalPanel">
                       </a4j:commandButton>
