@@ -133,6 +133,7 @@
                               reRender="nabNoviPlanModalPanel">
                               <f:setPropertyActionListener value="#{false}"
                                 target="#{nabPlanController.kopirajPodatke}" />
+                              <f:setPropertyActionListener value="#{plan}" target="#{nabNoviPlanController.noviPlan}" />
                             </a4j:commandButton>
                             <rich:toolTip for="nabPlanoviNoviPlan"
                               styleClass="tooltipRichAdd"
@@ -144,8 +145,11 @@
                         styleClass="fimesButtonImageEdit"
                         status="waitStatus"
                         oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
-                        disabled="#{empty nabPlanController.nabPlanSelected}" 
-                        reRender="nabNoviPlanModalPanel"/>
+                        disabled="#{plan.datumUsvajanja!=null}" 
+                        reRender="nabNoviPlanModalPanel">
+                        <f:setPropertyActionListener value="#{plan}"
+                          target="#{nabPlanController.nabPlanSelected}" />
+                        </a4j:commandButton>
                         <rich:toolTip for="nabPlanDugmeAzuriraj"
                           styleClass="tooltipRichEdit"
                           value="#{nabPlanController.module.messageSource.nabTooltipPlanAzuriraj}"
