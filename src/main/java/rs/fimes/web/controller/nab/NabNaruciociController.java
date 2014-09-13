@@ -21,7 +21,6 @@ public class NabNaruciociController extends BaseController{
     
     public void onStart() {
        
-        System.out.println( ":::Ukenjao sam se od srece " + System.currentTimeMillis());
         if ( orgFirma == null ) {
           setOrgFirma(nabNaruciociServiceApi.getActiveOrgFirma(getUserSessionUtil().getCurrentUserCurrentOrgFirma().getIdFirma()));
         }
