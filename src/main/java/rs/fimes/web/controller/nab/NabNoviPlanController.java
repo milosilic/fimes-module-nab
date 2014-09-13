@@ -47,9 +47,7 @@ public class NabNoviPlanController extends BaseController{
     }
 
     public void onStart() {
-        
-        
-        System.out.println( ":::Ukenjao sam se od srece NAbPlanController " + System.currentTimeMillis());
+
         if ( orgFirma == null ) {
             setOrgFirma(nabNaruciociServiceApi.getActiveOrgFirma(getUserSessionUtil().getCurrentUserCurrentOrgFirma().getIdFirma()));
           }
