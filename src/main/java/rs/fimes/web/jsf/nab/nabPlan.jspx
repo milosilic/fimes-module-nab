@@ -210,8 +210,8 @@
                       <a4j:commandButton id="nabPlanDugmeUsvoji"
                         styleClass="fimesButton objDugmeUFuteruTabele"
                         status="waitStatus"
-                        value="#{nabPlanController.module.messageSource.nabPlanoviUsvajanjePlana}"
-                        action="#{nabPlanController.noviPlan}"
+                        value="#{nabNoviPlanController.module.messageSource.nabPlanoviUsvajanjePlana}"
+                        action="#{nabNoviPlanController.initUsvajanjePlana}"
                         oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
                         disabled="#{(empty nabPlanController.nabPlanSelected) or (nabPlanController.nabPlanSelected.datumUsvajanja!=null)}" 
                         reRender="nabNoviPlanModalPanel">
