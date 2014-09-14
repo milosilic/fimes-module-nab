@@ -627,7 +627,7 @@
               </a4j:commandButton>                        
               <a4j:commandButton styleClass="fimesButton"
                 action="nazad"
-                value="#{nabNabavkaController.module.messageSource.common_izlaz}" />
+                value="#{nabNabavkaController.module.messageSource.common_nazad}" />
             </h:panelGrid>
             <a4j:include
               viewId="#{coreWebController.coreModalDaNeDijalogView}" />
