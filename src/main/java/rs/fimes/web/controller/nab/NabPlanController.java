@@ -299,7 +299,7 @@ public class NabPlanController extends BaseController{
         return pretragaDatumUsvajanjaKraj;
     }
 
-    public void setPretragaDatumUsvajanjeKraj(String pretragaDatumUsvajanjaKraj) {
+    public void setPretragaDatumUsvajanjaKraj(String pretragaDatumUsvajanjaKraj) {
         this.pretragaDatumUsvajanjaKraj = pretragaDatumUsvajanjaKraj;
     }
 
