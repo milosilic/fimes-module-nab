@@ -14,6 +14,7 @@ import rs.etf.rc.common.application.Module;
 import rs.etf.rc.common.utils.MessageBundleProperty;
 import rs.fimes.data.dao.generic.QueryRestriction;
 import rs.fimes.data.dao.generic.QueryRestrictionComparison1;
+import rs.fimes.domain.core.OrgFirma;
 import rs.fimes.domain.core.PpPoslovniPartner;
 import rs.fimes.domain.nab.NabJavnaNabavka;
 import rs.fimes.domain.nab.NabUgovor;
@@ -50,6 +51,7 @@ public class NabUgovorController extends BaseController{
     private boolean azuriranje;
     private String skrivenoPolje;
 
+    private OrgFirma orgFirma;
     
     public NabUgovorController(Module module, String controllerId)
             throws ConfigurationException {
@@ -63,6 +65,7 @@ public class NabUgovorController extends BaseController{
         initNoviUgovor();
         nabUgovorExtendedDataTableModelApi.helperWalkByRequest();
         azuriranje = false;
+        setOrgFirma((OrgFirma) getUserSessionUtil().getCurrentUserCurrentOrgFirma());
         
     }
     
@@ -361,6 +364,14 @@ public class NabUgovorController extends BaseController{
 
     public void setSkrivenoPolje(String skrivenoPolje) {
         this.skrivenoPolje = skrivenoPolje;
+    }
+
+    public OrgFirma getOrgFirma() {
+        return orgFirma;
+    }
+
+    public void setOrgFirma(OrgFirma orgFirma) {
+        this.orgFirma = orgFirma;
     }
 
     
