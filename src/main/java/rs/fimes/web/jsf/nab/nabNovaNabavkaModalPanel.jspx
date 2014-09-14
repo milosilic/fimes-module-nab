@@ -29,71 +29,103 @@
             styleClass="fimesInputGroup fimesTableCentered maxWidth"
             columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField"
             cellspacing="10px">
-            <h:outputLabel styleClass="fimesLabelLeft"
+            <h:outputLabel styleClass="fimesLabelRequiredLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaOpisPredmetaNabavke}" />
-            <h:inputText styleClass="fimesInputText maxWidth"
-              value="#{nabNovaNabavkaController.novaNabavka.opis}" />
-            <h:outputLabel styleClass="fimesLabelLeft"
+            <h:inputText styleClass="fimesInputText maxWidth"  id="inputOpis"
+              value="#{nabNovaNabavkaController.novaNabavka.opis}" required="true" />
+            <h:outputText value=" " />
+            <rich:message for="inputOpis" styleClass="fimesValidErrMsg" />
+            <h:outputLabel styleClass="fimesLabelRequiredLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaInterniBroj}" />
             <h:inputText styleClass="fimesInputText maxWidth"
-              value="#{nabNovaNabavkaController.novaNabavka.interniBroj}" />
-            <h:outputLabel styleClass="fimesLabelLeft"
+              id="inputInterniBroj"
+              value="#{nabNovaNabavkaController.novaNabavka.interniBroj}"
+              required="true" />
+            <h:outputText value=" " />
+            <rich:message for="inputInterniBroj"
+              styleClass="fimesValidErrMsg" />
+            <h:outputLabel styleClass="fimesLabelRequiredLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaUkupnaBezPdv}" />
             <h:inputText styleClass="fimesInputText maxWidth"
-              value="#{nabNovaNabavkaController.novaNabavka.procenaBezPdv}" />
-            <h:outputLabel styleClass="fimesLabelLeft"
+              id="inputProcenaBezPdv"
+              value="#{nabNovaNabavkaController.novaNabavka.procenaBezPdv}"
+              required="true" />
+            <h:outputText value=" " />
+            <rich:message for="inputProcenaBezPdv"
+              styleClass="fimesValidErrMsg" />
+            <h:outputLabel styleClass="fimesLabelRequiredLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaUkupnaSaPdv}" />
             <h:inputText styleClass="fimesInputText maxWidth"
-              value="#{nabNovaNabavkaController.novaNabavka.procenaSaPdv}" />
-            <h:outputLabel styleClass="fimesLabelLeft"
+              id="inputProcenaSaPdv"
+              value="#{nabNovaNabavkaController.novaNabavka.procenaSaPdv}"
+              required="true" />
+            <h:outputText value=" " />
+            <rich:message for="inputProcenaSaPdv"
+              styleClass="fimesValidErrMsg" />
+            <h:outputLabel styleClass="fimesLabelRequiredLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaVrstaPredmeta}" />
             <h:panelGrid columns="1" styleClass="alignCenter"
               width="100%">
               <h:selectOneMenu id="selectOneXnabVrstaPredmetaNabavke"
                 tabindex="1" style="width: 200px;"
-                styleClass="fimesInputDropDown"
+                styleClass="fimesInputDropDown" required="true"
                 value="#{nabNovaNabavkaController.novaNabavka.vrstaPredmetaNabavke.idVrstaPredmetaNabavke}">
                 <f:selectItems
                   value="#{nabNovaNabavkaController.xnabVrstaPredmetaNabavkeSelectionItems}" />
               </h:selectOneMenu>
             </h:panelGrid>
-            <h:outputLabel styleClass="fimesLabelLeft"
+            <h:outputText value=" " />
+            <rich:message for="selectOneXnabVrstaPredmetaNabavke"
+              styleClass="fimesValidErrMsg" />
+            <h:outputLabel styleClass="fimesLabelRequiredLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaPredmetNabavke}" />
             <h:panelGrid columns="1" styleClass="alignCenter"
               width="100%">
               <h:selectOneMenu id="selectOneXnabPredmetNabavke"
                 tabindex="1" style="width: 200px;"
-                styleClass="fimesInputDropDown"
+                styleClass="fimesInputDropDown" required="true"
                 value="#{nabNovaNabavkaController.novaNabavka.predmetNabavke.idPredmetNabavke}">
                 <f:selectItems
                   value="#{nabNovaNabavkaController.xnabPredmetNabavkeSelectionItems}" />
               </h:selectOneMenu>
             </h:panelGrid>
+            <h:outputText value=" " />
+            <rich:message for="selectOneXnabPredmetNabavke"
+              styleClass="fimesValidErrMsg" />
 
-            <h:outputLabel styleClass="fimesLabelLeft"
+            <h:outputLabel styleClass="fimesLabelRequiredLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaVrstaPostupka}" />
             <h:panelGrid columns="1" styleClass="alignCenter"
               width="100%">
               <h:selectOneMenu id="selectOneXnabVrstaPostupka"
                 tabindex="1" style="width: 200px;"
-                styleClass="fimesInputDropDown"
+                styleClass="fimesInputDropDown" required="true"
                 value="#{nabNovaNabavkaController.novaNabavka.vrstaPostupka.idVrstaPostupka}">
                 <f:selectItems
                   value="#{nabNovaNabavkaController.xnabVrstaPostupkaSelectionItems}" />
               </h:selectOneMenu>
             </h:panelGrid>
-            <h:outputLabel styleClass="fimesLabelLeft"
+            <h:outputLabel styleClass="fimesLabelRequiredLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaOpravdanostNabavke}" />
-            <h:inputText styleClass="fimesInputText maxWidth"
-              value="#{nabNovaNabavkaController.novaNabavka.opravdanost}" />
-            <h:outputLabel styleClass="fimesLabelLeft"
+            <h:inputText styleClass="fimesInputText maxWidth" id="inputOpravdanost"
+              value="#{nabNovaNabavkaController.novaNabavka.opravdanost}" required="true"/>
+            <h:outputText value=" " />
+            <rich:message for="inputOpravdanost"
+              styleClass="fimesValidErrMsg" />
+            <h:outputLabel styleClass="fimesLabelRequiredLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNacinProceneVrednosti}" />
-            <h:inputText styleClass="fimesInputText maxWidth"
-              value="#{nabNovaNabavkaController.novaNabavka.opisProcena}" />
-            <h:outputLabel styleClass="fimesLabelLeft"
+            <h:inputText styleClass="fimesInputText maxWidth" id="inputOpisProcena"
+              value="#{nabNovaNabavkaController.novaNabavka.opisProcena}" required="true"/>
+            <h:outputText value=" " />
+            <rich:message for="inputOpisProcena"
+              styleClass="fimesValidErrMsg" />
+            <h:outputLabel styleClass="fimesLabelRequiredLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNapomenaZaPostupak}" />
-            <h:inputText styleClass="fimesInputText maxWidth"
-              value="#{nabNovaNabavkaController.novaNabavka.napomena}" />
+            <h:inputText styleClass="fimesInputText maxWidth" id="inputNapomena"
+              value="#{nabNovaNabavkaController.novaNabavka.napomena}" required="true"/>
+            <h:outputText value=" " />
+            <rich:message for="inputNapomena"
+              styleClass="fimesValidErrMsg" />
           </h:panelGrid>
           <h:panelGrid columns="1"
             styleClass="fimesInputGroup fimesTableCentered maxWidth"
@@ -101,11 +133,11 @@
             cellspacing="2">
             <h:panelGrid columns="2" styleClass="alignCenter"
               width="100%">
-            <h:outputLabel styleClass="fimesLabelLeft"
+            <h:outputLabel styleClass="fimesLabelRequiredLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaStatusNabavke}" />
               <h:selectOneMenu id="selectOneXnabStatusNabavke"
                 tabindex="1" style="width: 200px;"
-                styleClass="fimesInputDropDown"
+                styleClass="fimesInputDropDown" required="true"
                 value="#{nabNovaNabavkaController.novaNabavka.statusNabavke.idStatusNabavke}">
                 <f:selectItems
                   value="#{nabNovaNabavkaController.xnabStatusNabavkeSelectionItems}" />
@@ -117,38 +149,38 @@
             </h:panelGrid>
             <h:panelGrid columns="4" styleClass="alignCenter"
               width="100%">
-              <h:outputLabel styleClass="fimesLabelLeft"
+              <h:outputLabel styleClass="fimesLabelRequiredLeft"
                 value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecPokretanja}" />
               <h:inputText styleClass="fimesInputText maxWidth"
-                value="#{nabNovaNabavkaController.novaNabavka.mesecPokretanja}" />
-              <h:outputLabel styleClass="fimesLabelLeft"
+                value="#{nabNovaNabavkaController.novaNabavka.mesecPokretanja}" required="true"/>
+              <h:outputLabel styleClass="fimesLabelRequiredLeft"
                 value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaGodinaPokretanja}" />
               <h:inputText styleClass="fimesInputText maxWidth"
-                value="#{nabNovaNabavkaController.novaNabavka.godinaPokretanja}" />
-              <h:outputLabel styleClass="fimesLabelLeft"
+                value="#{nabNovaNabavkaController.novaNabavka.godinaPokretanja}" required="true"/>
+              <h:outputLabel styleClass="fimesLabelRequiredLeft"
                 value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecZakljucenja}" />
               <h:inputText styleClass="fimesInputText maxWidth"
-                value="#{nabNovaNabavkaController.novaNabavka.mesecZakljucenja}" />
-              <h:outputLabel styleClass="fimesLabelLeft"
+                value="#{nabNovaNabavkaController.novaNabavka.mesecZakljucenja}" required="true" />
+              <h:outputLabel styleClass="fimesLabelRequiredLeft"
                 value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaGodinaZakljucenja}" />
               <h:inputText styleClass="fimesInputText maxWidth"
-                value="#{nabNovaNabavkaController.novaNabavka.godinaZakljucenja}" />
-              <h:outputLabel styleClass="fimesLabelLeft"
+                value="#{nabNovaNabavkaController.novaNabavka.godinaZakljucenja}" required="true" />
+              <h:outputLabel styleClass="fimesLabelRequiredLeft"
                 value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecIzvrsenja}" />
               <h:inputText styleClass="fimesInputText maxWidth"
-                value="#{nabNovaNabavkaController.novaNabavka.mesecIzvrsenja}" />
-              <h:outputLabel styleClass="fimesLabelLeft"
+                value="#{nabNovaNabavkaController.novaNabavka.mesecIzvrsenja}" required="true" />
+              <h:outputLabel styleClass="fimesLabelRequiredLeft"
                 value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaGodinaIzvrsenja}" />
               <h:inputText styleClass="fimesInputText maxWidth"
-                value="#{nabNovaNabavkaController.novaNabavka.godinaIzvrsenja}" />
+                value="#{nabNovaNabavkaController.novaNabavka.godinaIzvrsenja}" required="true" />
             </h:panelGrid>
             <h:panelGrid columns="2" styleClass="alignCenter"
               width="100%">
-              <h:outputLabel styleClass="fimesLabelLeft"
+              <h:outputLabel styleClass="fimesLabelRequiredLeft"
                 value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
               <h:selectOneMenu id="selectOneXnabTipPredmeta"
                 tabindex="1" 
-                styleClass="fimesInputDropDown"
+                styleClass="fimesInputDropDown" required="true"
                 value="#{nabNovaNabavkaController.novaNabavka.tipNabavke.idTipNabavke}">
                 <f:selectItems
                   value="#{nabNovaNabavkaController.xnabTipNabavkeSelectionItems}" />
