@@ -18,7 +18,9 @@
           <rich:jQuery name="focusPretragaNaziv" query="focus()"
             selector="#pretragaGodinaPlana" timing="onload" />
           <h:form>
-            <h:panelGrid styleClass="fimesFormTitle" width="100%">
+            <h:panelGrid styleClass="fimesFormTitle" width="100%" columns="1">
+              <h:outputText
+                value="#{nabPlanController.module.messageSource.nabNaruciociGlavniHeader}: #{nabPlanController.orgFirma.naziv}, #{nabPlanController.orgFirma.adresaUlica} #{nabNabavkaController.orgFirma.adresaBroj}" />
               <h:outputText
                 value="#{nabPlanController.module.messageSource.nabPlanoviSpisakPlanovaHeader}" />
             </h:panelGrid>

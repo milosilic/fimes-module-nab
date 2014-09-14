@@ -103,9 +103,8 @@ public class NabPlanController extends BaseController{
 
     public void onStart() {
         nabPlanExtendedDataTableModelApi.helperWalkByRequest();
-        if ( orgFirma == null ) {
-            setOrgFirma(nabNaruciociServiceApi.getActiveOrgFirma(getUserSessionUtil().getCurrentUserCurrentOrgFirma().getIdFirma()));
-          }
+        orgFirma = (OrgFirma) getUserSessionUtil().getCurrentUserCurrentOrgFirma();
+
              
     }
     

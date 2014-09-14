@@ -18,7 +18,7 @@
           <h:form>
             <h:panelGrid styleClass="fimesFormTitle" width="100%" columns="1">
               <h:outputText
-                value="#{nabNabavkaController.module.messageSource.nabNaruciociGlavniHeader}: #{nabNabavkaController.orgFirma.naziv}" />
+                value="#{nabNabavkaController.module.messageSource.nabNaruciociGlavniHeader}: #{nabNabavkaController.orgFirma.naziv}, #{nabNabavkaController.orgFirma.adresaUlica} #{nabNabavkaController.orgFirma.adresaBroj}" />
               <h:outputText
                 value="#{nabNabavkaController.module.messageSource.nabNabavkaListaHeader}" />
             </h:panelGrid>

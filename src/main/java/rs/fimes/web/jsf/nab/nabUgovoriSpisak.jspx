@@ -16,7 +16,9 @@
       <ui:define name="content">
         <rich:panel styleClass="fimesMainForm">
           <h:form>
-            <h:panelGrid styleClass="fimesFormTitle" width="100%">
+            <h:panelGrid styleClass="fimesFormTitle" width="100%" columns="1">
+              <h:outputText
+                value="#{nabUgovorController.module.messageSource.nabNaruciociGlavniHeader}: #{nabUgovorController.orgFirma.naziv}, #{nabUgovorController.orgFirma.adresaUlica} #{nabUgovorController.orgFirma.adresaBroj}" />
               <h:outputText
                 value="#{nabUgovorController.module.messageSource.nabUgovoriSpisakHeader}" />
             </h:panelGrid>
