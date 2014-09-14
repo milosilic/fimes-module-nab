@@ -61,6 +61,7 @@ public class NabNabavkaController extends BaseController{
     private String pretragaOpis;
     private String pretragaVrstaPredmetaNabavke;
     private String pretragaVrstaPostupkaNabavke;
+    private String pretragaGodinaPokretanja;
     
     private String vrstaPredmetaNabavkePretragaTitle;
     private String vrstaPostupkaNabavkePretragaTitle;
@@ -68,6 +69,16 @@ public class NabNabavkaController extends BaseController{
     public NabNabavkaController(Module module, String controllerId)
             throws ConfigurationException {
         super(module, controllerId);
+    }
+    
+    public void onEntry(){
+        if (  nabJavnaNabavkaExtendedDataTableModelApi != null ){
+            List<QueryRestriction> parametri = new ArrayList<QueryRestriction>();
+            parametri.add(QueryRestrictionComparison1.addIsEqual("nabPlan", nabPlan));
+            nabJavnaNabavkaExtendedDataTableModelApi.setParametri(parametri);
+            
+        }
+
     }
         
     public void initModalDialogBrisanje(){
@@ -102,15 +113,34 @@ public class NabNabavkaController extends BaseController{
     }
     public void pretraga(){
         List<QueryRestriction> parametri = new ArrayList<QueryRestriction>();
-                
-        if (idVrstaPredmetaNabavke != 0) {
-            XnabVrstaPredmetaNabavke xnabVrstaPredmetaNabavke = xnabVrstaPredmetaNabavkeServiceApi
-                    .findById(idVrstaPredmetaNabavke);
+        parametri.add(QueryRestrictionComparison1.addIsEqual("nabPlan", nabPlan));
+        
+        if (pretragaRb != null && !pretragaRb.trim().isEmpty()) {
+            parametri.add(QueryRestrictionComparison1
+                    .addCirToAbcStringContains(
+                            "idJavnaNabavka",
+                            getStringUtil().transliterationCirToAbc(
+                                    pretragaRb.trim().replaceAll("\\s+", " "))));
+        }
+
+        if (pretragaOpis != null && !pretragaOpis.trim().isEmpty()) {
+            parametri.add(QueryRestrictionComparison1
+                    .addCirToAbcStringContains(
+                            "opis",
+                            getStringUtil().transliterationCirToAbc(
+                                    pretragaOpis.trim().replaceAll("\\s+", " "))));
+        }
+
+        pretragaVrstaPredmetaNabavke = emptyStringToNull(pretragaVrstaPredmetaNabavke);
+        if (pretragaVrstaPredmetaNabavke != null) {
+            int idVrstaPredmetaNabavke = Integer.parseInt(pretragaVrstaPredmetaNabavke);
             parametri.add(QueryRestrictionComparison1.addIsEqual(
-                    "vrstaPredmetaNabavke", xnabVrstaPredmetaNabavke));
+                    "vrstaPredmetaNabavke.idVrstaPredmetaNabavke",
+                    idVrstaPredmetaNabavke, false));
         }
 
         nabJavnaNabavkaExtendedDataTableModelApi.setParametri(parametri);
+        nabJavnaNabavkaExtendedDataTableModelApi.setDescending(false);
         //nabJavnaNabavkaExtendedDataTableModelApi.setSortField("vrstaPredmetaNabavke.naziv,naziv");
         resetSelection();
 
@@ -154,6 +184,7 @@ public class NabNabavkaController extends BaseController{
     public void resetSelection(){
         izabranaNabavka=null;
         nabJavnaNabavkaExtendedDataTableModelApi.clearSelection();
+        nabJavnaNabavkaExtendedDataTableModelApi.helperWalkByRequest();
     }
     
 
@@ -182,12 +213,7 @@ public class NabNabavkaController extends BaseController{
     }
 
     public NabJavnaNabavkaExtendedDataTableModelApi getNabJavnaNabavkaExtendedDataTableModelApi() {
-
-        List<QueryRestriction> parametri = new ArrayList<QueryRestriction>();
-        parametri.add(QueryRestrictionComparison1.addIsEqual("nabPlan", nabPlan));
-        nabJavnaNabavkaExtendedDataTableModelApi.setParametri(parametri);
-
-        return nabJavnaNabavkaExtendedDataTableModelApi;
+         return nabJavnaNabavkaExtendedDataTableModelApi;
     }
 
     public void setNabJavnaNabavkaExtendedDataTableModelApi(
@@ -251,6 +277,11 @@ public class NabNabavkaController extends BaseController{
     }
 
     public ArrayList<SelectItem> getXnabVrstaPostupkaSelectionItems() {
+        xnabVrstaPostupkaSelectionItems = new ArrayList<SelectItem>();
+        xnabVrstaPostupkaSelectionItems.add(new SelectItem(null,
+                getMessage("common_svi")));
+        xnabVrstaPostupkaSelectionItems.addAll(nabNovaNabavkaController.getXnabVrstaPostupkaSelectionItems());
+
         return xnabVrstaPostupkaSelectionItems;
     }
 
@@ -335,6 +366,14 @@ public class NabNabavkaController extends BaseController{
     public void setVrstaPostupkaNabavkePretragaTitle(
             String vrstaPostupkaNabavkePretragaTitle) {
         this.vrstaPostupkaNabavkePretragaTitle = vrstaPostupkaNabavkePretragaTitle;
+    }
+
+    public String getPretragaGodinaPokretanja() {
+        return pretragaGodinaPokretanja;
+    }
+
+    public void setPretragaGodinaPokretanja(String pretragaGodinaPokretanja) {
+        this.pretragaGodinaPokretanja = pretragaGodinaPokretanja;
     }
 
     

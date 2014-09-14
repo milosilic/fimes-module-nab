@@ -25,6 +25,7 @@
         expression="nabPlanController.getNabPlanSelected()"
         result="nabNovaNabavkaController.nabPlan" />
       <evaluate expression="nabNovaNabavkaController.onStart()" />
+      <evaluate expression="nabNabavkaController.onEntry()" />
       
     </on-entry>
     <transition on="novaNabavka" to="novaNabavka" />

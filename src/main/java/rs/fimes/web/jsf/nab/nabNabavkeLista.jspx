@@ -30,6 +30,8 @@
                     assignTo="#{nabNabavkaController.pretragaRb}" />
                   <a4j:actionparam name="param2"
                     assignTo="#{nabNabavkaController.pretragaOpis}" />
+                  <a4j:actionparam name="param3"
+                    assignTo="#{nabNabavkaController.pretragaVrstaPredmetaNabavke}" />
                 </a4j:jsFunction>
                 <a4j:jsFunction name="jsNabNabavkaBrisanje"
                   action="#{nabNabavkaController.obrisiNabavku}"
@@ -84,10 +86,11 @@
                             style="width: 30px"
                             value="#{nabNabavkaController.pretragaRb}"
                             onkeypress="if (event.keyCode == 13) {
-                                    pretragaNabNabavka(
+                                     pretragaNabNabavka(
                                         #{rich:element('pretragaRb')}.value,
-                                        #{rich:element('pretragaOpis')}.value );
-                                        return false;}" />
+                                        #{rich:element('pretragaOpis')}.value ,
+                                        #{rich:element('selectVrstaPredmetaNabavke')}.value);
+                                        return false;"/>
                         </h:panelGrid>
                       </f:facet>
                       <h:outputText
@@ -112,10 +115,11 @@
                             styleClass="fimesInputText"
                             value="#{nabNabavkaController.pretragaOpis}"
                             onkeypress="if (event.keyCode == 13) {
-                                    pretragaNabNabavka(
+                                     pretragaNabNabavka(
                                         #{rich:element('pretragaRb')}.value,
-                                        #{rich:element('pretragaOpis')}.value );
-                                        return false;}" />
+                                        #{rich:element('pretragaOpis')}.value ,
+                                        #{rich:element('selectVrstaPredmetaNabavke')}.value);
+                                        return false;"/>
                         </h:panelGrid>
                       </f:facet>
                       <h:outputText
@@ -140,10 +144,16 @@
                             id="selectVrstaPredmetaNabavke"
                             value="#{nabNabavkaController.pretragaVrstaPredmetaNabavke}"
                             title="#{nabNabavkaController.vrstaPredmetaNabavkePretragaTitle}"
-                            styleClass="fimesInputDropDown">
-                            <a4j:support event="onchange"
-                              reRender="tabelaNabavkeLista,selectVrstaPredmetaNabavke"
-                              action="#{nabNabavkaController.promenaVrstaPredmetaNabavke}" />
+                            styleClass="fimesInputDropDown"
+                            onchange="
+                                     pretragaNabNabavka(
+                                        #{rich:element('pretragaRb')}.value,
+                                        #{rich:element('pretragaOpis')}.value ,
+                                        #{rich:element('selectVrstaPredmetaNabavke')}.value);
+                                        return false;">
+<!--                             <a4j:support event="onchange" -->
+<!--                               reRender="tabelaNabavkeLista,selectVrstaPredmetaNabavke" -->
+<!--                               action="#{nabNabavkaController.promenaVrstaPredmetaNabavke}" /> -->
                             <f:selectItems
                               value="#{nabNabavkaController.xnabVrstaPredmetaNabavkeSelectionItems}" />
                           </h:selectOneMenu>
@@ -171,7 +181,7 @@
                             id="selectVrstaPostupkaNabavke"
                             value="#{nabNabavkaController.pretragaVrstaPostupkaNabavke}"
                             title="#{nabNabavkaController.vrstaPostupkaNabavkePretragaTitle}"
-                            styleClass="fimesInputDropDown">
+                            styleClass="fimesInputDropDown" style="width:70px">
                             <a4j:support event="onchange"
                               reRender="tabelaNabavkeLista,selectVrstaPostupkaNabavke"
                               action="#{nabNabavkaController.promenaVrstaPostupkaNabavke}" />
@@ -186,6 +196,28 @@
                     <rich:column id="kolona5" width="10%"
                       styleClass="fimesAlignLeft">
                       <f:facet name="header">
+                        <h:panelGrid columns="1"
+                          style="margin : auto;"
+                          headerClass="tableHeader"
+                          rowClasses="tableHeader">
+                          <a4j:commandLink
+                            value="#{nabNabavkaController.module.messageSource.nabNabavkaListaPredmet}"
+                            action="#{nabNabavkaController.nabJavnaNabavkaExtendedDataTableModelApi.odrediSort}"
+                            reRender="tabelaNabavkeLista">
+                            <a4j:actionparam name="sortField"
+                              value="godinaPokretanja"
+                              assignTo="#{nabNabavkaController.nabJavnaNabavkaExtendedDataTableModelApi.sortField}" />
+                          </a4j:commandLink>
+                          <h:inputText id="pretragaGodinaPokretanja" tabindex="1" 
+                            styleClass="fimesInputText"
+                            value="#{nabNabavkaController.pretragaGodinaPokretanja}"
+                            onkeypress="if (event.keyCode == 13) {
+                                    pretragaNabNabavka(
+                                        #{rich:element('pretragaRb')}.value,
+                                        #{rich:element('pretragaOpis')}.value );
+                                        return false;}" />
+                                        
+                        </h:panelGrid>
                         <h:outputText styleClass="headerText"
                           value="#{nabNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecGodinaPokretanja}" />
                       </f:facet>
