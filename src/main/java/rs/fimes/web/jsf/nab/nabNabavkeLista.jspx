@@ -23,6 +23,12 @@
             <rich:layout>
               <rich:layoutPanel position="top">
                 <rich:spacer height="20px" />
+                <a4j:jsFunction name="pretragaNabNabavka" ajaxSingle="true"
+                  action="#{nabNabavkaController.pretraga}"
+                  reRender="tabelaNabavkeLista">
+                  <a4j:actionparam name="param1"
+                    assignTo="#{nabNabavkaController.pretragaRb}" />
+                </a4j:jsFunction>
                 <a4j:jsFunction name="jsNabNabavkaBrisanje"
                   action="#{nabNabavkaController.obrisiNabavku}"
                   oncomplete="#{rich:component('coreModalDaNeDijalog')}.hide();#{rich:component('coreOkModalPanel')}.show();"
@@ -60,13 +66,31 @@
                     <rich:column id="kolona1" width="5%"
                       styleClass="fimesAlignLeft">
                       <f:facet name="header">
-                        <h:outputText styleClass="headerText"
-                          value="#{nabNabavkaController.module.messageSource.nabNabavkaListaRb}" />
+                        <h:panelGrid columns="1"
+                          style="margin : auto; width:100%; height: 37px;"
+                          headerClass="tableHeader"
+                          rowClasses="tableHeader">
+                          <a4j:commandLink
+                            value="#{nabNabavkaController.module.messageSource.nabNabavkaListaRb}"
+                            action="#{nabNabavkaController.nabJavnaNabavkaExtendedDataTableModelApi.odrediSort}"
+                            reRender="tabelaNabavkeLista">
+                            <a4j:actionparam name="sortField"
+                              value="idJavnaNabavka"
+                              assignTo="#{nabNabavkaController.nabJavnaNabavkaExtendedDataTableModelApi.sortField}" />
+                          </a4j:commandLink>
+                          <h:inputText id="pretragaRb" tabindex="1" 
+                            style="width: 30px"
+                            value="#{nabNabavkaController.pretragaRb}"
+                            onkeypress="if (event.keyCode == 13) {
+                                    pretragaNabNabavka(
+                                        #{rich:element('pretragaRb')}.value );
+                                        return false;}" />
+                        </h:panelGrid>
                       </f:facet>
                       <h:outputText
                         value="#{nabavka.idJavnaNabavka}" />
                     </rich:column>
-                    <rich:column id="kolona2" width="15%"
+                    <rich:column id="kolona2" width="25%"
                       styleClass="fimesAlignLeft">
                       <f:facet name="header">
                         <h:outputText styleClass="headerText"
@@ -75,7 +99,7 @@
                       <h:outputText
                         value="#{nabavka.opis}" />
                     </rich:column>
-                    <rich:column id="kolona3" width="20%"
+                    <rich:column id="kolona3" width="10%"
                       styleClass="fimesAlignLeft">
                       <f:facet name="header">
                         <h:outputText styleClass="headerText"

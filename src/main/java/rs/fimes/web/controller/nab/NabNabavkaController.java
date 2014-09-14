@@ -55,6 +55,10 @@ public class NabNabavkaController extends BaseController{
     //07.09.2014.
     private NabJavnaNabavkaServiceApi nabJavnaNabavkaServiceApi;
     
+    //pretraga
+    private String pretragaRb;
+    
+    
     public NabNabavkaController(Module module, String controllerId)
             throws ConfigurationException {
         super(module, controllerId);
@@ -249,6 +253,14 @@ public class NabNabavkaController extends BaseController{
     public void setNabJavnaNabavkaServiceApi(
             NabJavnaNabavkaServiceApi nabJavnaNabavkaServiceApi) {
         this.nabJavnaNabavkaServiceApi = nabJavnaNabavkaServiceApi;
+    }
+
+    public String getPretragaRb() {
+        return pretragaRb;
+    }
+
+    public void setPretragaRb(String pretragaRb) {
+        this.pretragaRb = pretragaRb;
     }
 
     
