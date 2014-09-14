@@ -99,11 +99,19 @@ public class NabPlanController extends BaseController{
         nabPlanSelected = null;
         nabPlanExtendedDataTableModelApi.clearSelection();
         setKopirajPodatke(false);
+        
     }
 
     public void onStart() {
-        nabPlanExtendedDataTableModelApi.helperWalkByRequest();
         orgFirma = (OrgFirma) getUserSessionUtil().getCurrentUserCurrentOrgFirma();
+        nabPlanExtendedDataTableModelApi.clearSelection();
+
+        List<QueryRestriction> parametri = new ArrayList<QueryRestriction>();
+        parametri.add(QueryRestrictionComparison1.addIsEqual("orgFirma",
+                orgFirma));
+        nabPlanExtendedDataTableModelApi.setParametri(parametri);
+        nabPlanExtendedDataTableModelApi.setDescending(true);
+        nabPlanExtendedDataTableModelApi.helperWalkByRequest();
 
              
     }
