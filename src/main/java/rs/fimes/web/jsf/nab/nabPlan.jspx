@@ -43,9 +43,9 @@
                       <a4j:actionparam name="param5"
                         assignTo="#{nabPlanController.pretragaInterniBrojPlana}" />
                       <a4j:actionparam name="param6"
-                        assignTo="#{nabPlanController.pretragaDatumIzradePocetak}" />
+                        assignTo="#{nabPlanController.pretragaDatumUsvajanjaPocetak}" />
                       <a4j:actionparam name="param7"
-                        assignTo="#{nabPlanController.pretragaDatumIzradeKraj}" />
+                        assignTo="#{nabPlanController.pretragaDatumUsvajanjaKraj}" />
                     </a4j:jsFunction>
                     <a4j:jsFunction name="nabPlanBrisanje"
                       action="#{nabPlanController.obrisiPlan}"
