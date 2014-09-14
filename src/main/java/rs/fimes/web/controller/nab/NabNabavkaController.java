@@ -139,6 +139,13 @@ public class NabNabavkaController extends BaseController{
                     idVrstaPredmetaNabavke, false));
         }
 
+        pretragaVrstaPostupkaNabavke = emptyStringToNull(pretragaVrstaPostupkaNabavke);
+        if (pretragaVrstaPostupkaNabavke != null) {
+            int idVrstaPostupkaNabavke = Integer.parseInt(pretragaVrstaPostupkaNabavke);
+            parametri.add(QueryRestrictionComparison1.addIsEqual(
+                    "vrstaPostupka.idVrstaPostupka",
+                    idVrstaPostupkaNabavke, false));
+        }
         nabJavnaNabavkaExtendedDataTableModelApi.setParametri(parametri);
         nabJavnaNabavkaExtendedDataTableModelApi.setDescending(false);
         //nabJavnaNabavkaExtendedDataTableModelApi.setSortField("vrstaPredmetaNabavke.naziv,naziv");

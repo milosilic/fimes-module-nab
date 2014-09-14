@@ -16,7 +16,9 @@
       <ui:define name="content">
         <rich:panel styleClass="fimesMainForm">
           <h:form>
-            <h:panelGrid styleClass="fimesFormTitle" width="100%">
+            <h:panelGrid styleClass="fimesFormTitle" width="100%" columns="1">
+              <h:outputText
+                value="#{nabNabavkaController.module.messageSource.nabNabavkaListaHeader}" />
               <h:outputText
                 value="#{nabNabavkaController.module.messageSource.nabNabavkaListaHeader}" />
             </h:panelGrid>
@@ -32,6 +34,8 @@
                     assignTo="#{nabNabavkaController.pretragaOpis}" />
                   <a4j:actionparam name="param3"
                     assignTo="#{nabNabavkaController.pretragaVrstaPredmetaNabavke}" />
+                  <a4j:actionparam name="param4"
+                    assignTo="#{nabNabavkaController.pretragaVrstaPostupkaNabavke}" />
                 </a4j:jsFunction>
                 <a4j:jsFunction name="jsNabNabavkaBrisanje"
                   action="#{nabNabavkaController.obrisiNabavku}"
@@ -89,7 +93,8 @@
                                      pretragaNabNabavka(
                                         #{rich:element('pretragaRb')}.value,
                                         #{rich:element('pretragaOpis')}.value ,
-                                        #{rich:element('selectVrstaPredmetaNabavke')}.value);
+                                        #{rich:element('selectVrstaPredmetaNabavke')}.value,
+                                        #{rich:element('selectVrstaPostupkaNabavke')}.value);
                                         return false;}"/>
                         </h:panelGrid>
                       </f:facet>
@@ -118,7 +123,8 @@
                                      pretragaNabNabavka(
                                         #{rich:element('pretragaRb')}.value,
                                         #{rich:element('pretragaOpis')}.value ,
-                                        #{rich:element('selectVrstaPredmetaNabavke')}.value);
+                                        #{rich:element('selectVrstaPredmetaNabavke')}.value,
+                                        #{rich:element('selectVrstaPostupkaNabavke')}.value);
                                         return false;}"/>
                         </h:panelGrid>
                       </f:facet>
@@ -149,11 +155,9 @@
                                      pretragaNabNabavka(
                                         #{rich:element('pretragaRb')}.value,
                                         #{rich:element('pretragaOpis')}.value ,
-                                        #{rich:element('selectVrstaPredmetaNabavke')}.value);
+                                        #{rich:element('selectVrstaPredmetaNabavke')}.value,
+                                        #{rich:element('selectVrstaPostupkaNabavke')}.value);
                                         return false;">
-<!--                             <a4j:support event="onchange" -->
-<!--                               reRender="tabelaNabavkeLista,selectVrstaPredmetaNabavke" -->
-<!--                               action="#{nabNabavkaController.promenaVrstaPredmetaNabavke}" /> -->
                             <f:selectItems
                               value="#{nabNabavkaController.xnabVrstaPredmetaNabavkeSelectionItems}" />
                           </h:selectOneMenu>
@@ -181,10 +185,14 @@
                             id="selectVrstaPostupkaNabavke"
                             value="#{nabNabavkaController.pretragaVrstaPostupkaNabavke}"
                             title="#{nabNabavkaController.vrstaPostupkaNabavkePretragaTitle}"
-                            styleClass="fimesInputDropDown" style="width:70px">
-                            <a4j:support event="onchange"
-                              reRender="tabelaNabavkeLista,selectVrstaPostupkaNabavke"
-                              action="#{nabNabavkaController.promenaVrstaPostupkaNabavke}" />
+                            styleClass="fimesInputDropDown" style="width:70px"
+                            onchange="
+                                     pretragaNabNabavka(
+                                        #{rich:element('pretragaRb')}.value,
+                                        #{rich:element('pretragaOpis')}.value ,
+                                        #{rich:element('selectVrstaPredmetaNabavke')}.value,
+                                        #{rich:element('selectVrstaPostupkaNabavke')}.value);
+                                        return false;">
                             <f:selectItems
                               value="#{nabNabavkaController.xnabVrstaPostupkaSelectionItems}" />
                           </h:selectOneMenu>
@@ -337,7 +345,7 @@
                     <rich:spacer width="5px" />
                     <a4j:commandButton styleClass="fimesButton"
                       action="nabPlan"
-                      value="#{nabNabavkaController.module.messageSource.common_izlaz}"
+                      value="#{nabNabavkaController.module.messageSource.common_nazad}"
                       />
                       
                   </h:panelGroup>
