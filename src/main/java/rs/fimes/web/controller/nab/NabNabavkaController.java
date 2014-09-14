@@ -16,6 +16,7 @@ import rs.fimes.domain.nab.NabJavnaNabavka;
 import rs.fimes.domain.nab.NabPlan;
 import rs.fimes.domain.nab.XnabVrstaPostupka;
 import rs.fimes.domain.nab.XnabVrstaPredmetaNabavke;
+import rs.fimes.domain.org.OrgTipOrganizacioneJedinice;
 import rs.fimes.service.api.nab.NabJavnaNabavkaServiceApi;
 import rs.fimes.service.api.nab.NabNaruciociServiceApi;
 import rs.fimes.service.api.nab.XnabVrstaPostupkaServiceApi;
@@ -58,6 +59,9 @@ public class NabNabavkaController extends BaseController{
     //pretraga
     private String pretragaRb;
     private String pretragaOpis;
+    private String pretragaVrstaPredmetaNabavke;
+    
+    private String vrstaPredmetaNabavkePretragaTitle;
     
     
     public NabNabavkaController(Module module, String controllerId)
@@ -110,6 +114,18 @@ public class NabNabavkaController extends BaseController{
         //nabJavnaNabavkaExtendedDataTableModelApi.setSortField("vrstaPredmetaNabavke.naziv,naziv");
         resetSelection();
 
+    }
+    
+    //po uzoru na action="#{orgEvidencijaOrganizacionaJedinicaSelectionController.promenaTipOrgJedinicePretraga}" />
+    public void promenaVrstaPredmetaNabavke(){
+        if (emptyStringToNull(pretragaVrstaPredmetaNabavke) == null)
+            vrstaPredmetaNabavkePretragaTitle = getMessage("common_svi");
+        else {
+            int idVrstaPredmetaNabavke = Integer.parseInt(pretragaVrstaPredmetaNabavke);
+            XnabVrstaPredmetaNabavke nabVrstaPredmetaNabavke = xnabVrstaPredmetaNabavkeServiceApi.getNabVrstaPredmetaNabavkeById(idVrstaPredmetaNabavke );
+            vrstaPredmetaNabavkePretragaTitle = nabVrstaPredmetaNabavke.getNaziv();
+        }
+        pretraga();
     }
     
     public void handleSelection(){
@@ -212,6 +228,7 @@ public class NabNabavkaController extends BaseController{
     }
 
     public ArrayList<SelectItem> getXnabVrstaPredmetaNabavkeSelectionItems() {
+        xnabVrstaPredmetaNabavkeSelectionItems = nabNovaNabavkaController.getXnabVrstaPredmetaNabavkeSelectionItems();
         return xnabVrstaPredmetaNabavkeSelectionItems;
     }
 
@@ -270,6 +287,24 @@ public class NabNabavkaController extends BaseController{
 
     public void setPretragaOpis(String pretragaOpis) {
         this.pretragaOpis = pretragaOpis;
+    }
+
+    public String getPretragaVrstaPredmetaNabavke() {
+        return pretragaVrstaPredmetaNabavke;
+    }
+
+    public void setPretragaVrstaPredmetaNabavke(
+            String pretragaVrstaPredmetaNabavke) {
+        this.pretragaVrstaPredmetaNabavke = pretragaVrstaPredmetaNabavke;
+    }
+
+    public String getVrstaPredmetaNabavkePretragaTitle() {
+        return vrstaPredmetaNabavkePretragaTitle;
+    }
+
+    public void setVrstaPredmetaNabavkePretragaTitle(
+            String vrstaPredmetaNabavkePretragaTitle) {
+        this.vrstaPredmetaNabavkePretragaTitle = vrstaPredmetaNabavkePretragaTitle;
     }
 
     

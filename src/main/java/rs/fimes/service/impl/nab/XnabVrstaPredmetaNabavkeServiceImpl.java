@@ -42,5 +42,13 @@ public class XnabVrstaPredmetaNabavkeServiceImpl extends BaseServiceImpl
         this.xnabVrstaPredmetaNabavkeDAO = xnabVrstaPredmetaNabavkeDAO;
     }
 
+
+    @Override
+    public XnabVrstaPredmetaNabavke getNabVrstaPredmetaNabavkeById(
+            int idVrstaPredmetaNabavke) {
+ 
+        return xnabVrstaPredmetaNabavkeDAO.findById(idVrstaPredmetaNabavke, true);
+    }
+
     
 }

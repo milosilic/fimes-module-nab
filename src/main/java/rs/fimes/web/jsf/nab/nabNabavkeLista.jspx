@@ -124,8 +124,30 @@
                     <rich:column id="kolona3" width="10%"
                       styleClass="fimesAlignLeft">
                       <f:facet name="header">
-                        <h:outputText styleClass="headerText"
-                          value="#{nabNabavkaController.module.messageSource.nabNabavkaListaVrstaPredmeta}" />
+                        <h:panelGrid columns="1"
+                          style="margin : auto;"
+                          headerClass="tableHeader"
+                          rowClasses="tableHeader">
+                          <a4j:commandLink
+                            value="#{nabNabavkaController.module.messageSource.nabNabavkaListaVrstaPredmeta}"
+                            action="#{nabNabavkaController.nabJavnaNabavkaExtendedDataTableModelApi.odrediSort}"
+                            reRender="tabelaNabavkeLista">
+                            <a4j:actionparam name="sortField"
+                              value="opis"
+                              assignTo="#{nabNabavkaController.nabJavnaNabavkaExtendedDataTableModelApi.sortField}" />
+                          </a4j:commandLink>
+                        <h:selectOneMenu tabindex="3"
+                          id="selectVrstaPredmetaNabavke"
+                          value="#{nabNabavkaController.pretragaVrstaPredmetaNabavke}"
+                          title="#{nabNabavkaController.vrstaPredmetaNabavkePretragaTitle}"
+                          styleClass="fimesInputDropDown">
+                          <a4j:support event="onchange"
+                            reRender="tabelaNabavkeLista,selectVrstaPredmetaNabavke"
+                            action="#{nabNabavkaController.promenaVrstaPredmetaNabavke}" />
+                          <f:selectItems
+                            value="#{nabNabavkaController.xnabVrstaPredmetaNabavkeSelectionItems}" />
+                        </h:selectOneMenu>
+                        </h:panelGrid>
                       </f:facet>
                       <h:outputText
                         value="#{nabavka.vrstaPredmetaNabavke.naziv}" />
