@@ -29,6 +29,9 @@ public class NabNoviPlanController extends BaseController{
     
     //29.08.2014. za kopiranje izabranog plana u novi plan
     private NabPlan izabraniPlan;
+    
+    //13.09.2014.
+    private boolean usvajanjePlanaUToku = false;
 
     private static final long serialVersionUID = -788600541631559492L;
 
@@ -55,11 +58,14 @@ public class NabNoviPlanController extends BaseController{
     }
     
     public void initNoviPlan(){
-        System.out.println(" ----> initNoviPlan");
         if ( null == izabraniPlan) {
             noviPlan = new NabPlan();
         }
         
+    }
+    
+    public void initUsvajanjePlana(){
+        usvajanjePlanaUToku = true;
     }
     
     public void snimiNabPlan(){
@@ -76,14 +82,14 @@ public class NabNoviPlanController extends BaseController{
         noviPlan.setUsrKorisnik(getUserSessionUtil().getCurrentUsrKorisnik());
         noviPlan.setTrenutakKreiranja(new java.util.Date());
         nabPlan = nabPlanServiceApi.createNabPlan(noviPlan);
-        System.out.println( nabPlan );
-        izabraniPlan = null;
         populateModalOkPanelSnimanjeDefaultMessages(true,
                 "nabPlanoviNoviPlan");
     } catch (Exception e) {
         populateModalOkPanelSnimanjeDefaultMessages(false,
                 "nabPlanoviNoviPlan");
         e.printStackTrace();
+    } finally {
+        resetForm();
     }
        System.out.println( "Završeno snimanje");
        
@@ -93,6 +99,7 @@ public class NabNoviPlanController extends BaseController{
     public void resetForm(){
         izabraniPlan = null;
         noviPlan = null;
+        usvajanjePlanaUToku = false;
     }
 
     public NabPlanServiceApi getNabPlanServiceApi() {
@@ -157,6 +164,14 @@ public class NabNoviPlanController extends BaseController{
     public void setIzabraniPlan(NabPlan izabraniPlan) {
         this.izabraniPlan = izabraniPlan;
         System.out.println( izabraniPlan );
+    }
+
+    public boolean isUsvajanjePlanaUToku() {
+        return usvajanjePlanaUToku;
+    }
+
+    public void setUsvajanjePlanaUToku(boolean usvajanjePlanaUToku) {
+        this.usvajanjePlanaUToku = usvajanjePlanaUToku;
     }
     
 

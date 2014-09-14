@@ -1,6 +1,7 @@
 package rs.fimes.web.controller.nab;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import rs.etf.rc.common.application.ConfigurationException;
@@ -36,6 +37,11 @@ public class NabPlanController extends BaseController{
     //13.09.2014.
     private String pretragaNazivPlana;
     private String pretragaInterniBrojPlana;
+    private String pretragaDatumIzradePocetak;
+    private String pretragaDatumIzradeKraj;
+    private String pretragaDatumUsvajanjaPocetak;
+    private String pretragaDatumUsvajanjaKraj;
+    
     
 
     private static final long serialVersionUID = -788600541631559492L;
@@ -134,6 +140,21 @@ public class NabPlanController extends BaseController{
                             getStringUtil().transliterationCirToAbc(
                                     pretragaNazivPlana.trim().replaceAll("\\s+", " "))));
         }
+        if (pretragaDatumIzradePocetak != null
+                && !pretragaDatumIzradePocetak.trim().isEmpty()) {
+            Date vaziOd = getDateTimeUtil().getDateFromString(
+                    pretragaDatumIzradePocetak.trim());
+            parametri.add(QueryRestrictionComparison1.addGreaterEqual("datumIzrade",
+                    vaziOd));
+        }
+
+        if (pretragaDatumIzradeKraj != null && !pretragaDatumIzradeKraj.trim().isEmpty()) {
+            Date vaziOd = getDateTimeUtil().getDateFromString(
+                    pretragaDatumIzradeKraj.trim());
+            parametri.add(QueryRestrictionComparison1.addLessEqual("datumIzrade",
+                    vaziOd));
+        }
+
         if (pretragaInterniBrojPlana != null && !pretragaInterniBrojPlana.trim().isEmpty()) {
             parametri.add(QueryRestrictionComparison1
                     .addCirToAbcStringContains(
@@ -141,7 +162,22 @@ public class NabPlanController extends BaseController{
                             getStringUtil().transliterationCirToAbc(
                                     pretragaInterniBrojPlana.trim().replaceAll("\\s+", " "))));
         }
-        
+
+        if (pretragaDatumUsvajanjaPocetak != null
+                && !pretragaDatumUsvajanjaPocetak.trim().isEmpty()) {
+            Date vaziOd = getDateTimeUtil().getDateFromString(
+                    pretragaDatumUsvajanjaPocetak.trim());
+            parametri.add(QueryRestrictionComparison1.addGreaterEqual("datumUsvajanja",
+                    vaziOd));
+        }
+
+        if (pretragaDatumUsvajanjaKraj != null && !pretragaDatumUsvajanjaKraj.trim().isEmpty()) {
+            Date vaziOd = getDateTimeUtil().getDateFromString(
+                    pretragaDatumUsvajanjaKraj.trim());
+            parametri.add(QueryRestrictionComparison1.addLessEqual("datumUsvajanja",
+                    vaziOd));
+        }
+
         nabPlanExtendedDataTableModelApi.setParametri(parametri);
         nabPlanExtendedDataTableModelApi.clearSelection();
         
@@ -232,6 +268,39 @@ public class NabPlanController extends BaseController{
 
     public void setPretragaInterniBrojPlana(String pretragaInterniBrojPlana) {
         this.pretragaInterniBrojPlana = pretragaInterniBrojPlana;
+    }
+
+    public String getPretragaDatumIzradePocetak() {
+        return pretragaDatumIzradePocetak;
+    }
+
+    public void setPretragaDatumIzradePocetak(String pretragaDatumIzradePocetak) {
+        this.pretragaDatumIzradePocetak = pretragaDatumIzradePocetak;
+    }
+
+    public String getPretragaDatumIzradeKraj() {
+        return pretragaDatumIzradeKraj;
+    }
+
+    public void setPretragaDatumIzradeKraj(String pretragaDatumIzradeKraj) {
+        this.pretragaDatumIzradeKraj = pretragaDatumIzradeKraj;
+    }
+
+    public String getPretragaDatumUsvajanjaPocetak() {
+        return pretragaDatumUsvajanjaPocetak;
+    }
+
+    public void setPretragaDatumUsvajanjaPocetak(
+            String pretragaDatumUsvajanjaPocetak) {
+        this.pretragaDatumUsvajanjaPocetak = pretragaDatumUsvajanjaPocetak;
+    }
+
+    public String getPretragaDatumUsvajanjaKraj() {
+        return pretragaDatumUsvajanjaKraj;
+    }
+
+    public void setPretragaDatumUsvajanjeKraj(String pretragaDatumUsvajanjaKraj) {
+        this.pretragaDatumUsvajanjaKraj = pretragaDatumUsvajanjaKraj;
     }
 
     

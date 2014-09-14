@@ -15,6 +15,8 @@
     <ui:composition template="/WEB-INF/layouts/standard.jspx">
       <ui:define name="content">
         <rich:panel styleClass="fimesMainForm">
+          <rich:jQuery name="focusPretragaNaziv" query="focus()"
+            selector="#pretragaGodinaPlana" timing="onload" />
           <h:form>
             <h:panelGrid styleClass="fimesFormTitle" width="100%">
               <h:outputText
@@ -35,7 +37,15 @@
                       <a4j:actionparam name="param2"
                         assignTo="#{nabPlanController.pretragaNazivPlana}" />
                       <a4j:actionparam name="param3"
+                        assignTo="#{nabPlanController.pretragaDatumIzradePocetak}" />
+                      <a4j:actionparam name="param4"
+                        assignTo="#{nabPlanController.pretragaDatumIzradeKraj}" />
+                      <a4j:actionparam name="param5"
                         assignTo="#{nabPlanController.pretragaInterniBrojPlana}" />
+                      <a4j:actionparam name="param6"
+                        assignTo="#{nabPlanController.pretragaDatumIzradePocetak}" />
+                      <a4j:actionparam name="param7"
+                        assignTo="#{nabPlanController.pretragaDatumIzradeKraj}" />
                     </a4j:jsFunction>
                     <a4j:jsFunction name="nabPlanBrisanje"
                       action="#{nabPlanController.obrisiPlan}"
@@ -85,10 +95,15 @@
                               tabindex="1" style="width: 70px"
                               value="#{nabPlanController.godina}"
                               onkeypress="if (event.keyCode == 13) {
+                              console.log(#{rich:element('pretragaGodinaPlana')}.value)
                                     pretragaNabPlan(
                                         #{rich:element('pretragaGodinaPlana')}.value,
                                         #{rich:element('pretragaNazivPlana')}.value,
-                                        #{rich:element('pretragaInterniBrojPlana')}.value);
+                                        #{rich:element('pretragaDatumIzradePocetak')}.value,
+                                        #{rich:element('pretragaDatumIzradeKraj')}.value,
+                                        #{rich:element('pretragaInterniBrojPlana')}.value,
+                                        #{rich:element('pretragaDatumUsvajanjaPocetak')}.value,
+                                        #{rich:element('pretragaDatumUsvajanjaKraj')}.value);
                                         return false;}" />
                           </h:panelGrid>
                         </f:facet>
@@ -115,7 +130,11 @@
                                     pretragaNabPlan(
                                         #{rich:element('pretragaGodinaPlana')}.value,
                                         #{rich:element('pretragaNazivPlana')}.value,
-                                        #{rich:element('pretragaInterniBrojPlana')}.value);
+                                        #{rich:element('pretragaDatumIzradePocetak')}.value,
+                                        #{rich:element('pretragaDatumIzradeKraj')}.value,
+                                        #{rich:element('pretragaInterniBrojPlana')}.value,
+                                        #{rich:element('pretragaDatumUsvajanjaPocetak')}.value,
+                                        #{rich:element('pretragaDatumUsvajanjaKraj')}.value);
                                         return false;}" />
                           </h:panelGrid>
                         </f:facet>
@@ -124,8 +143,44 @@
                       <rich:column id="datumIzradePlanTab" width="20%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
-                          <h:outputText styleClass="headerText"
-                            value="#{nabPlanController.module.messageSource.nabPlanoviDatumIzrade}" />
+                        <h:panelGrid columns="1"
+                          style="margin : auto; height: 37px;"
+                          headerClass="tableHeader" rowClasses="tableHeader">
+                            <a4j:commandLink ajaxSingle="true"
+                              value="#{nabPlanController.module.messageSource.nabPlanoviDatumIzrade}"
+                              action="#{nabPlanController.nabPlanExtendedDataTableModelApi.odrediSort}"
+                              reRender="tabelaNabPlan">
+                              <a4j:actionparam name="sortField"
+                                value="datumIzrade"
+                                assignTo="#{nabPlanController.nabPlanExtendedDataTableModelApi.sortField}" />
+                            </a4j:commandLink>
+                            <h:inputText id="pretragaDatumIzradePocetak"
+                              tabindex="1" style="width: 70px"
+                              value="#{nabPlanController.pretragaDatumIzradePocetak}"
+                              onkeypress="if (event.keyCode == 13) {
+                                    pretragaNabPlan(
+                                        #{rich:element('pretragaGodinaPlana')}.value,
+                                        #{rich:element('pretragaNazivPlana')}.value,
+                                        #{rich:element('pretragaDatumIzradePocetak')}.value,
+                                        #{rich:element('pretragaDatumIzradeKraj')}.value,
+                                        #{rich:element('pretragaInterniBrojPlana')}.value,
+                                        #{rich:element('pretragaDatumUsvajanjaPocetak')}.value,
+                                        #{rich:element('pretragaDatumUsvajanjaKraj')}.value);
+                                        return false;}" />
+                            <h:inputText id="pretragaDatumIzradeKraj"
+                              tabindex="1" style="width: 70px"
+                              value="#{nabPlanController.pretragaDatumIzradeKraj}"
+                              onkeypress="if (event.keyCode == 13) {
+                                    pretragaNabPlan(
+                                        #{rich:element('pretragaGodinaPlana')}.value,
+                                        #{rich:element('pretragaNazivPlana')}.value,
+                                        #{rich:element('pretragaDatumIzradePocetak')}.value,
+                                        #{rich:element('pretragaDatumIzradeKraj')}.value,
+                                        #{rich:element('pretragaInterniBrojPlana')}.value,
+                                        #{rich:element('pretragaDatumUsvajanjaPocetak')}.value,
+                                        #{rich:element('pretragaDatumUsvajanjaKraj')}.value);
+                                        return false;}" />
+                          </h:panelGrid>
                         </f:facet>
                         <h:outputText value="#{plan.datumIzrade}">
                           <f:convertDateTime
@@ -154,7 +209,11 @@
                                     pretragaNabPlan(
                                         #{rich:element('pretragaGodinaPlana')}.value,
                                         #{rich:element('pretragaNazivPlana')}.value,
-                                        #{rich:element('pretragaInterniBrojPlana')}.value);
+                                        #{rich:element('pretragaDatumIzradePocetak')}.value,
+                                        #{rich:element('pretragaDatumIzradeKraj')}.value,
+                                        #{rich:element('pretragaInterniBrojPlana')}.value,
+                                        #{rich:element('pretragaDatumUsvajanjaPocetak')}.value,
+                                        #{rich:element('pretragaDatumUsvajanjaKraj')}.value);
                                         return false;}" />
                           </h:panelGrid>
                         </f:facet>
@@ -163,8 +222,44 @@
                       <rich:column id="datumUsvajanjaPlanTab" width="10%"
                         styleClass="fimesAlignLeft">
                         <f:facet name="header">
-                          <h:outputText styleClass="headerText"
-                            value="#{nabPlanController.module.messageSource.nabPlanoviDatumUsvajanja}" />
+                        <h:panelGrid columns="1"
+                          style="margin : auto; height: 37px;"
+                          headerClass="tableHeader" rowClasses="tableHeader">
+                            <a4j:commandLink ajaxSingle="true"
+                              value="#{nabPlanController.module.messageSource.nabPlanoviDatumUsvajanja}"
+                              action="#{nabPlanController.nabPlanExtendedDataTableModelApi.odrediSort}"
+                              reRender="tabelaNabPlan">
+                              <a4j:actionparam name="sortField"
+                                value="datumUsvajanja"
+                                assignTo="#{nabPlanController.nabPlanExtendedDataTableModelApi.sortField}" />
+                            </a4j:commandLink>
+                            <h:inputText id="pretragaDatumUsvajanjaPocetak"
+                              tabindex="1" style="width: 70px"
+                              value="#{nabPlanController.pretragaDatumUsvajanjaPocetak}"
+                              onkeypress="if (event.keyCode == 13) {
+                                    pretragaNabPlan(
+                                        #{rich:element('pretragaGodinaPlana')}.value,
+                                        #{rich:element('pretragaNazivPlana')}.value,
+                                        #{rich:element('pretragaDatumIzradePocetak')}.value,
+                                        #{rich:element('pretragaDatumIzradeKraj')}.value,
+                                        #{rich:element('pretragaInterniBrojPlana')}.value
+                                        #{rich:element('pretragaDatumUsvajanjaPocetak')}.value,
+                                        #{rich:element('pretragaDatumUsvajanjaKraj')}.value,);
+                                        return false;}" />
+                            <h:inputText id="pretragaDatumUsvajanjaKraj"
+                              tabindex="1" style="width: 70px"
+                              value="#{nabPlanController.pretragaDatumUsvajanjaKraj}"
+                              onkeypress="if (event.keyCode == 13) {
+                                    pretragaNabPlan(
+                                        #{rich:element('pretragaGodinaPlana')}.value,
+                                        #{rich:element('pretragaNazivPlana')}.value,
+                                        #{rich:element('pretragaDatumIzradePocetak')}.value,
+                                        #{rich:element('pretragaDatumIzradeKraj')}.value,
+                                        #{rich:element('pretragaInterniBrojPlana')}.value,
+                                        #{rich:element('pretragaDatumUsvajanjaPocetak')}.value,
+                                        #{rich:element('pretragaDatumUsvajanjaKraj')}.value);
+                                        return false;}" />
+                          </h:panelGrid>
                         </f:facet>
                         <h:outputText value="#{plan.datumUsvajanja}">
                           <f:convertDateTime
@@ -275,7 +370,7 @@
                 </rich:layoutPanel>
               </rich:layout>
             </a4j:region>
-                        <a4j:include
+            <a4j:include
               viewId="#{coreWebController.coreModalDaNeDijalogView}" />
             <a4j:include
               viewId="#{coreWebController.coreModalOkDijalogView}" />
