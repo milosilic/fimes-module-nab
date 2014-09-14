@@ -176,11 +176,11 @@
                             </h:selectOneMenu>
                           </h:panelGrid>
                         </f:facet>
-                        <h:panelGroup id="dozvoljenoRasporedjivanje">
+                        <h:panelGroup id="ugovorIzvrsenDaNe">
                           <h:outputText
                             value="#{ugovor.fUgovorIzvrsen ? 'Да' : 'Не'}" />
                         </h:panelGroup>
-                        <rich:toolTip for="dozvoljenoRasporedjivanje"
+                        <rich:toolTip for="ugovorIzvrsenDaNe"
                           direction="bottom-left" showDelay="500">
                           <h:outputText
                             value="#{ugovor.fUgovorIzvrsen ? 'Да' : 'Не'}" />
