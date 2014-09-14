@@ -237,6 +237,11 @@ ALTER TABLE nab_plan
 ALTER TABLE nab_plan
    ALTER COLUMN datum_usvajanja DROP NOT NULL;
 
+ALTER TABLE nab_javna_nabavka
+   ALTER COLUMN godina_pokretanja SET NOT NULL;
+ALTER TABLE nab_javna_nabavka
+   ALTER COLUMN mesec_pokretanja SET NOT NULL;
+
 
 
 
