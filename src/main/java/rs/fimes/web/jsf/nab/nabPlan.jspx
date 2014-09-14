@@ -95,7 +95,6 @@
                               tabindex="1" style="width: 70px"
                               value="#{nabPlanController.godina}"
                               onkeypress="if (event.keyCode == 13) {
-                              console.log(#{rich:element('pretragaGodinaPlana')}.value)
                                     pretragaNabPlan(
                                         #{rich:element('pretragaGodinaPlana')}.value,
                                         #{rich:element('pretragaNazivPlana')}.value,
