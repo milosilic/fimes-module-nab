@@ -104,7 +104,7 @@
                       <h:outputText
                         value="#{nabavka.opis}" />
                     </rich:column>
-                    <rich:column id="kolona3" width="15%"
+                    <rich:column id="kolona3" width="20%"
                       styleClass="fimesAlignLeft">
                       <f:facet name="header">
                         <h:outputText styleClass="headerText"
@@ -113,7 +113,7 @@
                       <h:outputText
                         value="#{nabavka.vrstaPredmetaNabavke.naziv}" />
                     </rich:column>
-                    <rich:column id="kolona4" width="15%"
+                    <rich:column id="kolona4" width="20%"
                       styleClass="fimesAlignLeft">
                       <f:facet name="header">
                         <h:outputText styleClass="headerText"
@@ -126,21 +126,12 @@
                       styleClass="fimesAlignLeft">
                       <f:facet name="header">
                         <h:outputText styleClass="headerText"
-                          value="#{nabNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecPokretanja}" />
+                          value="#{nabNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecGodinaPokretanja}" />
                       </f:facet>
                       <h:outputText
-                        value="#{nabavka.mesecPokretanja}" />
+                        value="#{nabavka.mesecPokretanja}/#{nabavka.godinaPokretanja}" />
                     </rich:column>
-                    <rich:column id="kolona6" width="10%"
-                      styleClass="fimesAlignLeft">
-                      <f:facet name="header">
-                        <h:outputText styleClass="headerText"
-                          value="#{nabNabavkaController.module.messageSource.nabNabavkaNovaNabavkaGodinaPokretanja}" />
-                      </f:facet>
-                      <h:outputText
-                        value="#{nabavka.godinaPokretanja}" />
-                    </rich:column>
-                    <rich:column id="kolona3" width="10%"
+                    <rich:column  width="10%"
                       styleClass="fimesAlignLeft">
                       <f:facet name="header">
                         <h:outputText styleClass="headerText"
