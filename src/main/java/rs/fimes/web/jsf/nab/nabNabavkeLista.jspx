@@ -22,35 +22,6 @@
             </h:panelGrid>
             <rich:layout>
               <rich:layoutPanel position="top">
-                <h:panelGrid styleClass="fimesInputGroup"
-                  columnClasses="fimesAlignCenter" width="100%">
-                  <h:panelGrid columns="3"
-                    styleClass="fimesTableCentered"
-                    columnClasses="fimesAlignCenter">
-                    <h:outputText styleClass="fimesLabelUp"
-                      value="#{nabNabavkaController.module.messageSource.nabNabavkaListaVrstaPredmeta}" />
-                    <h:outputText styleClass="fimesLabelUp"
-                      value="#{nabNabavkaController.module.messageSource.nabNabavkaListaVrstaPostupka}" />
-                    <rich:spacer />
-                    <h:selectOneMenu
-                      styleClass="fimesInputDropDown maxWidth"
-                      value="#{nabNabavkaController.idVrstaPredmetaNabavke}">
-                      <f:selectItems
-                        value="#{nabNabavkaController.xnabVrstaPredmetaNabavkeSelectionItems}" />
-                    </h:selectOneMenu>
-                    <h:selectOneMenu
-                      styleClass="fimesInputDropDown maxWidth"
-                      value="#{nabNabavkaController.idVrstaPostupka}">
-                      <f:selectItems
-                        value="#{nabNabavkaController.xnabVrstaPostupkaSelectionItems}" />
-                    </h:selectOneMenu>
-
-                    <a4j:commandButton styleClass="fimesButton"
-                      value="#{nabNabavkaController.module.messageSource.common_pretrazi}"
-                      action="#{nabNabavkaController.pretraga}"
-                      reRender="p1" />
-                  </h:panelGrid>
-                </h:panelGrid>
                 <rich:spacer height="20px" />
                 <a4j:jsFunction name="jsNabNabavkaBrisanje"
                   action="#{nabNabavkaController.obrisiNabavku}"
@@ -61,7 +32,7 @@
                     rowClasses="redAnimacija" id="tabelaNabavkeLista"
                     enableContextMenu="false"
                     noDataLabel="#{nabNabavkaController.module.messageSource.commonNoDataLabel}"
-                    value="#{nabPlanController.nabJavnaNabavkaExtendedDataTableModelApi}"
+                    value="#{nabNabavkaController.nabJavnaNabavkaExtendedDataTableModelApi}"
                      selection="#{nabNabavkaController.nabJavnaNabavkaExtendedDataTableModelApi.selection}"
                     var="nabavka">
 
@@ -113,7 +84,7 @@
                       <h:outputText
                         value="#{nabavka.vrstaPredmetaNabavke.naziv}" />
                     </rich:column>
-                    <rich:column id="kolona4" width="20%"
+                    <rich:column id="kolona4" width="15%"
                       styleClass="fimesAlignLeft">
                       <f:facet name="header">
                         <h:outputText styleClass="headerText"
@@ -188,7 +159,7 @@
                           <h:outputText
                             value="#{nabNabavkaController.module.messageSource.commonUkupno}" />
                           <h:outputText
-                            value="#{nabPlanController.nabJavnaNabavkaExtendedDataTableModelApi.ukupnoRedova}">
+                            value="#{nabNabavkaController.nabJavnaNabavkaExtendedDataTableModelApi.ukupnoRedova}">
                             <f:convertNumber pattern="#,###"
                               locale="#{applicationBean.numberLocale}" />
                           </h:outputText>

@@ -210,6 +210,7 @@ public class NabPlanController extends BaseController{
     }
 
     public NabPlan getNabPlanSelected() {
+        System.out.println( "Neko me je trazio" +nabPlanSelected);
         return nabPlanSelected;
     }
 

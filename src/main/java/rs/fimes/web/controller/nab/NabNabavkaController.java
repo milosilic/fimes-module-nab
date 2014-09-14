@@ -59,21 +59,7 @@ public class NabNabavkaController extends BaseController{
             throws ConfigurationException {
         super(module, controllerId);
     }
-    
-    public void onStart() {
-       
-        if ( orgFirma == null ) {
-          setOrgFirma(nabNaruciociServiceApi.getActiveOrgFirma(getUserSessionUtil().getCurrentUserCurrentOrgFirma().getIdFirma()));
-        }
         
-        nabJavnaNabavkaExtendedDataTableModelApi.helperWalkByRequest();
-        nabNovaNabavkaController.onStart();
-        xnabVrstaPredmetaNabavkeSelectionItems = nabNovaNabavkaController.getXnabVrstaPredmetaNabavkeSelectionItems();
-        xnabVrstaPostupkaSelectionItems = nabNovaNabavkaController.getXnabVrstaPostupkaSelectionItems();
-//        orgFirma = (OrgFirma) getUserSessionUtil().getCurrentUserCurrentOrgFirma();
-     
-    }
-    
     public void initModalDialogBrisanje(){
         initModalDialogBrisanje(
                 "nabNabavkaNabavkaBrisanjeHeader",
@@ -164,11 +150,17 @@ public class NabNabavkaController extends BaseController{
     }
 
     public NabJavnaNabavkaExtendedDataTableModelApi getNabJavnaNabavkaExtendedDataTableModelApi() {
+
+        List<QueryRestriction> parametri = new ArrayList<QueryRestriction>();
+        parametri.add(QueryRestrictionComparison1.addIsEqual("nabPlan", nabPlan));
+        nabJavnaNabavkaExtendedDataTableModelApi.setParametri(parametri);
+
         return nabJavnaNabavkaExtendedDataTableModelApi;
     }
 
     public void setNabJavnaNabavkaExtendedDataTableModelApi(
-            NabJavnaNabavkaExtendedDataTableModelApi nabJavnaNabavkaExtendedDataTableModelApi) {
+            NabJavnaNabavkaExtendedDataTableModelApi nabJavnaNabavkaExtendedDataTableModelApi){
+
         this.nabJavnaNabavkaExtendedDataTableModelApi = nabJavnaNabavkaExtendedDataTableModelApi;
     }
 
@@ -194,6 +186,7 @@ public class NabNabavkaController extends BaseController{
     }
 
     public void setNabPlan(NabPlan nabPlan) {
+        System.out.println( "ohoohoh: " + nabPlan);
         this.nabPlan = nabPlan;
     }
 

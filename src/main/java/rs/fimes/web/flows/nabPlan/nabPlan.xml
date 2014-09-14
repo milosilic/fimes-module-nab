@@ -18,14 +18,14 @@
   </view-state>
   <view-state id="nabavkeLista" view="/rs/fimes/web/jsf/nab/nabNabavkeLista.jspx">
     <on-entry>
-      <evaluate
+      <evaluate 
         expression="nabPlanController.getNabPlanSelected()"
         result="nabNabavkaController.nabPlan" />
-            <evaluate
+      <evaluate
         expression="nabPlanController.getNabPlanSelected()"
         result="nabNovaNabavkaController.nabPlan" />
-        <evaluate expression="nabNovaNabavkaController.onStart()" />
-      <evaluate expression="nabNabavkaController.onStart()" />
+      <evaluate expression="nabNovaNabavkaController.onStart()" />
+      
     </on-entry>
     <transition on="novaNabavka" to="novaNabavka" />
     <transition on="nabavkaDetaljno" to="nabavkaDetaljno" />
