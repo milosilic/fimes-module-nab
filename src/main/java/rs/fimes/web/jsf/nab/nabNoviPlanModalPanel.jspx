@@ -95,7 +95,7 @@
       <rich:spacer width="5" />
       <a4j:commandButton id="nabNoviPlanModalPanelDugmeOdustani"
         styleClass="fimesButton fimesButtonImageCancel"
-        ajaxSingle="true" action="#{nabNoviPlanController.resetForm}"
+        ajaxSingle="true"
         value="#{nabNoviPlanController.module.messageSource.common_odustani}"
         immediate="true"
         onclick="#{rich:component('nabNoviPlanModalPanel')}.hide()" />

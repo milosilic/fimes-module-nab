@@ -49,7 +49,6 @@ public class NabPlanController extends BaseController{
     public NabPlanController(Module module, String controllerId)
             throws ConfigurationException {
         super(module, controllerId);
-        // TODO Auto-generated constructor stub
     }
     
     public NabNaruciociServiceApi getNabNaruciociServiceApi() {
@@ -117,6 +116,7 @@ public class NabPlanController extends BaseController{
     }
     
     public void noviPlan(){
+        System.out.println("------------------------>" + kopirajPodatke + "<------------------------");
         if ( kopirajPodatke ){
             nabNoviPlanController.setIzabraniPlan( nabPlanSelected);
         }else{
@@ -217,7 +217,6 @@ public class NabPlanController extends BaseController{
     }
 
     public NabPlan getNabPlanSelected() {
-        System.out.println( "Neko me je trazio" +nabPlanSelected);
         return nabPlanSelected;
     }
 

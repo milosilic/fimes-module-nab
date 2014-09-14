@@ -163,7 +163,6 @@ public class NabNoviPlanController extends BaseController{
 
     public void setIzabraniPlan(NabPlan izabraniPlan) {
         this.izabraniPlan = izabraniPlan;
-        System.out.println( izabraniPlan );
     }
 
     public boolean isUsvajanjePlanaUToku() {

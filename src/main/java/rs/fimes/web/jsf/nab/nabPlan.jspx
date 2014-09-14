@@ -280,6 +280,7 @@
                               <f:setPropertyActionListener value="#{false}"
                                 target="#{nabPlanController.kopirajPodatke}" />
                               <f:setPropertyActionListener value="#{plan}" target="#{nabNoviPlanController.noviPlan}" />
+                              <f:setPropertyActionListener value="#{plan}" target="#{nabPlanController.nabPlanSelected}" />
                             </a4j:commandButton>
                             <rich:toolTip for="nabPlanoviNoviPlan"
                               styleClass="tooltipRichAdd"
