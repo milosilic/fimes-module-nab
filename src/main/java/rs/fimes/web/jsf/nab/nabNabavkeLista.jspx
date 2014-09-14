@@ -90,7 +90,7 @@
                                         #{rich:element('pretragaRb')}.value,
                                         #{rich:element('pretragaOpis')}.value ,
                                         #{rich:element('selectVrstaPredmetaNabavke')}.value);
-                                        return false;"/>
+                                        return false;}"/>
                         </h:panelGrid>
                       </f:facet>
                       <h:outputText
@@ -119,7 +119,7 @@
                                         #{rich:element('pretragaRb')}.value,
                                         #{rich:element('pretragaOpis')}.value ,
                                         #{rich:element('selectVrstaPredmetaNabavke')}.value);
-                                        return false;"/>
+                                        return false;}"/>
                         </h:panelGrid>
                       </f:facet>
                       <h:outputText
