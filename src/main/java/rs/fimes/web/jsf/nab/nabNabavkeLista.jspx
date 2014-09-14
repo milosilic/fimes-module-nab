@@ -133,7 +133,7 @@
                             action="#{nabNabavkaController.nabJavnaNabavkaExtendedDataTableModelApi.odrediSort}"
                             reRender="tabelaNabavkeLista">
                             <a4j:actionparam name="sortField"
-                              value="opis"
+                              value="vrstaPredmetaNabavke"
                               assignTo="#{nabNabavkaController.nabJavnaNabavkaExtendedDataTableModelApi.sortField}" />
                           </a4j:commandLink>
                         <h:selectOneMenu tabindex="3"
