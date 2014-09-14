@@ -155,8 +155,30 @@
                     <rich:column id="kolona4" width="15%"
                       styleClass="fimesAlignLeft">
                       <f:facet name="header">
-                        <h:outputText styleClass="headerText"
-                          value="#{nabNabavkaController.module.messageSource.nabNabavkaListaVrstaPostupka}" />
+                        <h:panelGrid columns="1"
+                          style="margin : auto;"
+                          headerClass="tableHeader"
+                          rowClasses="tableHeader">
+                          <a4j:commandLink
+                            value="#{nabNabavkaController.module.messageSource.nabNabavkaListaVrstaPostupka}"
+                            action="#{nabNabavkaController.nabJavnaNabavkaExtendedDataTableModelApi.odrediSort}"
+                            reRender="tabelaNabavkeLista">
+                            <a4j:actionparam name="sortField"
+                              value="vrstaPostupka"
+                              assignTo="#{nabNabavkaController.nabJavnaNabavkaExtendedDataTableModelApi.sortField}" />
+                          </a4j:commandLink>
+                          <h:selectOneMenu tabindex="3"
+                            id="selectVrstaPostupkaNabavke"
+                            value="#{nabNabavkaController.pretragaVrstaPostupkaNabavke}"
+                            title="#{nabNabavkaController.vrstaPostupkaNabavkePretragaTitle}"
+                            styleClass="fimesInputDropDown">
+                            <a4j:support event="onchange"
+                              reRender="tabelaNabavkeLista,selectVrstaPostupkaNabavke"
+                              action="#{nabNabavkaController.promenaVrstaPostupkaNabavke}" />
+                            <f:selectItems
+                              value="#{nabNabavkaController.xnabVrstaPostupkaSelectionItems}" />
+                          </h:selectOneMenu>
+                        </h:panelGrid>
                       </f:facet>
                       <h:outputText
                         value="#{nabavka.vrstaPostupka.naziv}" />

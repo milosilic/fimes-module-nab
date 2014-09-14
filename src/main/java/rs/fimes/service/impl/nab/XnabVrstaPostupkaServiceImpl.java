@@ -34,6 +34,13 @@ public class XnabVrstaPostupkaServiceImpl extends BaseServiceImpl implements
     public void setXnabVrstaPostupkaDAO(XnabVrstaPostupkaDAO xnabVrstaPostupkaDAO) {
         this.xnabVrstaPostupkaDAO = xnabVrstaPostupkaDAO;
     }
+
+    @Override
+    public XnabVrstaPostupka getNabVrstaPostupkaNabavkeById(
+            int idVrstaPostupkaNabavke) {
+
+        return xnabVrstaPostupkaDAO.findById(idVrstaPostupkaNabavke, false);
+    }
     
     
 

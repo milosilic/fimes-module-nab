@@ -60,9 +60,10 @@ public class NabNabavkaController extends BaseController{
     private String pretragaRb;
     private String pretragaOpis;
     private String pretragaVrstaPredmetaNabavke;
+    private String pretragaVrstaPostupkaNabavke;
     
     private String vrstaPredmetaNabavkePretragaTitle;
-    
+    private String vrstaPostupkaNabavkePretragaTitle;
     
     public NabNabavkaController(Module module, String controllerId)
             throws ConfigurationException {
@@ -79,7 +80,6 @@ public class NabNabavkaController extends BaseController{
     }
     
     public void obrisiNabavku(){
-        System.out.println( "Započet proces brisanja");
         try {
             if (null != izabranaNabavka) {
                 nabJavnaNabavkaServiceApi.deleteNabNabavka(izabranaNabavka);
@@ -124,6 +124,17 @@ public class NabNabavkaController extends BaseController{
             int idVrstaPredmetaNabavke = Integer.parseInt(pretragaVrstaPredmetaNabavke);
             XnabVrstaPredmetaNabavke nabVrstaPredmetaNabavke = xnabVrstaPredmetaNabavkeServiceApi.getNabVrstaPredmetaNabavkeById(idVrstaPredmetaNabavke );
             vrstaPredmetaNabavkePretragaTitle = nabVrstaPredmetaNabavke.getNaziv();
+        }
+        pretraga();
+    }
+    
+    public void promenaVrstaPostupkaNabavke(){
+        if (emptyStringToNull(pretragaVrstaPostupkaNabavke) == null)
+            vrstaPostupkaNabavkePretragaTitle = getMessage("common_svi");
+        else {
+            int idVrstaPostupkaNabavke = Integer.parseInt(pretragaVrstaPostupkaNabavke);
+            XnabVrstaPostupka nabVrstaPostupkaNabavke = xnabVrstaPostupkaServiceApi.getNabVrstaPostupkaNabavkeById(idVrstaPostupkaNabavke );
+            vrstaPostupkaNabavkePretragaTitle = nabVrstaPostupkaNabavke.getNaziv();
         }
         pretraga();
     }
@@ -307,6 +318,23 @@ public class NabNabavkaController extends BaseController{
     public void setVrstaPredmetaNabavkePretragaTitle(
             String vrstaPredmetaNabavkePretragaTitle) {
         this.vrstaPredmetaNabavkePretragaTitle = vrstaPredmetaNabavkePretragaTitle;
+    }
+
+    public String getPretragaVrstaPostupkaNabavke() {
+        return pretragaVrstaPostupkaNabavke;
+    }
+
+    public void setPretragaVrstaPostupkaNabavke(String pretragaVrstaPostupkaNabavke) {
+        this.pretragaVrstaPostupkaNabavke = pretragaVrstaPostupkaNabavke;
+    }
+
+    public String getVrstaPostupkaNabavkePretragaTitle() {
+        return vrstaPostupkaNabavkePretragaTitle;
+    }
+
+    public void setVrstaPostupkaNabavkePretragaTitle(
+            String vrstaPostupkaNabavkePretragaTitle) {
+        this.vrstaPostupkaNabavkePretragaTitle = vrstaPostupkaNabavkePretragaTitle;
     }
 
     

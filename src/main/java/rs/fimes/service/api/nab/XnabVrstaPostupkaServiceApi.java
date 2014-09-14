@@ -9,4 +9,6 @@ public interface XnabVrstaPostupkaServiceApi extends BaseServiceApi {
     
     List<XnabVrstaPostupka> getAllVrstaPostupka();
 
+    XnabVrstaPostupka getNabVrstaPostupkaNabavkeById(int idVrstaPostupkaNabavke);
+
 }
