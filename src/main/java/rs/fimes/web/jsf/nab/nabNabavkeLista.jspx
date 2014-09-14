@@ -136,17 +136,17 @@
                               value="vrstaPredmetaNabavke"
                               assignTo="#{nabNabavkaController.nabJavnaNabavkaExtendedDataTableModelApi.sortField}" />
                           </a4j:commandLink>
-                        <h:selectOneMenu tabindex="3"
-                          id="selectVrstaPredmetaNabavke"
-                          value="#{nabNabavkaController.pretragaVrstaPredmetaNabavke}"
-                          title="#{nabNabavkaController.vrstaPredmetaNabavkePretragaTitle}"
-                          styleClass="fimesInputDropDown">
-                          <a4j:support event="onchange"
-                            reRender="tabelaNabavkeLista,selectVrstaPredmetaNabavke"
-                            action="#{nabNabavkaController.promenaVrstaPredmetaNabavke}" />
-                          <f:selectItems
-                            value="#{nabNabavkaController.xnabVrstaPredmetaNabavkeSelectionItems}" />
-                        </h:selectOneMenu>
+                          <h:selectOneMenu tabindex="3"
+                            id="selectVrstaPredmetaNabavke"
+                            value="#{nabNabavkaController.pretragaVrstaPredmetaNabavke}"
+                            title="#{nabNabavkaController.vrstaPredmetaNabavkePretragaTitle}"
+                            styleClass="fimesInputDropDown">
+                            <a4j:support event="onchange"
+                              reRender="tabelaNabavkeLista,selectVrstaPredmetaNabavke"
+                              action="#{nabNabavkaController.promenaVrstaPredmetaNabavke}" />
+                            <f:selectItems
+                              value="#{nabNabavkaController.xnabVrstaPredmetaNabavkeSelectionItems}" />
+                          </h:selectOneMenu>
                         </h:panelGrid>
                       </f:facet>
                       <h:outputText
