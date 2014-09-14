@@ -57,6 +57,7 @@ public class NabNabavkaController extends BaseController{
     
     //pretraga
     private String pretragaRb;
+    private String pretragaOpis;
     
     
     public NabNabavkaController(Module module, String controllerId)
@@ -261,6 +262,14 @@ public class NabNabavkaController extends BaseController{
 
     public void setPretragaRb(String pretragaRb) {
         this.pretragaRb = pretragaRb;
+    }
+
+    public String getPretragaOpis() {
+        return pretragaOpis;
+    }
+
+    public void setPretragaOpis(String pretragaOpis) {
+        this.pretragaOpis = pretragaOpis;
     }
 
     
