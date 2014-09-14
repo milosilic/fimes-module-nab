@@ -72,13 +72,10 @@ public class NabNabavkaController extends BaseController{
     }
     
     public void onEntry(){
-        if (  nabJavnaNabavkaExtendedDataTableModelApi != null ){
             List<QueryRestriction> parametri = new ArrayList<QueryRestriction>();
             parametri.add(QueryRestrictionComparison1.addIsEqual("nabPlan", nabPlan));
             nabJavnaNabavkaExtendedDataTableModelApi.setParametri(parametri);
-            
-        }
-
+            orgFirma = (OrgFirma) getUserSessionUtil().getCurrentUserCurrentOrgFirma();
     }
         
     public void initModalDialogBrisanje(){

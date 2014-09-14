@@ -3,6 +3,7 @@
 <properties>
 <comment>блабла1111</comment>
 
+<entry key="nabNaruciociGlavniHeader">Наручилац</entry>
 <entry key="nabNaruciociNaziv">Назив наручиоца</entry>
 <entry key="nabNaruciociUlica">Улица</entry>
 <entry key="nabNaruciociBroj">Број</entry>
