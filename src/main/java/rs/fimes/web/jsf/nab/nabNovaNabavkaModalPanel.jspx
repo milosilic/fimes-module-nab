@@ -11,6 +11,10 @@
       <h:outputText styleClass="fimesPanelHeader"
         value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavka}" />
     </f:facet>
+    <h:panelGrid styleClass="fimesTableCentered fimesFormTitle" width="100%" columns="1">
+      <h:outputText
+        value="#{nabNabavkaController.module.messageSource.nabNaruciociGlavniHeader}: #{nabNabavkaController.orgFirma.naziv}, #{nabNabavkaController.orgFirma.adresaUlica} #{nabNabavkaController.orgFirma.adresaBroj}" />
+    </h:panelGrid>
     <h:form id="formNovaNabavka">
       <a4j:jsFunction name="nabProcenaBrisanje"
         action="#{nabNovaNabavkaController.obrisiProcenu}"
