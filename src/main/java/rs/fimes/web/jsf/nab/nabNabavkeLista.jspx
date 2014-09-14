@@ -129,7 +129,7 @@
                           value="#{nabNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecGodinaPokretanja}" />
                       </f:facet>
                       <h:outputText
-                        value="#{nabavka.mesecPokretanja}/#{nabavka.godinaPokretanja}" />
+                        value="#{nabavka.godinaPokretanja}/#{nabavka.mesecPokretanja}" />
                     </rich:column>
                     <rich:column  width="10%"
                       styleClass="fimesAlignLeft">
