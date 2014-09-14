@@ -207,7 +207,6 @@ public class NabNabavkaController extends BaseController{
     }
 
     public void setNabPlan(NabPlan nabPlan) {
-        System.out.println( "ohoohoh: " + nabPlan);
         this.nabPlan = nabPlan;
     }
 
@@ -228,7 +227,10 @@ public class NabNabavkaController extends BaseController{
     }
 
     public ArrayList<SelectItem> getXnabVrstaPredmetaNabavkeSelectionItems() {
-        xnabVrstaPredmetaNabavkeSelectionItems = nabNovaNabavkaController.getXnabVrstaPredmetaNabavkeSelectionItems();
+        xnabVrstaPredmetaNabavkeSelectionItems = new ArrayList<SelectItem>();
+        xnabVrstaPredmetaNabavkeSelectionItems.add(new SelectItem(null,
+                getMessage("common_svi")));
+        xnabVrstaPredmetaNabavkeSelectionItems.addAll(nabNovaNabavkaController.getXnabVrstaPredmetaNabavkeSelectionItems());
         return xnabVrstaPredmetaNabavkeSelectionItems;
     }
 
