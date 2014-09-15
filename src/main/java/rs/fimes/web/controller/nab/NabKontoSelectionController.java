@@ -132,7 +132,7 @@ public class NabKontoSelectionController extends BaseSelectionController {
         if (pretragaNaziv != null) {
             parametri.add(QueryRestrictionComparison1
                     .addCirToAbcStringContains(
-                            "konto",
+                            "naziv",
                             getStringUtil().transliterationCirToAbc(
                                     pretragaNaziv.replaceAll("\\s+", " "))));
         }

@@ -26,7 +26,7 @@ import rs.fimes.web.controller.BaseController;
 import rs.fimes.web.datamodel.api.nab.NabJavnaNabavkaExtendedDataTableModelApi;
 
 public class NabNabavkaController extends BaseController{
- 
+ //konta srediti
     private static final long serialVersionUID = -3120357755799010622L;
 
     private OrgFirma orgFirma;
