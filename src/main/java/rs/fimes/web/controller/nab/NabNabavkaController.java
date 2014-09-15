@@ -111,15 +111,20 @@ public class NabNabavkaController extends BaseController{
     public void pretraga(){
         List<QueryRestriction> parametri = new ArrayList<QueryRestriction>();
         parametri.add(QueryRestrictionComparison1.addIsEqual("nabPlan", nabPlan));
-        
-        if (pretragaRb != null && !pretragaRb.trim().isEmpty()) {
-            parametri.add(QueryRestrictionComparison1
-                    .addCirToAbcStringContains(
-                            "idJavnaNabavka",
-                            getStringUtil().transliterationCirToAbc(
-                                    pretragaRb.trim().replaceAll("\\s+", " "))));
+        pretragaRb = pretragaRb.trim();
+        Integer intGodina = null;
+        try {
+            intGodina= Integer.valueOf(pretragaRb);
+        } catch (NumberFormatException e) {
+            pretragaRb=null;
+        }catch (NullPointerException e) {
+            pretragaRb = null;
         }
-
+        
+        if( pretragaRb != null) {
+            parametri.add( QueryRestrictionComparison1.addIsEqual("idJavnaNabavka", intGodina.intValue()));
+        }
+        
         if (pretragaOpis != null && !pretragaOpis.trim().isEmpty()) {
             parametri.add(QueryRestrictionComparison1
                     .addCirToAbcStringContains(
