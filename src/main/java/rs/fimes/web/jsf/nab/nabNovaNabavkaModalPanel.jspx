@@ -122,11 +122,13 @@
             <h:outputLabel styleClass="fimesLabelRequiredLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNacinProceneVrednosti}" />
             <h:inputText styleClass="fimesInputText maxWidth" id="inputOpisProcena"
-              value="#{nabNovaNabavkaController.novaNabavka.opisProcena}"/>
+              value="#{nabNovaNabavkaController.novaNabavka.opisProcena}">
+              <f:converter converterId="fimes.converter.common.stringRequired" />
+            </h:inputText>
             <h:outputText value=" " />
             <rich:message for="inputOpisProcena"
               styleClass="fimesValidErrMsg" />
-            <h:outputLabel styleClass="fimesLabelRequiredLeft"
+            <h:outputLabel styleClass="fimesLabelLeft"
               value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNapomenaZaPostupak}" />
             <h:inputText styleClass="fimesInputText maxWidth" id="inputNapomena"
               value="#{nabNovaNabavkaController.novaNabavka.napomena}"/>
