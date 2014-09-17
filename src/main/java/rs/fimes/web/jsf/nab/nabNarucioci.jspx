@@ -128,10 +128,7 @@
                       </h:panelGrid>
                       <h:panelGrid columns="2" width="100%"
                         columnClasses="fimesTable2ColumnFieldWidthEqual,fimesTable2ColumnLabelWidthEqual">
-                        <a4j:commandButton styleClass="fimesButton"
-                          immediate="true"
-                          value="#{nabNaruciociController.module.messageSource.common_izvestaj}" />
-
+                        <h:outputLabel></h:outputLabel>
                         <h:commandButton styleClass="fimesButton"
                           action="meni" immediate="true"
                           value="#{nabNaruciociController.module.messageSource.common_izlaz}" />
