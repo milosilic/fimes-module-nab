@@ -42,45 +42,6 @@
           <f:converter
             converterId="fimes.converter.common.stringRequired" />
         </h:inputText>
-        <h:outputLabel styleClass="fimesLabelLeft"
-          value="#{nabKontoSelectionController.module.messageSource.nabPlanoviDatumIzrade}" />
-        <rich:calendar id="datumIzradePolje"
-          inputClass="fimesInputDate"
-          value="#{nabNoviPlanController.noviPlan.datumIzrade}"
-          datePattern="dd.MM.yyyy." enableManualInput="true"
-          label="#{nabKontoSelectionController.module.messageSource.nabPlanoviDatumIzrade}"
-          required="true">
-          <f:convertDateTime
-            locale="#{nabNoviPlanController.module.application.defaultLocale}"
-            pattern="#{nabNoviPlanController.module.application.dateFormatMask}"
-            timeZone="#{nabNoviPlanController.module.application.defaultTimeZone}" />
-        </rich:calendar>
-        <h:outputLabel styleClass="fimesLabelLeft"
-          value="#{nabKontoSelectionController.module.messageSource.nabPlanovicInterniBrojPlana}" />
-        <h:inputText id="brojPlanaPolje"
-          styleClass="fimesInputText maxWidth"
-          value="#{nabNoviPlanController.noviPlan.brojPlana}"
-          label="#{nabKontoSelectionController.module.messageSource.nabPlanovicInterniBrojPlana}"
-          required="true" maxlength="128">
-          <f:converter
-            converterId="fimes.converter.common.stringRequired" />
-        </h:inputText>
-        <h:outputLabel styleClass="fimesLabelLeft"
-          value="#{nabKontoSelectionController.module.messageSource.nabPlanoviDatumUsvajanja}" />
-        <rich:calendar id="datumUsvajanjaPolje"
-          inputClass="fimesInputDate"
-          value="#{nabNoviPlanController.noviPlan.datumUsvajanja}"
-          datePattern="dd.MM.yyyy." enableManualInput="true"
-          label="#{nabKontoSelectionController.module.messageSource.nabPlanoviDatumUsvajanja}"
-          required="true">
-          <f:convertDateTime
-            locale="#{nabNoviPlanController.module.application.defaultLocale}"
-            pattern="#{nabNoviPlanController.module.application.dateFormatMask}"
-            timeZone="#{nabNoviPlanController.module.application.defaultTimeZone}" />
-        </rich:calendar>
-        <h:outputText value=" " />
-        <rich:message for="datumUsvajanjaPolje"
-          styleClass="fimesValidErrMsg" />
       </h:panelGrid>
       <h:panelGrid columns="1" styleClass="maxWidth">
         <rich:messages globalOnly="true" warnClass="validationAttention"
