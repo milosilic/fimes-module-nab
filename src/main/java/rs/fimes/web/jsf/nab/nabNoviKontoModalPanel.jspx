@@ -23,9 +23,9 @@
         columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField">
         <h:outputLabel styleClass="fimesLabelLeft"
           value="#{nabKontoSelectionController.module.messageSource.nabPlanoviZaGodinu}" />
-        <h:inputText id="godinaPolje"
+        <h:inputText id="kontoPolje"
           styleClass="fimesInputText maxWidth"
-          value="#{nabNoviPlanController.noviPlan.godina}"
+          value="#{nabKontoSelectionController.konto.konto}"
           label="#{nabKontoSelectionController.module.messageSource.nabPlanoviZaGodinu}"
           required="true" maxlength="128">
           <f:converter converterId="fimes.converter.common.intPozitive" />
@@ -36,7 +36,7 @@
           value="#{nabKontoSelectionController.module.messageSource.nabPlanoviNazivPlana}" />
         <h:inputText id="nazivPolje"
           styleClass="fimesInputText maxWidth"
-          value="#{nabNoviPlanController.noviPlan.naziv}"
+          value="#{nabKontoSelectionController.konto.naziv}"
           label="#{nabKontoSelectionController.module.messageSource.nabPlanoviNazivPlana}"
           required="true" maxlength="128">
           <f:converter
@@ -49,15 +49,15 @@
       </h:panelGrid>
       <a4j:commandButton id="nabNoviKontoModalPanelDugmePotvrdi"
         styleClass="fimesButton fimesButtonSubmit fimesButtonImageOk"
-        value="#{nabNoviPlanController.module.messageSource.common_potvrdi}"
-        action="#{nabNoviPlanController.snimiNabPlan}"
+        value="#{nabKontoSelectionController.module.messageSource.common_potvrdi}"
+        action="#{nabKontoSelectionController.snimiKonto}"
         oncomplete="if(#{empty facesContext.maximumSeverity}){#{rich:component('nabNoviKontoModalPanel')}.hide();#{rich:component('coreOkModalPanel')}.show();}"
         reRender="tabelaNabPlan,coreOkModalPanel" />
       <rich:spacer width="5" />
       <a4j:commandButton id="nabNoviKontoModalPanelDugmeOdustani"
         styleClass="fimesButton fimesButtonImageCancel"
-        ajaxSingle="true" action="#{nabNoviPlanController.resetForm}"
-        value="#{nabNoviPlanController.module.messageSource.common_odustani}"
+        ajaxSingle="true" action="#{nabKontoSelectionController.resetForm}"
+        value="#{nabKontoSelectionController.module.messageSource.common_odustani}"
         immediate="true"
         onclick="#{rich:component('nabNoviKontoModalPanel')}.hide()" />
     </h:form>
