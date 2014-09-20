@@ -5,7 +5,7 @@
   xmlns:a4j="http://richfaces.org/a4j"
   xmlns:rich="http://richfaces.org/rich">
 
-  <rich:modalPanel id="nabNovaNabavkaModalPanel" minWidth="1366"
+  <rich:modalPanel id="nabNovaNabavkaModalPanel" minWidth="800"
     autosized="true" resizeable="false" moveable="true">
     <f:facet name="header">
       <h:outputText styleClass="fimesPanelHeader"
