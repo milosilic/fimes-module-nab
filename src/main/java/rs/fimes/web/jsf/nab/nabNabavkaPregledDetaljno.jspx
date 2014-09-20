@@ -52,43 +52,43 @@
                   cellspacing="2">
                   <h:outputLabel styleClass="fimesLabelLeft"
                     value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaOpisPredmetaNabavke}" />
-                  <h:inputText styleClass="fimesInputText maxWidth"
+                  <h:inputText styleClass="fimesInputText"
                     value="#{nabNovaNabavkaController.novaNabavka.opis}" readonly="true"/>
                   <h:outputLabel styleClass="fimesLabelLeft"
                     value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaInterniBroj}" />
-                  <h:inputText styleClass="fimesInputText maxWidth"
+                  <h:inputText styleClass="fimesInputText"
                     value="#{nabNovaNabavkaController.novaNabavka.interniBroj}" readonly="true"/>
                   <h:outputLabel styleClass="fimesLabelLeft"
-                    value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaUkupnaBezPdv}" />
-                  <h:inputText styleClass="fimesInputText maxWidth"
+                    value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaBezPdv}" />
+                  <h:inputText styleClass="fimesInputText"
                     value="#{nabNovaNabavkaController.novaNabavka.procenaBezPdv}" readonly="true"/>
                   <h:outputLabel styleClass="fimesLabelLeft"
-                    value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaUkupnaSaPdv}" />
-                  <h:inputText styleClass="fimesInputText maxWidth"
+                    value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaSaPdv}" />
+                  <h:inputText styleClass="fimesInputText"
                     value="#{nabNovaNabavkaController.novaNabavka.procenaSaPdv}" readonly="true" />
                   <h:outputLabel styleClass="fimesLabelLeft"
                     value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaVrstaPredmeta}" />
-                  <h:inputText styleClass="fimesInputText maxWidth"
+                  <h:inputText styleClass="fimesInputText"
                     value="#{nabNovaNabavkaController.novaNabavka.vrstaPredmetaNabavke.naziv}" readonly="true" />
                   <h:outputLabel styleClass="fimesLabelLeft"
                     value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaPredmetNabavke}" />
-                  <h:inputText styleClass="fimesInputText maxWidth"
+                  <h:inputText styleClass="fimesInputText"
                     value="#{nabNovaNabavkaController.novaNabavka.predmetNabavke.naziv}" readonly="true" />
                   <h:outputLabel styleClass="fimesLabelLeft"
                     value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaVrstaPostupka}" />
-                  <h:inputText styleClass="fimesInputText maxWidth"
+                  <h:inputText styleClass="fimesInputText"
                     value="#{nabNovaNabavkaController.novaNabavka.vrstaPostupka.naziv}" readonly="true" />
                   <h:outputLabel styleClass="fimesLabelLeft"
                     value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaOpravdanostNabavke}" />
-                  <h:inputText styleClass="fimesInputText maxWidth"
+                  <h:inputText styleClass="fimesInputText"
                     value="#{nabNovaNabavkaController.novaNabavka.opravdanost}" readonly="true" />
                   <h:outputLabel styleClass="fimesLabelLeft"
                     value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNacinProceneVrednosti}" />
-                  <h:inputText styleClass="fimesInputText maxWidth"
+                  <h:inputText styleClass="fimesInputText"
                     value="#{nabNovaNabavkaController.novaNabavka.opisProcena}" readonly="true" />
                   <h:outputLabel styleClass="fimesLabelLeft"
                     value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaNapomenaZaPostupak}" />
-                  <h:inputText styleClass="fimesInputText maxWidth"
+                  <h:inputText styleClass="fimesInputText"
                     value="#{nabNovaNabavkaController.novaNabavka.napomena}" readonly="true" />
                 </h:panelGrid>
                 <h:panelGrid columns="1"
@@ -99,34 +99,34 @@
                     width="100%">
                     <h:outputLabel styleClass="fimesLabelLeft"
                       value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaStatusNabavke}" />
-                    <h:inputText styleClass="fimesInputText maxWidth"
+                    <h:inputText styleClass="fimesInputText"
                       value="#{nabNovaNabavkaController.novaNabavka.statusNabavke.naziv}" readonly="true"  />
                   </h:panelGrid>
                   <h:panelGrid columns="4" styleClass="alignCenter"
                     width="100%">
                     <h:outputLabel styleClass="fimesLabelLeft"
                       value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecPokretanja}" />
-                    <h:inputText styleClass="fimesInputText maxWidth"
+                    <h:inputText styleClass="fimesInputText"
                       value="#{nabNovaNabavkaController.novaNabavka.mesecPokretanja}" readonly="true" />
                     <h:outputLabel styleClass="fimesLabelLeft"
                       value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaGodinaPokretanja}" />
-                    <h:inputText styleClass="fimesInputText maxWidth"
+                    <h:inputText styleClass="fimesInputText"
                       value="#{nabNovaNabavkaController.novaNabavka.godinaPokretanja}" readonly="true" />
                     <h:outputLabel styleClass="fimesLabelLeft"
                       value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecZakljucenja}" />
-                    <h:inputText styleClass="fimesInputText maxWidth"
+                    <h:inputText styleClass="fimesInputText"
                       value="#{nabNovaNabavkaController.novaNabavka.mesecZakljucenja}" readonly="true" />
                     <h:outputLabel styleClass="fimesLabelLeft"
                       value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaGodinaZakljucenja}" />
-                    <h:inputText styleClass="fimesInputText maxWidth"
+                    <h:inputText styleClass="fimesInputText"
                       value="#{nabNovaNabavkaController.novaNabavka.godinaZakljucenja}" readonly="true" />
                     <h:outputLabel styleClass="fimesLabelLeft"
                       value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecIzvrsenja}" />
-                    <h:inputText styleClass="fimesInputText maxWidth"
+                    <h:inputText styleClass="fimesInputText"
                       value="#{nabNovaNabavkaController.novaNabavka.mesecIzvrsenja}" readonly="true" />
                     <h:outputLabel styleClass="fimesLabelLeft"
                       value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaGodinaIzvrsenja}" />
-                    <h:inputText styleClass="fimesInputText maxWidth"
+                    <h:inputText styleClass="fimesInputText"
                       value="#{nabNovaNabavkaController.novaNabavka.godinaIzvrsenja}" readonly="true" />
                   </h:panelGrid>
                   <h:panelGrid columns="2" styleClass="alignCenter"
