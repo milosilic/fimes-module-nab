@@ -93,6 +93,41 @@ public class NabPlanController extends BaseController{
 
         }
     }
+    
+    public void initModalDialogPonistavanjeUsvajanja(){
+
+        initModalDialogBrisanje(
+                "nabPlanoviPonistiUsvajanje",
+                new MessageBundleProperty(
+                        "nabPlanPonisitiUsvajanjPitanje"),
+                "nabPlanPonistavanjeUsvajanje()");
+                
+        
+    }
+    
+    public void ponistiUsvajanjePlana(){
+        if ( null != nabPlanSelected ){
+            try {
+                nabPlanServiceApi.deleteNabPlan( nabPlanSelected);
+                populateModalOkPanelSnimanjeDefaultMessages(true,
+                        "nabPlanoviPlanBrisanjeHeader");
+            } catch (FimesServiceException e) {
+                e.printStackTrace();
+                populateModalOkPanelBrisanje(false,
+                        "nabPlanoviPlanBrisanjeHeader",
+                        new MessageBundleProperty(
+                                "nabPlanoviPlanBrisanjeImaNabavki"));
+            }catch (Exception e) {
+                e.printStackTrace();
+                populateModalOkPanelSnimanjeDefaultMessages(false,
+                        "nabPlanoviPlanBrisanjeHeader");
+            } finally {
+                resetSelection();
+            }
+
+        }
+        
+    }
 
     public void resetSelection() {
         nabPlanSelected = null;

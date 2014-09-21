@@ -53,6 +53,10 @@
                       action="#{nabPlanController.obrisiPlan}"
                       oncomplete="#{rich:component('coreModalDaNeDijalog')}.hide();#{rich:component('coreOkModalPanel')}.show();"
                       reRender="coreOkModalPanel,tabelaNabPlan" />
+                    <a4j:jsFunction name="nabPlanPonistavanjeUsvajanje"
+                      action="#{nabPlanController.ponistiUsvajanjePlana}"
+                      oncomplete="#{rich:component('coreModalDaNeDijalog')}.hide();#{rich:component('coreOkModalPanel')}.show();"
+                      reRender="coreOkModalPanel,tabelaNabPlan" />
                     <rich:extendedDataTable height="318px"
                       rowClasses="redAnimacija" id="tabelaNabPlan"
                       enableContextMenu="false"
@@ -73,6 +77,7 @@
                           status="waitStatus"
                           id="delPlanTab"
                           action="#{nabPlanController.initModalDialogBrisanje}"
+                          disabled="#{plan.datumUsvajanja!=null}" 
                           oncomplete="if(#{empty facesContext.maximumSeverity}){ #{rich:component('coreModalDaNeDijalog')}.show();}
                                     else #{rich:component('coreErrorModalPanel')}.show();"
                           styleClass="fimesButtonImageCross"
@@ -361,12 +366,13 @@
                       <a4j:commandButton id="nabPlanDugmeUsvoji"
                         styleClass="fimesButton objDugmeUFuteruTabele"
                         status="waitStatus"
-                        value="#{nabNoviPlanController.module.messageSource.nabPlanoviUsvajanjePlana}"
-                        action="#{nabNoviPlanController.initUsvajanjePlana}"
-                        oncomplete="#{rich:component('nabNoviPlanModalPanel')}.show()"
-                        disabled="#{(empty nabPlanController.nabPlanSelected) or (nabPlanController.nabPlanSelected.datumUsvajanja!=null)}" 
-                        reRender="nabNoviPlanModalPanel">
-                      </a4j:commandButton>                        
+                        value="#{nabPlanController.module.messageSource.nabPlanoviPonistiUsvajanje}"
+                        action="#{nabPlanController.initModalDialogPonistavanjeUsvajanja}"
+                        oncomplete="if(#{empty facesContext.maximumSeverity}){ #{rich:component('coreModalDaNeDijalog')}.show();}
+                                    else #{rich:component('coreErrorModalPanel')}.show();"
+                        disabled="#{(empty nabPlanController.nabPlanSelected) or (nabPlanController.nabPlanSelected.datumUsvajanja==null)}"
+                        reRender="coreModalDaNeDijalog,coreErrorModalPanel">
+                      </a4j:commandButton>
                     </h:panelGroup>
                   </h:panelGroup>
                 </rich:layoutPanel>

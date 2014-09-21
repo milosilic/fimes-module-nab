@@ -36,6 +36,8 @@
 <entry key="nabPlanoviAzuriranjePlana">Ажурирање плана</entry>
 <entry key="nabPlanoviKopiranjePlana">Копирај план</entry>
 <entry key="nabPlanoviUsvajanjePlana">Усвоји план</entry>
+<entry key="nabPlanoviPonistiUsvajanje">Поништи усвајање</entry>
+<entry key="nabPlanPonisitiUsvajanjPitanje">Да ли сигурно желите да поништите одлуку о усвајању плана?</entry>
 <entry key="nabPlanoviSpisakNabavki">Списак набавки</entry>
 <entry key="nabNabavkaListaHeader">Кратки преглед поступака јавних набавки</entry>
 <entry key="nabNabavkaListaRb">Рб</entry>
