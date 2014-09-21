@@ -106,27 +106,27 @@
                     width="100%">
                     <h:outputLabel styleClass="fimesLabelLeft"
                       value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecPokretanja}" />
-                    <h:inputText styleClass="fimesInputText"
+                    <h:inputText styleClass="fimesInputText" style=" width : 40px;"
                       value="#{nabNovaNabavkaController.novaNabavka.mesecPokretanja}" readonly="true" />
                     <h:outputLabel styleClass="fimesLabelLeft"
                       value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaGodinaPokretanja}" />
-                    <h:inputText styleClass="fimesInputText"
+                    <h:inputText styleClass="fimesInputText" style=" width : 40px;"
                       value="#{nabNovaNabavkaController.novaNabavka.godinaPokretanja}" readonly="true" />
-                    <h:outputLabel styleClass="fimesLabelLeft"
+                    <h:outputLabel styleClass="fimesLabelLeft" 
                       value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecZakljucenja}" />
-                    <h:inputText styleClass="fimesInputText"
+                    <h:inputText styleClass="fimesInputText" style=" width : 40px;"
                       value="#{nabNovaNabavkaController.novaNabavka.mesecZakljucenja}" readonly="true" />
                     <h:outputLabel styleClass="fimesLabelLeft"
                       value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaGodinaZakljucenja}" />
-                    <h:inputText styleClass="fimesInputText"
+                    <h:inputText styleClass="fimesInputText" style=" width : 40px;"
                       value="#{nabNovaNabavkaController.novaNabavka.godinaZakljucenja}" readonly="true" />
                     <h:outputLabel styleClass="fimesLabelLeft"
                       value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecIzvrsenja}" />
-                    <h:inputText styleClass="fimesInputText"
+                    <h:inputText styleClass="fimesInputText" style=" width : 40px;"
                       value="#{nabNovaNabavkaController.novaNabavka.mesecIzvrsenja}" readonly="true" />
                     <h:outputLabel styleClass="fimesLabelLeft"
                       value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaGodinaIzvrsenja}" />
-                    <h:inputText styleClass="fimesInputText"
+                    <h:inputText styleClass="fimesInputText" style=" width : 40px;"
                       value="#{nabNovaNabavkaController.novaNabavka.godinaIzvrsenja}" readonly="true" />
                   </h:panelGrid>
                   <h:panelGrid columns="2" styleClass="alignCenter"

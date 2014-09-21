@@ -5,7 +5,7 @@
   xmlns:a4j="http://richfaces.org/a4j"
   xmlns:rich="http://richfaces.org/rich">
 
-  <rich:modalPanel id="nabNovaNabavkaModalPanel" minWidth="800"
+  <rich:modalPanel id="nabNovaNabavkaModalPanel" minWidth="900"
     autosized="true" resizeable="false" moveable="true">
     <f:facet name="header">
       <h:outputText styleClass="fimesPanelHeader"
@@ -29,6 +29,15 @@
             styleClass="fimesInputGroup fimesTableCentered maxWidth"
             columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField"
             cellspacing="2px">
+            <h:outputLabel styleClass="fimesLabelRequiredLeft"
+              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaListaRb}" />
+            <h:inputText styleClass="fimesInputText"  id="inputRbr" label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaListaRb}"
+              value="#{nabNovaNabavkaController.novaNabavka.rbr}"  >
+              <f:converter converterId="fimes.converter.common.stringRequired" />
+            </h:inputText>
+            <h:outputText value=" " />
+            <rich:message for="inputRbr" styleClass="fimesValidErrMsg" />
+            
             <h:outputLabel styleClass="fimesLabelRequiredLeft"
               value="#{nabNovaNabavkaController.module.messageSource.common_opis}" />
             <h:inputText styleClass="fimesInputText"  id="inputOpis" label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaOpisPredmetaNabavke}"
@@ -161,7 +170,7 @@
               <h:outputLabel styleClass="fimesLabelRequiredLeft"
                 value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecPokretanja}" />
               <h:inputText styleClass="fimesInputText" id="inputMesecPokretanja" label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecPokretanja}"
-                value="#{nabNovaNabavkaController.novaNabavka.mesecPokretanja}">
+                value="#{nabNovaNabavkaController.novaNabavka.mesecPokretanja}" style=" width : 40px;">
                 <f:converter converterId="fimes.converter.common.intPozitive" />
                 <f:converter converterId="fimes.converter.common.stringRequired" />
               </h:inputText>
@@ -171,7 +180,7 @@
               <h:outputLabel styleClass="fimesLabelRequiredLeft"
                 value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaGodinaPokretanja}" />
               <h:inputText styleClass="fimesInputText" label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaGodinaPokretanja}"
-                value="#{nabNovaNabavkaController.novaNabavka.godinaPokretanja}" id="inputGodinaPokretanja" >
+                value="#{nabNovaNabavkaController.novaNabavka.godinaPokretanja}" id="inputGodinaPokretanja"  style=" width : 40px;">
                 <f:converter converterId="fimes.converter.common.intPozitive" />
                 <f:converter converterId="fimes.converter.common.stringRequired" />
               </h:inputText>
@@ -181,7 +190,7 @@
               <h:outputLabel styleClass="fimesLabelRequiredLeft"
                 value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecZakljucenja}" />
               <h:inputText styleClass="fimesInputText" id="inputMesecZakljucenja" label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecZakljucenja}"
-                value="#{nabNovaNabavkaController.novaNabavka.mesecZakljucenja}">
+                value="#{nabNovaNabavkaController.novaNabavka.mesecZakljucenja}" style=" width : 40px;">
                 <f:converter converterId="fimes.converter.common.intPozitive" />
                 <f:converter converterId="fimes.converter.common.stringRequired" />
               </h:inputText>
@@ -191,7 +200,7 @@
               <h:outputLabel styleClass="fimesLabelRequiredLeft"
                 value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaGodinaZakljucenja}" />
               <h:inputText styleClass="fimesInputText" id="inputGodinaZakljucenja" label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaGodinaZakljucenja}"
-                value="#{nabNovaNabavkaController.novaNabavka.godinaZakljucenja}" >
+                value="#{nabNovaNabavkaController.novaNabavka.godinaZakljucenja}" style=" width : 40px;">
                 <f:converter converterId="fimes.converter.common.intPozitive" />
                 <f:converter converterId="fimes.converter.common.stringRequired" />
               </h:inputText>
@@ -201,7 +210,7 @@
               <h:outputLabel styleClass="fimesLabelRequiredLeft"
                 value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecIzvrsenja}" />
               <h:inputText styleClass="fimesInputText" id="inputMesecIzvrsenja" label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaMesecIzvrsenja}"
-                value="#{nabNovaNabavkaController.novaNabavka.mesecIzvrsenja}">
+                value="#{nabNovaNabavkaController.novaNabavka.mesecIzvrsenja}" style=" width : 40px;">
                 <f:converter converterId="fimes.converter.common.intPozitive" />
                 <f:converter converterId="fimes.converter.common.stringRequired" />
               </h:inputText>
@@ -211,7 +220,7 @@
               <h:outputLabel styleClass="fimesLabelRequiredLeft"
                 value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaGodinaIzvrsenja}" />
               <h:inputText styleClass="fimesInputText" id="inputGodinaIzvrsenja" label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaGodinaIzvrsenja}"
-                value="#{nabNovaNabavkaController.novaNabavka.godinaIzvrsenja}">
+                value="#{nabNovaNabavkaController.novaNabavka.godinaIzvrsenja}" style=" width : 40px;">
                 <f:converter converterId="fimes.converter.common.intPozitive" />
                 <f:converter converterId="fimes.converter.common.stringRequired" />
               </h:inputText>

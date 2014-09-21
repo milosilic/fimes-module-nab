@@ -99,7 +99,7 @@
                         </h:panelGrid>
                       </f:facet>
                       <h:outputText
-                        value="#{nabavka.idJavnaNabavka}" />
+                        value="#{nabavka.rbr}" />
                     </rich:column>
                     <rich:column id="kolona2" width="25%"
                       styleClass="fimesAlignLeft">
@@ -257,7 +257,7 @@
                             id="tabelaNabNabavkaNova"
                             action="#{nabNovaNabavkaController.resetSelection}"
                             oncomplete="#{rich:component('nabNovaNabavkaModalPanel')}.show()"
-                            disabled="#{nabavka.nabPlan.datumUsvajanja!=null}"
+                            disabled="#{nabNovaNabavkaController.nabPlan.datumUsvajanja!=null}"
                             reRender="nabNovaNabavkaModalPanel"
                             styleClass="fimesButtonImageAdd" />
                           <rich:toolTip for="tabelaNabNabavkaNova"

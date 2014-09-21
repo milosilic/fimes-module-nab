@@ -71,8 +71,7 @@
           inputClass="fimesInputDate"
           value="#{nabNoviPlanController.noviPlan.datumUsvajanja}"
           datePattern="dd.MM.yyyy." enableManualInput="true"
-          label="#{nabPlanController.module.messageSource.nabPlanoviDatumUsvajanja}"
-          required="true">
+          label="#{nabPlanController.module.messageSource.nabPlanoviDatumUsvajanja}">
           <f:convertDateTime
             locale="#{nabNoviPlanController.module.application.defaultLocale}"
             pattern="#{nabNoviPlanController.module.application.dateFormatMask}"

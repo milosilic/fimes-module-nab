@@ -245,3 +245,4 @@ ALTER TABLE nab_javna_nabavka
 
 
 
+ALTER TABLE nab_javna_nabavka ADD COLUMN rbr integer;
