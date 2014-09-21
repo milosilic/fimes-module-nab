@@ -108,15 +108,10 @@ public class NabPlanController extends BaseController{
     public void ponistiUsvajanjePlana(){
         if ( null != nabPlanSelected ){
             try {
-                nabPlanServiceApi.deleteNabPlan( nabPlanSelected);
+                nabPlanSelected.setDatumUsvajanja(null);
+                nabPlanServiceApi.createNabPlan(nabPlanSelected);
                 populateModalOkPanelSnimanjeDefaultMessages(true,
                         "nabPlanoviPlanBrisanjeHeader");
-            } catch (FimesServiceException e) {
-                e.printStackTrace();
-                populateModalOkPanelBrisanje(false,
-                        "nabPlanoviPlanBrisanjeHeader",
-                        new MessageBundleProperty(
-                                "nabPlanoviPlanBrisanjeImaNabavki"));
             }catch (Exception e) {
                 e.printStackTrace();
                 populateModalOkPanelSnimanjeDefaultMessages(false,
