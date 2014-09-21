@@ -51,7 +51,7 @@
                   columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField"
                   cellspacing="2">
                   <h:outputLabel styleClass="fimesLabelLeft"
-                    value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaOpisPredmetaNabavke}" />
+                    value="#{nabNovaNabavkaController.module.messageSource.common_opis}" />
                   <h:inputText styleClass="fimesInputText"
                     value="#{nabNovaNabavkaController.novaNabavka.opis}" readonly="true"/>
                   <h:outputLabel styleClass="fimesLabelLeft"

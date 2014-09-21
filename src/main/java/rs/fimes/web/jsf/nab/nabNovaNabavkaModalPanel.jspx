@@ -28,9 +28,9 @@
           <h:panelGrid columns="2"
             styleClass="fimesInputGroup fimesTableCentered maxWidth"
             columnClasses="fimesTable2ColumnLabel,fimesTable2ColumnField"
-            cellspacing="10px">
+            cellspacing="2px">
             <h:outputLabel styleClass="fimesLabelRequiredLeft"
-              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaOpisPredmetaNabavke}" />
+              value="#{nabNovaNabavkaController.module.messageSource.common_opis}" />
             <h:inputText styleClass="fimesInputText"  id="inputOpis" label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaOpisPredmetaNabavke}"
               value="#{nabNovaNabavkaController.novaNabavka.opis}"  >
               <f:converter converterId="fimes.converter.common.stringRequired" />
@@ -48,7 +48,7 @@
             <rich:message for="inputInterniBroj"
               styleClass="fimesValidErrMsg" />
             <h:outputLabel styleClass="fimesLabelRequiredLeft"
-              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaUkupnaBezPdv}" />
+              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaBezPdv}" />
             <h:inputText styleClass="fimesInputText" label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaBezPdv}"
               id="inputProcenaBezPdv"
               value="#{nabNovaNabavkaController.novaNabavka.procenaBezPdv}">
@@ -58,7 +58,7 @@
             <rich:message for="inputProcenaBezPdv"
               styleClass="fimesValidErrMsg" />
             <h:outputLabel styleClass="fimesLabelRequiredLeft"
-              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaUkupnaSaPdv}" />
+              value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaSaPdv}" />
             <h:inputText styleClass="fimesInputText" label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaProcenjenaSaPdv}"
               id="inputProcenaSaPdv"
               value="#{nabNovaNabavkaController.novaNabavka.procenaSaPdv}">
