@@ -224,7 +224,7 @@
               <h:outputLabel styleClass="fimesLabelRequiredLeft"
                 value="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}" />
               <h:selectOneMenu id="selectOneXnabTipPredmeta" label="#{nabNovaNabavkaController.module.messageSource.nabNabavkaNovaNabavkaTipNabavke}"
-                tabindex="1" 
+                tabindex="1"  style="width: 160px;"
                 styleClass="fimesInputDropDown" required="true"
                 value="#{nabNovaNabavkaController.novaNabavka.tipNabavke.idTipNabavke}">
                 <f:selectItems
