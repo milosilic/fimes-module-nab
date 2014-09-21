@@ -58,9 +58,7 @@ public class NabNoviPlanController extends BaseController{
     }
     
     public void initNoviPlan(){
-        if ( null == izabraniPlan) {
             noviPlan = new NabPlan();
-        }
         
     }
     
