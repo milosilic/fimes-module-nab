@@ -69,6 +69,8 @@
                         oncomplete="#{rich:component('coreModalDaNeDijalog')}.show()"
                         styleClass="fimesButtonImageCross"
                         reRender="coreModalDaNeDijalog">
+                        <f:setPropertyActionListener value="#{nabavka}"
+                          target="#{nabNabavkaController.izabranaNabavka}" />
                       </a4j:commandButton>
                     </rich:column>
                     <rich:column id="kolona1" width="5%"
@@ -273,6 +275,8 @@
                         disabled="#{nabavka.nabPlan.datumUsvajanja!=null}"
                         oncomplete="#{rich:component('nabNovaNabavkaModalPanel')}.show()"
                         reRender="nabNovaNabavkaModalPanel">
+                        <f:setPropertyActionListener value="#{nabavka}"
+                          target="#{nabNabavkaController.izabranaNabavka}" />
                       </a4j:commandButton>
                       <rich:toolTip
                         for="tabelaNabNabavkaAzuriranje"

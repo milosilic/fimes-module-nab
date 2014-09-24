@@ -52,11 +52,11 @@
                     <a4j:jsFunction name="nabPlanBrisanje"
                       action="#{nabPlanController.obrisiPlan}"
                       oncomplete="#{rich:component('coreModalDaNeDijalog')}.hide();#{rich:component('coreOkModalPanel')}.show();"
-                      reRender="coreOkModalPanel,tabelaNabPlan" />
+                      reRender="coreOkModalPanel,tabelaNabPlan,nabPlanGridButtons" />
                     <a4j:jsFunction name="nabPlanPonistavanjeUsvajanje"
                       action="#{nabPlanController.ponistiUsvajanjePlana}"
                       oncomplete="#{rich:component('coreModalDaNeDijalog')}.hide();#{rich:component('coreOkModalPanel')}.show();"
-                      reRender="coreOkModalPanel,tabelaNabPlan" />
+                      reRender="coreOkModalPanel,tabelaNabPlan,nabPlanGridButtons" />
                     <rich:extendedDataTable height="318px"
                       rowClasses="redAnimacija" id="tabelaNabPlan"
                       enableContextMenu="false"
@@ -301,6 +301,7 @@
                         reRender="nabNoviPlanModalPanel">
                         <f:setPropertyActionListener value="#{plan}"
                           target="#{nabPlanController.nabPlanSelected}" />
+                        <f:setPropertyActionListener value="#{plan}" target="#{nabNoviPlanController.noviPlan}" />
                         </a4j:commandButton>
                         <rich:toolTip for="nabPlanDugmeAzuriraj"
                           styleClass="tooltipRichEdit"
