@@ -276,7 +276,7 @@
                         oncomplete="#{rich:component('nabNovaNabavkaModalPanel')}.show()"
                         reRender="nabNovaNabavkaModalPanel">
                         <f:setPropertyActionListener value="#{nabavka}"
-                          target="#{nabNabavkaController.izabranaNabavka}" />
+                          target="#{nabNovaNabavkaController.novaNabavka}" />
                       </a4j:commandButton>
                       <rich:toolTip
                         for="tabelaNabNabavkaAzuriranje"
