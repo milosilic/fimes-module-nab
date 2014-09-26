@@ -131,7 +131,7 @@
                         <h:outputLabel></h:outputLabel>
                         <h:commandButton styleClass="fimesButton"
                           action="meni" immediate="true"
-                          value="#{nabNaruciociController.module.messageSource.common_izlaz}" />
+                          value="#{nabNaruciociController.module.messageSource.common_nazad}" />
                       </h:panelGrid>
 
                     </rich:layoutPanel>
