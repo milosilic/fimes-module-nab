@@ -400,7 +400,7 @@
                         styleClass="tabelaHederCentrirano">
                         <f:facet name="header">
                         </f:facet>
-                        <a4j:commandButton id="ikonica"
+                        <a4j:commandButton id="ikonica" 
                           action="#{nabNovaNabavkaController.initModalDialogBrisanjeKontoPartija}"
                           oncomplete="#{rich:component('coreModalDaNeDijalog')}.show()"
                           reRender="coreModalDaNeDijalog"
