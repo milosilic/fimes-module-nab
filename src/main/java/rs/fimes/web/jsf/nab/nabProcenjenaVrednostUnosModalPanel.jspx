@@ -6,7 +6,7 @@
   xmlns:rich="http://richfaces.org/rich">
 
   <rich:modalPanel id="nabProcenjenaVrednostUnosModalPanel" minWidth="600"
-    autosized="true" resizeable="false" moveable="true">
+    autosized="true" resizeable="false" moveable="false">
     <f:facet name="controls">
       <h:graphicImage value="#{coreWebController.iconClose16Path}"
         styleClass="fimesImageClose"
